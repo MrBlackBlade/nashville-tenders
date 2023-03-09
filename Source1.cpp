@@ -2,6 +2,6 @@
 
 int main()
 {
-	std::cout << "Test commit from Visual Studio...\n";
+	std::cout << "Test commit from Visual Studio..\n";
 	return 0;
 }
