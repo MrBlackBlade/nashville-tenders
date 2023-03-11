@@ -6,8 +6,8 @@ using namespace sf;
 
 const unsigned RES_SIZE = 800;
 
-short idle_animation_indicator = 0, run_animation_indicator = 0;
-short frame_counter = 0;
+short idle_animation_indicator = 0, run_animation_indicator = 0, frame_counter = 0;
+int player_scale = 1;
 
 bool idle = true;
 
@@ -24,7 +24,7 @@ int main()
 
 	Sprite player;
 	player.setTexture(player_texture_idle);
-	player.setScale(1, 1);
+	player.setScale(player_scale, player_scale);
 	player.setOrigin(0, 100);
 	player.setPosition(0, RES_SIZE);
 
@@ -72,6 +72,7 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
+			player.setScale(-player_scale, player_scale);
 			player.move(0, -2);
 			idle = true;
 		}
@@ -85,7 +86,7 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
-			player.setScale(-1,1);
+			player.setScale(-player_scale ,player_scale);
 			player.move(-2, 0);
 			idle = true;
 		}
@@ -112,7 +113,7 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
-			player.setScale(1, 1); 
+			player.setScale(player_scale, player_scale); 
 			player.move(2, 0);
 			idle = true;
 		}
