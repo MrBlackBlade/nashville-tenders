@@ -1,6 +1,4 @@
-#include"render.hpp"
-// Texture player_texture_run;
- //Texture player_texture_idle;
+#include"..\include\render.hpp"
 void render(RenderWindow& window,Sprite& player)
 {
 
