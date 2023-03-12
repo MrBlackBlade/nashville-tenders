@@ -2,6 +2,7 @@
 #include <iostream>
 #include "move.hpp"
 #include "get_key_pressed.hpp"
+#include "render.hpp"
 
 using namespace sf;
 using namespace Config;
@@ -69,16 +70,17 @@ int main()
 
 		move(player, get_key_pressed(), velocity);
 		
+		render(window, player);
 		// change the bg color
-		window.RenderTarget::clear(Color(130, 130, 150, 255));
+		//window.RenderTarget::clear(Color(130, 130, 150, 255));
 
-		window.draw(player);
-		window.display();
+		//window.draw(player);
+		//window.display();
 
 		// for the animation speed
-		frame_counter++;
+		//frame_counter++;
 		// closest divisible number by 16 to 100
-		frame_counter%=96;
+		//frame_counter%=96;
 	}
 
 	return EXIT_SUCCESS;
