@@ -4,17 +4,18 @@
 
 using namespace sf;
 
-const unsigned RES_SIZE = 800;
+const unsigned RES_SIZE = 850;
 
 short idle_animation_indicator = 0, run_animation_indicator = 0, frame_counter = 0;
-int player_scale = 1;
+int player_scale = 3;
 
 bool idle = true;
 
 int main()
 {
 	Clock clock;
-	RenderWindow window(VideoMode(RES_SIZE, RES_SIZE), "Test window", Style::Default);
+	RenderWindow window(VideoMode(RES_SIZE, RES_SIZE), "The Promised Chickenland", Style::Default);
+
 	window.setFramerateLimit(60);
 
 	Texture player_texture_idle;
@@ -25,8 +26,8 @@ int main()
 	Sprite player;
 	player.setTexture(player_texture_idle);
 	player.setScale(player_scale, player_scale);
-	player.setOrigin(0, 100);
-	player.setPosition(0, RES_SIZE);
+	player.setPosition(0, RES_SIZE - 152);
+
 
 	if (!player_texture_idle.loadFromFile("Idle_animation.png"))
 		return EXIT_FAILURE;
@@ -42,7 +43,7 @@ int main()
 		std::cout << fps << '\n';
 
 		Event event;
-		while (window.pollEvent(event)) 
+		while (window.pollEvent(event))
 		{
 			if (event.type == Event::Closed)
 				window.close();
@@ -62,7 +63,6 @@ int main()
 				|| Keyboard::isKeyPressed(Keyboard::Key::D))
 				idle = false;
 		}
-
 		if (Keyboard::isKeyPressed(Keyboard::Key::W))
 		{
 			if (frame_counter % 12 == 0)
@@ -72,8 +72,7 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
-			player.setScale(-player_scale, player_scale);
-			player.move(0, -2);
+			player.move(0, -4);
 			idle = true;
 		}
 
@@ -86,8 +85,11 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
-			player.setScale(-player_scale ,player_scale);
-			player.move(-2, 0);
+			player.setScale(-player_scale, player_scale);
+			player.move(-4, 0);
+			player.setOrigin(player.getLocalBounds().width, 0);
+
+
 			idle = true;
 		}
 
@@ -100,7 +102,7 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
-			player.move(0, 2);
+			player.move(0, 4);
 			idle = true;
 		}
 
@@ -113,12 +115,13 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
-			player.setScale(player_scale, player_scale); 
-			player.move(2, 0);
+			player.setScale(player_scale, player_scale);
+			player.move(4, 0);
+			player.setOrigin(0, 0);
 			idle = true;
 		}
 
-		window.clear();
+		window.RenderTarget::clear(Color(130, 130, 150, 255));
 		window.draw(player);
 		window.display();
 		frame_counter++;
