@@ -1,14 +1,19 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
-#include <Windows.h>
-
+#include <cstdint>
 using namespace sf;
 
-const unsigned RES_SIZE = 850;		
+const std::uint16_t RES_SIZE = 850;		
 
-int idle_animation_indicator = 0,   // 0 for first sprite, 1 for second etc...
-run_animation_indicator = 0,		// 0 for first sprite, 1 for second etc...
-frame_counter = 0,					// to adjust the speed of switching between each sprite animation
+std::int32_t 
+// 0 for first sprite, 1 for second etc...
+idle_animation_indicator = 0,
+run_animation_indicator = 0,	
+
+// to adjust the animation speed
+frame_counter = 0,
+
+// sprite size multiplier
 player_scale = 3;
 
 bool idle = true;
@@ -16,9 +21,11 @@ bool idle = true;
 int main()
 {
 	Clock clock;
-	RenderWindow window(VideoMode(RES_SIZE, RES_SIZE), // (width, height)
-	"The Promised Chickenland",						   // window name
-	Style::Default);								   // window type
+
+	// (width, height), window name, window type
+	RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
+	"The Promised Chickenland",
+	Style::Default);
 
 	window.setFramerateLimit(60);
 
@@ -30,7 +37,9 @@ int main()
 
 	Sprite player(player_texture_idle);
 	player.setScale(player_scale, player_scale);
-	player.setPosition(0, RES_SIZE - 152);			 // weird positioning shit
+
+	// weird positioning shit
+	player.setPosition(0, RES_SIZE - 152);
 
 	// checking if textures loaded
 	if (!player_texture_idle.loadFromFile("resources\\small_idle_animation.png")) 
@@ -54,14 +63,15 @@ int main()
 		}
 
 		// switching between different idle frames
-		if (idle && frame_counter % 16 == 0)	// the 16 will be a parameter for the 
-												// function to adjust animation speed
+		if (idle && frame_counter % 16 == 0)
+		// the 16 will be a parameter to adjust the animation speed
 		{
 			player.setTexture(player_texture_idle);
 			player.setTextureRect(IntRect(idle_animation_indicator * 28, 0, 28, 51));
 			idle_animation_indicator++;
 			idle_animation_indicator %= 4;
 
+			// breaking the idle state
 			if (Keyboard::isKeyPressed(Keyboard::Key::W)
 				|| Keyboard::isKeyPressed(Keyboard::Key::A)
 				|| Keyboard::isKeyPressed(Keyboard::Key::S)
@@ -70,7 +80,7 @@ int main()
 		}
 
 
-		// will be put into a function starting line 73 till 131
+		// this will be put into a function starting line 73 till 131
 		if (Keyboard::isKeyPressed(Keyboard::Key::W))
 		{
 			if (frame_counter % 16 == 0)
@@ -96,6 +106,8 @@ int main()
 			}
 			player.setScale(-player_scale, player_scale);
 			player.move(-4, 0);
+			
+			// to prevent mirroring
 			player.setOrigin(player.getLocalBounds().width, 0);
 
 			idle = true;
@@ -127,7 +139,10 @@ int main()
 
 			player.setScale(player_scale, player_scale);
 			player.move(4, 0);
+
+			// to prevent mirroring
 			player.setOrigin(0, 0);
+
 			idle = true;
 		}
 
@@ -139,6 +154,8 @@ int main()
 
 		// for the animation speed
 		frame_counter++;
+		// closest divisible number by 16 to 100
+		frame_counter%=96;
 	}
 	return EXIT_SUCCESS;
 }
