@@ -19,19 +19,18 @@ int main()
 	window.setFramerateLimit(60);
 
 	Texture player_texture_idle;
-	player_texture_idle.loadFromFile("Idle_animation.png");
+	player_texture_idle.loadFromFile("resources\\small_idle_animation.png");
 	Texture player_texture_run;
-	player_texture_run.loadFromFile("Run.png");
+	player_texture_run.loadFromFile("resources\\small_run.png");
 
-	Sprite player;
-	player.setTexture(player_texture_idle);
+	Sprite player(player_texture_idle);
 	player.setScale(player_scale, player_scale);
 	player.setPosition(0, RES_SIZE - 152);
 
 
-	if (!player_texture_idle.loadFromFile("Idle_animation.png"))
+	if (!player_texture_idle.loadFromFile("resources\\small_idle_animation.png"))
 		return EXIT_FAILURE;
-	if (!player_texture_run.loadFromFile("Run.png"))
+	if (!player_texture_run.loadFromFile("resources\\small_run.png"))
 		return EXIT_FAILURE;
 
 	while (window.isOpen())
@@ -51,7 +50,7 @@ int main()
 
 		//idle = true;
 
-		if (idle && frame_counter % 12 == 0)
+		if (idle && frame_counter % 16 == 0)
 		{
 			player.setTexture(player_texture_idle);
 			player.setTextureRect(IntRect(idle_animation_indicator * 28, 0, 28, 51));
@@ -65,7 +64,7 @@ int main()
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Key::W))
 		{
-			if (frame_counter % 12 == 0)
+			if (frame_counter % 16 == 0)
 			{
 				player.setTexture(player_texture_run);
 				player.setTextureRect(IntRect(run_animation_indicator * 39.5, 0, 39.5, 51));
@@ -78,7 +77,7 @@ int main()
 
 		if (Keyboard::isKeyPressed(Keyboard::Key::A))
 		{
-			if (frame_counter % 12 == 0)
+			if (frame_counter % 16 == 0)
 			{
 				player.setTexture(player_texture_run);
 				player.setTextureRect(IntRect(run_animation_indicator * 39.5, 0, 39.5, 51));
@@ -95,7 +94,7 @@ int main()
 
 		if (Keyboard::isKeyPressed(Keyboard::Key::S))
 		{
-			if (frame_counter % 12 == 0)
+			if (frame_counter % 16 == 0)
 			{
 				player.setTexture(player_texture_run);
 				player.setTextureRect(IntRect(run_animation_indicator * 39.5, 0, 39.5, 51));
@@ -108,7 +107,7 @@ int main()
 
 		if (Keyboard::isKeyPressed(Keyboard::Key::D))
 		{
-			if (frame_counter % 12 == 0)
+			if (frame_counter % 16 == 0)
 			{
 				player.setTexture(player_texture_run);
 				player.setTextureRect(IntRect(run_animation_indicator * 39.5, 0, 39.5, 51));
