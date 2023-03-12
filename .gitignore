@@ -1,2 +1,6 @@
 .vs
-nashville-tenders.code-workspace
+x64
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user

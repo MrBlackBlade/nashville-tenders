@@ -1,55 +1,55 @@
 ﻿  ConsoleApplication1.cpp
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(27,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(27,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(71,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(27,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(27,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(71,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(71,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(71,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(75,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(75,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(85,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(75,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(75,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(85,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(85,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(85,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(89,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(89,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(99,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(89,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(89,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(99,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(99,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(99,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(112,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(112,70): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(112,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(112,59): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=int
           ]
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(116,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code Files\VS\ConsoleApplication1\ConsoleApplication1.cpp(116,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(116,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code Files\VS\repo\ConsoleApplication1.cpp(116,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  1 of 85 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+  80 of 85 functions (94.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  ConsoleApplication1.vcxproj -> D:\Code Files\VS\ConsoleApplication1\x64\Release\ConsoleApplication1.exe
+  ConsoleApplication1.vcxproj -> D:\Code Files\VS\repo\x64\Release\ConsoleApplication1.exe
