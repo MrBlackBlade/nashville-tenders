@@ -1,7 +1,7 @@
-#include "..\include\move.hpp"
+#include <move.hpp>
 
-Texture player_texture_run;
-Texture player_texture_idle;
+ extern Texture player_texture_run;
+ extern Texture player_texture_idle;
 
 void move(Sprite& player, Keyboard::Key key, std::int32_t velocity)
 {

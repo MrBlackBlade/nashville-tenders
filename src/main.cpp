@@ -1,12 +1,16 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
-#include "..\include\move.hpp"
-#include "..\include\get_key_pressed.hpp"
-#include "..\include\render.hpp"
+#include <move.hpp>
+#include <get_key_pressed.hpp>
+#include <render.hpp>
+#include <check_idle.hpp>
+#include <Config.hpp>
 		  
 using namespace sf;
 using namespace Config;
 
+  Texture player_texture_idle;
+  Texture player_texture_run;
 int main()
 {
 	Clock clock;
@@ -18,10 +22,8 @@ int main()
 
 	window.setFramerateLimit(60);
 
-	extern Texture player_texture_idle;
 	player_texture_idle.loadFromFile("resources\\small_idle_animation.png");
 
-	extern Texture player_texture_run;
 	player_texture_run.loadFromFile("resources\\small_run.png");
 
 	Sprite player(player_texture_idle);
@@ -50,23 +52,7 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 		}
-
-		// switching between different idle frames
-		if (idle && frame_counter % 16 == 0)
-		// the 16 will be a parameter to adjust the animation speed
-		{
-			player.setTexture(player_texture_idle);
-			player.setTextureRect(IntRect(idle_animation_indicator * 28, 0, 28, 51));
-			idle_animation_indicator++;
-			idle_animation_indicator %= 4;
-
-			// breaking the idle state
-			if (Keyboard::isKeyPressed(Keyboard::Key::W)
-				|| Keyboard::isKeyPressed(Keyboard::Key::A)
-				|| Keyboard::isKeyPressed(Keyboard::Key::S)
-				|| Keyboard::isKeyPressed(Keyboard::Key::D))
-				idle = false;
-		}
+		check_idle(player);
 
 		move(player, get_key_pressed(), velocity);
 		
