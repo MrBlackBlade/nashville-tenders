@@ -80,7 +80,7 @@ int main()
 		}
 
 
-		// this will be put into a function starting line 73 till 131
+		// this will be put into a function starting line 84 till 149
 		if (Keyboard::isKeyPressed(Keyboard::Key::W))
 		{
 			if (frame_counter % 16 == 0)
@@ -104,6 +104,8 @@ int main()
 				run_animation_indicator++;
 				run_animation_indicator %= 4;
 			}
+
+			// inverting the sprite
 			player.setScale(-player_scale, player_scale);
 			player.move(-4, 0);
 			
@@ -157,5 +159,6 @@ int main()
 		// closest divisible number by 16 to 100
 		frame_counter%=96;
 	}
+
 	return EXIT_SUCCESS;
 }
