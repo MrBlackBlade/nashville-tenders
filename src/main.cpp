@@ -21,38 +21,13 @@ using namespace Config;
 int main()
 {
 	setup();
-	//Clock clock;
-	//
-	//// (width, height), window name, window type
-	//RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
-	//"The Promised Chickenland",
-	//Style::Default);
-	//
-	//window.setFramerateLimit(60);
-	//
-	//player_texture_idle.loadFromFile("resources\\small_idle_animation.png");
-	//
-	//player_texture_run.loadFromFile("resources\\small_run.png");
-	//
-	//Sprite player(player_texture_idle);
-	//player.setScale(player_scale, player_scale);
-	//
-	//// weird positioning shit
-	//player.setPosition(0, RES_SIZE - 152);
-	//
-	//// checking if textures loaded
-	//if (!player_texture_idle.loadFromFile("resources\\small_idle_animation.png")) 
-	//	return EXIT_FAILURE;													  
-	//if (!player_texture_run.loadFromFile("resources\\small_run.png"))			  
-		//return EXIT_FAILURE;
-
 	// main game loop
 	while (window.isOpen())
 	{
 		// measuring the framerate
 		float time_init = clock_var.restart().asSeconds();
 		float fps = 1.f / time_init;
-		std::cout << fps << '\n';
+		//std::cout << fps << '\n';
 
 		Event event;
 		while (window.pollEvent(event))
@@ -62,10 +37,10 @@ int main()
 		}
 		check_idle(player);
 
-		move(player, get_key_pressed(), velocity);
-		
+		move(player, get_key_pressed());
+
 		render(window, player);
 	}
-
+	system("pause");
 	return EXIT_SUCCESS;
 }

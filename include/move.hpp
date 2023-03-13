@@ -6,4 +6,4 @@
 using namespace sf;
 using namespace Config;
 
-void move(Sprite&, Keyboard::Key, std::int32_t);
+void move(Sprite&, Keyboard::Key);
