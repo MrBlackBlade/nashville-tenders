@@ -5,8 +5,8 @@ void check_idle(Sprite& player) {
 
 
 	// switching between different idle frames
-	if (idle && frame_counter % 18 == 0)
-		// the 18 will be a parameter to adjust the animation speed
+	if (idle && frame_counter % 16 == 0)
+		// the 16 will be a parameter to adjust the animation speed
 	{
 		player.setTexture(player_texture_idle);
 		player.setTextureRect(IntRect(idle_animation_indicator * 28, 0, 28, 51));
