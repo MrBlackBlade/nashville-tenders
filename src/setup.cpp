@@ -1,30 +1,47 @@
 #include <setup.hpp>
-extern Texture player_texture_idle;
-extern Texture player_texture_run;
-	extern Clock clock_var;
-	extern RenderWindow window;
-	extern Sprite player;
+
+extern Texture s_player_texture_idle;
+extern Texture s_player_texture_run;
+extern Texture b_player_texture_idle;
+extern Texture b_player_texture_run;
+extern Sprite s_player;
+extern Sprite b_player;
+extern Clock clock_var;
+extern RenderWindow window;
+
 void setup() {
-
-
 	// (width, height), window name, window type
 
 	window.setFramerateLimit(60);
 
-	player_texture_idle.loadFromFile("resources\\small_idle_animation.png");
+	s_player_texture_idle.loadFromFile("resources\\small_idle_animation.png");
 
-	player_texture_run.loadFromFile("resources\\small_run.png");
+	s_player_texture_run.loadFromFile("resources\\small_run.png");
 
-	player.setScale(player_scale, player_scale);
+	s_player.setScale(s_player_scale, s_player_scale);
 
 	// weird positioning shit
-	player.setPosition(0, RES_SIZE - 152);
+	s_player.setPosition(0, RES_SIZE - 152);
 
 	// checking if textures loaded
-	if (!player_texture_idle.loadFromFile("resources\\small_idle_animation.png"))
+	if (!s_player_texture_idle.loadFromFile("resources\\small_idle_animation.png"))
 		exit(1);
-	if (!player_texture_run.loadFromFile("resources\\small_run.png"))
+	if (!s_player_texture_run.loadFromFile("resources\\small_run.png"))
 		exit(1);
 
+	b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png");
+
+	b_player_texture_run.loadFromFile("resources\\big_run.png");
+
+	b_player.setScale(b_player_scale, b_player_scale);
+
+	// weird positioning shit
+	b_player.setPosition(0, RES_SIZE - 250);
+
+	// checking if textures loaded
+	if (!b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png"))
+		exit(1);
+	if (!b_player_texture_run.loadFromFile("resources\\big_run.png"))
+		exit(1);
 
 }

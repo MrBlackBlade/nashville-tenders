@@ -1,6 +1,6 @@
 #include <get_key_pressed.hpp>
 
-Keyboard::Key get_key_pressed()
+Keyboard::Key get_key_pressed_s()
 {
 	if (Keyboard::isKeyPressed(Keyboard::W))
 		return Keyboard::W;
@@ -10,4 +10,16 @@ Keyboard::Key get_key_pressed()
 		return Keyboard::S;
 	if (Keyboard::isKeyPressed(Keyboard::D))
 		return Keyboard::D;
+}
+
+Keyboard::Key get_key_pressed_b()
+{
+	if (Keyboard::isKeyPressed(Keyboard::Up))
+		return Keyboard::Up;
+	if (Keyboard::isKeyPressed(Keyboard::Left))
+		return Keyboard::Left;
+	if (Keyboard::isKeyPressed(Keyboard::Down))
+		return Keyboard::Down;
+	if (Keyboard::isKeyPressed(Keyboard::Right))
+		return Keyboard::Right;
 }
