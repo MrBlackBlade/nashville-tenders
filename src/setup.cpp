@@ -6,10 +6,13 @@ extern Texture b_player_texture_idle;
 extern Texture b_player_texture_run;
 extern Sprite s_player;
 extern Sprite b_player;
+extern Player s_obj;
+extern Player b_obj;
 extern Clock clock_var;
 extern RenderWindow window;
 
-void setup() {
+void setup() 
+{
 	// (width, height), window name, window type
 
 	window.setFramerateLimit(60);
@@ -18,7 +21,7 @@ void setup() {
 
 	s_player_texture_run.loadFromFile("resources\\small_run.png");
 
-	s_player.setScale(s_player_scale, s_player_scale);
+	s_player.setScale(s_obj.player_scale, s_obj.player_scale);
 
 	// weird positioning shit
 	s_player.setPosition(0, RES_SIZE - 152);
@@ -33,7 +36,7 @@ void setup() {
 
 	b_player_texture_run.loadFromFile("resources\\big_run.png");
 
-	b_player.setScale(b_player_scale, b_player_scale);
+	b_player.setScale(b_obj.player_scale, b_obj.player_scale);
 
 	// weird positioning shit
 	b_player.setPosition(0, RES_SIZE - 250);
@@ -44,4 +47,6 @@ void setup() {
 	if (!b_player_texture_run.loadFromFile("resources\\big_run.png"))
 		exit(1);
 
+	s_obj.set_binds(s_player_binds);
+	b_obj.set_binds(b_player_binds);
 }

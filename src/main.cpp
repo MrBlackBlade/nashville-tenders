@@ -18,6 +18,9 @@ Texture b_player_texture_idle;
 Texture b_player_texture_run;
 Sprite b_player(b_player_texture_idle);
 
+Player s_obj (0, 0, 3, 40, 28, 4, 4, 0, 60, 0, true);
+Player b_obj (0, 0, 3, 64, 28, 4, 6, 0, 25, 1, true);
+
 Clock clock_var;
 RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
 "The Promised Chickenland",
@@ -41,16 +44,18 @@ int main()
 				window.close();
 		}
 
-		check_idle_s(s_player);
-		move_s(s_player, get_key_pressed_s());
+		check_idle(s_player, s_obj);
+		move(s_player, s_obj, get_key_pressed_s());
 
 		//
 
-		check_idle_b(b_player);
-		move_b(b_player, get_key_pressed_b());
+		check_idle(b_player, b_obj);
+		move(b_player, b_obj, get_key_pressed_b());
 
 		render(window, s_player, b_player);
 	}
 
+	delete[] s_player_binds;
+	delete[] b_player_binds;
 	return EXIT_SUCCESS;
 }

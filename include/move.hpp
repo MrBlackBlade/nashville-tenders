@@ -2,10 +2,11 @@
 
 #include <SFML\Graphics.hpp>
 #include <Config.hpp>
+#include <Player.hpp>
 #include <cstdint>
+#include <iostream>
 
 using namespace sf;
 using namespace Config;
 
-void move_s(Sprite&, Keyboard::Key);
-void move_b(Sprite&, Keyboard::Key);
+void move(Sprite&, Player&, Keyboard::Key);

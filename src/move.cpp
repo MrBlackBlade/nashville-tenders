@@ -1,131 +1,80 @@
 #include <move.hpp>
-#include <iostream>
 
- extern Texture s_player_texture_run;
- extern Texture s_player_texture_idle;
- extern Texture b_player_texture_run;
- extern Texture b_player_texture_idle;
+extern Texture s_player_texture_run;
+extern Texture s_player_texture_idle;
+extern Texture b_player_texture_run;
+extern Texture b_player_texture_idle;
 
-void move_s(Sprite& player, Keyboard::Key key)
+void move(Sprite& player, Player& obj, Keyboard::Key key)
 {
 	if (Keyboard::isKeyPressed(key))
 	{
-		if (Keyboard::isKeyPressed(s_player_binds[3]) && Keyboard::isKeyPressed(s_player_binds[1]))
+		if (Keyboard::isKeyPressed(obj.keybinds[3]) && Keyboard::isKeyPressed(obj.keybinds[1]))
 		{
-			if (s_velocity > 0)
-				s_velocity -= 3;
+			if (obj.velocity > 0)
+				obj.velocity -= 3;
 			
-			if (s_velocity < 0)
-				s_velocity += 3;
+			if (obj.velocity < 0)
+				obj.velocity += 3;
 
-			if (s_velocity == 0)
-				s_idle = true;
+			if (obj.velocity == 0)
+				obj.idle = true;
 		}
 
-		else if (key == s_player_binds[1])
+		else if (key == obj.keybinds[1])
 		{
-			player.setScale(-s_player_scale, s_player_scale);
+			player.setScale(-obj.player_scale, obj.player_scale);
 			player.setOrigin(player.getLocalBounds().width, 0);
 
-			if (s_velocity >= -s_velocity_max)
-				s_velocity -= 3;
+			if (obj.velocity >= -obj.velocity_max)
+				obj.velocity -= 3;
 		}
 
-		else if (key == s_player_binds[3])
+		else if (key == obj.keybinds[3])
 		{
-			player.setScale(s_player_scale, s_player_scale);
+			player.setScale(obj.player_scale, obj.player_scale);
 			player.setOrigin(0, 0);
 
-			if (s_velocity <= s_velocity_max)
-				s_velocity += 3;
+			if (obj.velocity <= obj.velocity_max)
+				obj.velocity += 3;
 		}
 	}
 
 	else
 	{
-		if (s_velocity > 0)
-			s_velocity -= 3;
+		if (obj.velocity > 0)
+			obj.velocity -= 3;
 
-		if (s_velocity < 0)
-			s_velocity += 3;
+		if (obj.velocity < 0)
+			obj.velocity += 3;
 
-		if (s_velocity == 0)
-			s_idle = true;
+		if (obj.velocity == 0)
+			obj.idle = true;
 	}
 
 	if (frame_counter % 14 == 0)
 	{	
-		if (s_velocity) 
+		if (obj.velocity) 
 		{
-			player.setTexture(s_player_texture_run);
-			player.setTextureRect(IntRect(s_run_ind * s_sprite_size_run, 0, s_sprite_size_run - .5f, 51));
+			player.setTexture
+			(
+				(obj.id == 0) ? s_player_texture_run : b_player_texture_run
+			);
 
-			s_run_ind++;
-			s_run_ind %= s_anims;
-		}
-	}
-	std::cout << "s_velocity: " << s_velocity << std::endl;
-	player.move(s_velocity / 10.f, 0);
-} // Small player
+			player.setTextureRect
+			(
+				IntRect
+				(
+				obj.run_ind * obj.sprite_size_run, 0,
+				obj.sprite_size_run - .5f, 51
+				)
+			);
 
-void move_b(Sprite& player, Keyboard::Key key)
-{
-	if (Keyboard::isKeyPressed(key))
-	{
-		if (Keyboard::isKeyPressed(b_player_binds[3]) && Keyboard::isKeyPressed(b_player_binds[1]))
-		{
-			if (b_velocity > 0)
-				b_velocity -= 3;
-
-			if (b_velocity < 0)
-				b_velocity += 3;
-
-			if (b_velocity == 0)
-				b_idle = true;
-		}
-
-		else if (key == b_player_binds[1])
-		{
-			player.setScale(-b_player_scale, b_player_scale);
-			player.setOrigin(player.getLocalBounds().width, 0);
-
-			if (b_velocity >= -b_velocity_max)
-				b_velocity -= 3;
-		}
-
-		else if (key == b_player_binds[3])
-		{
-			player.setScale(b_player_scale, b_player_scale);
-			player.setOrigin(0, 0);
-
-			if (b_velocity <= b_velocity_max)
-				b_velocity += 3;
+			obj.run_ind++;
+			obj.run_ind %= obj.anims_run;
 		}
 	}
 
-	else
-	{
-		if (b_velocity > 0)
-			b_velocity -= 3;
-
-		if (b_velocity < 0)
-			b_velocity += 3;
-
-		if (b_velocity == 0)
-			b_idle = true;
-	}
-
-	if (frame_counter % 14 == 0)
-	{
-		if (b_velocity)
-		{
-			player.setTexture(b_player_texture_run);
-			player.setTextureRect(IntRect(b_run_ind * b_sprite_size_run, 0, b_sprite_size_run, 64));
-
-			b_run_ind++;
-			b_run_ind %= b_anims_run;
-		}
-	}
-	std::cout << "b_velocity: " << b_velocity << std::endl;
-	player.move(b_velocity / 10.f, 0);
-} // Big player
+	std::cout << ((obj.id == 0) ? "s_velocity: " : "b_velocity: ") << obj.velocity << std::endl;
+	player.move(obj.velocity / 10.f, 0);
+}
