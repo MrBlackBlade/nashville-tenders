@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _PLAYER_HPP
+#define _PLAYER_HPP
 
 #include <cstdint>
 #include <SFML\Graphics.hpp>
@@ -43,8 +45,6 @@ struct Player
 	std::int16_t id;
 
 	bool idle;
-	
-	Keyboard::Key keybinds[4];
-
-	void set_binds(const Keyboard::Key*);
 };
+
+#endif // #ifndef _PLAYER_HPP

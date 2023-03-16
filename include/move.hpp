@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _MOVE_HPP
+#define _MOVE_HPP
 
 #include <SFML\Graphics.hpp>
 #include <Config.hpp>
@@ -10,3 +12,5 @@ using namespace sf;
 using namespace Config;
 
 void move(Sprite&, Player&, Keyboard::Key);
+
+#endif // #ifndef _MOVE_HPP

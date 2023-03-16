@@ -1,4 +1,7 @@
 #pragma once
+#ifndef _CONFIG_HPP
+#define _CONFIG_HPP
+
 #include <SFML\Graphics.hpp>
 #include <cstdint>
 
@@ -8,10 +11,9 @@ namespace Config
 {
 	extern const std::uint16_t RES_SIZE;
 
-	extern std::int32_t
-		// to adjust the animation speed
-		frame_counter;
+	extern std::int32_t frame_counter;
 
-	extern const Keyboard::Key* s_player_binds;
-	extern const Keyboard::Key* b_player_binds;
+	extern const Keyboard::Key (*keybinds)[4];
 }
+
+#endif // #ifndef _CONFIG_HPP

@@ -2,17 +2,17 @@
 
 Player::Player
 (
-const std::int32_t& idle_ind_p,
-const std::int32_t& run_ind_p,
-const std::int32_t& player_scale_p,
-const std::int32_t& sprite_size_run_p,
-const std::int32_t& sprite_size_idle_p,
-const std::int32_t& anims_idle_p,
-const std::int32_t& anims_run_p,
-const std::int32_t& velocity_p,
-const std::int32_t& velocity_max_p,
-const std::int16_t& id_p,
-const bool& idle_p
+	const std::int32_t& idle_ind_p,
+	const std::int32_t& run_ind_p,
+	const std::int32_t& player_scale_p,
+	const std::int32_t& sprite_size_run_p,
+	const std::int32_t& sprite_size_idle_p,
+	const std::int32_t& anims_idle_p,
+	const std::int32_t& anims_run_p,
+	const std::int32_t& velocity_p,
+	const std::int32_t& velocity_max_p,
+	const std::int16_t& id_p,
+	const bool& idle_p
 )
 {
 	this->idle_ind			=  idle_ind_p;
@@ -27,9 +27,3 @@ const bool& idle_p
 	this->id				=  id_p;
 	this->idle				=  idle_p;
 };
-
-void Player::set_binds(const Keyboard::Key* binds_arr)
-{
-	for (size_t i = 0; i < 4; i++)
-		this->keybinds[i] = *(binds_arr + i);
-}

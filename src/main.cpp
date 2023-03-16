@@ -12,14 +12,14 @@ using namespace Config;
 
 Texture s_player_texture_idle;
 Texture s_player_texture_run;
-Sprite s_player(s_player_texture_idle);
+Sprite  s_player(s_player_texture_idle);
 
 Texture b_player_texture_idle;
 Texture b_player_texture_run;
-Sprite b_player(b_player_texture_idle);
+Sprite  b_player(b_player_texture_idle);
 
-Player s_obj (0, 0, 3, 40, 28, 4, 4, 0, 60, 0, true);
-Player b_obj (0, 0, 3, 64, 28, 4, 6, 0, 25, 1, true);
+Player  s_obj (0, 0, 3, 40, 28, 4, 4, 0, 60, 0, true);
+Player  b_obj (0, 0, 3, 64, 28, 4, 6, 0, 25, 1, true);
 
 Clock clock_var;
 RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
@@ -29,14 +29,10 @@ Style::Default);
 int main()
 {
 	setup();
+
 	// main game loop
 	while (window.isOpen())
 	{
-		//// measuring the framerate
-		//float time_init = clock_var.restart().asSeconds();
-		//float fps = 1 / time_init;
-		////std::cout << fps << '\n';
-
 		Event event;
 		while (window.pollEvent(event))
 		{
@@ -55,7 +51,9 @@ int main()
 		render(window, s_player, b_player);
 	}
 
-	delete[] s_player_binds;
-	delete[] b_player_binds;
+	// freeing the dynamic memory allocated to the keybinds 2D array
+	delete[] keybinds[0];
+	delete[] keybinds[1];
+	
 	return EXIT_SUCCESS;
 }
