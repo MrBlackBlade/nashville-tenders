@@ -9,17 +9,17 @@ namespace Config
 	const Keyboard::Key (*keybinds)[4] = new Keyboard::Key[2][4]
 	{
 		{
-			Keyboard::W	   ,
-			Keyboard::A	   ,
-			Keyboard::S	   ,
-			Keyboard::D
-		},
-
-		{
 			Keyboard::Up   ,
 			Keyboard::Left ,
 			Keyboard::Down ,
 			Keyboard::Right
+		},
+
+		{
+			Keyboard::W	   ,
+			Keyboard::A	   ,
+			Keyboard::S	   ,
+			Keyboard::D
 		}
 	};
 }

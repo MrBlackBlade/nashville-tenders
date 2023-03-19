@@ -9,54 +9,53 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 {
 	if (Keyboard::isKeyPressed(key))
 	{
-		if 
-		(
-			(Keyboard::isKeyPressed(keybinds[0][3]) && Keyboard::isKeyPressed(keybinds[0][1])) ||
-			(Keyboard::isKeyPressed(keybinds[1][3]) && Keyboard::isKeyPressed(keybinds[1][1]))
+		if
+			(
+				(Keyboard::isKeyPressed(keybinds[obj.id][3]) && Keyboard::isKeyPressed(keybinds[obj.id][1]))
 		)
 		{
 			if (obj.velocity > 0)
-				obj.velocity -= 3;
+				obj.velocity -= 2;
 			
 			if (obj.velocity < 0)
-				obj.velocity += 3;
+				obj.velocity += 2;
 
 			if (obj.velocity == 0)
 				obj.idle = true;
 		}
 
-		else if (key == keybinds[0][1] || key == keybinds[1][1])
+		else if (key == keybinds[obj.id][1]) 
 		{
 			player.setScale(-obj.player_scale, obj.player_scale);
 			player.setOrigin(player.getLocalBounds().width, 0);
 
 			if (obj.velocity >= -obj.velocity_max)
-				obj.velocity -= 3;
+				obj.velocity -= 2;
 		}
 
-		else if (key == keybinds[0][3] || key == keybinds[1][3])
+		else if (key == keybinds[obj.id][3])
 		{
 			player.setScale(obj.player_scale, obj.player_scale);
 			player.setOrigin(0, 0);
 
 			if (obj.velocity <= obj.velocity_max)
-				obj.velocity += 3;
+				obj.velocity += 2;
 		}
 	}
 
 	else
 	{
 		if (obj.velocity > 0)
-			obj.velocity -= 3;
+			obj.velocity -= 2;
 
 		if (obj.velocity < 0)
-			obj.velocity += 3;
+			obj.velocity += 2;
 
 		if (obj.velocity == 0)
 			obj.idle = true;
 	}
 
-	if (frame_counter % 14 == 0)
+	if (frame_counter % ((obj.id == 0) ? 14 : 14 )==0)
 	{	
 		if (obj.velocity) 
 		{
@@ -70,7 +69,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 				IntRect
 				(
 					obj.run_ind * obj.sprite_size_run, 0,
-					obj.sprite_size_run - .5f, 51
+					obj.sprite_size_run - .5f, 64
 				)
 			);
 

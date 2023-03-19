@@ -18,8 +18,8 @@ Texture b_player_texture_idle;
 Texture b_player_texture_run;
 Sprite  b_player(b_player_texture_idle);
 
-Player  s_obj (0, 0, 3, 40, 28, 4, 4, 0, 60, 0, true);
-Player  b_obj (0, 0, 3, 64, 28, 4, 6, 0, 25, 1, true);
+Player  s_obj (0, 0, 1, 40, 28, 4, 4, 0, 40, 0, true);
+Player  b_obj (0, 0, 1, 64, 64, 6, 6, 0, 25, 1, true);
 
 Clock clock_var;
 RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),

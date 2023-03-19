@@ -14,7 +14,7 @@ Player::Player
 	const std::int16_t& id_p,
 	const bool& idle_p
 )
-{
+ {
 	this->idle_ind			=  idle_ind_p;
 	this->run_ind			=  run_ind_p;
 	this->player_scale		=  player_scale_p;

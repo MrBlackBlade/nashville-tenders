@@ -20,7 +20,7 @@ void setup()
 	s_player.setScale(s_obj.player_scale, s_obj.player_scale);
 
 	// weird positioning shit
-	s_player.setPosition(0, RES_SIZE - 152);
+	s_player.setPosition(0, RES_SIZE - 51);
 
 	// checking if textures loaded
 	if (!s_player_texture_idle.loadFromFile("resources\\small_idle_animation.png"))
@@ -33,7 +33,7 @@ void setup()
 	b_player.setScale(b_obj.player_scale, b_obj.player_scale);
 
 	// weird positioning shit
-	b_player.setPosition(0, RES_SIZE - 170);
+	b_player.setPosition(0, RES_SIZE - 64);
 
 	// checking if textures loaded
 	if (!b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png"))
