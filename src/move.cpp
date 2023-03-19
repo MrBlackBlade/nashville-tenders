@@ -9,10 +9,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 {
 	if (Keyboard::isKeyPressed(key))
 	{
-		if
-			(
-				(Keyboard::isKeyPressed(keybinds[obj.id][3]) && Keyboard::isKeyPressed(keybinds[obj.id][1]))
-		)
+		if (Keyboard::isKeyPressed(keybinds[obj.id][3]) && Keyboard::isKeyPressed(keybinds[obj.id][1]))
 		{
 			if (obj.velocity > 0)
 				obj.velocity -= 2;
