@@ -8,7 +8,7 @@ extern Player  b_obj;
 void check_idle(Sprite& player, Player& obj)
 {
 	// switching between different idle frames
-	if (obj.idle && frame_counter % ((obj.id == 0) ? 18 : 12)==0)
+	if (obj.idle && frame_counter % ((obj.id == 0) ? 16 : 12)==0)
 	// the 18 will be a parameter to adjust the animation speed
 	{
 		player.setTexture
