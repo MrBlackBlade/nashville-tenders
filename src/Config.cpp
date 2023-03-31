@@ -6,7 +6,7 @@ namespace Config
 
 	std::int32_t frame_counter = 0;
 	
-	const Keyboard::Key (*keybinds)[4] = new Keyboard::Key[2][4]
+	const Keyboard::Key keybinds[2][4] =
 	{
 		{
 			Keyboard::Up   ,

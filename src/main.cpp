@@ -51,9 +51,5 @@ int main()
 		render(window, s_player, b_player);
 	}
 
-	// freeing the dynamic memory allocated to the keybinds 2D array
-	delete[] keybinds[0];
-	delete[] keybinds[1];
-	
 	return EXIT_SUCCESS;
 }

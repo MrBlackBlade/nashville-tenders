@@ -13,7 +13,7 @@ namespace Config
 
 	extern std::int32_t frame_counter;
 
-	extern const Keyboard::Key (*keybinds)[4];
+	extern const Keyboard::Key keybinds[2][4];
 }
 
 #endif // #ifndef _CONFIG_HPP
