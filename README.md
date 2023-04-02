@@ -1,4 +1,4 @@
-> # ***To-do list***
+> # <center> ***To-do list*** </center>
 > 
 > - **Add arrays for:**  
 >    1. Player objects  
