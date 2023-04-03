@@ -20,7 +20,7 @@ void check_idle(Sprite& player, Player& obj)
 		(
 			IntRect
 			(
-				obj.idle_ind * obj.sprite_size_idle, 0, obj.sprite_size_idle, 64
+				obj.idle_ind * obj.sprite_size_idle, 0, obj.sprite_size_idle, 50
 			)
 		);
 
