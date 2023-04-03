@@ -26,7 +26,7 @@ Player::Player
 	this->jump_ind          = jump_ind_p;
 	this->player_scale		=  player_scale_p;
 	this->sprite_size_run	=  sprite_size_run_p;
-	this->sprite_sizeH_run = sprite_sizeH_run_p;
+	this->sprite_sizeH_run  = sprite_sizeH_run_p;
 	this->sprite_size_idle	=  sprite_size_idle_p;
 	this->sprite_sizeH_idle = sprite_sizeH_idle_p;
 	this->sprite_size_jump  = sprite_size_jump_p;

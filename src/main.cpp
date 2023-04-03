@@ -59,11 +59,11 @@ int main()
 		if (b_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
 		{
 			b_player.setPosition(getXposition(b_player).x, 800 - 32);
-
 		}
 
 		if (s_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
 		{
+
 			s_player.setPosition(getXposition(s_player).x, 800 - 32);
 
 			gravity=0;
