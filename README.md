@@ -23,3 +23,4 @@
 > - [ ] **Platform Collision Detection**
 > - [ ] **Automate the functions for both players using for-loops**
 > - [ ] **Write jump(), add boolean values to track ability to jump, move, fall, etc.**
+> - [ ] **Add sf::Vector2f objects to represent both players' positions and velocities**
