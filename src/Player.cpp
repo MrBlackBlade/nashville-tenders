@@ -7,8 +7,11 @@ Player::Player
 	const std::int32_t& jump_ind_p,
 	const std::int32_t& player_scale_p,
 	const std::int32_t& sprite_size_run_p,
+	const std::int32_t& sprite_sizeH_run_p,
 	const std::int32_t& sprite_size_idle_p,
+	const std::int32_t& sprite_sizeH_idle_p,
 	const std::int32_t& sprite_size_jump_p,
+	const std::int32_t& sprite_sizeH_jump_p,
 	const std::int32_t& anims_idle_p,
 	const std::int32_t& anims_run_p,
 	const std::int32_t& anims_jump_p,
@@ -23,8 +26,11 @@ Player::Player
 	this->jump_ind          = jump_ind_p;
 	this->player_scale		=  player_scale_p;
 	this->sprite_size_run	=  sprite_size_run_p;
+	this->sprite_sizeH_run = sprite_sizeH_run_p;
 	this->sprite_size_idle	=  sprite_size_idle_p;
+	this->sprite_sizeH_idle = sprite_sizeH_idle_p;
 	this->sprite_size_jump  = sprite_size_jump_p;
+	this->sprite_sizeH_jump = sprite_sizeH_jump_p;
 	this->anims_idle		=  anims_idle_p;
 	this->anims_run			=  anims_run_p;
 	this -> anims_jump      = anims_jump_p;

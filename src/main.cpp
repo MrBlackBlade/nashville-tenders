@@ -27,8 +27,8 @@ Texture b_player_texture_idle;
 Texture b_player_texture_run;
 Sprite  b_player(b_player_texture_idle);
 
-Player  s_obj (0, 0, 0, 1, 40, 28, 29, 4, 4, 4, 0, 40, 0, true);
-Player  b_obj (0, 0, 0, 1, 64, 64, 29, 6, 4, 4, 0, 25, 1, true);
+Player  s_obj (0, 0, 0, 1, 40, 50, 28, 50, 29, 50, 4, 4, 4, 0, 40, 0, true);
+Player  b_obj (0, 0, 0, 1, 64, 64, 64, 64, 29, 64, 6, 4, 4, 0, 25, 1, true);
 
 Clock clock_var;
 RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
@@ -55,6 +55,12 @@ int main()
 		getXposition(s_player);
 		check_idle(s_player, s_obj);
 		move(s_player, s_obj, get_key_pressed_s());
+
+		if (b_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
+		{
+			b_player.setPosition(getXposition(b_player).x, 800 - 32);
+
+		}
 
 		if (s_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
 		{

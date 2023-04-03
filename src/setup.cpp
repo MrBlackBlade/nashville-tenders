@@ -30,7 +30,7 @@ void setup()
 	platform_s.setScale(1, 1);
 	platform_s.setPosition(0, RES_SIZE - 32);
 
-	s_player.setPosition(0, RES_SIZE - 500);
+	s_player.setPosition(70, RES_SIZE - 200);
 
 
 	// checking if textures loaded
@@ -46,7 +46,7 @@ void setup()
 	b_player.setScale(b_obj.player_scale, b_obj.player_scale);
 
 	// weird positioning shit
-	b_player.setPosition(0, RES_SIZE - 64);
+	b_player.setPosition(0, RES_SIZE - 200 );
 
 	// checking if textures loaded
 	if (!b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png"))

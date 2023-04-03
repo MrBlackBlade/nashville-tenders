@@ -23,6 +23,9 @@ struct Player
 		const std::int32_t&,
 		const std::int32_t&,
 		const std::int32_t&,
+		const std::int32_t&,
+		const std::int32_t&,
+		const std::int32_t&,
 		const std::int16_t&,
 		const bool&
 	);
@@ -35,9 +38,15 @@ struct Player
 
 		// sprite measurements
 		player_scale,
+
 		sprite_size_idle,
+		sprite_sizeH_idle,
+
 		sprite_size_run,
+		sprite_sizeH_run,
+
 		sprite_size_jump,
+		sprite_sizeH_jump,
 		
 		// no of diff animations
 		anims_idle,

@@ -67,10 +67,6 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 		player.move(0, velocity_y);
 
 
-
-
-
-
 		if (Keyboard::isKeyPressed(key))
 		{
 			if (Keyboard::isKeyPressed(keybinds[obj.id][3]) && Keyboard::isKeyPressed(keybinds[obj.id][1]))
@@ -130,7 +126,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 					IntRect
 					(
 						obj.run_ind * obj.sprite_size_run, 0,
-						obj.sprite_size_run - .5f, 50
+						obj.sprite_size_run - .5f, obj.sprite_sizeH_run
 					)
 				);
 
@@ -149,7 +145,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 					IntRect
 					(
 						obj.jump_ind* obj.sprite_size_jump, 0,
-						obj.sprite_size_jump, 56
+						obj.sprite_size_jump, obj.sprite_sizeH_jump
 					)
 				);
 
