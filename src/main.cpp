@@ -7,6 +7,7 @@
 #include <Config.hpp>
 #include <setup.hpp>
 #include <getXposition.hpp>
+#include <collision.hpp>
 		  
 using namespace sf;
 using namespace Config;
@@ -52,9 +53,11 @@ int main()
 				window.close();
 		}
 
-		getXposition(s_player);
 		check_idle(s_player, s_obj);
 		move(s_player, s_obj, get_key_pressed_s());
+
+		collision(s_player, platform_s);
+		/*getXposition(s_player);
 
 		if (b_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
 		{
@@ -73,11 +76,9 @@ int main()
 		{
 			gravity = 0.5;
 		}
-		//
-
+		*/
 		check_idle(b_player, b_obj);
 		move(b_player, b_obj, get_key_pressed_b());
-
 		render(window, s_player, b_player, platform_s);
 	}
 	system("pause");
