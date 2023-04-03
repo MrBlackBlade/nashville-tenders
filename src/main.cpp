@@ -28,8 +28,11 @@ Texture b_player_texture_idle;
 Texture b_player_texture_run;
 Sprite  b_player(b_player_texture_idle);
 
-Player  s_obj (0, 0, 0, 1, 40, 50, 28, 50, 29, 50, 4, 4, 4, 0, 40, 0, true);
-Player  b_obj (0, 0, 0, 1, 64, 64, 64, 64, 29, 64, 6, 4, 4, 0, 25, 1, true);
+Player s_obj (/*idle_ind*/ 0,/*run_ind*/ 0,/*jump_ind*/ 0,/*scale*/ 1,/*size_run*/ 40,/*sizeH_run*/ 50,/*size_idle*/ 28,/*sizeH_idle*/ 50,
+ /*size_jump*/ 29,/*sizeH_jump*/ 50,/*anims_idle*/ 4,/*anims_run*/ 4,/*anims_jump*/ 4,/*velocityX*/ 0,/*MAXvelocityX*/ 40,/*ID*/ 0,/*isIdle*/ true);
+
+Player b_obj (/*idle_ind*/ 0,/*run_ind*/0,/*jump_ind*/ 0,/*scale*/ 1,/*size_run*/ 64,/*sizeH_run*/ 64,/*size_idle*/ 64,/*sizeH_idle*/64,
+ /*size_jump*/ 29,/*sizeH_jump*/ 64,/*anims_idle*/ 6,/*anims_run*/ 4,/*anims_jump*/ 4,/*velocityX*/ 0,/*MAXvelocityX*/ 25,/*ID*/ 1,/*isIdle*/ true);
 
 Clock clock_var;
 RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
@@ -54,31 +57,12 @@ int main()
 		}
 
 		check_idle(s_player, s_obj);
+		check_idle(b_player, b_obj);
+
 		move(s_player, s_obj, get_key_pressed_s());
+		move(b_player, b_obj, get_key_pressed_b());
 
 		collision(s_player, platform_s);
-		/*getXposition(s_player);
-
-		if (b_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
-		{
-			b_player.setPosition(getXposition(b_player).x, 800 - 32);
-		}
-
-		if (s_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
-		{
-
-			s_player.setPosition(getXposition(s_player).x, 800 - 32);
-
-			gravity=0;
-			velocity_y = 0;
-		}
-		else
-		{
-			gravity = 0.5;
-		}
-		*/
-		check_idle(b_player, b_obj);
-		move(b_player, b_obj, get_key_pressed_b());
 		render(window, s_player, b_player, platform_s);
 	}
 	system("pause");
