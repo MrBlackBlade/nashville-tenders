@@ -25,3 +25,4 @@
 > - [ ] **Write jump(), add boolean values to track ability to jump, move, fall, etc.**
 > - [ ] **Add sf::Vector2f objects to represent both players' positions and velocities**
 > - [ ] **Remove the frame_counter variable and let the clock_var object track the current frame**
+> - [ ] **Add the log() function which prints out the velocities and positions of respective players**
