@@ -33,7 +33,7 @@ Player::Player
 	this->sprite_sizeH_jump = sprite_sizeH_jump_p;
 	this->anims_idle		=  anims_idle_p;
 	this->anims_run			=  anims_run_p;
-	this -> anims_jump      = anims_jump_p;
+	this-> anims_jump       = anims_jump_p;
 	this->velocity			=  velocity_p;
 	this->velocity_max		=  velocity_max_p;
 	this->id				=  id_p;

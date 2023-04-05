@@ -3,6 +3,7 @@
 extern Texture       s_player_texture_idle;
 extern Texture       s_player_texture_run;
 extern Texture		 s_player_texture_jump;
+extern Texture		 s_player_texture_collision;
 extern Texture       b_player_texture_idle;
 extern Texture       b_player_texture_run;
 extern Texture		 platform_texture;
@@ -20,6 +21,7 @@ void setup()
 
 	platform_texture.loadFromFile("resources\\tile_1.png");
 
+	s_player_texture_collision.loadFromFile("resources\\small_collision_animation.png");
 	s_player_texture_jump.loadFromFile("resources\\small_jump_animation.png");
 	s_player_texture_idle.loadFromFile("resources\\small_idle_animation.png");
 	s_player_texture_run.loadFromFile("resources\\small_run.png");
@@ -28,7 +30,7 @@ void setup()
 	// weird positioning shit
 	platform_s.setTextureRect(IntRect(0, 0, 1000, 32));
 	platform_s.setScale(1, 1);
-	platform_s.setPosition(0, RES_SIZE - 32);
+	platform_s.setPosition(0, RES_SIZE - 20);
 
 	s_player.setPosition(70, RES_SIZE - 200);
 

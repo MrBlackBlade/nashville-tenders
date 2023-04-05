@@ -6,11 +6,11 @@ extern Texture s_player_texture_jump;
 extern Texture b_player_texture_run;
 extern Texture b_player_texture_idle;
 
-float jumpHeight = 15.0f;
-float jumpSpeed = 0.05f;
-float jumpAcceleration = 0.2f;
-float jumpDistance = 0.0f;
-bool isJumping = false;
+float jumpHeight	    = 15.0f;
+float jumpSpeed			= 0.05f;
+float jumpAcceleration  = 0.2f;
+float jumpDistance	    = 0.0f;
+bool isJumping			= false;
 
 float gravity = 0.05f;
 float velocity_y = 0.0f;
@@ -31,7 +31,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 	if (isJumping)
 	{
-		if (frame_counter % ((obj.id == 0) ? 18 : 14) == 0)
+		if (frame_counter % ((obj.id == 0) ? 12 : 14) == 0)
 			{
 				player.setTexture
 				(
@@ -52,9 +52,10 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 			}
 
 		float jumpAmount = jumpHeight * jumpSpeed * jumpAcceleration;
-			jumpDistance += jumpAmount;
+		jumpDistance += jumpAmount;
 		player.move(0, -jumpAmount);
 		jumpSpeed += jumpAcceleration;
+
 		if (jumpDistance >= jumpHeight)
 		{
 			isJumping = false;
@@ -62,8 +63,8 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 		}
 	}
 	else
+	velocity_y += gravity;
 
-		velocity_y += gravity;
 		player.move(0, velocity_y);
 
 
