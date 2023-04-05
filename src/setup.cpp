@@ -4,10 +4,16 @@ extern Texture       s_player_texture_idle;
 extern Texture       s_player_texture_run;
 extern Texture		 s_player_texture_jump;
 extern Texture		 s_player_texture_collision;
+
 extern Texture       b_player_texture_idle;
 extern Texture       b_player_texture_run;
+
 extern Texture		 platform_texture;
 extern Sprite		 platform_s;
+
+extern Texture		 bg_texture;
+extern Sprite		 background;
+
 extern Sprite        s_player;
 extern Sprite        b_player;
 extern Player        s_obj;
@@ -19,6 +25,8 @@ void setup()
 {
 	window.setFramerateLimit(60);
 
+	bg_texture.loadFromFile("resources\\background.png");
+
 	platform_texture.loadFromFile("resources\\tile_1.png");
 
 	s_player_texture_collision.loadFromFile("resources\\small_collision_animation.png");
@@ -28,6 +36,10 @@ void setup()
 	s_player.setScale(s_obj.player_scale, s_obj.player_scale);
 
 	// weird positioning shit
+	background.setTextureRect(IntRect(0, 0, 1728, RES_SIZE));
+	background.setScale(2, 2);
+	background.setPosition(-576,-1200);
+
 	platform_s.setTextureRect(IntRect(0, 0, 1000, 32));
 	platform_s.setScale(1, 1);
 	platform_s.setPosition(0, RES_SIZE - 20);
@@ -41,6 +53,8 @@ void setup()
 	if (!s_player_texture_run.loadFromFile("resources\\small_run.png"))
 		exit(1);
 	if (!platform_texture.loadFromFile("resources\\tile_1.png"))
+		exit(1);
+	if (!bg_texture.loadFromFile("resources\\background.png"))
 		exit(1);
 
 	b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png");

@@ -1,11 +1,12 @@
 #include <render.hpp>
 
-void render(RenderWindow& window, Sprite& s_player, Sprite& b_player,Sprite& platform_s)
+void render(RenderWindow& window,Sprite& background, Sprite& s_player, Sprite& b_player,Sprite& platform_s)
 {
     // change the bg color
-    window.RenderTarget::clear(Color(130, 130, 150, 255));
+    window.RenderTarget::clear(Color(55, 68, 110, 255));
 
     // render the sprites then draw the frame
+    window.draw(background);
     window.draw(platform_s);
     window.draw(s_player);
     window.draw(b_player);

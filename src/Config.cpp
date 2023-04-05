@@ -2,7 +2,7 @@
 
 namespace Config
 {
-	const std::uint16_t RES_SIZE = 850;
+	const std::uint16_t RES_SIZE = 1000;
 
 	std::int32_t frame_counter = 0;
 	

@@ -16,8 +16,11 @@ extern float velocity_y;
 extern float gravity;
 extern bool isJumping;
 
+Texture bg_texture;
+Sprite  background(bg_texture);
+
 Texture platform_texture;
-Sprite platform_s(platform_texture);
+Sprite  platform_s(platform_texture);
 
 Texture s_player_texture_collision;
 Texture s_player_texture_jump;
@@ -64,7 +67,7 @@ int main()
 		move(b_player, b_obj, get_key_pressed_b());
 
 		collision(s_player, platform_s);
-		render(window, s_player, b_player, platform_s);
+		render(window,background, s_player, b_player, platform_s);
 	}
 	system("pause");
 	return EXIT_SUCCESS;

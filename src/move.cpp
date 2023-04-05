@@ -1,8 +1,12 @@
 #include <move.hpp>
 
+extern Texture bg_texture;
+extern Sprite  background;
+
 extern Texture s_player_texture_run;
 extern Texture s_player_texture_idle;
 extern Texture s_player_texture_jump;
+
 extern Texture b_player_texture_run;
 extern Texture b_player_texture_idle;
 
@@ -84,6 +88,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 			else if (key == keybinds[obj.id][1])
 			{
+				background.move(0.7, 0);
 				player.setScale(-obj.player_scale, obj.player_scale);
 				player.setOrigin(player.getLocalBounds().width, 0);
 
@@ -93,6 +98,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 			else if (key == keybinds[obj.id][3])
 			{
+				background.move(-0.7, 0);
 				player.setScale(obj.player_scale, obj.player_scale);
 				player.setOrigin(0, 0);
 

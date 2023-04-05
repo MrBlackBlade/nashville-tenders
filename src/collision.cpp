@@ -24,12 +24,12 @@ void collision(Sprite& s_player, Sprite& platform_s)
 
 	if (b_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
 	{
-		b_player.setPosition(getXposition(b_player).x, 800 - 28);
+		b_player.setPosition(getXposition(b_player).x, RES_SIZE - 84);
 	}
 
 	if (s_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
 	{
-		s_player.setPosition(getXposition(s_player).x, 800 - 20);
+		s_player.setPosition(getXposition(s_player).x, RES_SIZE - 70);
 		s_obj.jump_ind = 0;
 		gravity = 0;
 		velocity_y = 0;

@@ -8,6 +8,6 @@
 using namespace sf;
 using namespace Config;
 
-void render(RenderWindow&, Sprite&, Sprite&, Sprite&);
+void render(RenderWindow&,Sprite&, Sprite&, Sprite&, Sprite&);
 
 #endif // #ifndef _RENDER_HPP
