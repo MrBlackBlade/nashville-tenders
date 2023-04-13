@@ -103,7 +103,7 @@ int main()
 		move(b_player, b_obj, get_key_pressed_b());
 
 		collision(s_player, platform_s);
-		render(window,background, s_player, b_player, platform_s);
+		render(window,background, b_player, s_player, platform_s);
 	}
 	system("pause");
 	return EXIT_SUCCESS;
