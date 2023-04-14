@@ -88,7 +88,6 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 			else if (key == keybinds[obj.id][1])
 			{
-				background.move(0.7, 0);
 				player.setScale(-obj.player_scale, obj.player_scale);
 				player.setOrigin(player.getLocalBounds().width, 0);
 
@@ -98,7 +97,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 			else if (key == keybinds[obj.id][3])
 			{
-				background.move(-0.7, 0);
+				//background.move(-0.7, 0);
 				player.setScale(obj.player_scale, obj.player_scale);
 				player.setOrigin(0, 0);
 
@@ -160,6 +159,12 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 				obj.jump_ind %= obj.anims_jump;
 			}
 		}
+
+		if (obj.velocity > 0.5)
+			background.move(-0.7, 0);
+		if (obj.velocity < 0)
+			background.move(0.7, 0);
+
 		std::cout << ((obj.id == 0) ? "s_velocity: " : "b_velocity: ") << obj.velocity << std::endl;
 		player.move(obj.velocity / 10.f, 0);
 	
