@@ -23,17 +23,14 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 {
 	if (Keyboard::isKeyPressed(key))
 	{
-
-		if (Keyboard::isKeyPressed(keybinds[obj.id][0]))
+		if (Keyboard::isKeyPressed(keybinds[0][0]))
 		{
-
 			isJumping = true;
-
 			jumpDistance = 0.0f;
 		}
 	}
 
-	if (isJumping)
+	if (isJumping && obj.id == 0)
 	{
 		if (frame_counter % ((obj.id == 0) ? 12 : 14) == 0)
 			{
@@ -66,10 +63,11 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 			jumpSpeed = 5.0f;
 		}
 	}
-	else
-	velocity_y += gravity;
 
-		player.move(0, velocity_y);
+	else
+		velocity_y += gravity;
+
+	player.move ( 0, velocity_y );
 
 
 		if (Keyboard::isKeyPressed(key))
