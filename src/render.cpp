@@ -1,9 +1,15 @@
 #include <render.hpp>
 
-void render(RenderWindow& window,Sprite& background, Sprite& s_player, Sprite& b_player,Sprite& platform_s)
+extern sf::Sprite       background;
+extern sf::Sprite       platform_s;
+extern sf::Sprite       s_player;
+extern sf::Sprite       b_player;
+extern sf::RenderWindow window;
+
+void render()
 {
     // change the bg color
-    window.RenderTarget::clear(Color(55, 68, 110, 255));
+    window.RenderTarget::clear(sf::Color(55, 68, 110, 255));
 
     // render the sprites then draw the frame
     window.draw(background);
@@ -13,8 +19,8 @@ void render(RenderWindow& window,Sprite& background, Sprite& s_player, Sprite& b
     window.display();
 
     // for the animation speed
-    frame_counter++;
+    Config::frame_counter++;
 
     // closest number to 100 divisible by 16 to prevent overflowing        
-    frame_counter %= 96;
+    Config::frame_counter %= 96;
 }

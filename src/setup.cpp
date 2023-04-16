@@ -1,25 +1,21 @@
 #include <setup.hpp>
 
-extern Texture       s_player_texture_idle;
-extern Texture       s_player_texture_run;
-extern Texture		 s_player_texture_jump;
-extern Texture		 s_player_texture_collision;
-
-extern Texture       b_player_texture_idle;
-extern Texture       b_player_texture_run;
-
-extern Texture		 platform_texture;
-extern Sprite		 platform_s;
-
-extern Texture		 bg_texture;
-extern Sprite		 background;
-
-extern Sprite        s_player;
-extern Sprite        b_player;
-extern Player        s_obj;
-extern Player        b_obj;
-extern Clock         clock_var;
-extern RenderWindow  window;
+extern sf::Texture       s_player_texture_idle;
+extern sf::Texture       s_player_texture_run;
+extern sf::Texture		 s_player_texture_jump;
+extern sf::Texture		 s_player_texture_collision;
+extern sf::Texture       b_player_texture_idle;
+extern sf::Texture       b_player_texture_run;
+extern sf::Texture		 platform_texture;
+extern sf::Sprite		 platform_s;
+extern sf::Texture		 bg_texture;
+extern sf::Sprite		 background;
+extern sf::Sprite        s_player;
+extern sf::Sprite        b_player;
+extern Player			 s_obj;
+extern Player			 b_obj;
+extern sf::Clock         clock_var;
+extern sf::RenderWindow  window;
 
 void setup() 
 {
@@ -36,15 +32,15 @@ void setup()
 	s_player.setScale(s_obj.player_scale, s_obj.player_scale);
 
 	// weird positioning shit
-	background.setTextureRect(IntRect(0, 0, 1728, RES_SIZE));
+	background.setTextureRect(sf::IntRect(0, 0, 1728, Config::RES_SIZE));
 	background.setScale(2, 2);
 	background.setPosition(-576,-1200);
 
-	platform_s.setTextureRect(IntRect(0, 0, 1000, 32));
+	platform_s.setTextureRect(sf::IntRect(0, 0, 1000, 32));
 	platform_s.setScale(1, 1);
-	platform_s.setPosition(0, RES_SIZE - 20);
+	platform_s.setPosition(0, Config::RES_SIZE - 20);
 
-	s_player.setPosition(70, RES_SIZE - 200);
+	s_player.setPosition(70, Config::RES_SIZE - 200);
 
 
 	// checking if textures loaded
@@ -62,7 +58,7 @@ void setup()
 	b_player.setScale(b_obj.player_scale, b_obj.player_scale);
 
 	// weird positioning shit
-	b_player.setPosition(0, RES_SIZE - 200 );
+	b_player.setPosition(0, Config::RES_SIZE - 200 );
 
 	// checking if textures loaded
 	if (!b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png"))

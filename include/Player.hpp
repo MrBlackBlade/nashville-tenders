@@ -2,35 +2,32 @@
 #ifndef _PLAYER_HPP
 #define _PLAYER_HPP
 
-#include <cstdint>
-#include <SFML\Graphics.hpp>
-
-using namespace sf;
+#include <SFML/Graphics.hpp>
 
 struct Player
 {
-	Player
+	/*Player
 	(
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int16_t&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int32&,
+		const sf::Int16&,
 		const bool&
-	);
+	);*/
 
-	std::int32_t
+	sf::Int32
 		// 0 for first sprite, 1 for second etc...
 		idle_ind,
 		run_ind,
@@ -57,7 +54,7 @@ struct Player
 		velocity,
 		velocity_max;
 
-	std::int16_t id;
+	sf::Int16 id;
 
 	bool idle;
 };

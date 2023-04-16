@@ -2,24 +2,23 @@
 
 namespace Config
 {
-	const std::uint16_t RES_SIZE = 1000;
+	const sf::Uint16 RES_SIZE = 800;
+	sf::Uint16 frame_counter = 0;
 
-	std::int32_t frame_counter = 0;
-	
-	const Keyboard::Key keybinds[2][4] =
+	const sf::Keyboard::Key keybinds[2][4]
 	{
 		{
-			Keyboard::Up   ,
-			Keyboard::Left ,
-			Keyboard::Down ,
-			Keyboard::Right
+			sf::Keyboard::Up   ,
+			sf::Keyboard::Left ,
+			sf::Keyboard::Down ,
+			sf::Keyboard::Right
 		},
 
 		{
-			Keyboard::W	   ,
-			Keyboard::A	   ,
-			Keyboard::S	   ,
-			Keyboard::D
+			sf::Keyboard::W	   ,
+			sf::Keyboard::A	   ,
+			sf::Keyboard::S	   ,
+			sf::Keyboard::D
 		}
 	};
 }

@@ -1,25 +1,25 @@
 #include <get_key_pressed.hpp>
 
-Keyboard::Key get_key_pressed_b()
+sf::Keyboard::Key get_key_pressed_b()
 {
-	if (Keyboard::isKeyPressed(Keyboard::W))
-		return Keyboard::W;
-	if (Keyboard::isKeyPressed(Keyboard::A))
-		return Keyboard::A;
-	if (Keyboard::isKeyPressed(Keyboard::S))
-		return Keyboard::S;
-	if (Keyboard::isKeyPressed(Keyboard::D))
-		return Keyboard::D;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		return sf::Keyboard::W;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		return sf::Keyboard::A;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		return sf::Keyboard::S;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		return sf::Keyboard::D;
 }
 
-Keyboard::Key get_key_pressed_s()
+sf::Keyboard::Key get_key_pressed_s()
 {
-	if (Keyboard::isKeyPressed(Keyboard::Up))
-		return Keyboard::Up;
-	if (Keyboard::isKeyPressed(Keyboard::Left))
-		return Keyboard::Left;
-	if (Keyboard::isKeyPressed(Keyboard::Down))
-		return Keyboard::Down;
-	if (Keyboard::isKeyPressed(Keyboard::Right))
-		return Keyboard::Right;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		return sf::Keyboard::Up;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		return sf::Keyboard::Left;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		return sf::Keyboard::Down;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		return sf::Keyboard::Right;
 }

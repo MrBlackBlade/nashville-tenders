@@ -1,14 +1,14 @@
 #include <move.hpp>
 
-extern Texture bg_texture;
-extern Sprite  background;
+extern sf::Texture bg_texture;
+extern sf::Sprite  background;
 
-extern Texture s_player_texture_run;
-extern Texture s_player_texture_idle;
-extern Texture s_player_texture_jump;
+extern sf::Texture s_player_texture_run;
+extern sf::Texture s_player_texture_idle;
+extern sf::Texture s_player_texture_jump;
 
-extern Texture b_player_texture_run;
-extern Texture b_player_texture_idle;
+extern sf::Texture b_player_texture_run;
+extern sf::Texture b_player_texture_idle;
 
 float jumpHeight	    = 15.0f;
 float jumpSpeed			= 0.05f;
@@ -19,11 +19,11 @@ bool isJumping			= false;
 float gravity = 0.05f;
 float velocity_y = 0.0f;
 
-void move(Sprite& player, Player& obj, Keyboard::Key key)
+void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 {
-	if (Keyboard::isKeyPressed(key))
+	if (sf::Keyboard::isKeyPressed(key))
 	{
-		if (Keyboard::isKeyPressed(keybinds[0][0]))
+		if (sf::Keyboard::isKeyPressed(Config::keybinds[0][0]))
 		{
 			isJumping = true;
 			jumpDistance = 0.0f;
@@ -32,7 +32,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 	if (isJumping && obj.id == 0)
 	{
-		if (frame_counter % ((obj.id == 0) ? 12 : 14) == 0)
+		if (Config::frame_counter % ((obj.id == 0) ? 12 : 14) == 0)
 			{
 				player.setTexture
 				(
@@ -41,7 +41,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 				player.setTextureRect
 				(
-					IntRect
+					sf::IntRect
 					(
 						obj.jump_ind * obj.sprite_size_jump, 0,
 						obj.sprite_size_jump, 56
@@ -70,9 +70,9 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 	player.move ( 0, velocity_y );
 
 
-		if (Keyboard::isKeyPressed(key))
+		if (sf::Keyboard::isKeyPressed(key))
 		{
-			if (Keyboard::isKeyPressed(keybinds[obj.id][3]) && Keyboard::isKeyPressed(keybinds[obj.id][1]))
+			if (sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][3]) && sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][1]))
 			{
 				if (obj.velocity > 0)
 					obj.velocity -= 2;
@@ -84,7 +84,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 					obj.idle = true;
 			}
 
-			else if (key == keybinds[obj.id][1])
+			else if (key == Config::keybinds[obj.id][1])
 			{
 				player.setScale(-obj.player_scale, obj.player_scale);
 				player.setOrigin(player.getLocalBounds().width, 0);
@@ -93,7 +93,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 					obj.velocity -= 2;
 			}
 
-			else if (key == keybinds[obj.id][3])
+			else if (key == Config::keybinds[obj.id][3])
 			{
 				//background.move(-0.7, 0);
 				player.setScale(obj.player_scale, obj.player_scale);
@@ -116,7 +116,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 				obj.idle = true;
 		}
 
-		if (frame_counter % ((obj.id == 0) ? 14 : 14) == 0)
+		if (Config::frame_counter % ((obj.id == 0) ? 14 : 14) == 0)
 		{
 			if (obj.velocity &&  velocity_y == 0 )
 			{
@@ -127,7 +127,7 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 
 				player.setTextureRect
 				(
-					IntRect
+					sf::IntRect
 					(
 						obj.run_ind * obj.sprite_size_run, 0,
 						obj.sprite_size_run - .5f, obj.sprite_sizeH_run
@@ -138,15 +138,15 @@ void move(Sprite& player, Player& obj, Keyboard::Key key)
 				obj.run_ind %= obj.anims_run;
 			}
 		}
-		if (Keyboard::isKeyPressed(key))
+		if (sf::Keyboard::isKeyPressed(key))
 		{
 			if(isJumping)
 
-				if(Keyboard::isKeyPressed(keybinds[obj.id][1]) && Keyboard::isKeyPressed(keybinds[obj.id][3]))
+				if(sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][1]) && sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][3]))
 			{
 				player.setTextureRect
 				(
-					IntRect
+					sf::IntRect
 					(
 						obj.jump_ind* obj.sprite_size_jump, 0,
 						obj.sprite_size_jump, obj.sprite_sizeH_jump

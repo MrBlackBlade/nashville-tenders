@@ -1,47 +1,37 @@
 #include <SFML\Graphics.hpp>
-#include <iostream>
-#include <move.hpp>
-#include <get_key_pressed.hpp>
-#include <render.hpp>
-#include <check_idle.hpp>
 #include <Config.hpp>
-#include <setup.hpp>
-#include <getXposition.hpp>
-#include <collision.hpp>
-		  
-using namespace sf;
-using namespace Config;
+#include <Player.hpp>
 
 extern float velocity_y;
 extern float gravity;
 extern bool isJumping;
 
-Texture bg_texture;
-Sprite  background(bg_texture);
+sf::Texture bg_texture;
+sf::Sprite  background(bg_texture);
 
-Texture platform_texture;
-Sprite  platform_s(platform_texture);
+sf::Texture platform_texture;
+sf::Sprite  platform_s(platform_texture);
 
-Texture s_player_texture_collision;
-Texture s_player_texture_jump;
-Texture s_player_texture_idle;
-Texture s_player_texture_run;
-Sprite  s_player(s_player_texture_idle);
+sf::Texture s_player_texture_collision;
+sf::Texture s_player_texture_jump;
+sf::Texture s_player_texture_idle;
+sf::Texture s_player_texture_run;
+sf::Sprite  s_player(s_player_texture_idle);
 
-Texture b_player_texture_idle;
-Texture b_player_texture_run;
-Sprite  b_player(b_player_texture_idle);
+sf::Texture b_player_texture_idle;
+sf::Texture b_player_texture_run;
+sf::Sprite  b_player(b_player_texture_idle);
 
 Player s_obj 
-(
+{
 /*idle_ind*/		0,
 /*run_ind*/			0,
 /*jump_ind*/		0,
 /*scale*/			1,
-/*size_run*/		40,
-/*sizeH_run*/		50,
 /*size_idle*/		28,
 /*sizeH_idle*/		50,
+/*size_run*/		40,
+/*sizeH_run*/		50,
 /*size_jump*/		29,
 /*sizeH_jump*/		50,
 /*anims_idle*/		4,
@@ -51,18 +41,18 @@ Player s_obj
 /*MAXvelocityX*/	40,
 /*ID*/				0,
 /*isIdle*/			true
-);
+};
 
 Player b_obj
-(
+{
 /*idle_ind*/		0,
 /*run_ind*/			0,
 /*jump_ind*/		0,
 /*scale*/			1,
-/*size_run*/		64,
-/*sizeH_run*/		64,
 /*size_idle*/		64,
 /*sizeH_idle*/		64,
+/*size_run*/		64,
+/*sizeH_run*/		64,
 /*size_jump*/		28,
 /*sizeH_jump*/		64,
 /*anims_idle*/		6,
@@ -72,12 +62,18 @@ Player b_obj
 /*MAXvelocityX*/	25,
 /*ID*/				1,
 /*isIdle*/			true
-);
+};
 
-Clock clock_var;
-RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
-"The Promised Chickenland",
-Style::Default);
+sf::Clock clock_var;
+sf::RenderWindow window
+(
+	sf::VideoMode
+	(
+		Config::RES_SIZE, Config::RES_SIZE
+	),
+	"The Promised Chickenland",
+	sf::Style::Default
+);
 
 int main()
 {
@@ -86,13 +82,10 @@ int main()
 	// main game loop
 	while (window.isOpen())
 	{
-		sf::Thread thread(&getXposition, std::ref(s_player));
-		thread.launch();
-
-		Event event;
+		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == Event::Closed)
+			if (event.type == sf::Event::Closed)
 				window.close();
 		}
 
@@ -103,8 +96,8 @@ int main()
 		move(b_player, b_obj, get_key_pressed_b());
 
 		collision(s_player, platform_s);
-		render(window,background, b_player, s_player, platform_s);
+		render();
 	}
-	system("pause");
+	
 	return EXIT_SUCCESS;
 }

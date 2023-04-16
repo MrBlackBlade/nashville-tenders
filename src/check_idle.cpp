@@ -1,14 +1,14 @@
 #include <check_idle.hpp>
 
-extern Texture s_player_texture_idle;
-extern Texture b_player_texture_idle;
+extern sf::Texture s_player_texture_idle;
+extern sf::Texture b_player_texture_idle;
 extern Player  s_obj;
 extern Player  b_obj;
 
-void check_idle(Sprite& player, Player& obj)
+void check_idle(sf::Sprite& player, Player& obj)
 {
 	// switching between different idle frames
-	if (obj.idle && frame_counter % ((obj.id == 0) ? 16 : 12)==0)
+	if (obj.idle && Config::frame_counter % ((obj.id == 0) ? 16 : 12)==0)
 	// the 18 will be a parameter to adjust the animation speed
 	{
 		player.setTexture
@@ -18,7 +18,7 @@ void check_idle(Sprite& player, Player& obj)
 
 		player.setTextureRect
 		(
-			IntRect
+			sf::IntRect
 			(
 				obj.idle_ind * obj.sprite_size_idle, 0, obj.sprite_size_idle, obj.sprite_sizeH_idle
 			)
@@ -30,8 +30,8 @@ void check_idle(Sprite& player, Player& obj)
 		// breaking the idle state
 		for (size_t i = 0; i < 2; i++)
 			for (size_t j = 0; j < 4; j++)
-				if (keybinds[i][j] == get_key_pressed_b() ||
-					keybinds[i][j] == get_key_pressed_s())
+				if (Config::keybinds[i][j] == get_key_pressed_b() ||
+					Config::keybinds[i][j] == get_key_pressed_s())
 					obj.idle = false;
 	}
 }
