@@ -3,7 +3,6 @@
  - [ ] **Add arrays for:**  
     1. [ ] Player objects  
     2. [ ] Player sprites
-    3. [ ] Player specific functions *(yes you can array functions wtf)*
 
  - [ ] **Add sprites and textures to Player.hpp**  
  - [ ] **Platform Collision Detection**
