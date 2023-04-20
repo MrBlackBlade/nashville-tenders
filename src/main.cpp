@@ -92,8 +92,8 @@ int main()
 		check_idle(s_player, s_obj);
 		check_idle(b_player, b_obj);
 
-		move(s_player, s_obj, get_key_pressed_s());
-		move(b_player, b_obj, get_key_pressed_b());
+		move(s_player, s_obj, get_key_pressed(s_obj));
+		move(b_player, b_obj, get_key_pressed(b_obj));
 
 		collision(s_player, platform_s);
 		render();

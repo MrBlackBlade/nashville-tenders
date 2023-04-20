@@ -6,27 +6,6 @@
 
 struct Player
 {
-	/*Player
-	(
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int32&,
-		const sf::Int16&,
-		const bool&
-	);*/
-
 	sf::Int32
 		// 0 for first sprite, 1 for second etc...
 		idle_ind,

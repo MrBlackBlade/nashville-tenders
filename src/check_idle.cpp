@@ -28,10 +28,8 @@ void check_idle(sf::Sprite& player, Player& obj)
 		obj.idle_ind %= obj.anims_idle;
 
 		// breaking the idle state
-		for (size_t i = 0; i < 2; i++)
-			for (size_t j = 0; j < 4; j++)
-				if (Config::keybinds[i][j] == get_key_pressed_b() ||
-					Config::keybinds[i][j] == get_key_pressed_s())
-					obj.idle = false;
+		for ( size_t i = 0; i < 4; i++ )
+			if (Config::keybinds[obj.id][i] == get_key_pressed(obj))
+				obj.idle = false;
 	}
 }

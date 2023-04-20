@@ -4,8 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
+#include <Player.hpp>
 
-sf::Keyboard::Key get_key_pressed_s();
-sf::Keyboard::Key get_key_pressed_b();
+sf::Keyboard::Key get_key_pressed(const Player&);
 
 #endif // #ifndef _GET_KEY_PRESSED_HPP
