@@ -1,9 +1,5 @@
 # <center> ***To-do list*** </center>
  
- - [ ] **Add arrays for:**  
-    1. [ ] Player objects  
-    2. [ ] Player sprites
-
  - [ ] **Add sprites and textures to Player.hpp**  
  - [ ] **Platform Collision Detection**
  - [ ] **Automate the functions for both players using for-loops**
