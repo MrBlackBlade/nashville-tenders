@@ -20,7 +20,8 @@ void check_idle(sf::Sprite& player, Player& obj)
 		(
 			sf::IntRect
 			(
-				obj.idle_ind * obj.sprite_size_idle, 0, obj.sprite_size_idle, obj.sprite_sizeH_idle
+				obj.idle_ind * obj.sprite_size_idle, 0, obj.sprite_size_idle,
+				obj.sprite_sizeH_idle
 			)
 		);
 
@@ -29,7 +30,7 @@ void check_idle(sf::Sprite& player, Player& obj)
 
 		// breaking the idle state
 		for ( size_t i = 0; i < 4; i++ )
-			if (Config::keybinds[obj.id][i] == get_key_pressed(obj))
+			if ( Config::keybinds[obj.id][i] == get_key_pressed(obj) )
 				obj.idle = false;
 	}
 }

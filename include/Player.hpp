@@ -6,6 +6,8 @@
 
 struct Player
 {
+	sf::Vector2f velocity;
+
 	sf::Int32
 		// 0 for first sprite, 1 for second etc...
 		idle_ind,
@@ -30,7 +32,7 @@ struct Player
 		anims_jump,
 
 		// player speed	
-		velocity,
+		//velocity,
 		velocity_max;
 
 	sf::Int16 id;

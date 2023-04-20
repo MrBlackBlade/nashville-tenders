@@ -24,6 +24,7 @@ sf::Sprite  b_player(b_player_texture_idle);
 
 Player s_obj 
 {
+/*velocity*/		{0, 0},
 /*idle_ind*/		0,
 /*run_ind*/			0,
 /*jump_ind*/		0,
@@ -37,7 +38,6 @@ Player s_obj
 /*anims_idle*/		4,
 /*anims_run*/		4,
 /*anims_jump*/		9,
-/*velocityX*/		0,
 /*MAXvelocityX*/	40,
 /*ID*/				0,
 /*isIdle*/			true
@@ -45,6 +45,7 @@ Player s_obj
 
 Player b_obj
 {
+/*velocity*/		{0, 0},
 /*idle_ind*/		0,
 /*run_ind*/			0,
 /*jump_ind*/		0,
@@ -58,7 +59,6 @@ Player b_obj
 /*anims_idle*/		6,
 /*anims_run*/		4,
 /*anims_jump*/		4,
-/*velocityX*/		0,
 /*MAXvelocityX*/	25,
 /*ID*/				1,
 /*isIdle*/			true

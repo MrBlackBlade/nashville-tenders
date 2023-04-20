@@ -74,13 +74,13 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 		{
 			if (sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][3]) && sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][1]))
 			{
-				if (obj.velocity > 0)
-					obj.velocity -= 2;
+				if (obj.velocity.x > 0)
+					obj.velocity.x -= 2;
 
-				if (obj.velocity < 0)
-					obj.velocity += 2;
+				if (obj.velocity.x < 0)
+					obj.velocity.x += 2;
 
-				if (obj.velocity == 0)
+				if (obj.velocity.x == 0)
 					obj.idle = true;
 			}
 
@@ -89,8 +89,8 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 				player.setScale(-obj.player_scale, obj.player_scale);
 				player.setOrigin(player.getLocalBounds().width, 0);
 
-				if (obj.velocity >= -obj.velocity_max)
-					obj.velocity -= 2;
+				if (obj.velocity.x >= -obj.velocity_max)
+					obj.velocity.x -= 2;
 			}
 
 			else if (key == Config::keybinds[obj.id][3])
@@ -99,26 +99,26 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 				player.setScale(obj.player_scale, obj.player_scale);
 				player.setOrigin(0, 0);
 
-				if (obj.velocity <= obj.velocity_max)
-					obj.velocity += 2;
+				if (obj.velocity.x <= obj.velocity_max)
+					obj.velocity.x += 2;
 			}
 		}
 
 		else
 		{
-			if (obj.velocity > 0)
-				obj.velocity -= 2;
+			if (obj.velocity.x > 0)
+				obj.velocity.x -= 2;
 
-			if (obj.velocity < 0)
-				obj.velocity += 2;
+			if (obj.velocity.x < 0)
+				obj.velocity.x += 2;
 
-			if (obj.velocity == 0)
+			if (obj.velocity.x == 0)
 				obj.idle = true;
 		}
 
 		if (Config::frame_counter % ((obj.id == 0) ? 14 : 14) == 0)
 		{
-			if (obj.velocity &&  velocity_y == 0 )
+			if (obj.velocity.x && velocity_y == 0 )
 			{
 				player.setTexture
 				(
@@ -158,12 +158,12 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 			}
 		}
 
-		if (obj.velocity > 0.5)
+		if (obj.velocity.x > 0.5)
 			background.move(-0.7, 0);
-		if (obj.velocity < 0)
+		if (obj.velocity.x < 0)
 			background.move(0.7, 0);
 
-		std::cout << ((obj.id == 0) ? "s_velocity: " : "b_velocity: ") << obj.velocity << std::endl;
-		player.move(obj.velocity / 10.f, 0);
+		std::cout << ((obj.id == 0) ? "s_velocity: " : "b_velocity: ") << obj.velocity.x << std::endl;
+		player.move(obj.velocity.x / 10.f, 0);
 	
 }
