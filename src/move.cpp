@@ -1,5 +1,7 @@
 #include <move.hpp>
 
+extern Player s_obj;
+
 extern sf::Texture bg_texture;
 extern sf::Sprite  background;
 
@@ -17,7 +19,7 @@ float jumpDistance	    = 0.0f;
 bool isJumping			= false;
 
 float gravity = 0.05f;
-float velocity_y = 0.0f;
+//float velocity_y = 0.0f;
 
 void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 {
@@ -65,9 +67,9 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 	}
 
 	else
-		velocity_y += gravity;
+		s_obj.velocity.y += gravity;
 
-	player.move ( 0, velocity_y );
+	player.move ( 0, s_obj.velocity.y );
 
 
 		if (sf::Keyboard::isKeyPressed(key))
@@ -118,7 +120,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 
 		if (Config::frame_counter % ((obj.id == 0) ? 14 : 14) == 0)
 		{
-			if (obj.velocity.x && velocity_y == 0 )
+			if (obj.velocity.x && !s_obj.velocity.y )
 			{
 				player.setTexture
 				(

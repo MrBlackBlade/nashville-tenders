@@ -11,10 +11,10 @@ extern Player  b_obj;
 extern sf::Texture b_player_texture_run;
 extern sf::Texture b_player_texture_idle;
 extern sf::Sprite  b_player;
-extern float velocity_y;
+//extern float velocity_y;
 extern float gravity;
 
-void collision(sf::Sprite& s_player, sf::Sprite& platform_s)
+void collision(sf::Sprite& player, sf::Sprite& platform_s)
 {
 	if (b_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
 	{
@@ -26,7 +26,7 @@ void collision(sf::Sprite& s_player, sf::Sprite& platform_s)
 		s_player.setPosition(s_player.getPosition().x, Config::RES_SIZE - 70);
 		s_obj.jump_ind = 0;
 		gravity = 0;
-		velocity_y = 0;
+		s_obj.velocity.y = 0;
 	}
 	else
 	{

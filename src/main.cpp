@@ -2,10 +2,6 @@
 #include <Config.hpp>
 #include <Player.hpp>
 
-extern float velocity_y;
-extern float gravity;
-extern bool isJumping;
-
 sf::Texture bg_texture;
 sf::Sprite  background(bg_texture);
 
