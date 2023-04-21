@@ -3,15 +3,16 @@
 extern sf::Texture s_player_texture_jump;
 extern sf::Texture s_player_texture_idle;
 extern sf::Texture s_player_texture_run;
+extern sf::Texture b_player_texture_jump;
 extern sf::Texture b_player_texture_idle;
 extern sf::Texture b_player_texture_run;
+
 
 void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
 {
     switch ( anim )
     {
     case Animation::run:
-        // Animating every "x" frames
         if ( Config::frame_counter % ( obj.id == 0 ? 14 : 14 ) == 0 )
         {
             player.setTexture
@@ -34,7 +35,6 @@ void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
         break;
 
     case Animation::idle:
-        // Animating every "x" frames
         if ( Config::frame_counter % ( obj.id == 0 ? 14 : 14 ) == 0 )
         {
             player.setTexture
@@ -57,12 +57,11 @@ void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
         break;
 
     case Animation::jump:
-        // Animating every "x" frames
-        if ( obj.id == 0 && Config::frame_counter % ( obj.id == 0 ? 14 : 14 ) == 0 )
+        if ( Config::frame_counter % ( obj.id == 0 ? 14 : 14 ) == 0 )
         {
             player.setTexture
             (
-                s_player_texture_jump
+                obj.id == 0 ? s_player_texture_jump : b_player_texture_jump
             );
 
             player.setTextureRect

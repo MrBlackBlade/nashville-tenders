@@ -14,6 +14,7 @@ sf::Texture s_player_texture_idle;
 sf::Texture s_player_texture_run;
 sf::Sprite  s_player(s_player_texture_idle);
 
+sf::Texture b_player_texture_jump;
 sf::Texture b_player_texture_idle;
 sf::Texture b_player_texture_run;
 sf::Sprite  b_player(b_player_texture_idle);
@@ -55,11 +56,11 @@ Player b_obj
 /*sizeH_idle*/		64,
 /*size_run*/		64,
 /*sizeH_run*/		64,
-/*size_jump*/		28,
-/*sizeH_jump*/		64,
+/*size_jump*/		67,
+/*sizeH_jump*/		67,
 /*anims_idle*/		6,
 /*anims_run*/		4,
-/*anims_jump*/		4,
+/*anims_jump*/		10,
 /*MAXvelocityX*/	25,
 /*ID*/				1,
 /*jumping*/			false,

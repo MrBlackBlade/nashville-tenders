@@ -3,6 +3,7 @@
 extern sf::Texture       s_player_texture_idle;
 extern sf::Texture       s_player_texture_run;
 extern sf::Texture		 s_player_texture_jump;
+extern sf::Texture		 b_player_texture_jump;
 extern sf::Texture		 s_player_texture_collision;
 extern sf::Texture       b_player_texture_idle;
 extern sf::Texture       b_player_texture_run;
@@ -40,6 +41,12 @@ void setup()
 	platform_s.setScale(1, 1);
 	platform_s.setPosition(0, Config::RES_SIZE - 20);
 
+	s_obj.position =
+	{
+		s_player.getPosition().x,
+		platform_s.getGlobalBounds().top - s_player.getGlobalBounds().height
+	};
+
 	s_player.setPosition(s_obj.position);
 
 
@@ -53,14 +60,23 @@ void setup()
 	if (!bg_texture.loadFromFile("resources\\background.png"))
 		exit(1);
 
+	b_player_texture_jump.loadFromFile("resources\\big_jump_animation.png");
 	b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png");
 	b_player_texture_run.loadFromFile("resources\\big_run.png");
 	b_player.setScale(b_obj.player_scale, b_obj.player_scale);
+
+	b_obj.position =
+	{
+		b_player.getPosition().x,
+		platform_s.getGlobalBounds().top - b_player.getGlobalBounds().height
+	};
 
 	// weird positioning shit
 	b_player.setPosition(b_obj.position);
 
 	// checking if textures loaded
+	if ( !b_player_texture_jump.loadFromFile("resources\\big_jump_animation.png") )
+		exit(1);
 	if (!b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png"))
 		exit(1);
 	if (!b_player_texture_run.loadFromFile("resources\\big_run.png"))

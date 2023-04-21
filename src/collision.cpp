@@ -19,15 +19,12 @@ void collision(sf::Sprite& player, Player& obj, sf::Sprite& ground)
 		obj.position = 
 		{
 			player.getPosition().x,
-			static_cast<float>(Config::RES_SIZE) - (obj.id == 0 ? 70 : 84 )
+			ground.getGlobalBounds().top - player.getGlobalBounds().height
 		};
+
 		player.setPosition(obj.position);
 
-		if (obj.id == 0)
-		{
-			obj.jump_ind   = 0;
-			obj.velocity.y = 0;
-			obj.jumping    = false;
-		}
+		obj.jump_ind   = 0;
+		obj.jumping    = false;
 	}
 }
