@@ -1,5 +1,7 @@
 #include <move.hpp>
 
+extern sf::Sprite background;
+
 void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 {
     // Decrementing the jump
@@ -104,5 +106,17 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
             std::cout << "Velocity X:\t" <<obj.velocity.x << std::endl;
             std::cout << "Velocity Y:\t" <<obj.velocity.y << std::endl;
         }
+    }
+
+    // Background movement
+    if ( obj.velocity.x > .5f )
+    {
+        background.move(-.7f, 0.f);
+    }
+
+    // Background movement
+    if ( obj.velocity.x < 0.f )
+    {
+        background.move(.7f, 0.f);
     }
 }
