@@ -6,7 +6,10 @@
 
 struct Player
 {
-	sf::Vector2f velocity;
+	sf::Vector2f
+		velocity,
+		acceleration,
+		position;
 
 	sf::Int32
 		// 0 for first sprite, 1 for second etc...
@@ -37,7 +40,9 @@ struct Player
 
 	sf::Int16 id;
 
-	bool idle;
+	bool
+		jumping,
+		idle;
 };
 
 #endif // #ifndef _PLAYER_HPP

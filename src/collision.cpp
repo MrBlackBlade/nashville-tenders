@@ -1,35 +1,33 @@
 #include <collision.hpp>
 
-extern sf::Texture platform_texture;
-extern sf::Sprite  platform_s;
-extern Player  s_obj;
-extern sf::Texture s_player_texture_run;
-extern sf::Texture s_player_texture_idle;
-extern sf::Texture s_player_texture_jump;
-extern sf::Sprite  s_player;
-extern Player  b_obj;
-extern sf::Texture b_player_texture_run;
-extern sf::Texture b_player_texture_idle;
-extern sf::Sprite  b_player;
-//extern float velocity_y;
-extern float gravity;
+extern sf::Texture  platform_texture;
+extern sf::Sprite   platform_s;
+extern Player	    s_obj;
+extern sf::Texture  s_player_texture_run;
+extern sf::Texture  s_player_texture_idle;
+extern sf::Texture  s_player_texture_jump;
+extern sf::Sprite   s_player;
+extern Player	    b_obj;
+extern sf::Texture  b_player_texture_run;
+extern sf::Texture  b_player_texture_idle;
+extern sf::Sprite   b_player;
 
-void collision(sf::Sprite& player, sf::Sprite& platform_s)
+void collision(sf::Sprite& player, Player& obj, sf::Sprite& ground)
 {
-	if (b_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
+	if (player.getGlobalBounds().intersects(ground.getGlobalBounds()))
 	{
-		b_player.setPosition(b_player.getPosition().x, Config::RES_SIZE - 84);
-	}
+		obj.position = 
+		{
+			player.getPosition().x,
+			static_cast<float>(Config::RES_SIZE) - (obj.id == 0 ? 70 : 84 )
+		};
+		player.setPosition(obj.position);
 
-	if (s_player.getGlobalBounds().intersects(platform_s.getGlobalBounds()))
-	{
-		s_player.setPosition(s_player.getPosition().x, Config::RES_SIZE - 70);
-		s_obj.jump_ind = 0;
-		gravity = 0;
-		s_obj.velocity.y = 0;
-	}
-	else
-	{
-		gravity = 0.5;
+		if (obj.id == 0)
+		{
+			obj.jump_ind   = 0;
+			obj.velocity.y = 0;
+			obj.jumping    = false;
+		}
 	}
 }

@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
 #include <Player.hpp>
+#include <animate.hpp>
 
 void check_idle(sf::Sprite&, Player&);
 

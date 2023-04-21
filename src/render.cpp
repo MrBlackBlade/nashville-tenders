@@ -14,8 +14,8 @@ void render()
     // render the sprites then draw the frame
     window.draw(background);
     window.draw(platform_s);
-    window.draw(s_player);
     window.draw(b_player);
+    window.draw(s_player);
     window.display();
 
     // for the animation speed

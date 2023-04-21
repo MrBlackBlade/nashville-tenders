@@ -2,7 +2,7 @@
 
 namespace Config
 {
-	const sf::Uint16 RES_SIZE = 800;
+	const sf::Uint16 RES_SIZE = 900;
 	sf::Uint16 frame_counter = 0;
 
 	const sf::Keyboard::Key keybinds[2][4]

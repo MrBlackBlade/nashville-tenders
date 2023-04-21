@@ -21,6 +21,8 @@ sf::Sprite  b_player(b_player_texture_idle);
 Player s_obj 
 {
 /*velocity*/		{0, 0},
+/*acceleration*/	{0, 0},
+/*position*/		{70, static_cast<float>(Config::RES_SIZE) - 200},
 /*idle_ind*/		0,
 /*run_ind*/			0,
 /*jump_ind*/		0,
@@ -36,12 +38,15 @@ Player s_obj
 /*anims_jump*/		9,
 /*MAXvelocityX*/	40,
 /*ID*/				0,
-/*isIdle*/			true
+/*jumping*/			false,
+/*idle*/			true
 };
 
 Player b_obj
 {
 /*velocity*/		{0, 0},
+/*acceleration*/	{0, 0},
+/*position*/		{0, static_cast<float>(Config::RES_SIZE) - 200},
 /*idle_ind*/		0,
 /*run_ind*/			0,
 /*jump_ind*/		0,
@@ -57,7 +62,8 @@ Player b_obj
 /*anims_jump*/		4,
 /*MAXvelocityX*/	25,
 /*ID*/				1,
-/*isIdle*/			true
+/*jumping*/			false,
+/*idle*/			true
 };
 
 sf::Clock clock_var;
@@ -91,7 +97,8 @@ int main()
 		move(s_player, s_obj, get_key_pressed(s_obj));
 		move(b_player, b_obj, get_key_pressed(b_obj));
 
-		collision(s_player, platform_s);
+		collision(s_player, s_obj, platform_s);
+		collision(b_player, b_obj, platform_s);
 		render();
 	}
 	

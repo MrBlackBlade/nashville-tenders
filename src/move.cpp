@@ -1,171 +1,97 @@
 #include <move.hpp>
 
-extern Player s_obj;
-
-extern sf::Texture bg_texture;
-extern sf::Sprite  background;
-
-extern sf::Texture s_player_texture_run;
-extern sf::Texture s_player_texture_idle;
-extern sf::Texture s_player_texture_jump;
-
-extern sf::Texture b_player_texture_run;
-extern sf::Texture b_player_texture_idle;
-
-float jumpHeight	    = 15.0f;
-float jumpSpeed			= 0.05f;
-float jumpAcceleration  = 0.2f;
-float jumpDistance	    = 0.0f;
-bool isJumping			= false;
-
-float gravity = 0.05f;
-//float velocity_y = 0.0f;
+//acc += raqm
+//vel += acc
+//pos += vel
+//setposition(pos)
 
 void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 {
-	if (sf::Keyboard::isKeyPressed(key))
-	{
-		if (sf::Keyboard::isKeyPressed(Config::keybinds[0][0]))
-		{
-			isJumping = true;
-			jumpDistance = 0.0f;
-		}
-	}
+    // Pressing a button
+    if (sf::Keyboard::isKeyPressed(key))
+    {
+        // Up
+        if ( key == Config::keybinds[obj.id][0] && !obj.jumping )
+        {
+            // jump logic
+        }
 
-	if (isJumping && obj.id == 0)
-	{
-		if (Config::frame_counter % ((obj.id == 0) ? 12 : 14) == 0)
-			{
-				player.setTexture
-				(
-					(obj.id == 0) ? s_player_texture_jump : b_player_texture_run
-				);
+        // Left
+        else if (key == Config::keybinds[obj.id][1])
+        {
+            obj.acceleration.x = -.2;
 
-				player.setTextureRect
-				(
-					sf::IntRect
-					(
-						obj.jump_ind * obj.sprite_size_jump, 0,
-						obj.sprite_size_jump, 56
-					)
-				);
+            animate(player, obj, Animation::run);
 
-				obj.jump_ind++;
-				obj.jump_ind %= obj.anims_jump;
-			}
+            player.setScale(-obj.player_scale, obj.player_scale);
+            player.setOrigin(player.getLocalBounds().width, 0);
+        }
 
-		float jumpAmount = jumpHeight * jumpSpeed * jumpAcceleration;
-		jumpDistance += jumpAmount;
-		player.move(0, -jumpAmount);
-		jumpSpeed += jumpAcceleration;
+        // Down
+            // mfish down lmao
 
-		if (jumpDistance >= jumpHeight)
-		{
-			isJumping = false;
-			jumpSpeed = 5.0f;
-		}
-	}
+        // Right
+        else if ( key == Config::keybinds[obj.id][3] )
+        {
+            obj.acceleration.x = .2;
 
-	else
-		s_obj.velocity.y += gravity;
+            animate(player, obj, Animation::run);
 
-	player.move ( 0, s_obj.velocity.y );
+            player.setScale(obj.player_scale, obj.player_scale);
+            player.setOrigin(0, 0);
+        }
 
+        // Capping the acceleration (+ve)
+        if ( obj.acceleration.x > .2 )
+        {
+           obj.acceleration.x = .2;
+        }
 
-		if (sf::Keyboard::isKeyPressed(key))
-		{
-			if (sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][3]) && sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][1]))
-			{
-				if (obj.velocity.x > 0)
-					obj.velocity.x -= 2;
+        // Capping the acceleration (-ve)
+        if ( obj.acceleration.x < -.2 )
+        {
+           obj.acceleration.x = -.2;
+        }
+        
+        // Apply motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
+    }
 
-				if (obj.velocity.x < 0)
-					obj.velocity.x += 2;
+    // Not pressing a button
+    else
+    {
+        // decelerate to the left
+        if ( obj.velocity.x > 0.f )
+        {
+            animate(player, obj, Animation::run);
+            obj.acceleration.x = -.2;
+        }
 
-				if (obj.velocity.x == 0)
-					obj.idle = true;
-			}
+        // decelerate to the right
+        else if ( obj.velocity.x < 0.f )
+        {
+            animate(player, obj, Animation::run);
+            obj.acceleration.x = .2;
+        }
 
-			else if (key == Config::keybinds[obj.id][1])
-			{
-				player.setScale(-obj.player_scale, obj.player_scale);
-				player.setOrigin(player.getLocalBounds().width, 0);
+        //  1.f is a tolerance value to check if the player "stopped" motion
+        if ( std::fabs ( obj.velocity.x ) < 1.f )
+        {
+            obj.velocity     = {0.f, 0.f};
+            obj.acceleration = {0.f, 0.f};
+            obj.idle = true;
+        }
 
-				if (obj.velocity.x >= -obj.velocity_max)
-					obj.velocity.x -= 2;
-			}
+        // apply the motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
 
-			else if (key == Config::keybinds[obj.id][3])
-			{
-				//background.move(-0.7, 0);
-				player.setScale(obj.player_scale, obj.player_scale);
-				player.setOrigin(0, 0);
-
-				if (obj.velocity.x <= obj.velocity_max)
-					obj.velocity.x += 2;
-			}
-		}
-
-		else
-		{
-			if (obj.velocity.x > 0)
-				obj.velocity.x -= 2;
-
-			if (obj.velocity.x < 0)
-				obj.velocity.x += 2;
-
-			if (obj.velocity.x == 0)
-				obj.idle = true;
-		}
-
-		if (Config::frame_counter % ((obj.id == 0) ? 14 : 14) == 0)
-		{
-			if (obj.velocity.x && !s_obj.velocity.y )
-			{
-				player.setTexture
-				(
-					(obj.id == 0) ? s_player_texture_run : b_player_texture_run
-				);
-
-				player.setTextureRect
-				(
-					sf::IntRect
-					(
-						obj.run_ind * obj.sprite_size_run, 0,
-						obj.sprite_size_run - .5f, obj.sprite_sizeH_run
-					)
-				);
-
-				obj.run_ind++;
-				obj.run_ind %= obj.anims_run;
-			}
-		}
-		if (sf::Keyboard::isKeyPressed(key))
-		{
-			if(isJumping)
-
-				if(sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][1]) && sf::Keyboard::isKeyPressed(Config::keybinds[obj.id][3]))
-			{
-				player.setTextureRect
-				(
-					sf::IntRect
-					(
-						obj.jump_ind* obj.sprite_size_jump, 0,
-						obj.sprite_size_jump, obj.sprite_sizeH_jump
-					)
-				);
-
-				obj.jump_ind++;
-				obj.jump_ind %= obj.anims_jump;
-			}
-		}
-
-		if (obj.velocity.x > 0.5)
-			background.move(-0.7, 0);
-		if (obj.velocity.x < 0)
-			background.move(0.7, 0);
-
-		std::cout << ((obj.id == 0) ? "s_velocity: " : "b_velocity: ") << obj.velocity.x << std::endl;
-		player.move(obj.velocity.x / 10.f, 0);
-	
+        // logging
+        std::cout << "Velocity:    \t" <<obj.velocity.x << std::endl;
+        std::cout << "Acceleration:\t" <<obj.acceleration.x << std::endl;
+        std::cout << "Position:    \t" <<obj.position.x << std::endl;
+    }
 }

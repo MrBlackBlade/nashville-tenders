@@ -32,15 +32,15 @@ void setup()
 	s_player.setScale(s_obj.player_scale, s_obj.player_scale);
 
 	// weird positioning shit
-	background.setTextureRect(sf::IntRect(0, 0, 1728, Config::RES_SIZE));
+	background.setTextureRect(sf::IntRect(0, 0, 1728, 1000));
 	background.setScale(2, 2);
-	background.setPosition(-576,-1200);
+	background.setPosition(-576,-1300);
 
 	platform_s.setTextureRect(sf::IntRect(0, 0, 1000, 32));
 	platform_s.setScale(1, 1);
 	platform_s.setPosition(0, Config::RES_SIZE - 20);
 
-	s_player.setPosition(70, Config::RES_SIZE - 200);
+	s_player.setPosition(s_obj.position);
 
 
 	// checking if textures loaded
@@ -58,7 +58,7 @@ void setup()
 	b_player.setScale(b_obj.player_scale, b_obj.player_scale);
 
 	// weird positioning shit
-	b_player.setPosition(0, Config::RES_SIZE - 200 );
+	b_player.setPosition(b_obj.position);
 
 	// checking if textures loaded
 	if (!b_player_texture_idle.loadFromFile("resources\\big_idle_animation.png"))

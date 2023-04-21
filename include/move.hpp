@@ -5,6 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
 #include <Player.hpp>
+#include <animate.hpp>
+#include <Animation.hpp>
 #include <iostream>
 
 void move(sf::Sprite&, Player&, const sf::Keyboard::Key&);
