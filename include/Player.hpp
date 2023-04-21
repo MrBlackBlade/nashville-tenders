@@ -8,6 +8,7 @@ struct Player
 {
 	sf::Vector2f
 		velocity,
+		velocity_max,
 		acceleration,
 		position;
 
@@ -28,15 +29,15 @@ struct Player
 
 		sprite_size_jump,
 		sprite_sizeH_jump,
-		
+
 		// no of diff animations
 		anims_idle,
 		anims_run,
-		anims_jump,
+		anims_jump;
 
 		// player speed	
 		//velocity,
-		velocity_max;
+		//velocity_max;
 
 	sf::Int16 id;
 

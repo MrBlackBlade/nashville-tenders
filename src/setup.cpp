@@ -37,7 +37,7 @@ void setup()
 	background.setScale(2, 2);
 	background.setPosition(-576,-1300);
 
-	platform_s.setTextureRect(sf::IntRect(0, 0, 1000, 32));
+	platform_s.setTextureRect(sf::IntRect(0, 0, 10000, 32));
 	platform_s.setScale(1, 1);
 	platform_s.setPosition(0, Config::RES_SIZE - 20);
 

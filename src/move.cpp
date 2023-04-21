@@ -20,7 +20,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
     if (sf::Keyboard::isKeyPressed(key))
     {
         // Up
-        if ( key == Config::keybinds[obj.id][0] && !obj.jumping )
+        if ( key == Config::keybinds[0][0] && !obj.jumping )
         {
             obj.jumping = true;
             obj.velocity.y = -10.f;
@@ -49,6 +49,18 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 
             player.setScale(obj.player_scale, obj.player_scale);
             player.setOrigin(0, 0);
+        }
+
+        // Capping the velocity.x (+ve)
+        if (obj.velocity.x > obj.velocity_max.x)
+        {
+            obj.velocity.x = obj.velocity_max.x;
+        }
+
+        // Capping the velocity.x (-ve)
+        if (obj.velocity.x < -obj.velocity_max.x)
+        {
+            obj.velocity.x = -obj.velocity_max.x;
         }
 
         // Capping the acceleration (+ve)

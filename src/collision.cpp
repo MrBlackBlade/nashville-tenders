@@ -23,7 +23,7 @@ void collision(sf::Sprite& player, Player& obj, sf::Sprite& ground)
 		};
 
 		player.setPosition(obj.position);
-
+		obj.velocity.y = 0;
 		obj.jump_ind   = 0;
 		obj.jumping    = false;
 	}
