@@ -3,12 +3,6 @@
 #define _CONFIG_HPP
 
 #include <SFML/Graphics.hpp>
-#include <check_idle.hpp>
-#include <get_key_pressed.hpp>
-#include <move.hpp>
-#include <render.hpp>
-#include <setup.hpp>
-#include <collision.hpp>
 
 namespace Config
 {

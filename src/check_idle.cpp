@@ -1,9 +1,12 @@
 #include <check_idle.hpp>
 
+// small player
 extern sf::Texture s_player_texture_idle;
+extern Player	   s_obj;
+
+// big player
 extern sf::Texture b_player_texture_idle;
-extern Player  s_obj;
-extern Player  b_obj;
+extern Player	   b_obj;
 
 void check_idle(sf::Sprite& player, Player& obj)
 {

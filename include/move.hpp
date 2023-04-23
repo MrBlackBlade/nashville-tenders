@@ -3,7 +3,6 @@
 #define _MOVE_HPP
 
 #include <SFML/Graphics.hpp>
-#include <Config.hpp>
 #include <Player.hpp>
 #include <animate.hpp>
 #include <Animation.hpp>

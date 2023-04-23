@@ -7,6 +7,7 @@ namespace Config
 
 	const sf::Keyboard::Key keybinds[2][4]
 	{
+		// small player keybinds
 		{
 			sf::Keyboard::Up   ,
 			sf::Keyboard::Left ,
@@ -14,6 +15,7 @@ namespace Config
 			sf::Keyboard::Right
 		},
 
+		// big player keybinds
 		{
 			sf::Keyboard::W	   ,
 			sf::Keyboard::A	   ,

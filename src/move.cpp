@@ -22,6 +22,8 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         // Up
         if ( key == Config::keybinds[0][0] && !obj.jumping )
         {
+            animate(player, obj, Animation::jump);
+
             obj.jumping = true;
             obj.velocity.y = -10.f;
         }
@@ -33,7 +35,8 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 
             obj.acceleration.x = -.2f;
 
-            player.setScale(-obj.player_scale, obj.player_scale);
+            // Rotate player to the left
+            player.setScale(-obj.scale, obj.scale);
             player.setOrigin(player.getLocalBounds().width, 0);
         }
 
@@ -47,7 +50,8 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 
             obj.acceleration.x = .2f;
 
-            player.setScale(obj.player_scale, obj.player_scale);
+            // Rotate player to the right
+            player.setScale(obj.scale, obj.scale);
             player.setOrigin(0, 0);
         }
 
@@ -88,6 +92,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         if ( obj.velocity.x > 0.f )
         {
             animate(player, obj, Animation::run);
+
             obj.acceleration.x = -.2f;
         }
 
@@ -95,6 +100,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         if ( obj.velocity.x < 0.f )
         {
             animate(player, obj, Animation::run);
+
             obj.acceleration.x = .2f;
         }
 

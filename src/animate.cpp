@@ -1,12 +1,14 @@
 #include <animate.hpp>
 
+// small player
 extern sf::Texture s_player_texture_jump;
 extern sf::Texture s_player_texture_idle;
 extern sf::Texture s_player_texture_run;
+
+// big player
 extern sf::Texture b_player_texture_jump;
 extern sf::Texture b_player_texture_idle;
 extern sf::Texture b_player_texture_run;
-
 
 void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
 {
@@ -24,15 +26,16 @@ void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
             (
                 sf::IntRect
                 (
-                obj.run_ind * obj.sprite_size_run, 0,
-                obj.sprite_size_run - (obj.id == 0 ? .5f : 0.f), obj.sprite_sizeH_run
+                obj.run_ind * obj.size_run_x, 0,
+                obj.size_run_x - (obj.id == 0 ? .5f : 0.f), obj.size_run_y
                 )
             );
 
             obj.run_ind++;
             obj.run_ind %= obj.anims_run;
         }
-        break;
+
+        return;
 
     case Animation::idle:
         if ( Config::frame_counter % ( obj.id == 0 ? 14 : 14 ) == 0 )
@@ -46,15 +49,16 @@ void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
             (
                 sf::IntRect
                 (
-                obj.idle_ind * obj.sprite_size_idle, 0,
-                obj.sprite_size_idle, obj.sprite_sizeH_idle
+                obj.idle_ind * obj.size_idle_x, 0,
+                obj.size_idle_x, obj.size_idle_y
                 )
             );
 
             obj.idle_ind++;
             obj.idle_ind %= obj.anims_idle;
         }
-        break;
+
+        return;
 
     case Animation::jump:
         if ( Config::frame_counter % ( obj.id == 0 ? 14 : 14 ) == 0 )
@@ -68,14 +72,15 @@ void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
             (
                 sf::IntRect
                 (
-                obj.jump_ind * obj.sprite_size_jump, 0,
-                obj.sprite_size_jump, obj.sprite_sizeH_jump
+                obj.jump_ind * obj.size_jump_x, 0,
+                obj.size_jump_x, obj.size_jump_y
                 )
             );
 
             obj.jump_ind++;
             obj.jump_ind %= obj.anims_jump;
         }
-        break;
+
+        return;
 	}
 }

@@ -6,6 +6,7 @@
 #include <Config.hpp>
 #include <Player.hpp>
 #include <animate.hpp>
+#include <get_key_pressed.hpp>
 
 void check_idle(sf::Sprite&, Player&);
 

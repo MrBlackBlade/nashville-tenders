@@ -5,6 +5,7 @@
 #include <SFML\Graphics.hpp>
 #include <Config.hpp>
 #include <Animation.hpp>
+#include <Player.hpp>
 
 void animate(sf::Sprite&, Player&, const Animation&);
 
