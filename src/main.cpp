@@ -53,6 +53,7 @@ sf::Texture b_player_texture_jump;
 sf::Texture b_player_texture_idle;
 sf::Texture b_player_texture_run;
 sf::Sprite  b_player(b_player_texture_idle);
+
 Player b_obj
 {
 /* velocity     */	{ 0, 0 },
