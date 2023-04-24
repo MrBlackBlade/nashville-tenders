@@ -1,8 +1,9 @@
 #include <render.hpp>
 
 // background and platforms
-extern sf::Sprite       background;
-extern sf::Sprite       platform;
+extern sf::Sprite               background;
+extern sf::RectangleShape       platform;
+extern sf::RectangleShape       box;
 
 // players
 extern sf::Sprite       s_player;
@@ -19,6 +20,7 @@ void render()
     // render the sprites then draw the frame
     window.draw(background);
     window.draw(platform);
+    window.draw(box);
     window.draw(b_player);
     window.draw(s_player);
     window.display();

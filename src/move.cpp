@@ -2,6 +2,7 @@
 
 extern sf::Sprite background;
 
+// For sprites
 void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 {
     // Decrementing the jump
@@ -74,7 +75,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         }
 
         // Capping the acceleration (-ve)
-        if ( obj.acceleration.x < -.2 )
+        if ( obj.acceleration.x < -.2f )
         {
            obj.acceleration.x = -.2f;
         }
@@ -116,14 +117,6 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         obj.velocity += obj.acceleration;
         obj.position += obj.velocity;
         player.setPosition(obj.position);
-
-        // logging
-        if ( obj.id == 0 )
-        {
-            //std::cout << std::boolalpha << obj.jumping << std::endl;
-            std::cout << "Velocity X:\t" <<obj.velocity.x << std::endl;
-            std::cout << "Velocity Y:\t" <<obj.velocity.y << std::endl;
-        }
     }
 
     // Background movement
@@ -137,4 +130,25 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
     {
         background.move(.7f, 0.f);
     }
+
+    // logging
+    if (obj.id == 0 && obj.velocity.x < 0.f)
+    {
+        std::cout << "Velocity X:\t" << obj.velocity.x << '\n';
+        std::cout << "Velocity Y:\t" << obj.velocity.y << "\n\n";
+        std::cout << "Position X:\t" << obj.position.x << '\n'; 
+        std::cout << "Position Y:\t" << obj.position.y << "\n\n";
+    }
+}
+
+// For obstacles
+void move(sf::RectangleShape& shape, Player& obj)
+{
+    // Gravity lmao
+    obj.acceleration.y = .2f;
+        
+    // Apply motion
+    obj.velocity += obj.acceleration;
+    obj.position += obj.velocity;
+    shape.setPosition(obj.position);
 }
