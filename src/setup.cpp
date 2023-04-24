@@ -138,7 +138,7 @@ void setup()
 	box.setScale(box_obj.scale, box_obj.scale);
 	box_obj.position =
 	{
-		box.getPosition().x, 
+		Config::RES_SIZE / 2.f,
 		platform.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);

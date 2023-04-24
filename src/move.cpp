@@ -132,7 +132,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
     }
 
     // logging
-    if (obj.id == 0 && obj.velocity.x < 0.f)
+    if (obj.id == 0)
     {
         std::cout << "Velocity X:\t" << obj.velocity.x << '\n';
         std::cout << "Velocity Y:\t" << obj.velocity.y << "\n\n";
