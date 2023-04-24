@@ -1,30 +1,30 @@
 #include <SFML\Graphics.hpp>
-#include <iostream>
-#include <move.hpp>
-#include <get_key_pressed.hpp>
-#include <render.hpp>
+#include <animate.hpp>
+#include <Animation.hpp>
 #include <check_idle.hpp>
+#include <collision.hpp>
 #include <Config.hpp>
+#include <get_key_pressed.hpp>
+#include <move.hpp>
+#include <Player.hpp>
+#include <render.hpp>
 #include <setup.hpp>
-		  
-using namespace sf;
-using namespace Config;
 
-Texture s_player_texture_idle;
-Texture s_player_texture_run;
-Sprite  s_player(s_player_texture_idle);
+// background and platforms
+extern sf::RectangleShape	platform;
+extern sf::RectangleShape	box;
+extern Player				box_obj;
 
-Texture b_player_texture_idle;
-Texture b_player_texture_run;
-Sprite  b_player(b_player_texture_idle);
+// small player
+extern sf::Sprite s_player;
+extern Player s_obj;
 
-Player  s_obj (0, 0, 1, 40, 28, 4, 4, 0, 40, 0, true);
-Player  b_obj (0, 0, 1, 64, 64, 6, 4, 0, 25, 1, true);
+// big player
+extern sf::Sprite b_player;
+extern Player b_obj;
 
-Clock clock_var;
-RenderWindow window(VideoMode(RES_SIZE, RES_SIZE),
-"The Promised Chickenland",
-Style::Default);
+// window
+extern sf::RenderWindow window;
 
 int main()
 {
@@ -33,23 +33,26 @@ int main()
 	// main game loop
 	while (window.isOpen())
 	{
-		Event event;
+		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == Event::Closed)
+			if (event.type == sf::Event::Closed)
 				window.close();
 		}
 
 		check_idle(s_player, s_obj);
-		move(s_player, s_obj, get_key_pressed_s());
-
-		//
-
 		check_idle(b_player, b_obj);
-		move(b_player, b_obj, get_key_pressed_b());
 
-		render(window, s_player, b_player);
+		move(s_player, s_obj, get_key_pressed(s_obj));
+		move(b_player, b_obj, get_key_pressed(b_obj));
+		move(box, box_obj);
+
+		collision(s_player, s_obj, platform);
+		collision(b_player, b_obj, platform);
+		collision(box, box_obj, platform);
+
+		render();
 	}
-
+	
 	return EXIT_SUCCESS;
 }

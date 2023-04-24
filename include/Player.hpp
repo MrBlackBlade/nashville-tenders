@@ -2,49 +2,45 @@
 #ifndef _PLAYER_HPP
 #define _PLAYER_HPP
 
-#include <cstdint>
-#include <SFML\Graphics.hpp>
-
-using namespace sf;
+#include <SFML/Graphics.hpp>
 
 struct Player
 {
-	Player
-	(
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int32_t&,
-		const std::int16_t&,
-		const bool&
-	);
+	sf::Vector2f
+	velocity,
+	velocity_max,
+	acceleration,
+	position;
 
-	std::int32_t
-		// 0 for first sprite, 1 for second etc...
-		idle_ind,
-		run_ind,
+	sf::Uint16
+	// 0 for first sprite, 1 for second etc...
+	idle_ind,
+	run_ind,
+	jump_ind,
 
-		// sprite measurements
-		player_scale,
-		sprite_size_idle,
-		sprite_size_run,
-		
-		// no of diff animations
-		anims_idle,
-		anims_run,
+	// sprite measurements
+	scale,
 
-		// player speed	
-		velocity,
-		velocity_max;
+	size_idle_x,
+	size_idle_y,
 
-	std::int16_t id;
+	size_run_x,
+	size_run_y,
 
-	bool idle;
+	size_jump_x,
+	size_jump_y,
+
+	// no of diff animation frames
+	anims_idle,
+	anims_run,
+	anims_jump,
+
+	// player id
+	id;
+
+	bool
+	jumping,
+	idle;
 };
 
 #endif // #ifndef _PLAYER_HPP

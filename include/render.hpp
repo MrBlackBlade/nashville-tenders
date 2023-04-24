@@ -5,9 +5,6 @@
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
 
-using namespace sf;
-using namespace Config;
-
-void render(RenderWindow&, Sprite&, Sprite&);
+void render();
 
 #endif // #ifndef _RENDER_HPP

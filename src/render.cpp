@@ -1,18 +1,33 @@
 #include <render.hpp>
 
-void render(RenderWindow& window, Sprite& s_player, Sprite& b_player)
+// background and platforms
+extern sf::Sprite               background;
+extern sf::RectangleShape       platform;
+extern sf::RectangleShape       box;
+
+// players
+extern sf::Sprite       s_player;
+extern sf::Sprite       b_player;
+
+// window
+extern sf::RenderWindow window;
+
+void render()
 {
-	// change the bg color
-	window.RenderTarget::clear(Color(130, 130, 150, 255));
+    // change the bg color
+    window.RenderTarget::clear(sf::Color(55, 68, 110, 255));
 
-	// render the sprites then draw the frame
-	window.draw(s_player);
-	window.draw(b_player);
-	window.display();
+    // render the sprites then draw the frame
+    window.draw(background);
+    window.draw(platform);
+    window.draw(box);
+    window.draw(b_player);
+    window.draw(s_player);
+    window.display();
 
-	// for the animation speed
-	frame_counter++;
+    // for the animation speed
+    Config::frame_counter++;
 
-	// closest number to 100 divisible by 16 to prevent overflowing		
-	frame_counter %= 96;
+    // closest number to 100 divisible by 16 to prevent overflowing        
+    Config::frame_counter %= 96;
 }

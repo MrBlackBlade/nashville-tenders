@@ -2,18 +2,15 @@
 #ifndef _CONFIG_HPP
 #define _CONFIG_HPP
 
-#include <SFML\Graphics.hpp>
-#include <cstdint>
-
-using namespace sf;
+#include <SFML/Graphics.hpp>
 
 namespace Config
 {
-	extern const std::uint16_t RES_SIZE;
+	extern const sf::Uint16 RES_SIZE;
 
-	extern std::int32_t frame_counter;
+	extern sf::Uint16 frame_counter;
 
-	extern const Keyboard::Key keybinds[2][4];
-}
+	extern const sf::Keyboard::Key keybinds[2][4];
+};
 
 #endif // #ifndef _CONFIG_HPP
