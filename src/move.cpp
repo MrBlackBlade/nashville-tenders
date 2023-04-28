@@ -131,13 +131,38 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         background.move(.7f, 0.f);
     }
 
-    // logging
-    if (obj.id == 0)
+    // Keep the player in bounds (right)
+    if (obj.position.x > (Config::RES_SIZE - player.getGlobalBounds().width))
     {
-        std::cout << "Velocity X:\t" << obj.velocity.x << '\n';
-        std::cout << "Velocity Y:\t" << obj.velocity.y << "\n\n";
-        std::cout << "Position X:\t" << obj.position.x << '\n'; 
-        std::cout << "Position Y:\t" << obj.position.y << "\n\n";
+        obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
+
+        // Apply motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
+    }
+
+    // Keep the player in bounds (left)
+    if (obj.position.x < 0)
+    {
+        obj.position.x = 0;
+
+        // Apply motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
+    }
+
+    // Keep the player in bounds (down)
+    if (obj.position.y > Config::RES_SIZE)
+    {
+        obj.position.y = Config::RES_SIZE - 50;
+        obj.velocity.y = 0;
+
+        // Apply motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
     }
 }
 
