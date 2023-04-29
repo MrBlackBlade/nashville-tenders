@@ -23,4 +23,10 @@ namespace Config
 			sf::Keyboard::D
 		}
 	};
+
+	sf::RectangleShape obstacles[OBSTACLES]
+	{
+		ground,
+		box
+	};
 }

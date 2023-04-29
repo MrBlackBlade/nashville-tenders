@@ -3,6 +3,9 @@
 #define _CONFIG_HPP
 
 #include <SFML/Graphics.hpp>
+#include <Player.hpp>
+
+#define OBSTACLES 2
 
 namespace Config
 {
@@ -11,6 +14,35 @@ namespace Config
 	extern sf::Uint16 frame_counter;
 
 	extern const sf::Keyboard::Key keybinds[2][4];
+	
+	extern sf::RectangleShape objects[OBSTACLES];
 };
+
+/* All the externs outside of Config */
+
+extern sf::Texture			bg_texture;
+extern sf::Sprite			background;
+extern sf::Texture			ground_texture;
+extern sf::RectangleShape	ground;
+extern sf::Texture			box_texture;
+extern sf::RectangleShape   box;
+extern Player				box_obj;
+
+// small player
+extern sf::Texture s_player_texture_jump;
+extern sf::Texture s_player_texture_idle;
+extern sf::Texture s_player_texture_run;
+extern sf::Sprite  s_player;
+extern Player	   s_obj;
+
+// big player
+extern sf::Texture b_player_texture_jump;
+extern sf::Texture b_player_texture_idle;
+extern sf::Texture b_player_texture_run;
+extern sf::Sprite  b_player;
+extern Player      b_obj;
+
+// window
+extern sf::RenderWindow window;
 
 #endif // #ifndef _CONFIG_HPP

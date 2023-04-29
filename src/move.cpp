@@ -1,7 +1,5 @@
 #include <move.hpp>
 
-extern sf::Sprite background;
-
 // For sprites
 void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 {

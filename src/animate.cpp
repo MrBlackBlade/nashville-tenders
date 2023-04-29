@@ -1,15 +1,5 @@
 #include <animate.hpp>
 
-// small player
-extern sf::Texture s_player_texture_jump;
-extern sf::Texture s_player_texture_idle;
-extern sf::Texture s_player_texture_run;
-
-// big player
-extern sf::Texture b_player_texture_jump;
-extern sf::Texture b_player_texture_idle;
-extern sf::Texture b_player_texture_run;
-
 void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
 {
     switch ( anim )

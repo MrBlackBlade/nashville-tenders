@@ -1,17 +1,5 @@
 #include <render.hpp>
 
-// background and platforms
-extern sf::Sprite               background;
-extern sf::RectangleShape       ground;
-extern sf::RectangleShape       box;
-
-// players
-extern sf::Sprite       s_player;
-extern sf::Sprite       b_player;
-
-// window
-extern sf::RenderWindow window;
-
 void render()
 {
     // change the bg color

@@ -2,7 +2,7 @@
 #ifndef _COLLISION_HPP
 #define _COLLISION_HPP
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <Config.hpp>
 #include <Player.hpp>
 

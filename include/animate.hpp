@@ -2,7 +2,7 @@
 #ifndef _ANIMATE_HPP
 #define	_ANIMATE_HPP
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <Config.hpp>
 #include <Animation.hpp>
 #include <Player.hpp>

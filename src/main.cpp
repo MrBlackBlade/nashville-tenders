@@ -1,4 +1,4 @@
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <animate.hpp>
 #include <Animation.hpp>
 #include <check_idle.hpp>
@@ -9,22 +9,6 @@
 #include <Player.hpp>
 #include <render.hpp>
 #include <setup.hpp>
-
-// background and platforms
-extern sf::RectangleShape	ground;
-extern sf::RectangleShape	box;
-extern Player				box_obj;
-
-// small player
-extern sf::Sprite s_player;
-extern Player s_obj;
-
-// big player
-extern sf::Sprite b_player;
-extern Player b_obj;
-
-// window
-extern sf::RenderWindow window;
 
 int main()
 {
