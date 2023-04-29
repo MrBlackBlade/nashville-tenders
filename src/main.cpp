@@ -11,7 +11,7 @@
 #include <setup.hpp>
 
 // background and platforms
-extern sf::RectangleShape	platform;
+extern sf::RectangleShape	ground;
 extern sf::RectangleShape	box;
 extern Player				box_obj;
 
@@ -47,9 +47,11 @@ int main()
 		move(b_player, b_obj, get_key_pressed(b_obj));
 		move(box, box_obj);
 
-		collision(s_player, s_obj, platform);
-		collision(b_player, b_obj, platform);
-		collision(box, box_obj, platform);
+		collision(s_player, s_obj, ground);
+		collision(s_player, s_obj, box);
+		collision(b_player, b_obj, ground);
+		collision(b_player, b_obj, box);
+		collision(box, box_obj, ground);
 
 		render();
 	}

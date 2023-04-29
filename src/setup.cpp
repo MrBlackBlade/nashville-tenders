@@ -3,10 +3,10 @@
 // background and platforms
 sf::Texture			bg_texture;
 sf::Sprite			background(bg_texture);
-sf::Texture			platform_texture;
-sf::RectangleShape	platform({900, 32});
+sf::Texture			ground_texture;
+sf::RectangleShape	ground({900, 32});
 sf::Texture			box_texture;
-sf::RectangleShape  box({32, 32});
+sf::RectangleShape  box({96, 96});
 
 Player box_obj
 {
@@ -18,7 +18,7 @@ Player box_obj
 /* idle_ind     */	0,
 /* run_ind      */	0,
 /* jump_ind     */	0,
-/* scale        */	1.5f,
+/* scale        */	1.f,
 /* size_idle_x  */	32,
 /* size_idle_y  */	32,
 /* size_run_x   */	32,
@@ -116,10 +116,10 @@ void setup()
 
 	// background and platforms
 	bg_texture.loadFromFile("resources/background.png");
-	platform_texture.loadFromFile("resources/tile_1.png");
+	ground_texture.loadFromFile("resources/tile_1.png");
 	box_texture.loadFromFile("resources/box.png");
 
-	if (!platform_texture.loadFromFile("resources/tile_1.png"))
+	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
 	if (!bg_texture.loadFromFile("resources/background.png"))
 		exit(1);
@@ -130,16 +130,16 @@ void setup()
 	background.setScale(2, 2);
 	background.setPosition(-576,-1300);
 
-	platform.setTexture(&platform_texture);
-	platform.setScale(1, 1);
-	platform.setPosition(0, Config::RES_SIZE - 20);
+	ground.setTexture(&ground_texture);
+	ground.setScale(1, 1);
+	ground.setPosition(0, Config::RES_SIZE - 20);
 
 	box.setTexture(&box_texture);
 	box.setScale(box_obj.scale, box_obj.scale);
 	box_obj.position =
 	{
 		Config::RES_SIZE / 2.f,
-		platform.getGlobalBounds().top - box.getGlobalBounds().height
+		ground.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);
 
@@ -159,7 +159,7 @@ void setup()
 	s_obj.position =
 	{
 		s_player.getPosition().x,
-		platform.getGlobalBounds().top - 300.f/*s_player.getGlobalBounds().height */
+		ground.getGlobalBounds().top - s_player.getGlobalBounds().height
 	};
 	s_player.setPosition(s_obj.position);
 
@@ -179,7 +179,7 @@ void setup()
 	b_obj.position =
 	{
 		b_player.getPosition().x,
-		platform.getGlobalBounds().top - b_player.getGlobalBounds().height - 64
+		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64
 	};
 	b_player.setPosition(b_obj.position);
 }
