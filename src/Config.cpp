@@ -24,9 +24,9 @@ namespace Config
 		}
 	};
 
-	sf::RectangleShape obstacles[OBSTACLES]
-	{
-		ground,
-		box
-	};
+	Pair				small { &s_player, &s_obj };
+	Pair				big   { &b_player, &b_obj };
+
+	sf::RectangleShape* objects[OBJECTS] { &ground, &box };
+	Pair*               players[PLAYERS] { &small, &big };
 }

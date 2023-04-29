@@ -7,6 +7,7 @@
 #include <get_key_pressed.hpp>
 #include <move.hpp>
 #include <Player.hpp>
+#include <Pair.hpp>
 #include <render.hpp>
 #include <setup.hpp>
 
@@ -24,17 +25,24 @@ int main()
 				window.close();
 		}
 
-		check_idle(s_player, s_obj);
-		check_idle(b_player, b_obj);
-
-		move(s_player, s_obj, get_key_pressed(s_obj));
-		move(b_player, b_obj, get_key_pressed(b_obj));
+		// player idle checking and motion
+		for (size_t player = 0; player < PLAYERS; player++)
+		{
+			using Config::players;
+			check_idle(*players[player]->sprite, *players[player]->obj);
+			move(*players[player]->sprite, *players[player]->obj, get_key_pressed(*players[player]->obj));
+		}
+		// obstacle gravity
 		move(box, box_obj);
 
-		collision(s_player, s_obj, ground);
-		collision(s_player, s_obj, box);
-		collision(b_player, b_obj, ground);
-		collision(b_player, b_obj, box);
+		// player to obstacle collision
+		for (size_t player = 0; player < PLAYERS; player++)
+		{
+			using Config::players, Config::objects;
+			for (size_t object = 0; object < OBJECTS; object++)
+				collision(*players[player]->sprite, *players[player]->obj, *objects[object]);
+		}
+		// obstacle to obstacle collision
 		collision(box, box_obj, ground);
 
 		render();
