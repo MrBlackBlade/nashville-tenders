@@ -10,6 +10,7 @@
 #include <iostream>
 #include <get_key_pressed.hpp>
 #include <collision.hpp>
+#include <out_of_bounds.hpp>
 
 void move(Pair_Player&);
 void move(Pair_Object&);

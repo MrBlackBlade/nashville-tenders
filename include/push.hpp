@@ -10,6 +10,7 @@
 #include <Animation.hpp>
 #include <collision.hpp>
 #include <get_key_pressed.hpp>
+#include <out_of_bounds.hpp>
 
 bool push(Pair_Player&, Pair_Object&);
 

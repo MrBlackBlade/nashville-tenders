@@ -12,6 +12,7 @@
 #include <Object.hpp>
 #include <render.hpp>
 #include <setup.hpp>
+#include <out_of_bounds.hpp>
 
 int main()
 {
