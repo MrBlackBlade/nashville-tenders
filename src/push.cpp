@@ -30,7 +30,7 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
         shape.setPosition(o_obj.position);
     }
 
-	if (collision(p_pair, o_pair))
+	if (collision(p_pair, o_pair) && !(o_obj.position.x > (Config::RES_SIZE - shape.getGlobalBounds().width - 5.f)) && !(o_obj.position.x + shape.getGlobalBounds().width < shape.getGlobalBounds().width + 5.f))
 	{
 		animate(p_pair, Animation::push);
 		// left collision

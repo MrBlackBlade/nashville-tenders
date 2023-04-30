@@ -107,7 +107,7 @@ Player b_obj
 4,				// anims_push
 1,				// ID          
 	 					   
-false,			// jumping     
+true,			// jumping     
 true			// idle        
 };
 
@@ -199,8 +199,8 @@ void setup()
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
-		b_player.getPosition().x,
-		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 0.f
+		0,
+		ground.getGlobalBounds().top - b_player.getGlobalBounds().height 
 	};
 	b_player.setPosition(b_obj.position);
 }
