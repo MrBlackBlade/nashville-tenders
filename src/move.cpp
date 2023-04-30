@@ -8,7 +8,7 @@ void move(Pair_Player& pair)
     const auto key = get_key_pressed(pair);
 
     // Decrementing the jump
-    if ( obj.jumping && obj.id == 0)
+    if ( obj.jumping )
     {
         animate(pair, Animation::jump);
         obj.acceleration.y = .2f;
@@ -23,12 +23,12 @@ void move(Pair_Player& pair)
     if (sf::Keyboard::isKeyPressed(key))
     {
         // Up
-        if ( key == Config::keybinds[0][0] && !obj.jumping && obj.id == 0 )
+        if ( key == Config::keybinds[obj.id][0] && !obj.jumping )
         {
             animate(pair, Animation::jump);
 
             obj.jumping = true;
-            obj.velocity.y = -8.f;
+            obj.velocity.y = obj.id ? -2.f : -8.f ;
         }
 
         // Left

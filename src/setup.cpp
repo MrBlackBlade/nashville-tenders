@@ -200,7 +200,7 @@ void setup()
 	b_obj.position =
 	{
 		b_player.getPosition().x,
-		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64
+		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 0.f
 	};
 	b_player.setPosition(b_obj.position);
 }
