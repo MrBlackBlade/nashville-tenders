@@ -3,8 +3,8 @@
 // For sprites
 void move(Pair& pair, const sf::Keyboard::Key& key)
 {
-    auto player = *pair.sprite;
-    auto obj = *pair.obj;
+    auto& player = *pair.sprite;
+    auto& obj = *pair.obj;
 
     // Ability 1: ZAA WARUDOOO
     if (obj.id == 0 && key == Config::keybinds[0][2]) {

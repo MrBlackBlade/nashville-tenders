@@ -2,8 +2,8 @@
 
 void check_idle(Pair& pair)
 {
-	auto player = *pair.sprite;
-	auto obj = *pair.obj;
+	auto& player = *pair.sprite;
+	auto& obj = *pair.obj;
 
 	if (obj.idle)
 	{
