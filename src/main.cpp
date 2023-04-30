@@ -29,8 +29,8 @@ int main()
 		for (size_t player = 0; player < PLAYERS; player++)
 		{
 			using Config::players;
-			check_idle(*players[player]->sprite, *players[player]->obj);
-			move(*players[player]->sprite, *players[player]->obj, get_key_pressed(*players[player]->obj));
+			check_idle(*players[player]);
+			move(*players[player], get_key_pressed(*players[player]->obj));
 		}
 		// obstacle gravity
 		move(box, box_obj);

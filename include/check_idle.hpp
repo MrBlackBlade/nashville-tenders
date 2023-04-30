@@ -4,10 +4,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
-#include <Player.hpp>
+#include <Pair.hpp>
 #include <animate.hpp>
 #include <get_key_pressed.hpp>
 
-void check_idle(sf::Sprite&, Player&);
+void check_idle(Pair&);
 
 #endif // #ifndef _CHECK_IDLE_HPP

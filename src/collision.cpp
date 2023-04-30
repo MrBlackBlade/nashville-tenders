@@ -71,7 +71,7 @@ void collision(sf::Sprite& player, Player& obj, sf::RectangleShape& shape)
 	}
 }
 
-void collision(sf::RectangleShape& shape1, Player& obj, sf::RectangleShape& shape2)
+void collision(sf::RectangleShape& shape1, Object& obj, sf::RectangleShape& shape2)
 {
 	auto
 		s1_bounds = shape1.getGlobalBounds(),
@@ -95,8 +95,6 @@ void collision(sf::RectangleShape& shape1, Player& obj, sf::RectangleShape& shap
 		shape1.setPosition(obj.position);
 
 		obj.velocity.y = 0;
-		obj.jump_ind = 0;
-		obj.jumping = false;
 		return;
 	}
 

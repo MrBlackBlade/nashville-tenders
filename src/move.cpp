@@ -1,10 +1,17 @@
 #include <move.hpp>
 
 // For sprites
-void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
+void move(Pair& pair, const sf::Keyboard::Key& key)
 {
+    auto player = *pair.sprite;
+    auto obj = *pair.obj;
+
+    // Ability 1: ZAA WARUDOOO
+    if (obj.id == 0 && key == Config::keybinds[0][2]) {
+        return;
+    }
     // Decrementing the jump
-    if ( obj.jumping )
+    if ( obj.jumping && obj.id == 0)
     {
         animate(player, obj, Animation::jump);
         obj.acceleration.y = .2f;
@@ -19,7 +26,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
     if (sf::Keyboard::isKeyPressed(key))
     {
         // Up
-        if ( key == Config::keybinds[0][0] && !obj.jumping )
+        if ( key == Config::keybinds[0][0] && !obj.jumping && obj.id == 0 )
         {
             animate(player, obj, Animation::jump);
 
@@ -165,9 +172,9 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
 }
 
 // For obstacles
-void move(sf::RectangleShape& shape, Player& obj)
+void move(sf::RectangleShape& shape, Object& obj)
 {
-    // Gravity lmao
+    // Gravity lmaoo
     obj.acceleration.y = .2f;
         
     // Apply motion

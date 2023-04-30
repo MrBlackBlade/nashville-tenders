@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <Player.hpp>
+#include <Object.hpp>
 #include <Pair.hpp>
 
 constexpr auto OBJECTS = 2;
@@ -30,7 +31,7 @@ extern sf::Texture			ground_texture;
 extern sf::RectangleShape	ground;
 extern sf::Texture			box_texture;
 extern sf::RectangleShape   box;
-extern Player				box_obj;
+extern Object				box_obj;
 
 // small player
 extern sf::Texture			s_player_texture_jump;

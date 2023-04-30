@@ -4,12 +4,14 @@
 
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
-#include <Pair.hpp>
+#include <Player.hpp>
+#include <Object.hpp>
 #include <animate.hpp>
 #include <Animation.hpp>
+#include <collision.hpp>
 #include <iostream>
 
-void move(Pair&, const sf::Keyboard::Key&);
-void move(sf::RectangleShape&, Object&);
+void move(sf::Sprite&, Player&, const sf::Keyboard::Key&);
+void move(sf::RectangleShape&, Player&);
 
 #endif // #ifndef _MOVE_HPP

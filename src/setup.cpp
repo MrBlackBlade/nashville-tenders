@@ -8,30 +8,18 @@ sf::RectangleShape	ground({900, 32});
 sf::Texture			box_texture;
 sf::RectangleShape  box({96, 96});
 
-Player box_obj
+Object box_obj
 {
-/* velocity     */	{ 0, 0 },
-/* velocity_max */	{ 0, 0 },
-/* acceleration */	{ 0, 0 },
-/* position     */	{ 0, 0 },
-			    
-/* idle_ind     */	0,
-/* run_ind      */	0,
-/* jump_ind     */	0,
-/* scale        */	1.f,
-/* size_idle_x  */	32,
-/* size_idle_y  */	32,
-/* size_run_x   */	32,
-/* size_run_y   */	32,
-/* size_jump_x  */	32,
-/* size_jump_y  */	32,
-/* anims_idle   */	0,
-/* anims_run    */	0,
-/* anims_jump   */	0,
-/* ID           */	rand() % 69,
-			    
-/* jumping      */	false,
-/* idle         */	true
+	{ 0, 0 },	// velocity    
+	{ 0, 0 },	// velocity_max
+	{ 0, 0 },	// acceleration
+	{ 0, 0 },	// position    
+
+	0,			// anim_ind    
+	1.f,		// scale       
+	32,			// size_x	
+	32,			// size_y	
+	0			// anims	
 };
 
 // small player
