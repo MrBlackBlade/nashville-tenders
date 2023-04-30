@@ -12,6 +12,7 @@ struct Object
 		box,
 		collectible,
 		button,
+		lever,
 		elevator,
 
 		object_max,

@@ -5,6 +5,7 @@
 #include <collision.hpp>
 #include <Config.hpp>
 #include <get_key_pressed.hpp>
+#include <push.hpp>
 #include <move.hpp>
 #include <Player.hpp>
 #include <Pair.hpp>
@@ -46,7 +47,10 @@ int main()
 		{
 			using Config::players, Config::objects;
 			for (size_t object = 0; object < OBJECTS; object++)
+			{
+				push(*players[player], *objects[object]);
 				collision(*players[player], *objects[object]);
+			}
 		}
 
 		// ground obstacle collision

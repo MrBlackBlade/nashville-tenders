@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _MOVE_HPP
-#define _MOVE_HPP
+#ifndef _PUSH_HPP
+#define _PUSH_HPP
 
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
@@ -9,9 +9,8 @@
 #include <animate.hpp>
 #include <Animation.hpp>
 #include <collision.hpp>
-#include <iostream>
+#include <get_key_pressed.hpp>
 
-void move(sf::Sprite&, Player&, const sf::Keyboard::Key&);
-void move(sf::RectangleShape&, Player&);
+bool push(Pair_Player&, Pair_Object&);
 
-#endif // #ifndef _MOVE_HPP
+#endif // #ifndef _PUSH_HPP

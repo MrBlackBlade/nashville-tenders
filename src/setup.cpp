@@ -10,32 +10,32 @@ sf::RectangleShape  box({32, 32});
 
 Object ground_obj
 {
-	Object::ground, // ID
-	{ 0, 0 },	    // velocity    
-	{ 0, 0 },	    // velocity_max
-	{ 0, 0 },	    // acceleration
-	{ 0, 0 },	    // position    
+Object::ground, // ID
+{ 0, 0 },	    // velocity    
+{ 0, 0 },	    // velocity_max
+{ 0, 0 },	    // acceleration
+{ 0, 0 },	    // position    
 				    
-	0,			    // anim_ind    
-	1.f,		    // scale       
-	900,		    	// size_x	
-	32,			    // size_y	
-	0			    // anims
+0,			    // anim_ind    
+1.f,		    // scale       
+900,		    // size_x	
+32,			    // size_y	
+0			    // anims
 };
 
 Object box_obj
 {
-	Object::box, // ID
-	{ 0, 0 },	 // velocity    
-	{ 0, 0 },	 // velocity_max
-	{ 0, 0 },	 // acceleration
-	{ 0, 0 },	 // position    
+Object::box,		// ID
+{ 0, 0 },		// velocity    
+{ 0, 0 },		// velocity_max
+{ 0, 0 },		// acceleration
+{ 0, 0 },		// position    
 				 
-	0,			 // anim_ind    
-	3.f,		 // scale       
-	32,			 // size_x	
-	32,			 // size_y	
-	0			 // anims	
+0,				// anim_ind    
+3.f,			// scale       
+32,				// size_x	
+32,				// size_y	
+0				// anims	
 };
 
 // small player
@@ -46,28 +46,28 @@ sf::Sprite  s_player(s_player_texture_idle);
 
 Player s_obj
 {
-/* velocity     */	{  0, 0  },
-/* velocity_max */	{  5, 50 },
-/* acceleration */	{  0, 0  },
-/* position     */	{  0, 0  },
-			    
-/* idle_ind     */	0,
-/* run_ind      */	0,
-/* jump_ind     */	0,
-/* scale        */	1,
-/* size_idle_x  */	28,
-/* size_idle_y  */	50,
-/* size_run_x   */	40,
-/* size_run_y   */	50,
-/* size_jump_x  */	29,
-/* size_jump_y  */	56,
-/* anims_idle   */	4,
-/* anims_run    */	4,
-/* anims_jump   */	9,
-/* ID           */	0,
-			    
-/* jumping      */	false,
-/* idle         */	true
+{  0, 0  },		// velocity    
+{  5, 50 },		// velocity_max
+{  0, 0  },		// acceleration
+{  0, 0  },		// position    
+			    		   
+0,				// idle_ind    
+0,				// run_ind     
+0,				// jump_ind    
+1,				// scale       
+28,				// size_idle_x 
+50,				// size_idle_y 
+40,				// size_run_x  
+50,				// size_run_y  
+29,				// size_jump_x 
+56,				// size_jump_y 
+4,				// anims_idle  
+4,				// anims_run   
+9,				// anims_jump  
+0,				// ID          
+			    		   
+false,			// jumping     
+true			// idle        
 };
 
 // big player
@@ -78,28 +78,28 @@ sf::Sprite  b_player(b_player_texture_idle);
 
 Player b_obj
 {
-/* velocity     */	{  0, 0  },
-/* velocity_max */	{  2, 50 },
-/* acceleration */	{  0, 0  },
-/* position     */	{  0, 0  },
-			    
-/* idle_ind     */	0,
-/* run_ind      */	0,
-/* jump_ind     */	0,
-/* scale        */	1,
-/* size_idle_x  */	64,
-/* size_idle_y  */	64,
-/* size_run_x   */	64,
-/* size_run_y   */	64,
-/* size_jump_x  */	67,
-/* size_jump_y  */	67,
-/* anims_idle   */	6,
-/* anims_run    */	4,
-/* anims_jump   */	10,
-/* ID           */	1,
-			    
-/* jumping      */	false,
-/* idle         */	true
+{  0, 0  },		// velocity    
+{  2, 50 },		// velocity_max
+{  0, 0  },		// acceleration
+{  0, 0  },		// position    
+	 					   
+0,				// idle_ind    
+0,				// run_ind     
+0,				// jump_ind    
+1,				// scale       
+64,				// size_idle_x 
+64,				// size_idle_y 
+64,				// size_run_x  
+64,				// size_run_y  
+67,				// size_jump_x 
+67,				// size_jump_y 
+6,				// anims_idle  
+4,				// anims_run   
+10,				// anims_jump  
+1,				// ID          
+	 					   
+false,			// jumping     
+true			// idle        
 };
 
 // window
