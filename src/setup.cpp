@@ -32,7 +32,7 @@ Object::box,		// ID
 { 0, 0 },		// position    
 				 
 0,				// anim_ind    
-3.f,			// scale       
+69.f,			// scale       
 32,				// size_x	
 32,				// size_y	
 0				// anims	
@@ -53,7 +53,8 @@ Player s_obj
 			    		   
 0,				// idle_ind    
 0,				// run_ind     
-0,				// jump_ind    
+0,				// jump_ind 
+0,				// push_ind
 1,				// scale       
 28,				// size_idle_x 
 50,				// size_idle_y 
@@ -61,9 +62,12 @@ Player s_obj
 50,				// size_run_y  
 29,				// size_jump_x 
 56,				// size_jump_y 
+0,				// size_push_x
+0,				// size_push_y
 4,				// anims_idle  
 4,				// anims_run   
-9,				// anims_jump  
+9,				// anims_jump 
+0,				// anims_push
 0,				// ID          
 			    		   
 false,			// jumping     
@@ -74,6 +78,7 @@ true			// idle
 sf::Texture b_player_texture_jump;
 sf::Texture b_player_texture_idle;
 sf::Texture b_player_texture_run;
+sf::Texture b_player_texture_push;
 sf::Sprite  b_player(b_player_texture_idle);
 
 Player b_obj
@@ -85,7 +90,8 @@ Player b_obj
 	 					   
 0,				// idle_ind    
 0,				// run_ind     
-0,				// jump_ind    
+0,				// jump_ind
+0,				// push_ind
 1,				// scale       
 64,				// size_idle_x 
 64,				// size_idle_y 
@@ -93,9 +99,12 @@ Player b_obj
 64,				// size_run_y  
 67,				// size_jump_x 
 67,				// size_jump_y 
+64,				// size_push_x
+64,				// size_push_y
 6,				// anims_idle  
 4,				// anims_run   
-10,				// anims_jump  
+10,				// anims_jump 
+4,				// anims_push
 1,				// ID          
 	 					   
 false,			// jumping     
@@ -175,13 +184,16 @@ void setup()
 	// big player
 	b_player_texture_jump.loadFromFile("resources/big_jump_animation.png");
 	b_player_texture_idle.loadFromFile("resources/big_idle_animation.png");
-	b_player_texture_run.loadFromFile("resources/big_run.png");
+	b_player_texture_run.loadFromFile ("resources/big_run.png");
+	b_player_texture_push.loadFromFile("resources/big_push_animation.png");
 
 	if (!b_player_texture_jump.loadFromFile("resources/big_jump_animation.png"))
 		exit(1);
 	if (!b_player_texture_idle.loadFromFile("resources/big_idle_animation.png"))
 		exit(1);
 	if (!b_player_texture_run.loadFromFile("resources/big_run.png"))
+		exit(1);
+	if (!b_player_texture_push.loadFromFile("resources/big_push_animation.png"))
 		exit(1);
 
 	b_player.setScale(b_obj.scale, b_obj.scale);

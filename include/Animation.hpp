@@ -7,6 +7,7 @@ enum class Animation
 	run,
 	jump,
 	idle,
+	push,
 	
 	animation_max,
 };

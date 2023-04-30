@@ -45,6 +45,7 @@ extern Player				s_obj;
 extern sf::Texture			b_player_texture_jump;
 extern sf::Texture			b_player_texture_idle;
 extern sf::Texture			b_player_texture_run;
+extern sf::Texture			b_player_texture_push;
 extern sf::Sprite			b_player;
 extern Player				b_obj;
 

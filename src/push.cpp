@@ -32,9 +32,11 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
 
 	if (collision(p_pair, o_pair))
 	{
+		animate(p_pair, Animation::push);
 		// left collision
 		if (p_obj.velocity.x > 0.f)
 		{
+			//animate(p_pair, Animation::push);
 			std::cout << "Pushing from left\n";
 			o_obj.position.x++;
 
@@ -45,6 +47,7 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
 		// right collision
 		if (p_obj.velocity.x < 0.f)
 		{
+			//animate(p_pair, Animation::push);
 			std::cout << "Pushing from right\n";
 			o_obj.position.x--;
 
