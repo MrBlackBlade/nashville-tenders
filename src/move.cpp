@@ -6,10 +6,7 @@ void move(Pair_Player& pair)
     auto& player = *pair.sprite;
     auto& obj = *pair.obj;
     const auto key = get_key_pressed(pair);
-    // Ability 1: ZAA WARUDOOO
-   // if (obj.id == 0 && key == Config::keybinds[0][2]) {
-   //     return;
-   // }
+
     // Decrementing the jump
     if ( obj.jumping && obj.id == 0)
     {
