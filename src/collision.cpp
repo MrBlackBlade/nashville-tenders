@@ -1,10 +1,12 @@
 #include <collision.hpp>
 #include <iostream>
 
-void collision(Pair& pair, sf::RectangleShape& shape)
+void collision(Pair_Player& p_pair, Pair_Object& o_pair)
 {
-	auto& player = *pair.sprite;
-	auto& obj = *pair.obj;
+	auto& player = *p_pair.sprite;
+	auto& obj = *p_pair.obj;
+	auto& shape = *o_pair.shape;
+
 	auto
 		p_bounds = player.getGlobalBounds(),
 		s_bounds = shape.getGlobalBounds();
@@ -73,8 +75,13 @@ void collision(Pair& pair, sf::RectangleShape& shape)
 	}
 }
 
-void collision(sf::RectangleShape& shape1, Object& obj, sf::RectangleShape& shape2)
+void collision(Pair_Object& pair1, Pair_Object& pair2)
 {
+	auto& shape1 = *pair1.shape;
+	auto& obj = *pair1.obj;
+	auto& shape2 = *pair2.shape;
+	auto& obj_2 = *pair2.obj;
+
 	auto
 		s1_bounds = shape1.getGlobalBounds(),
 		s2_bounds = shape2.getGlobalBounds();

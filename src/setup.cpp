@@ -6,20 +6,36 @@ sf::Sprite			background(bg_texture);
 sf::Texture			ground_texture;
 sf::RectangleShape	ground({900, 32});
 sf::Texture			box_texture;
-sf::RectangleShape  box({96, 96});
+sf::RectangleShape  box({32, 32});
+
+Object ground_obj
+{
+	Object::ground, // ID
+	{ 0, 0 },	    // velocity    
+	{ 0, 0 },	    // velocity_max
+	{ 0, 0 },	    // acceleration
+	{ 0, 0 },	    // position    
+				    
+	0,			    // anim_ind    
+	1.f,		    // scale       
+	900,		    	// size_x	
+	32,			    // size_y	
+	0			    // anims
+};
 
 Object box_obj
 {
-	{ 0, 0 },	// velocity    
-	{ 0, 0 },	// velocity_max
-	{ 0, 0 },	// acceleration
-	{ 0, 0 },	// position    
-
-	0,			// anim_ind    
-	1.f,		// scale       
-	32,			// size_x	
-	32,			// size_y	
-	0			// anims	
+	Object::box, // ID
+	{ 0, 0 },	 // velocity    
+	{ 0, 0 },	 // velocity_max
+	{ 0, 0 },	 // acceleration
+	{ 0, 0 },	 // position    
+				 
+	0,			 // anim_ind    
+	3.f,		 // scale       
+	32,			 // size_x	
+	32,			 // size_y	
+	0			 // anims	
 };
 
 // small player
@@ -44,7 +60,7 @@ Player s_obj
 /* size_run_x   */	40,
 /* size_run_y   */	50,
 /* size_jump_x  */	29,
-/* size_jump_y  */	50,
+/* size_jump_y  */	56,
 /* anims_idle   */	4,
 /* anims_run    */	4,
 /* anims_jump   */	9,
@@ -119,8 +135,13 @@ void setup()
 	background.setPosition(-576,-1300);
 
 	ground.setTexture(&ground_texture);
-	ground.setScale(1, 1);
-	ground.setPosition(0, Config::RES_SIZE - 20);
+	ground.setScale(ground_obj.scale, ground_obj.scale);
+	ground_obj.position =
+	{
+		0,
+		Config::RES_SIZE - 20.f
+	};
+	ground.setPosition(ground_obj.position);
 
 	box.setTexture(&box_texture);
 	box.setScale(box_obj.scale, box_obj.scale);

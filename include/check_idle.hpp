@@ -8,6 +8,6 @@
 #include <animate.hpp>
 #include <get_key_pressed.hpp>
 
-void check_idle(Pair&);
+void check_idle(Pair_Player&);
 
 #endif // #ifndef _CHECK_IDLE_HPP

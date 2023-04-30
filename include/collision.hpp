@@ -6,8 +6,9 @@
 #include <Config.hpp>
 #include <Player.hpp>
 #include <Object.hpp>
+#include <Pair.hpp>
 
-void collision(Pair&, sf::RectangleShape&);
-void collision(sf::RectangleShape&, Object&, sf::RectangleShape&);
+void collision(Pair_Player&, Pair_Object&);
+void collision(Pair_Object&, Pair_Object&);
 
 #endif // #ifndef _COLLISION_HPP

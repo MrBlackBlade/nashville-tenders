@@ -8,6 +8,7 @@
 #include <move.hpp>
 #include <Player.hpp>
 #include <Pair.hpp>
+#include <Object.hpp>
 #include <render.hpp>
 #include <setup.hpp>
 
@@ -30,23 +31,39 @@ int main()
 		{
 			using Config::players;
 			check_idle(*players[player]);
-			move(*players[player], get_key_pressed(*players[player]->obj));
+			move(*players[player]);
 		}
+
 		// obstacle gravity
-		move(box, box_obj);
+		for (size_t object = 0; object < OBJECTS; object++)
+		{
+			using Config::objects;
+			move(*objects[object]);
+		}
 
 		// player to obstacle collision
 		for (size_t player = 0; player < PLAYERS; player++)
 		{
 			using Config::players, Config::objects;
 			for (size_t object = 0; object < OBJECTS; object++)
-				collision(*players[player]->sprite, *players[player]->obj, *objects[object]);
+				collision(*players[player], *objects[object]);
 		}
+
+		// ground obstacle collision
+		for (size_t object = 1; object < OBJECTS; ++object)
+		{
+			using Config::objects;
+			collision(*objects[object], *objects[0]);
+		}
+
 		// obstacle to obstacle collision
-		collision(box, box_obj, ground);
+		for (size_t object = 1; object < OBJECTS - 1; object++)
+		{
+			using Config::objects;
+			collision(*objects[object], *objects[object + 1]);
+		}
 
 		render();
 	}
-	
 	return EXIT_SUCCESS;
 }

@@ -8,11 +8,16 @@ struct Object
 {
 	enum ObjectEnum
 	{
+		ground,
 		box,
 		collectible,
+		button,
+		elevator,
 
 		object_max,
 	};
+
+	ObjectEnum id;
 
 	sf::Vector2f
 		velocity,

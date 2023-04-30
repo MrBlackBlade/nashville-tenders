@@ -1,19 +1,19 @@
 #include <move.hpp>
 
 // For sprites
-void move(Pair& pair, const sf::Keyboard::Key& key)
+void move(Pair_Player& pair)
 {
     auto& player = *pair.sprite;
     auto& obj = *pair.obj;
-
+    const auto key = get_key_pressed(pair);
     // Ability 1: ZAA WARUDOOO
-    if (obj.id == 0 && key == Config::keybinds[0][2]) {
-        return;
-    }
+   // if (obj.id == 0 && key == Config::keybinds[0][2]) {
+   //     return;
+   // }
     // Decrementing the jump
     if ( obj.jumping && obj.id == 0)
     {
-        animate(player, obj, Animation::jump);
+        animate(pair, Animation::jump);
         obj.acceleration.y = .2f;
         
         // Apply motion
@@ -28,16 +28,16 @@ void move(Pair& pair, const sf::Keyboard::Key& key)
         // Up
         if ( key == Config::keybinds[0][0] && !obj.jumping && obj.id == 0 )
         {
-            animate(player, obj, Animation::jump);
+            animate(pair, Animation::jump);
 
             obj.jumping = true;
-            obj.velocity.y = -10.f;
+            obj.velocity.y = -8.f;
         }
 
         // Left
         if (key == Config::keybinds[obj.id][1])
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = -.2f;
 
@@ -52,7 +52,7 @@ void move(Pair& pair, const sf::Keyboard::Key& key)
         // Right
         if ( key == Config::keybinds[obj.id][3] )
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = .2f;
 
@@ -97,7 +97,7 @@ void move(Pair& pair, const sf::Keyboard::Key& key)
         // decelerate to the left
         if ( obj.velocity.x > 0.f )
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = -.2f;
         }
@@ -105,7 +105,7 @@ void move(Pair& pair, const sf::Keyboard::Key& key)
         // decelerate to the right
         if ( obj.velocity.x < 0.f )
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = .2f;
         }
@@ -131,7 +131,7 @@ void move(Pair& pair, const sf::Keyboard::Key& key)
     }
 
     // Background movement
-    if ( obj.velocity.x < 0.f )
+    if ( obj.velocity.x < -.5f )
     {
         background.move(.7f, 0.f);
     }
@@ -172,8 +172,14 @@ void move(Pair& pair, const sf::Keyboard::Key& key)
 }
 
 // For obstacles
-void move(sf::RectangleShape& shape, Object& obj)
+void move(Pair_Object& pair)
 {
+    if (pair.obj->id == Object::ground)
+        return;
+
+    auto& shape = *pair.shape;
+    auto& obj = *pair.obj;
+
     // Gravity lmaoo
     obj.acceleration.y = .2f;
         

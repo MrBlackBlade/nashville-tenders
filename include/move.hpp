@@ -8,8 +8,9 @@
 #include <animate.hpp>
 #include <Animation.hpp>
 #include <iostream>
+#include <get_key_pressed.hpp>
 
-void move(Pair&, const sf::Keyboard::Key&);
-void move(sf::RectangleShape&, Object&);
+void move(Pair_Player&);
+void move(Pair_Object&);
 
 #endif // #ifndef _MOVE_HPP

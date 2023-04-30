@@ -1,7 +1,9 @@
 #include <get_key_pressed.hpp>
 
-sf::Keyboard::Key get_key_pressed(const Player& obj)
+sf::Keyboard::Key get_key_pressed(const Pair_Player& pair)
 {
+	auto& player = *pair.sprite;
+	auto& obj = *pair.obj;
 	// small player
 	if (obj.id == 0)
 	{

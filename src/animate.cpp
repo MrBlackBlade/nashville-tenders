@@ -1,7 +1,9 @@
 #include <animate.hpp>
 
-void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
+void animate ( Pair_Player& pair, const Animation& anim )
 {
+    auto& player = *pair.sprite;
+    auto& obj = *pair.obj;
     switch ( anim )
     {
     case Animation::run:

@@ -18,8 +18,8 @@ namespace Config
 
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
-	extern sf::RectangleShape* objects[OBJECTS];
-	extern Pair*               players[PLAYERS];	
+	extern Pair_Object*				  objects[OBJECTS];
+	extern Pair_Player*               players[PLAYERS];	
 };
 
 /* All the externs outside of Config */
@@ -32,6 +32,7 @@ extern sf::RectangleShape	ground;
 extern sf::Texture			box_texture;
 extern sf::RectangleShape   box;
 extern Object				box_obj;
+extern Object				ground_obj;
 
 // small player
 extern sf::Texture			s_player_texture_jump;

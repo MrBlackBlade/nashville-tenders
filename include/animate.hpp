@@ -6,7 +6,8 @@
 #include <Config.hpp>
 #include <Animation.hpp>
 #include <Player.hpp>
+#include <Pair.hpp>
 
-void animate(sf::Sprite&, Player&, const Animation&);
+void animate(Pair_Player&, const Animation&);
 
 #endif // #ifndef _ANIMATE_HPP
