@@ -1,17 +1,9 @@
 #include <animate.hpp>
 
-// small player
-extern sf::Texture s_player_texture_jump;
-extern sf::Texture s_player_texture_idle;
-extern sf::Texture s_player_texture_run;
-
-// big player
-extern sf::Texture b_player_texture_jump;
-extern sf::Texture b_player_texture_idle;
-extern sf::Texture b_player_texture_run;
-
-void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
+void animate ( Pair_Player& pair, const Animation& anim )
 {
+    auto& player = *pair.sprite;
+    auto& obj = *pair.obj;
     switch ( anim )
     {
     case Animation::run:
@@ -61,12 +53,9 @@ void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
         return;
 
     case Animation::jump:
-        if ( Config::frame_counter % ( obj.id == 0 ? 14 : 14 ) == 0 )
+        if (Config::frame_counter % 14 == 0 && obj.id == 0)
         {
-            player.setTexture
-            (
-                obj.id == 0 ? s_player_texture_jump : b_player_texture_jump
-            );
+            player.setTexture (s_player_texture_jump);
 
             player.setTextureRect
             (
@@ -79,6 +68,26 @@ void animate ( sf::Sprite& player, Player& obj, const Animation& anim )
 
             obj.jump_ind++;
             obj.jump_ind %= obj.anims_jump;
+        }
+
+        return;
+
+    case Animation::push:
+        if (Config::frame_counter % 14 == 0 && obj.id == 1)
+        {
+            player.setTexture (b_player_texture_push);
+
+            player.setTextureRect
+            (
+                sf::IntRect
+                (
+                    obj.push_ind * obj.size_push_x, 0,
+                    obj.size_push_x, obj.size_push_y
+                )
+            );
+
+            obj.push_ind++;
+            obj.push_ind %= obj.anims_push;
         }
 
         return;

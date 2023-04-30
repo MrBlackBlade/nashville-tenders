@@ -1,14 +1,16 @@
 #include <move.hpp>
 
-extern sf::Sprite background;
-
 // For sprites
-void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
+void move(Pair_Player& pair)
 {
+    auto& player = *pair.sprite;
+    auto& obj = *pair.obj;
+    const auto key = get_key_pressed(pair);
+
     // Decrementing the jump
-    if ( obj.jumping )
+    if ( obj.jumping && obj.id == 0)
     {
-        animate(player, obj, Animation::jump);
+        animate(pair, Animation::jump);
         obj.acceleration.y = .2f;
         
         // Apply motion
@@ -21,18 +23,18 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
     if (sf::Keyboard::isKeyPressed(key))
     {
         // Up
-        if ( key == Config::keybinds[0][0] && !obj.jumping )
+        if ( key == Config::keybinds[0][0] && !obj.jumping && obj.id == 0 )
         {
-            animate(player, obj, Animation::jump);
+            animate(pair, Animation::jump);
 
             obj.jumping = true;
-            obj.velocity.y = -10.f;
+            obj.velocity.y = -8.f;
         }
 
         // Left
         if (key == Config::keybinds[obj.id][1])
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = -.2f;
 
@@ -47,7 +49,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         // Right
         if ( key == Config::keybinds[obj.id][3] )
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = .2f;
 
@@ -92,7 +94,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         // decelerate to the left
         if ( obj.velocity.x > 0.f )
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = -.2f;
         }
@@ -100,7 +102,7 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
         // decelerate to the right
         if ( obj.velocity.x < 0.f )
         {
-            animate(player, obj, Animation::run);
+            animate(pair, Animation::run);
 
             obj.acceleration.x = .2f;
         }
@@ -126,25 +128,56 @@ void move(sf::Sprite& player, Player& obj, const sf::Keyboard::Key& key)
     }
 
     // Background movement
-    if ( obj.velocity.x < 0.f )
+    if ( obj.velocity.x < -.5f )
     {
         background.move(.7f, 0.f);
     }
 
-    // logging
-    if (obj.id == 0)
+    // Keep the player in bounds (right)
+    if (obj.position.x > (Config::RES_SIZE - player.getGlobalBounds().width))
     {
-        std::cout << "Velocity X:\t" << obj.velocity.x << '\n';
-        std::cout << "Velocity Y:\t" << obj.velocity.y << "\n\n";
-        std::cout << "Position X:\t" << obj.position.x << '\n'; 
-        std::cout << "Position Y:\t" << obj.position.y << "\n\n";
+        obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
+
+        // Apply motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
+    }
+
+    // Keep the player in bounds (left)
+    if (obj.position.x < 0)
+    {
+        obj.position.x = 0;
+
+        // Apply motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
+    }
+
+    // Keep the player in bounds (down)
+    if (obj.position.y > Config::RES_SIZE)
+    {
+        obj.position.y = Config::RES_SIZE - 50;
+        obj.velocity.y = 0;
+
+        // Apply motion
+        obj.velocity += obj.acceleration;
+        obj.position += obj.velocity;
+        player.setPosition(obj.position);
     }
 }
 
 // For obstacles
-void move(sf::RectangleShape& shape, Player& obj)
+void move(Pair_Object& pair)
 {
-    // Gravity lmao
+    if (pair.obj->id == Object::ground)
+        return;
+
+    auto& shape = *pair.shape;
+    auto& obj = *pair.obj;
+
+    // Gravity lmaoo
     obj.acceleration.y = .2f;
         
     // Apply motion

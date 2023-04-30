@@ -3,35 +3,39 @@
 // background and platforms
 sf::Texture			bg_texture;
 sf::Sprite			background(bg_texture);
-sf::Texture			platform_texture;
-sf::RectangleShape	platform({900, 32});
+sf::Texture			ground_texture;
+sf::RectangleShape	ground({900, 32});
 sf::Texture			box_texture;
 sf::RectangleShape  box({32, 32});
 
-Player box_obj
+Object ground_obj
 {
-/* velocity     */	{ 0, 0 },
-/* velocity_max */	{ 0, 0 },
-/* acceleration */	{ 0, 0 },
-/* position     */	{ 0, 0 },
-			    
-/* idle_ind     */	0,
-/* run_ind      */	0,
-/* jump_ind     */	0,
-/* scale        */	1.5f,
-/* size_idle_x  */	32,
-/* size_idle_y  */	32,
-/* size_run_x   */	32,
-/* size_run_y   */	32,
-/* size_jump_x  */	32,
-/* size_jump_y  */	32,
-/* anims_idle   */	0,
-/* anims_run    */	0,
-/* anims_jump   */	0,
-/* ID           */	rand() % 69,
-			    
-/* jumping      */	false,
-/* idle         */	true
+Object::ground, // ID
+{ 0, 0 },	    // velocity    
+{ 0, 0 },	    // velocity_max
+{ 0, 0 },	    // acceleration
+{ 0, 0 },	    // position    
+				    
+0,			    // anim_ind    
+1.f,		    // scale       
+900,		    // size_x	
+32,			    // size_y	
+0			    // anims
+};
+
+Object box_obj
+{
+Object::box,		// ID
+{ 0, 0 },		// velocity    
+{ 0, 0 },		// velocity_max
+{ 0, 0 },		// acceleration
+{ 0, 0 },		// position    
+				 
+0,				// anim_ind    
+3.f,			// scale       
+32,				// size_x	
+32,				// size_y	
+0				// anims	
 };
 
 // small player
@@ -42,60 +46,69 @@ sf::Sprite  s_player(s_player_texture_idle);
 
 Player s_obj
 {
-/* velocity     */	{  0, 0  },
-/* velocity_max */	{  5, 50 },
-/* acceleration */	{  0, 0  },
-/* position     */	{  0, 0  },
-			    
-/* idle_ind     */	0,
-/* run_ind      */	0,
-/* jump_ind     */	0,
-/* scale        */	1,
-/* size_idle_x  */	28,
-/* size_idle_y  */	50,
-/* size_run_x   */	40,
-/* size_run_y   */	50,
-/* size_jump_x  */	29,
-/* size_jump_y  */	50,
-/* anims_idle   */	4,
-/* anims_run    */	4,
-/* anims_jump   */	9,
-/* ID           */	0,
-			    
-/* jumping      */	false,
-/* idle         */	true
+{  0, 0  },		// velocity    
+{  5, 50 },		// velocity_max
+{  0, 0  },		// acceleration
+{  0, 0  },		// position    
+			    		   
+0,				// idle_ind    
+0,				// run_ind     
+0,				// jump_ind 
+0,				// push_ind
+1,				// scale       
+28,				// size_idle_x 
+50,				// size_idle_y 
+40,				// size_run_x  
+50,				// size_run_y  
+29,				// size_jump_x 
+56,				// size_jump_y 
+0,				// size_push_x
+0,				// size_push_y
+4,				// anims_idle  
+4,				// anims_run   
+9,				// anims_jump 
+0,				// anims_push
+0,				// ID          
+			    		   
+false,			// jumping     
+true			// idle        
 };
 
 // big player
 sf::Texture b_player_texture_jump;
 sf::Texture b_player_texture_idle;
 sf::Texture b_player_texture_run;
+sf::Texture b_player_texture_push;
 sf::Sprite  b_player(b_player_texture_idle);
 
 Player b_obj
 {
-/* velocity     */	{  0, 0  },
-/* velocity_max */	{  2, 50 },
-/* acceleration */	{  0, 0  },
-/* position     */	{  0, 0  },
-			    
-/* idle_ind     */	0,
-/* run_ind      */	0,
-/* jump_ind     */	0,
-/* scale        */	1,
-/* size_idle_x  */	64,
-/* size_idle_y  */	64,
-/* size_run_x   */	64,
-/* size_run_y   */	64,
-/* size_jump_x  */	67,
-/* size_jump_y  */	67,
-/* anims_idle   */	6,
-/* anims_run    */	4,
-/* anims_jump   */	10,
-/* ID           */	1,
-			    
-/* jumping      */	false,
-/* idle         */	true
+{  0, 0  },		// velocity    
+{  2, 50 },		// velocity_max
+{  0, 0  },		// acceleration
+{  0, 0  },		// position    
+	 					   
+0,				// idle_ind    
+0,				// run_ind     
+0,				// jump_ind
+0,				// push_ind
+1,				// scale       
+64,				// size_idle_x 
+64,				// size_idle_y 
+64,				// size_run_x  
+64,				// size_run_y  
+67,				// size_jump_x 
+67,				// size_jump_y 
+64,				// size_push_x
+64,				// size_push_y
+6,				// anims_idle  
+4,				// anims_run   
+10,				// anims_jump 
+4,				// anims_push
+1,				// ID          
+	 					   
+false,			// jumping     
+true			// idle        
 };
 
 // window
@@ -116,10 +129,10 @@ void setup()
 
 	// background and platforms
 	bg_texture.loadFromFile("resources/background.png");
-	platform_texture.loadFromFile("resources/tile_1.png");
+	ground_texture.loadFromFile("resources/tile_1.png");
 	box_texture.loadFromFile("resources/box.png");
 
-	if (!platform_texture.loadFromFile("resources/tile_1.png"))
+	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
 	if (!bg_texture.loadFromFile("resources/background.png"))
 		exit(1);
@@ -130,16 +143,21 @@ void setup()
 	background.setScale(2, 2);
 	background.setPosition(-576,-1300);
 
-	platform.setTexture(&platform_texture);
-	platform.setScale(1, 1);
-	platform.setPosition(0, Config::RES_SIZE - 20);
+	ground.setTexture(&ground_texture);
+	ground.setScale(ground_obj.scale, ground_obj.scale);
+	ground_obj.position =
+	{
+		0,
+		Config::RES_SIZE - 20.f
+	};
+	ground.setPosition(ground_obj.position);
 
 	box.setTexture(&box_texture);
 	box.setScale(box_obj.scale, box_obj.scale);
 	box_obj.position =
 	{
 		Config::RES_SIZE / 2.f,
-		platform.getGlobalBounds().top - box.getGlobalBounds().height
+		ground.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);
 
@@ -159,14 +177,15 @@ void setup()
 	s_obj.position =
 	{
 		s_player.getPosition().x,
-		platform.getGlobalBounds().top - 300.f/*s_player.getGlobalBounds().height */
+		ground.getGlobalBounds().top - s_player.getGlobalBounds().height
 	};
 	s_player.setPosition(s_obj.position);
 
 	// big player
 	b_player_texture_jump.loadFromFile("resources/big_jump_animation.png");
 	b_player_texture_idle.loadFromFile("resources/big_idle_animation.png");
-	b_player_texture_run.loadFromFile("resources/big_run.png");
+	b_player_texture_run.loadFromFile ("resources/big_run.png");
+	b_player_texture_push.loadFromFile("resources/big_push_animation.png");
 
 	if (!b_player_texture_jump.loadFromFile("resources/big_jump_animation.png"))
 		exit(1);
@@ -174,12 +193,14 @@ void setup()
 		exit(1);
 	if (!b_player_texture_run.loadFromFile("resources/big_run.png"))
 		exit(1);
+	if (!b_player_texture_push.loadFromFile("resources/big_push_animation.png"))
+		exit(1);
 
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
 		b_player.getPosition().x,
-		platform.getGlobalBounds().top - b_player.getGlobalBounds().height - 64
+		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64
 	};
 	b_player.setPosition(b_obj.position);
 }

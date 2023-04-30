@@ -23,4 +23,12 @@ namespace Config
 			sf::Keyboard::D
 		}
 	};
+
+	Pair_Player				small { &s_player, &s_obj };
+	Pair_Player				big   { &b_player, &b_obj };
+	Pair_Object				box1  { &box     , &box_obj };
+	Pair_Object				grnd  { &ground  , &ground_obj };
+
+	Pair_Object*			objects[OBJECTS] { &grnd, &box1 };
+	Pair_Player*            players[PLAYERS] { &small, &big };
 }

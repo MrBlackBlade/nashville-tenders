@@ -17,6 +17,7 @@ struct Player
 	idle_ind,
 	run_ind,
 	jump_ind,
+	push_ind,
 
 	// sprite measurements
 	scale,
@@ -30,10 +31,14 @@ struct Player
 	size_jump_x,
 	size_jump_y,
 
+	size_push_x,
+	size_push_y,
+
 	// no of diff animation frames
 	anims_idle,
 	anims_run,
 	anims_jump,
+	anims_push,
 
 	// player id
 	id;

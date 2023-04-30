@@ -1,22 +1,17 @@
 #include <check_idle.hpp>
 
-// small player
-extern sf::Texture s_player_texture_idle;
-extern Player	   s_obj;
-
-// big player
-extern sf::Texture b_player_texture_idle;
-extern Player	   b_obj;
-
-void check_idle(sf::Sprite& player, Player& obj)
+void check_idle(Pair_Player& pair)
 {
+	auto& player = *pair.sprite;
+	auto& obj = *pair.obj;
+
 	if (obj.idle)
 	{
-		animate(player, obj, Animation::idle);
+		animate(pair, Animation::idle);
 
 		// breaking the idle state
 		for ( size_t i = 0; i < 4; i++ )
-			if ( Config::keybinds[obj.id][i] == get_key_pressed(obj) )
+			if ( Config::keybinds[obj.id][i] == get_key_pressed(pair) )
 				obj.idle = false;
 	}
 }

@@ -5,6 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include <Config.hpp>
 #include <Player.hpp>
+#include <Object.hpp>
+#include <Pair.hpp>
 
 void setup();
 
