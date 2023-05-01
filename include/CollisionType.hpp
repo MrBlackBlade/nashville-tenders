@@ -5,7 +5,6 @@
 enum class CollisionType
 {
 	box,
-	lever,
 	player_button,	// double checking for the player pressing the button
 	box_button,		// double checking for the box pressing the button
 	door,

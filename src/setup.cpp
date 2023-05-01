@@ -28,7 +28,7 @@ Object::ground,		// ID
 { 0, 0 },			// acceleration
 { 0, 0 },			// position    
 				    
-0,					// anim_ind    
+2,					// anim_ind    
 1.f,				// scale       
 900,				// size_x	
 32,					// size_y	
@@ -44,7 +44,7 @@ Object::box,			// ID
 { 0, 0 },			// position    
 				 
 0,					// anim_ind    
-3.f,				// scale       
+2.5f,				// scale       
 32,					// size_x	
 32,					// size_y	
 0					// anims	
@@ -120,9 +120,9 @@ Object::lever,    // ID
 				   
 0,				  // anim_ind    
 1.f,			  // scale       
-32,				  // size_x	
+32,			      // size_x	
 32,				  // size_y	
-2				  // anims	
+3				  // anims	
 };
 
 Object platform_obj
@@ -276,7 +276,7 @@ void setup()
 	box.setScale(box_obj.scale, box_obj.scale);
 	box_obj.position =
 	{
-		Config::RES_SIZE / 2.f,
+		100,
 		ground.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);
@@ -287,7 +287,7 @@ void setup()
 
 	button_obj.position =
 	{
-		100.f,
+		300.f,
 		ground.getGlobalBounds().top - button.getGlobalBounds().height
 	};
 	button.setPosition(button_obj.position);
@@ -306,7 +306,7 @@ void setup()
 	door.setScale(door_obj.scale, door_obj.scale);
 	door_obj.position =
 	{
-		300.f,
+		500.f,
 		ground.getGlobalBounds().top - door.getGlobalBounds().height
 	};
 	door.setPosition(door_obj.position);
@@ -315,17 +315,18 @@ void setup()
 	elevator.setScale(elevator_obj.scale, elevator_obj.scale);
 	elevator_obj.position =
 	{
-		Config::RES_SIZE * 1.f,
-		0.f/*ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 50.f*/
+		50,
+		ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 500.f
 	};
 	elevator.setPosition(elevator_obj.position);
 
 	lever.setTexture(&lever_texture);
+	lever.setTextureRect(sf::IntRect(0, 0, lever_obj.size_x, lever_obj.size_y));
 	lever.setScale(lever_obj.scale, lever_obj.scale);
 	lever_obj.position =
 	{
-		500.f,
-		0.f/*ground.getGlobalBounds().top - lever.getGlobalBounds().height - 50.f*/
+		700.f,
+		ground.getGlobalBounds().top - lever.getGlobalBounds().height
 	};
 	lever.setPosition(lever_obj.position);
 
@@ -376,7 +377,7 @@ void setup()
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
-		700.f,
+		30.f,
 		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64.f 
 	};
 	b_player.setPosition(b_obj.position);

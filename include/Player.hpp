@@ -13,15 +13,17 @@ struct Player
 	position;
 
 	sf::Uint16
-	// 0 for first sprite, 1 for second etc...
-	idle_ind,
-	run_ind,
-	jump_ind,
-	push_ind,
+		// 0 for first sprite, 1 for second etc...
+		idle_ind,
+		run_ind,
+		jump_ind,
+		push_ind;
 
-	// sprite measurements
-	scale,
+	float
+		  // sprite measurements
+		scale;
 
+	sf::Uint16
 	size_idle_x,
 	size_idle_y,
 

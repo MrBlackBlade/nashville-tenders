@@ -159,8 +159,33 @@ void animate ( Pair_Object& pair )
             }
         }
     }
+
+    if (obj.id == Object::lever)
+    {
+        if (elevator_move(*Config::players[0], pair)|| elevator_move(*Config::players[1], pair))
+        {
+            if (Config::frame_counter % 4 == 0)
+            {
+                shape.setTextureRect
+                (
+                    sf::IntRect
+                    (
+                        obj.anim_ind * obj.size_x, 0,
+                        obj.size_x, obj.size_y
+                    )
+                );
+
+                // lever pushed
+                if (obj.anim_ind == 2)
+                    return;
+
+                obj.anim_ind++;
+                obj.anim_ind %= obj.anims;
+            }
+        }
+    }
         // other objects
-        if (obj.id != Object::door && obj.id != Object::button)
+        if (obj.id != Object::door && obj.id != Object::button && obj.id != Object::lever)
         {
             if (Config::frame_counter % 12 == 0 && obj.anims)
             {

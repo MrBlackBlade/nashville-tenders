@@ -21,6 +21,9 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 	if (u_coll && !d_coll && !l_coll && !r_coll)
 	{
+		if (obj2.id == Object::lever)
+			return CollisionType::null;
+
 		// collision from top
 		obj.position =
 		{
@@ -35,7 +38,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 		if (obj2.id == Object::button)
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
+			//std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::player_button;
 		}
 
@@ -66,6 +69,9 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 	if (!u_coll && d_coll && !l_coll && !r_coll)
 	{
+		if (obj2.id == Object::lever)
+			return CollisionType::null;
+
 		// collision from bottom
 		obj.position =
 		{
@@ -81,6 +87,9 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 	if (!u_coll && !d_coll && l_coll && !r_coll)
 	{
+		if (obj2.id == Object::lever)
+			return CollisionType::null;
+
 		// dont collide if the door is open
 		if (obj2.id == Object::door && door_open(o_pair))
 		{
@@ -109,6 +118,9 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 	if (!u_coll && !d_coll && !l_coll && r_coll)
 	{
+		if (obj2.id == Object::lever)
+			return CollisionType::null;
+
 		// dont collide if the door is open
 		if (obj2.id == Object::door && door_open(o_pair))
 		{
@@ -200,8 +212,12 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		};
 		shape1.setPosition(obj.position);
 
+		if (obj.id == Object::box && obj2.id == Object::door)
+			return CollisionType::door;
+
 		return CollisionType::null;
 	}
+
 
 	if (!u_coll && !d_coll && !l_coll && r_coll)
 	{
@@ -212,6 +228,9 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			shape1.getPosition().y
 		};
 		shape1.setPosition(obj.position);
+
+		if (obj.id == Object::box && obj2.id == Object::door)
+			return CollisionType::door;
 
 		return CollisionType::null;
 	}

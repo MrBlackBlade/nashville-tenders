@@ -30,11 +30,13 @@ struct Object
 
 	sf::Uint16
 		// 0 for first sprite, 1 for second etc...
-		anim_ind,
+		anim_ind;
 
+	float
 		// sprite measurements
-		scale,
+		scale;
 
+	sf::Uint16
 		size_x,
 		size_y,
 

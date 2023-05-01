@@ -13,6 +13,7 @@
 #include <render.hpp>
 #include <setup.hpp>
 #include <out_of_bounds.hpp>
+#include <elevator_move.hpp>
 
 int main()
 {
@@ -67,6 +68,7 @@ int main()
 			using Config::objects;
 			collision(*objects[object], *objects[object + 1]);
 		}
+
 
 		render();
 	}

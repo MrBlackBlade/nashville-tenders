@@ -28,7 +28,7 @@ void move(Pair_Player& pair)
             animate(pair, Animation::jump);
 
             obj.jumping = true;
-            obj.velocity.y = obj.id ? -2.f : -8.f ;
+            obj.velocity.y = obj.id ? -2.f : -7.f ;
         }
 
         // Left
