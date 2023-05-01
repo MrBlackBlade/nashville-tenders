@@ -9,3 +9,4 @@
  - [x] **When button is pressed, the sprite of the door will animate but the collision will be removed between players and door**
  - [ ] **UpperBounds for elevator**
  - [ ] ***BUNNY HOP SOUND***
+ - [ ] فرخة
