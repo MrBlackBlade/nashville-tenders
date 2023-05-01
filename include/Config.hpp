@@ -18,6 +18,8 @@ namespace Config
 
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
+	extern bool door_opened;
+
 	extern Pair_Object*				  objects[OBJECTS];
 	extern Pair_Player*               players[PLAYERS];
 };

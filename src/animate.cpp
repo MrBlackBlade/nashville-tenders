@@ -105,7 +105,7 @@ void animate ( Pair_Object& pair )
     // door animations
     if (obj.id == Object::door)
     {
-        if (collision(*Config::players[0], pair) == CollisionType::door || collision(*Config::players[1], pair) == CollisionType::door)
+        if (Config::objects[Object::button]->obj->anim_ind == 1 && Config::door_opened == false)
         {
             if (Config::frame_counter % 12 == 0 && obj.anims)
             {
@@ -119,13 +119,18 @@ void animate ( Pair_Object& pair )
                 );
 
                 // door opened
-                if (obj.anim_ind == 6)
+                if (obj.anim_ind == 4) 
+                {
+                    Config::door_opened = true;
                     return;
+                }
+
 
                 obj.anim_ind++;
                 obj.anim_ind %= obj.anims;
             }
         }
+
         return;
     }
 

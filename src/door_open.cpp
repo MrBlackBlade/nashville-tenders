@@ -10,7 +10,7 @@ bool door_open(Pair_Object& o_pair)
 		return false;
 
 	// door is open
-	if (obj.anim_ind == 5)
+	if (obj.anim_ind == 4)
 		return true;
 
 	return false;

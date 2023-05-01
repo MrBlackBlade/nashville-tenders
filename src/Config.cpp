@@ -24,6 +24,8 @@ namespace Config
 		}
 	};
 
+	bool door_opened = false;
+
 	// could add an array of pairs for multiple levers/buttons etc
 	Pair_Player				small      { &s_player, &s_obj };
 	Pair_Player				big        { &b_player, &b_obj };
@@ -38,4 +40,5 @@ namespace Config
 
 	Pair_Object*			objects[OBJECTS] { &pGround, &pBox, &pButton, &pChicken, &pDoor, &pElevator, &pLever, &pPlatform };
 	Pair_Player*            players[PLAYERS] { &small, &big };
+
 }
