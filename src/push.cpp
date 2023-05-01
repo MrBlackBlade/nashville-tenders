@@ -8,6 +8,10 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
 	auto& shape  = *o_pair.shape;
     auto& o_obj  = *o_pair.obj;
 
+	// make sure that the big player is pushing the box only
+	if (p_obj.id != 1 || o_obj.id != Object::box)
+		return false;
+
 	// Keep the player in bounds (right)
     if (out_of_bounds(o_pair) && o_obj.velocity.x > 0.f)
     {
@@ -30,7 +34,7 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
         sprite.setPosition(o_obj.position);
     }
 
-	if (collision(p_pair, o_pair))
+	if (collision(p_pair, o_pair) == CollisionType::box)
 	{
 		animate(p_pair, Animation::push);
 

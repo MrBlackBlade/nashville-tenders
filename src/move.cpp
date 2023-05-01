@@ -134,7 +134,7 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (right)
-    if (out_of_bounds(pair) && obj.velocity.x > 5.f)
+    if (out_of_bounds(pair) && obj.velocity.x > 7.f)
     {
         obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
 
@@ -145,7 +145,7 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (left)
-    if (out_of_bounds(pair) && obj.velocity.x < 5.f)
+    if (out_of_bounds(pair) && obj.velocity.x < 7.f)
     {
         obj.position.x = 0;
 
@@ -160,7 +160,7 @@ void move(Pair_Player& pair)
     {
         obj.position.y = Config::RES_SIZE - 50;
         obj.velocity.y = 0;
-
+    
         // Apply motion
         obj.velocity += obj.acceleration;
         obj.position += obj.velocity;
@@ -171,13 +171,13 @@ void move(Pair_Player& pair)
 // For obstacles
 void move(Pair_Object& pair)
 {
-    if (pair.obj->id == Object::ground)
+    animate(pair);
+
+    if (pair.obj->id == Object::ground || pair.obj->id == Object::button || pair.obj->id == Object::lever || pair.obj->id == Object::platform || pair.obj->id == Object::door || pair.obj->id == Object::elevator)
         return;
 
     auto& shape = *pair.shape;
     auto& obj = *pair.obj;
-
-    animate(pair);
 
     // Gravity lmaoo
     obj.acceleration.y = .2f;

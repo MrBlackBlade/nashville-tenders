@@ -92,7 +92,7 @@ Object::door,	// ID
 3.f,			// scale       
 32,				// size_x	
 64,				// size_y	
-8				// anims	
+5				// anims	
 };
 
 Object elevator_obj
@@ -285,8 +285,8 @@ void setup()
 	button.setScale(button_obj.scale, button_obj.scale);
 	button_obj.position =
 	{
-		100.f,
-		ground.getGlobalBounds().top - button.getGlobalBounds().height
+		Config::RES_SIZE * 1.f,
+		0.f/*ground.getGlobalBounds().top - button.getGlobalBounds().height*/
 	};
 	button.setPosition(button_obj.position);
 
@@ -294,17 +294,18 @@ void setup()
 	chicken.setScale(chicken_obj.scale, chicken_obj.scale);
 	chicken_obj.position =
 	{
-		200.f,
-		ground.getGlobalBounds().top - chicken.getGlobalBounds().height
+		Config::RES_SIZE * 1.f,
+		0.f/*ground.getGlobalBounds().top - chicken.getGlobalBounds().height*/
 	};
 	chicken.setPosition(chicken_obj.position);
 
 	door.setTexture(&door_texture);
+	door.setTextureRect(sf::IntRect(0, 0, door_obj.size_x, door_obj.size_y));
 	door.setScale(door_obj.scale, door_obj.scale);
 	door_obj.position =
 	{
 		300.f,
-		ground.getGlobalBounds().top - door.getGlobalBounds().height - 50.f
+		ground.getGlobalBounds().top - door.getGlobalBounds().height
 	};
 	door.setPosition(door_obj.position);
 
@@ -312,8 +313,8 @@ void setup()
 	elevator.setScale(elevator_obj.scale, elevator_obj.scale);
 	elevator_obj.position =
 	{
-		375.f,
-		ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 50.f
+		Config::RES_SIZE * 1.f,
+		0.f/*ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 50.f*/
 	};
 	elevator.setPosition(elevator_obj.position);
 
@@ -322,7 +323,7 @@ void setup()
 	lever_obj.position =
 	{
 		500.f,
-		ground.getGlobalBounds().top - lever.getGlobalBounds().height - 50.f
+		0.f/*ground.getGlobalBounds().top - lever.getGlobalBounds().height - 50.f*/
 	};
 	lever.setPosition(lever_obj.position);
 
@@ -331,7 +332,7 @@ void setup()
 	platform_obj.position =
 	{
 		600.f,
-		ground.getGlobalBounds().top - platform.getGlobalBounds().height - 50.f
+		0.f/*Config::RES_SIZE / 2.f + 30.f*/
 	};
 	platform.setPosition(platform_obj.position);
 
@@ -373,8 +374,8 @@ void setup()
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
-		0,
-		ground.getGlobalBounds().top - b_player.getGlobalBounds().height 
+		0.f,
+		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64.f 
 	};
 	b_player.setPosition(b_obj.position);
 }

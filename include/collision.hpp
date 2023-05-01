@@ -9,8 +9,10 @@
 #include <Pair.hpp>
 #include <get_key_pressed.hpp>
 #include <push.hpp>
+#include <CollisionType.hpp>
+#include <door_open.hpp>
 
-bool collision(Pair_Player&, Pair_Object&);
-bool collision(Pair_Object&, Pair_Object&);
+CollisionType collision(Pair_Player&, Pair_Object&);
+CollisionType collision(Pair_Object&, Pair_Object&);
 
 #endif // #ifndef _COLLISION_HPP

@@ -19,7 +19,7 @@ namespace Config
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
 	extern Pair_Object*				  objects[OBJECTS];
-	extern Pair_Player*               players[PLAYERS];	
+	extern Pair_Player*               players[PLAYERS];
 };
 
 /* All the externs outside of Config */

@@ -102,37 +102,50 @@ void animate ( Pair_Object& pair )
     auto& shape = *pair.shape;
     auto& obj = *pair.obj;
 
-    if (Config::frame_counter % 12 == 0 && obj.anims)
+    // door animations
+    if (obj.id == Object::door)
     {
-        /*switch (obj.id)
+        if (collision(*Config::players[0], pair) == CollisionType::door || collision(*Config::players[1], pair) == CollisionType::door)
         {
-        case Object::button:
+            if (Config::frame_counter % 12 == 0 && obj.anims)
+            {
+                shape.setTextureRect
+                (
+                    sf::IntRect
+                    (
+                        obj.anim_ind * obj.size_x, 0,
+                        obj.size_x, obj.size_y
+                    )
+                );
 
-            return;
+                // door opened
+                if (obj.anim_ind == 4)
+                    return;
 
-        case Object::lever:
-            return;
+                obj.anim_ind++;
+                obj.anim_ind %= obj.anims;
+            }
+        }
+        return;
+    }
 
-        case Object::door:
-            return;
 
-        case Object::chicken:
-            return;
-
-        default:
-            return;
-        }*/
-
-        shape.setTextureRect
-        (
-            sf::IntRect
+    // other objects
+    if (obj.id != Object::door)
+    {
+        if (Config::frame_counter % 12 == 0 && obj.anims)
+        {
+            shape.setTextureRect
             (
-                obj.anim_ind * obj.size_x, 0,
-                obj.size_x, obj.size_y
-            )
-        );
+                sf::IntRect
+                (
+                    obj.anim_ind * obj.size_x, 0,
+                    obj.size_x, obj.size_y
+                )
+            );
 
-        obj.anim_ind++;
-        obj.anim_ind %= obj.anims;
+            obj.anim_ind++;
+            obj.anim_ind %= obj.anims;
+        }
     }
 }
