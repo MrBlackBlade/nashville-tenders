@@ -35,7 +35,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 		if (obj2.id == Object::button)
 		{
-			std::cout << "da5al gamed" << "\n";
+			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::player_button;
 		}
 
@@ -167,7 +167,10 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		obj.velocity.y = 0;
 
 		if (obj.id == Object::box && obj2.id == Object::button)
+		{
+			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::box_button;
+		}
 
 		return CollisionType::null;
 	}

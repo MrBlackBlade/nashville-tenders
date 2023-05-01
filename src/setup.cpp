@@ -376,7 +376,7 @@ void setup()
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
-		0.f,
+		700.f,
 		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64.f 
 	};
 	b_player.setPosition(b_obj.position);

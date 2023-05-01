@@ -131,7 +131,8 @@ void animate ( Pair_Object& pair )
 
     if (obj.id == Object::button)
     {
-        if (collision(*Config::players[0], pair) == CollisionType::player_button || collision(*Config::players[1], pair) == CollisionType::player_button)
+        if (collision(*Config::players[0], pair) == CollisionType::player_button || collision(*Config::players[1], pair) == CollisionType::player_button
+            || collision(*Config::objects[Object::box],*Config::objects[Object::button]) == CollisionType::box_button)
         {
             if (Config::frame_counter % 10 == 0 )
             {
