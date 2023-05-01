@@ -10,10 +10,12 @@ struct Object
 	{
 		ground,
 		box,
-		collectible,
 		button,
-		lever,
+		chicken,
+		door,
 		elevator,
+		lever,
+		platform,
 
 		object_max,
 	};

@@ -33,7 +33,7 @@ bool collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		obj.jump_ind = 0;
 		obj.jumping = false;
 
-		if (obj2.id == Object::button)
+		if (obj.id == Object::button)
 		{
 			return true;
 		}

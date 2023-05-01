@@ -24,11 +24,18 @@ namespace Config
 		}
 	};
 
+	// could add an array of pairs for multiple levers/buttons etc
 	Pair_Player				small { &s_player, &s_obj };
 	Pair_Player				big   { &b_player, &b_obj };
-	Pair_Object				box1  { &box     , &box_obj };
-	Pair_Object				grnd  { &ground  , &ground_obj };
+	Pair_Object				pBox  { &box     , &box_obj };
+	Pair_Object				pGround  { &ground  , &ground_obj };
+	Pair_Object				pButton  { &button  , &button_obj };
+	Pair_Object				pChicken  { &chicken , &chicken_obj};
+	Pair_Object				pDoor  { &door , &door_obj};
+	Pair_Object				pElevator  { &elevator , &elevator_obj};
+	Pair_Object				pLever  { &lever , &lever_obj};
+	Pair_Object				pPlatform  { &platform , &platform_obj};
 
-	Pair_Object*			objects[OBJECTS] { &grnd, &box1 };
+	Pair_Object*			objects[OBJECTS] { &pGround, &pBox, &pButton, &pChicken, &pDoor, &pElevator, &pLever, &pPlatform };
 	Pair_Player*            players[PLAYERS] { &small, &big };
 }

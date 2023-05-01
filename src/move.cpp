@@ -134,7 +134,7 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (right)
-    if (out_of_bounds(pair) && obj.velocity.x > 0.f)
+    if (out_of_bounds(pair) && obj.velocity.x > 5.f)
     {
         obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
 
@@ -145,7 +145,7 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (left)
-    if (out_of_bounds(pair) && obj.velocity.x < 0.f)
+    if (out_of_bounds(pair) && obj.velocity.x < 5.f)
     {
         obj.position.x = 0;
 
@@ -176,6 +176,8 @@ void move(Pair_Object& pair)
 
     auto& shape = *pair.shape;
     auto& obj = *pair.obj;
+
+    animate(pair);
 
     // Gravity lmaoo
     obj.acceleration.y = .2f;

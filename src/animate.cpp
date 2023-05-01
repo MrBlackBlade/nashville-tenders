@@ -96,3 +96,43 @@ void animate ( Pair_Player& pair, const Animation& anim )
         return;
 	}
 }
+
+void animate ( Pair_Object& pair )
+{
+    auto& shape = *pair.shape;
+    auto& obj = *pair.obj;
+
+    if (Config::frame_counter % 12 == 0 && obj.anims)
+    {
+        /*switch (obj.id)
+        {
+        case Object::button:
+
+            return;
+
+        case Object::lever:
+            return;
+
+        case Object::door:
+            return;
+
+        case Object::chicken:
+            return;
+
+        default:
+            return;
+        }*/
+
+        shape.setTextureRect
+        (
+            sf::IntRect
+            (
+                obj.anim_ind * obj.size_x, 0,
+                obj.size_x, obj.size_y
+            )
+        );
+
+        obj.anim_ind++;
+        obj.anim_ind %= obj.anims;
+    }
+}

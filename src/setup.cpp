@@ -4,28 +4,85 @@
 sf::Texture			bg_texture;
 sf::Sprite			background(bg_texture);
 sf::Texture			ground_texture;
-sf::RectangleShape	ground({900, 32});
+sf::RectangleShape	ground({900, 20});
 sf::Texture			box_texture;
 sf::RectangleShape  box({32, 32});
+sf::Texture			button_texture;
+sf::RectangleShape	button({32, 9});
+sf::Texture         chicken_texture;
+sf::RectangleShape	chicken({32, 36});
+sf::Texture			door_texture;
+sf::RectangleShape  door({32, 64});
+sf::Texture			elevator_texture;
+sf::RectangleShape  elevator({104, 16});
+sf::Texture			lever_texture;
+sf::RectangleShape  lever({32, 32});
+sf::Texture			platform_texture;
+sf::RectangleShape  platform({98, 16});
 
 Object ground_obj
 {
-Object::ground, // ID
-{ 0, 0 },	    // velocity    
-{ 0, 0 },	    // velocity_max
-{ 0, 0 },	    // acceleration
-{ 0, 0 },	    // position    
+Object::ground,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
 				    
-0,			    // anim_ind    
-1.f,		    // scale       
-900,		    // size_x	
-32,			    // size_y	
-0			    // anims
+0,					// anim_ind    
+1.f,				// scale       
+900,				// size_x	
+32,					// size_y	
+0					// anims
 };
 
 Object box_obj
 {
-Object::box,		// ID
+Object::box,			// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+				 
+0,					// anim_ind    
+3.f,				// scale       
+32,					// size_x	
+32,					// size_y	
+0					// anims	
+};
+
+Object button_obj
+{
+Object::button,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+				 
+0,					// anim_ind    
+1.f,				// scale       
+32,					// size_x	
+9,					// size_y	
+2					// anims	
+};
+
+Object chicken_obj
+{
+Object::chicken,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+				 
+0,					// anim_ind    
+1.f,				// scale       
+32,					// size_x	
+36,					// size_y	
+4					// anims	
+};
+
+Object door_obj
+{
+Object::door,	// ID
 { 0, 0 },		// velocity    
 { 0, 0 },		// velocity_max
 { 0, 0 },		// acceleration
@@ -34,8 +91,53 @@ Object::box,		// ID
 0,				// anim_ind    
 3.f,			// scale       
 32,				// size_x	
-32,				// size_y	
-0				// anims	
+64,				// size_y	
+8				// anims	
+};
+
+Object elevator_obj
+{
+Object::elevator, // ID
+{ 0, 0 },		  // velocity    
+{ 0, 0 },		  // velocity_max
+{ 0, 0 },		  // acceleration
+{ 0, 0 },		  // position    
+				   
+0,				  // anim_ind    
+1.f,			  // scale       
+104,			  // size_x	
+16,				  // size_y	
+0				  // anims	
+};
+
+Object lever_obj
+{
+Object::lever,    // ID
+{ 0, 0 },		  // velocity    
+{ 0, 0 },		  // velocity_max
+{ 0, 0 },		  // acceleration
+{ 0, 0 },		  // position    
+				   
+0,				  // anim_ind    
+1.f,			  // scale       
+32,				  // size_x	
+32,				  // size_y	
+2				  // anims	
+};
+
+Object platform_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+				   
+0,					 // anim_ind    
+1.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
 };
 
 // small player
@@ -127,16 +229,34 @@ void setup()
 	// set FPS
 	window.setFramerateLimit(60);
 
-	// background and platforms
+	// background and objects
 	bg_texture.loadFromFile("resources/background.png");
 	ground_texture.loadFromFile("resources/tile_1.png");
 	box_texture.loadFromFile("resources/box.png");
+	button_texture.loadFromFile("resources/button.png");
+	chicken_texture.loadFromFile("resources/chicken.png");
+	door_texture.loadFromFile("resources/door.png");
+	elevator_texture.loadFromFile("resources/elevator.png");
+	lever_texture.loadFromFile("resources/lever.png");
+	platform_texture.loadFromFile("resources/platform.png");
 
 	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
 	if (!bg_texture.loadFromFile("resources/background.png"))
 		exit(1);
 	if (!box_texture.loadFromFile("resources/box.png"))
+		exit(1);
+	if (!button_texture.loadFromFile("resources/button.png"))
+		exit(1);
+	if (!chicken_texture.loadFromFile("resources/chicken.png"))
+		exit(1);
+	if (!door_texture.loadFromFile("resources/door.png"))
+		exit(1);
+	if (!elevator_texture.loadFromFile("resources/elevator.png"))
+		exit(1);
+	if (!lever_texture.loadFromFile("resources/lever.png"))
+		exit(1);
+	if (!platform_texture.loadFromFile("resources/platform.png"))
 		exit(1);
 
 	background.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
@@ -148,7 +268,7 @@ void setup()
 	ground_obj.position =
 	{
 		0,
-		Config::RES_SIZE - 20.f
+		Config::RES_SIZE - ground.getGlobalBounds().height
 	};
 	ground.setPosition(ground_obj.position);
 
@@ -160,6 +280,60 @@ void setup()
 		ground.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);
+
+	button.setTexture(&button_texture);
+	button.setScale(button_obj.scale, button_obj.scale);
+	button_obj.position =
+	{
+		100.f,
+		ground.getGlobalBounds().top - button.getGlobalBounds().height
+	};
+	button.setPosition(button_obj.position);
+
+	chicken.setTexture(&chicken_texture);
+	chicken.setScale(chicken_obj.scale, chicken_obj.scale);
+	chicken_obj.position =
+	{
+		200.f,
+		ground.getGlobalBounds().top - chicken.getGlobalBounds().height
+	};
+	chicken.setPosition(chicken_obj.position);
+
+	door.setTexture(&door_texture);
+	door.setScale(door_obj.scale, door_obj.scale);
+	door_obj.position =
+	{
+		300.f,
+		ground.getGlobalBounds().top - door.getGlobalBounds().height - 50.f
+	};
+	door.setPosition(door_obj.position);
+
+	elevator.setTexture(&elevator_texture);
+	elevator.setScale(elevator_obj.scale, elevator_obj.scale);
+	elevator_obj.position =
+	{
+		375.f,
+		ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 50.f
+	};
+	elevator.setPosition(elevator_obj.position);
+
+	lever.setTexture(&lever_texture);
+	lever.setScale(lever_obj.scale, lever_obj.scale);
+	lever_obj.position =
+	{
+		500.f,
+		ground.getGlobalBounds().top - lever.getGlobalBounds().height - 50.f
+	};
+	lever.setPosition(lever_obj.position);
+
+	platform.setTexture(&platform_texture);
+	platform.setScale(platform_obj.scale, platform_obj.scale);
+	platform_obj.position =
+	{
+		600.f,
+		ground.getGlobalBounds().top - platform.getGlobalBounds().height - 50.f
+	};
+	platform.setPosition(platform_obj.position);
 
 	// small player
 	s_player_texture_jump.loadFromFile("resources/small_jump_animation.png");

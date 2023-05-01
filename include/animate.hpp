@@ -9,5 +9,6 @@
 #include <Pair.hpp>
 
 void animate(Pair_Player&, const Animation&);
+void animate(Pair_Object&);
 
 #endif // #ifndef _ANIMATE_HPP

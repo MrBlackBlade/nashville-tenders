@@ -7,7 +7,7 @@
 #include <Object.hpp>
 #include <Pair.hpp>
 
-constexpr auto OBJECTS = 2;
+constexpr auto OBJECTS = 8;
 constexpr auto PLAYERS = 2;
 
 namespace Config
@@ -29,10 +29,28 @@ extern sf::Texture			bg_texture;
 extern sf::Sprite			background;
 extern sf::Texture			ground_texture;
 extern sf::RectangleShape	ground;
+extern Object				ground_obj;
 extern sf::Texture			box_texture;
 extern sf::RectangleShape   box;
 extern Object				box_obj;
-extern Object				ground_obj;
+extern sf::Texture			button_texture;
+extern sf::RectangleShape	button;
+extern Object				button_obj;
+extern sf::Texture			chicken_texture;
+extern sf::RectangleShape	chicken;
+extern Object				chicken_obj;
+extern sf::Texture			door_texture;
+extern sf::RectangleShape	door;
+extern Object				door_obj;
+extern sf::Texture			elevator_texture;
+extern sf::RectangleShape	elevator;
+extern Object				elevator_obj;
+extern sf::Texture			lever_texture;
+extern sf::RectangleShape	lever;
+extern Object				lever_obj;
+extern sf::Texture			platform_texture;
+extern sf::RectangleShape	platform;
+extern Object				platform_obj;
 
 // small player
 extern sf::Texture			s_player_texture_jump;
