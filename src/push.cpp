@@ -9,50 +9,53 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
     auto& o_obj  = *o_pair.obj;
 
 	// Keep the player in bounds (right)
-    if (o_obj.position.x > (Config::RES_SIZE - shape.getGlobalBounds().width))
+    if (out_of_bounds(o_pair) && o_obj.velocity.x > 0.f)
     {
-        o_obj.position.x = Config::RES_SIZE - shape.getGlobalBounds().width;
+        o_obj.position.x = Config::RES_SIZE - sprite.getGlobalBounds().width;
 
         // Apply motion
         o_obj.velocity += o_obj.acceleration;
         o_obj.position += o_obj.velocity;
-        shape.setPosition(o_obj.position);
+        sprite.setPosition(o_obj.position);
     }
 
     // Keep the player in bounds (left)
-    if (o_obj.position.x < 0)
+    if (out_of_bounds(o_pair) && o_obj.velocity.x < 0.f)
     {
         o_obj.position.x = 0;
 
         // Apply motion
         o_obj.velocity += o_obj.acceleration;
         o_obj.position += o_obj.velocity;
-        shape.setPosition(o_obj.position);
+        sprite.setPosition(o_obj.position);
     }
 
-	if (collision(p_pair, o_pair) && !out_of_bounds(o_pair))
+	if (collision(p_pair, o_pair))
 	{
 		animate(p_pair, Animation::push);
-		// left collision
-		if (p_obj.velocity.x > 0.f)
+		if (!out_of_bounds(o_pair))
 		{
-			//animate(p_pair, Animation::push);
-			std::cout << "Pushing from left\n";
-			o_obj.position.x++;
+			// left collision
+			if (p_obj.velocity.x > 0.f)
+			{
+				//animate(p_pair, Animation::push);
+				std::cout << "Pushing from left\n";
+				o_obj.position.x++;
 
-			shape.setPosition(o_obj.position);
-			return true;
-		}
+				shape.setPosition(o_obj.position);
+				return true;
+			}
 
-		// right collision
-		if (p_obj.velocity.x < 0.f)
-		{
-			//animate(p_pair, Animation::push);
-			std::cout << "Pushing from right\n";
-			o_obj.position.x--;
+			// right collision
+			if (p_obj.velocity.x < 0.f)
+			{
+				//animate(p_pair, Animation::push);
+				std::cout << "Pushing from right\n";
+				o_obj.position.x--;
 
-			shape.setPosition(o_obj.position);
-			return true;
+				shape.setPosition(o_obj.position);
+				return true;
+			}
 		}
 	}
 
