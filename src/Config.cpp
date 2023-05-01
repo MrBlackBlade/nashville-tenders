@@ -24,7 +24,8 @@ namespace Config
 		}
 	};
 
-	bool door_opened = false;
+	bool door_opened  = false;
+	bool lever_pushed = false;
 
 	// could add an array of pairs for multiple levers/buttons etc
 	Pair_Player				small      { &s_player, &s_obj };

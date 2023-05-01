@@ -173,11 +173,22 @@ void move(Pair_Object& pair)
 {
     animate(pair);
 
-    if (pair.obj->id == Object::ground || pair.obj->id == Object::button || pair.obj->id == Object::lever || pair.obj->id == Object::platform || pair.obj->id == Object::door || pair.obj->id == Object::elevator)
-        return;
-
     auto& shape = *pair.shape;
     auto& obj = *pair.obj;
+
+
+    if (pair.obj->id == Object::ground || pair.obj->id == Object::button || pair.obj->id == Object::lever || pair.obj->id == Object::platform || pair.obj->id == Object::door)
+        return;
+    
+    if (((elevator_move(*Config::players[0], *Config::objects[Object::lever]) || elevator_move(*Config::players[1], *Config::objects[Object::lever])) && pair.obj->id == Object::elevator) || Config::lever_pushed)
+    {
+        // Gravity lmaoo
+        Config::objects[Object::elevator]->obj->position.y-=.5f;
+        shape.setPosition(obj.position);
+
+        return;
+    }
+
 
     // Gravity lmaoo
     obj.acceleration.y = .2f;

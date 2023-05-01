@@ -105,7 +105,7 @@ void animate ( Pair_Object& pair )
     // door animations
     if (obj.id == Object::door)
     {
-        if (Config::objects[Object::button]->obj->anim_ind == 1 && Config::door_opened == false)
+        if (Config::objects[Object::button]->obj->anim_ind == 1 && !Config::door_opened)
         {
             if (Config::frame_counter % 12 == 0 && obj.anims)
             {
@@ -162,7 +162,7 @@ void animate ( Pair_Object& pair )
 
     if (obj.id == Object::lever)
     {
-        if (elevator_move(*Config::players[0], pair)|| elevator_move(*Config::players[1], pair))
+        if (elevator_move(*Config::players[0], pair)|| elevator_move(*Config::players[1], pair) && !Config::lever_pushed)
         {
             if (Config::frame_counter % 4 == 0)
             {
@@ -177,7 +177,10 @@ void animate ( Pair_Object& pair )
 
                 // lever pushed
                 if (obj.anim_ind == 2)
+                {
+                    Config::lever_pushed = true;
                     return;
+                }
 
                 obj.anim_ind++;
                 obj.anim_ind %= obj.anims;
