@@ -134,7 +134,7 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (right)
-    if (out_of_bounds(pair) && obj.velocity.x > 7.f)
+    if (out_of_bounds(pair) && obj.velocity.x > 5.f && obj.position.x > Config::RES_SIZE / 2)
     {
         obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
 
@@ -145,7 +145,7 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (left)
-    if (out_of_bounds(pair) && obj.velocity.x < 7.f)
+    if (out_of_bounds(pair) && obj.velocity.x < 5.f && obj.position.x < Config::RES_SIZE / 2)
     {
         obj.position.x = 0;
 

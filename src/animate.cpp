@@ -119,7 +119,7 @@ void animate ( Pair_Object& pair )
                 );
 
                 // door opened
-                if (obj.anim_ind == 4)
+                if (obj.anim_ind == 6)
                     return;
 
                 obj.anim_ind++;
@@ -129,23 +129,46 @@ void animate ( Pair_Object& pair )
         return;
     }
 
-
-    // other objects
-    if (obj.id != Object::door)
+    if (obj.id == Object::button)
     {
-        if (Config::frame_counter % 12 == 0 && obj.anims)
+        if (collision(*Config::players[0], pair) == CollisionType::player_button || collision(*Config::players[1], pair) == CollisionType::player_button)
         {
-            shape.setTextureRect
-            (
-                sf::IntRect
+            if (Config::frame_counter % 10 == 0 )
+            {
+                shape.setTextureRect
                 (
-                    obj.anim_ind * obj.size_x, 0,
-                    obj.size_x, obj.size_y
-                )
-            );
+                    sf::IntRect
+                    (
+                        obj.anim_ind * obj.size_x, 0,
+                        obj.size_x, obj.size_y
+                    )
+                );
 
-            obj.anim_ind++;
-            obj.anim_ind %= obj.anims;
+                // button pressed
+                if (obj.anim_ind == 1)
+                    return;
+
+                obj.anim_ind++;
+                obj.anim_ind %= obj.anims;
+            }
         }
     }
+        // other objects
+        if (obj.id != Object::door && obj.id != Object::button)
+        {
+            if (Config::frame_counter % 12 == 0 && obj.anims)
+            {
+                shape.setTextureRect
+                (
+                    sf::IntRect
+                    (
+                        obj.anim_ind * obj.size_x, 0,
+                        obj.size_x, obj.size_y
+                    )
+                );
+
+                obj.anim_ind++;
+                obj.anim_ind %= obj.anims;
+            }
+        }
 }

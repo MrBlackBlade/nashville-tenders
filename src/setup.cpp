@@ -92,7 +92,7 @@ Object::door,	// ID
 3.f,			// scale       
 32,				// size_x	
 64,				// size_y	
-5				// anims	
+6				// anims	
 };
 
 Object elevator_obj
@@ -283,10 +283,12 @@ void setup()
 
 	button.setTexture(&button_texture);
 	button.setScale(button_obj.scale, button_obj.scale);
+	button.setTextureRect(sf::IntRect(0, 0, button_obj.size_x, button_obj.size_y));
+
 	button_obj.position =
 	{
-		Config::RES_SIZE * 1.f,
-		0.f/*ground.getGlobalBounds().top - button.getGlobalBounds().height*/
+		100.f,
+		ground.getGlobalBounds().top - button.getGlobalBounds().height
 	};
 	button.setPosition(button_obj.position);
 

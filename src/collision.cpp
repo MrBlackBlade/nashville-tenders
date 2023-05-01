@@ -32,7 +32,13 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		obj.velocity.y = 0;
 		obj.jump_ind = 0;
 		obj.jumping = false;
-		
+
+		if (obj2.id == Object::button)
+		{
+			std::cout << "da5al gamed" << "\n";
+			return CollisionType::player_button;
+		}
+
 		// small player moving on the top of the box
 		if (obj.id == 0 && obj2.id == Object::box && push(*Config::players[1], *Config::objects[Object::box]))
 		{
