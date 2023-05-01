@@ -185,7 +185,7 @@ void move(Pair_Object& pair)
         // Gravity lmaoo
         Config::objects[Object::elevator]->obj->position.y-=.5f;
         shape.setPosition(obj.position);
-
+        // limit upper bound
         return;
     }
 
