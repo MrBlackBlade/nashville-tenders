@@ -53,7 +53,7 @@ void animate ( Pair_Player& pair, const Animation& anim )
         return;
 
     case Animation::jump:
-        if (Config::frame_counter % (obj.id == 0 ? 14 : 14) == 0)
+        if (Config::frame_counter % (obj.id == 0 ? 12 : 14) == 0)
         {
             player.setTexture 
             (
