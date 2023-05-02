@@ -31,6 +31,7 @@ namespace Config
 	// could add an array of pairs for multiple levers/buttons etc
 	Pair_Player				small      { &s_player, &s_obj };
 	Pair_Player				big        { &b_player, &b_obj };
+
 	Pair_Object				pBox       { &box     , &box_obj };
 	Pair_Object				pGround    { &ground  , &ground_obj };
 	Pair_Object				pButton    { &button  , &button_obj };

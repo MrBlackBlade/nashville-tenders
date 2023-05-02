@@ -134,7 +134,7 @@ void animate ( Pair_Object& pair )
         return;
     }
 
-    if (obj.id == Object::button)
+    else if (obj.id == Object::button)
     {
         if (collision(*Config::players[0], pair) == CollisionType::player_button || collision(*Config::players[1], pair) == CollisionType::player_button
             || collision(*Config::objects[Object::box],*Config::objects[Object::button]) == CollisionType::box_button)
@@ -160,7 +160,7 @@ void animate ( Pair_Object& pair )
         }
     }
 
-    if (obj.id == Object::lever)
+    else if (obj.id == Object::lever)
     {
         if (elevator_move(*Config::players[0], pair)|| elevator_move(*Config::players[1], pair) && !Config::lever_pushed)
         {
@@ -188,21 +188,21 @@ void animate ( Pair_Object& pair )
         }
     }
         // other objects
-        if (obj.id != Object::door && obj.id != Object::button && obj.id != Object::lever)
+    else
+    {
+        if (Config::frame_counter % 12 == 0 && obj.anims)
         {
-            if (Config::frame_counter % 12 == 0 && obj.anims)
-            {
-                shape.setTextureRect
+            shape.setTextureRect
+            (
+                sf::IntRect
                 (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
+                    obj.anim_ind * obj.size_x, 0,
+                    obj.size_x, obj.size_y
+                )
+            );
 
-                obj.anim_ind++;
-                obj.anim_ind %= obj.anims;
-            }
+            obj.anim_ind++;
+            obj.anim_ind %= obj.anims;
         }
+    }
 }

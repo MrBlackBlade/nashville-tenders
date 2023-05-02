@@ -71,7 +71,7 @@ Object::button,		// ID
 
 Object chicken1_obj
 {
-Object::chicken,		// ID
+Object::chicken1,		// ID
 { 0, 0 },			// velocity    
 { 0, 0 },			// velocity_max
 { 0, 0 },			// acceleration
@@ -86,7 +86,7 @@ Object::chicken,		// ID
 
 Object chicken2_obj
 {
-Object::chicken,		// ID
+Object::chicken2,		// ID
 { 0, 0 },			// velocity    
 { 0, 0 },			// velocity_max
 { 0, 0 },			// acceleration
@@ -101,7 +101,7 @@ Object::chicken,		// ID
 
 Object chicken3_obj
 {
-Object::chicken,		// ID
+Object::chicken3,		// ID
 { 0, 0 },			// velocity    
 { 0, 0 },			// velocity_max
 { 0, 0 },			// acceleration
@@ -114,7 +114,8 @@ Object::chicken,		// ID
 4					// anims	
 };
 
-/* the 3 chickens */
+/* the 3 chicken
+s */
 
 Object door_obj
 {

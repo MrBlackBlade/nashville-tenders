@@ -183,7 +183,7 @@ void move(Pair_Object& pair)
     if (((elevator_move(*Config::players[0], *Config::objects[Object::lever]) || elevator_move(*Config::players[1], *Config::objects[Object::lever])) && pair.obj->id == Object::elevator) || Config::lever_pushed)
     {
         // Gravity lmaoo
-        Config::objects[Object::elevator]->obj->position.y-=.5f;
+        Config::objects[Object::elevator]->obj->position.y -= .5f;
         shape.setPosition(obj.position);
         // limit upper bound
         return;

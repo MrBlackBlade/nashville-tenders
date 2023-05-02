@@ -7,7 +7,7 @@ bool collect(Pair_Player& p_pair, Pair_Object& o_pair)
     auto& shape = *o_pair.shape;
     auto& obj2 = *o_pair.obj;
 
-    if (obj2.id != Object::chicken)
+    if (obj2.id != Object::chicken1 && obj2.id != Object::chicken2 && obj2.id != Object::chicken3)
 
         return false;
 

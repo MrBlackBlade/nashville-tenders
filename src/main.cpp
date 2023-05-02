@@ -52,8 +52,8 @@ int main()
 			for (size_t object = 0; object < OBJECTS; object++)
 			{
 				push(*players[player], *objects[object]);
-				collision(*players[player], *objects[object]);
 				collect(*players[player], *objects[object]);
+				collision(*players[player], *objects[object]);
 			}
 		}
 

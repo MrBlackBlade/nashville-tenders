@@ -20,7 +20,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 	r_coll    = intersect && std::fabs(((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)) <= (p_bounds.width + s_bounds.width) && obj.velocity.x < 0.f && !u_coll;
 
 	if (u_coll || d_coll || l_coll || r_coll) {
-		if (obj2.id == Object::chicken)
+		if (obj2.id == Object::chicken1 || obj2.id == Object::chicken2 || obj2.id == Object::chicken3)
 			return CollisionType::player_chicken;
 	}
 
