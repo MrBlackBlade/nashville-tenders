@@ -276,7 +276,7 @@ void setup()
 	box.setScale(box_obj.scale, box_obj.scale);
 	box_obj.position =
 	{
-		100,
+		10000,
 		ground.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);
@@ -287,7 +287,7 @@ void setup()
 
 	button_obj.position =
 	{
-		300.f,
+		3000.f,
 		ground.getGlobalBounds().top - button.getGlobalBounds().height
 	};
 	button.setPosition(button_obj.position);
@@ -296,8 +296,8 @@ void setup()
 	chicken.setScale(chicken_obj.scale, chicken_obj.scale);
 	chicken_obj.position =
 	{
-		Config::RES_SIZE * 1.f,
-		0.f/*ground.getGlobalBounds().top - chicken.getGlobalBounds().height*/
+		500.f,
+		ground.getGlobalBounds().top - chicken.getGlobalBounds().height
 	};
 	chicken.setPosition(chicken_obj.position);
 
@@ -306,7 +306,7 @@ void setup()
 	door.setScale(door_obj.scale, door_obj.scale);
 	door_obj.position =
 	{
-		500.f,
+		5000.f,
 		ground.getGlobalBounds().top - door.getGlobalBounds().height
 	};
 	door.setPosition(door_obj.position);
@@ -315,7 +315,7 @@ void setup()
 	elevator.setScale(elevator_obj.scale, elevator_obj.scale);
 	elevator_obj.position =
 	{
-		50,
+		5000,
 		ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 500.f
 	};
 	elevator.setPosition(elevator_obj.position);
@@ -325,7 +325,7 @@ void setup()
 	lever.setScale(lever_obj.scale, lever_obj.scale);
 	lever_obj.position =
 	{
-		700.f,
+		7000.f,
 		ground.getGlobalBounds().top - lever.getGlobalBounds().height
 	};
 	lever.setPosition(lever_obj.position);
@@ -334,7 +334,7 @@ void setup()
 	platform.setScale(platform_obj.scale, platform_obj.scale);
 	platform_obj.position =
 	{
-		600.f,
+		6000.f,
 		0.f/*Config::RES_SIZE / 2.f + 30.f*/
 	};
 	platform.setPosition(platform_obj.position);

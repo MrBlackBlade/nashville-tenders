@@ -4,6 +4,7 @@ namespace Config
 {
 	const sf::Uint16 RES_SIZE = 900;
 	sf::Uint16 frame_counter = 0;
+	sf::Uint16 chicken_count = 0;
 
 	const sf::Keyboard::Key keybinds[2][4]
 	{

@@ -15,6 +15,7 @@ namespace Config
 	extern const sf::Uint16 RES_SIZE;
 
 	extern sf::Uint16 frame_counter;
+	extern sf::Uint16 chicken_count;
 
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
