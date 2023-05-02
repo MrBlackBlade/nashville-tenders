@@ -3,6 +3,7 @@
 #include <Animation.hpp>
 #include <check_idle.hpp>
 #include <collision.hpp>
+#include <collect.hpp>
 #include <Config.hpp>
 #include <get_key_pressed.hpp>
 #include <push.hpp>
@@ -28,7 +29,7 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-
+		
 		// player idle checking and motion
 		for (size_t player = 0; player < PLAYERS; player++)
 		{
@@ -52,6 +53,7 @@ int main()
 			{
 				push(*players[player], *objects[object]);
 				collision(*players[player], *objects[object]);
+				collect(*players[player], *objects[object]);
 			}
 		}
 

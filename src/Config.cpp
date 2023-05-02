@@ -3,7 +3,8 @@
 namespace Config
 {
 	const sf::Uint16 RES_SIZE = 900;
-	sf::Uint16 frame_counter = 0;
+	sf::Uint16 frame_counter  = 0;
+	sf::Uint16 chicken_count  = 0;
 
 	const sf::Keyboard::Key keybinds[2][4]
 	{
@@ -33,13 +34,15 @@ namespace Config
 	Pair_Object				pBox       { &box     , &box_obj };
 	Pair_Object				pGround    { &ground  , &ground_obj };
 	Pair_Object				pButton    { &button  , &button_obj };
-	Pair_Object				pChicken   { &chicken , &chicken_obj};
+	Pair_Object				pChicken1  { &chicken1 , &chicken1_obj};
+	Pair_Object				pChicken2  { &chicken2 , &chicken2_obj};
+	Pair_Object				pChicken3  { &chicken3 , &chicken3_obj};
 	Pair_Object				pDoor      { &door , &door_obj};
 	Pair_Object				pElevator  { &elevator , &elevator_obj};
 	Pair_Object				pLever     { &lever , &lever_obj};
 	Pair_Object				pPlatform  { &platform , &platform_obj};
 
-	Pair_Object*			objects[OBJECTS] { &pGround, &pBox, &pButton, &pChicken, &pDoor, &pElevator, &pLever, &pPlatform };
+	Pair_Object*			objects[OBJECTS] { &pGround, &pBox, &pButton, &pChicken1, &pChicken2, &pChicken3, &pDoor, &pElevator, &pLever, &pPlatform };
 	Pair_Player*            players[PLAYERS] { &small, &big };
 
 }

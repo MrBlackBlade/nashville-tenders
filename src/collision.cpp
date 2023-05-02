@@ -19,6 +19,12 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 	l_coll    = intersect && std::fabs(((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)) <= (p_bounds.width + s_bounds.width) && obj.velocity.x > 0.f && !u_coll,
 	r_coll    = intersect && std::fabs(((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)) <= (p_bounds.width + s_bounds.width) && obj.velocity.x < 0.f && !u_coll;
 
+	if (u_coll || d_coll || l_coll || r_coll) {
+		if (obj2.id == Object::chicken)
+			return CollisionType::player_chicken;
+	}
+
+
 	if (u_coll && !d_coll && !l_coll && !r_coll)
 	{
 		if (obj2.id == Object::lever)
@@ -48,7 +54,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 			// collide from left
 			if (Config::players[1]->obj->velocity.x > 0.f)
 			{
-				obj.position.x++;
+				obj.position.x += .7f;
 
 				player.setPosition(obj.position);
 				return CollisionType::null;
@@ -57,7 +63,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 			// collide from right
 			if (Config::players[1]->obj->velocity.x < 0.f)
 			{
-				obj.position.x--;
+				obj.position.x -= .7f;
 
 				player.setPosition(obj.position);
 				return CollisionType::null;
