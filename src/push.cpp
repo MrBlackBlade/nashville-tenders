@@ -43,7 +43,7 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
 			// left collision
 			if (p_obj.velocity.x > 0.f)
 			{
-				o_obj.position.x += .7f;
+				o_obj.position.x++;
 
 				shape.setPosition(o_obj.position);
 				return true;
@@ -52,7 +52,7 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
 			// right collision
 			if (p_obj.velocity.x < 0.f)
 			{
-				o_obj.position.x -= .7f;
+				o_obj.position.x--;
 
 				shape.setPosition(o_obj.position);
 				return true;
