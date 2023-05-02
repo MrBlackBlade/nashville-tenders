@@ -136,11 +136,8 @@ void animate ( Pair_Object& pair )
 
     else if (obj.id == Object::button)
     {
-        if (collision(*Config::players[0], pair) == CollisionType::player_button || collision(*Config::players[1], pair) == CollisionType::player_button
-            || collision(*Config::objects[Object::box],*Config::objects[Object::button]) == CollisionType::box_button)
+        if (collision(*Config::players[0], pair) == CollisionType::player_button || collision(*Config::players[1], pair) == CollisionType::player_button|| collision(*Config::objects[Object::box],*Config::objects[Object::button]) == CollisionType::box_button)
         {
-            if (Config::frame_counter % 6 == 0 )
-            {
                 shape.setTextureRect
                 (
                     sf::IntRect
@@ -156,7 +153,6 @@ void animate ( Pair_Object& pair )
 
                 obj.anim_ind++;
                 obj.anim_ind %= obj.anims;
-            }
         }
     }
 
