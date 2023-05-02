@@ -7,7 +7,7 @@
 #include <Object.hpp>
 #include <Pair.hpp>
 
-constexpr auto OBJECTS = 8;
+constexpr auto OBJECTS = 10;
 constexpr auto PLAYERS = 2;
 
 namespace Config
@@ -41,8 +41,12 @@ extern sf::Texture			button_texture;
 extern sf::RectangleShape	button;
 extern Object				button_obj;
 extern sf::Texture			chicken_texture;
-extern sf::RectangleShape	chicken;
-extern Object				chicken_obj;
+extern sf::RectangleShape	chicken1;
+extern sf::RectangleShape	chicken2;
+extern sf::RectangleShape	chicken3;
+extern Object				chicken1_obj;
+extern Object				chicken2_obj;
+extern Object				chicken3_obj;
 extern sf::Texture			door_texture;
 extern sf::RectangleShape	door;
 extern Object				door_obj;

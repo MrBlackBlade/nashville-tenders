@@ -17,6 +17,7 @@ bool collect(Pair_Player& p_pair, Pair_Object& o_pair)
         obj2.position.x += 5000;
         shape.setPosition(obj2.position);
 
+        system("cls");
         std::cout << ++Config::chicken_count << "\n";
         return true;
     }

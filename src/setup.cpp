@@ -10,7 +10,9 @@ sf::RectangleShape  box({32, 32});
 sf::Texture			button_texture;
 sf::RectangleShape	button({32, 9});
 sf::Texture         chicken_texture;
-sf::RectangleShape	chicken({32, 36});
+sf::RectangleShape	chicken1({32, 36});
+sf::RectangleShape	chicken2({32, 36});
+sf::RectangleShape	chicken3({32, 36});
 sf::Texture			door_texture;
 sf::RectangleShape  door({32, 64});
 sf::Texture			elevator_texture;
@@ -65,7 +67,9 @@ Object::button,		// ID
 2					// anims	
 };
 
-Object chicken_obj
+/* the 3 chickens */
+
+Object chicken1_obj
 {
 Object::chicken,		// ID
 { 0, 0 },			// velocity    
@@ -79,6 +83,38 @@ Object::chicken,		// ID
 36,					// size_y	
 4					// anims	
 };
+
+Object chicken2_obj
+{
+Object::chicken,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+				 
+0,					// anim_ind    
+1.f,				// scale       
+32,					// size_x	
+36,					// size_y	
+4					// anims	
+};
+
+Object chicken3_obj
+{
+Object::chicken,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+				 
+0,					// anim_ind    
+1.f,				// scale       
+32,					// size_x	
+36,					// size_y	
+4					// anims	
+};
+
+/* the 3 chickens */
 
 Object door_obj
 {
@@ -292,15 +328,37 @@ void setup()
 	};
 	button.setPosition(button_obj.position);
 
-	chicken.setTexture(&chicken_texture);
-	chicken.setScale(chicken_obj.scale, chicken_obj.scale);
-	chicken_obj.position =
+	/* the 3 chickens */
+
+	chicken1.setTexture(&chicken_texture);
+	chicken1.setScale(chicken1_obj.scale, chicken1_obj.scale);
+	chicken1_obj.position =
 	{
 		500.f,
-		ground.getGlobalBounds().top - chicken.getGlobalBounds().height
+		ground.getGlobalBounds().top - chicken1.getGlobalBounds().height
 	};
-	chicken.setPosition(chicken_obj.position);
+	chicken1.setPosition(chicken1_obj.position);
+	//
+	chicken2.setTexture(&chicken_texture);
+	chicken2.setScale(chicken2_obj.scale, chicken2_obj.scale);
+	chicken2_obj.position =
+	{
+		550.f,
+		ground.getGlobalBounds().top - chicken2.getGlobalBounds().height
+	};
+	chicken2.setPosition(chicken1_obj.position);
+	//
+	chicken3.setTexture(&chicken_texture);
+	chicken3.setScale(chicken3_obj.scale, chicken3_obj.scale);
+	chicken3_obj.position =
+	{
+		600.f,
+		ground.getGlobalBounds().top - chicken3.getGlobalBounds().height
+	};
+	chicken3.setPosition(chicken3_obj.position);
+	//
 
+	/* the 3 chickens */
 	door.setTexture(&door_texture);
 	door.setTextureRect(sf::IntRect(0, 0, door_obj.size_x, door_obj.size_y));
 	door.setScale(door_obj.scale, door_obj.scale);
