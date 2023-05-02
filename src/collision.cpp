@@ -54,7 +54,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 			// collide from left
 			if (Config::players[1]->obj->velocity.x > 0.f)
 			{
-				obj.position.x++;
+				obj.position.x += .7f;
 
 				player.setPosition(obj.position);
 				return CollisionType::null;
@@ -63,7 +63,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 			// collide from right
 			if (Config::players[1]->obj->velocity.x < 0.f)
 			{
-				obj.position.x--;
+				obj.position.x -= .7f;
 
 				player.setPosition(obj.position);
 				return CollisionType::null;

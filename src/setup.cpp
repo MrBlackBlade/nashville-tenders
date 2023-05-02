@@ -276,7 +276,7 @@ void setup()
 	box.setScale(box_obj.scale, box_obj.scale);
 	box_obj.position =
 	{
-		10000,
+		300,
 		ground.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);
@@ -287,7 +287,7 @@ void setup()
 
 	button_obj.position =
 	{
-		3000.f,
+		150.f,
 		ground.getGlobalBounds().top - button.getGlobalBounds().height
 	};
 	button.setPosition(button_obj.position);
@@ -306,16 +306,16 @@ void setup()
 	door.setScale(door_obj.scale, door_obj.scale);
 	door_obj.position =
 	{
-		5000.f,
+		700.f,
 		ground.getGlobalBounds().top - door.getGlobalBounds().height
 	};
 	door.setPosition(door_obj.position);
 
 	elevator.setTexture(&elevator_texture);
-	elevator.setScale(elevator_obj.scale, elevator_obj.scale);
+	elevator.setScale  (elevator_obj.scale, elevator_obj.scale);
 	elevator_obj.position =
 	{
-		5000,
+		40,
 		ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 500.f
 	};
 	elevator.setPosition(elevator_obj.position);
@@ -325,7 +325,7 @@ void setup()
 	lever.setScale(lever_obj.scale, lever_obj.scale);
 	lever_obj.position =
 	{
-		7000.f,
+		800.f,
 		ground.getGlobalBounds().top - lever.getGlobalBounds().height
 	};
 	lever.setPosition(lever_obj.position);
