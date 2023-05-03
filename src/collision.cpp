@@ -30,6 +30,12 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		if (obj2.id == Object::lever)
 			return CollisionType::null;
 
+		// dont collide if the door is open
+		if (obj2.id == Object::door && door_open(o_pair))
+		{
+			return CollisionType::null;
+		}
+
 		// collision from top
 		obj.position =
 		{
@@ -115,10 +121,6 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 			return CollisionType::box;
 		}
 
-		if (obj2.id == Object::door)
-		{
-			return CollisionType::door;
-		}
 		return CollisionType::null;
 	}
 
@@ -146,10 +148,6 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 			return CollisionType::box;
 		}
 
-		if (obj2.id == Object::door)
-		{
-			return CollisionType::door;
-		}
 		return CollisionType::null;
 	}
 }
@@ -218,9 +216,6 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		};
 		shape1.setPosition(obj.position);
 
-		if (obj.id == Object::box && obj2.id == Object::door)
-			return CollisionType::door;
-
 		return CollisionType::null;
 	}
 
@@ -234,9 +229,6 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			shape1.getPosition().y
 		};
 		shape1.setPosition(obj.position);
-
-		if (obj.id == Object::box && obj2.id == Object::door)
-			return CollisionType::door;
 
 		return CollisionType::null;
 	}

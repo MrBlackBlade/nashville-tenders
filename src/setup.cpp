@@ -352,7 +352,7 @@ void setup()
 
 	button_obj.position =
 	{
-		400.f,
+		200.f,
 		ground.getGlobalBounds().top - button.getGlobalBounds().height
 	};
 	button.setPosition(button_obj.position);

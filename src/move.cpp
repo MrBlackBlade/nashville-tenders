@@ -28,7 +28,7 @@ void move(Pair_Player& pair)
             animate(pair, Animation::jump);
 
             obj.jumping = true;
-            obj.velocity.y = obj.id ? -2.f : -7.f ;
+            obj.velocity.y = obj.id ? -2.f : -8.f ;
         }
 
         // Left
@@ -195,12 +195,9 @@ void move(Pair_Object& pair)
         return;
     }
 
-    if (Config::objects[Object::box])
-    {
     // Gravity lmaoo
     obj.acceleration.y = .2f;
-    }
-        
+      
     // Apply motion
     obj.velocity += obj.acceleration;
     obj.position += obj.velocity;
