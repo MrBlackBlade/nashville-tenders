@@ -195,9 +195,11 @@ void move(Pair_Object& pair)
         return;
     }
 
-
+    if (Config::objects[Object::box])
+    {
     // Gravity lmaoo
     obj.acceleration.y = .2f;
+    }
         
     // Apply motion
     obj.velocity += obj.acceleration;
