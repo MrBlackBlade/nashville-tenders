@@ -1,8 +1,14 @@
 #include <setup.hpp>
 
 // background and platforms
-sf::Texture			bg_texture;
-sf::Sprite			background(bg_texture);
+sf::Texture			bg_texture_1;
+sf::Texture			bg_texture_2;
+sf::Texture			bg_texture_3;
+sf::Texture			bg_texture_4;
+sf::Sprite			background_1(bg_texture_1);
+sf::Sprite			background_2(bg_texture_2);
+sf::Sprite			background_3(bg_texture_3);
+sf::Sprite			background_4(bg_texture_4);
 sf::Texture			ground_texture;
 sf::RectangleShape	ground({900, 20});
 sf::Texture			box_texture;
@@ -267,7 +273,11 @@ void setup()
 	window.setFramerateLimit(60);
 
 	// background and objects
-	bg_texture.loadFromFile("resources/background.png");
+	bg_texture_1.loadFromFile("resources/bg1.png");
+	bg_texture_2.loadFromFile("resources/bg2.png");
+	bg_texture_3.loadFromFile("resources/bg3.png");
+	bg_texture_4.loadFromFile("resources/bg4.png");
+
 	ground_texture.loadFromFile("resources/tile_1.png");
 	box_texture.loadFromFile("resources/box.png");
 	button_texture.loadFromFile("resources/button.png");
@@ -279,7 +289,13 @@ void setup()
 
 	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
-	if (!bg_texture.loadFromFile("resources/background.png"))
+	if (!bg_texture_1.loadFromFile("resources/bg1.png"))
+		exit(1);
+	if (!bg_texture_2.loadFromFile("resources/bg2.png"))
+		exit(1);
+	if (!bg_texture_3.loadFromFile("resources/bg3.png"))
+		exit(1);
+	if (!bg_texture_4.loadFromFile("resources/bg4.png"))
 		exit(1);
 	if (!box_texture.loadFromFile("resources/box.png"))
 		exit(1);
@@ -296,9 +312,21 @@ void setup()
 	if (!platform_texture.loadFromFile("resources/platform.png"))
 		exit(1);
 
-	background.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
-	background.setScale(2, 2);
-	background.setPosition(-576,-1300);
+	background_1.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
+	background_1.setScale(2, 2);
+	background_1.setPosition(-576,-1300);
+
+	background_2.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
+	background_2.setScale(2, 2);
+	background_2.setPosition(-576, -1300);
+
+	background_3.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
+	background_3.setScale(2, 2);
+	background_3.setPosition(-576, -1300);
+
+	background_4.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
+	background_4.setScale(2, 2);
+	background_4.setPosition(-576, -1300);
 
 	ground.setTexture(&ground_texture);
 	ground.setScale(ground_obj.scale, ground_obj.scale);

@@ -124,13 +124,19 @@ void move(Pair_Player& pair)
     // Background movement
     if ( obj.velocity.x > .5f )
     {
-        background.move(-.7f, 0.f);
+        background_1.move(-.2f, 0.f);
+        background_2.move(-.4f, 0.f);
+        background_3.move(-.6f, 0.f);
+        background_4.move(-.8f, 0.f);
     }
 
     // Background movement
     if ( obj.velocity.x < -.5f )
     {
-        background.move(.7f, 0.f);
+        background_1.move(.2f, 0.f);
+        background_2.move(.4f, 0.f);
+        background_3.move(.6f, 0.f);
+        background_4.move(.8f, 0.f);
     }
 
     // Keep the player in bounds (right)

@@ -6,7 +6,10 @@ void render()
     window.RenderTarget::clear(sf::Color(55, 68, 110, 255));
 
     // render the background
-    window.draw(background);
+    window.draw(background_1);
+    window.draw(background_2);
+    window.draw(background_3);
+    window.draw(background_4);
 
     // render the players 
     window.draw(b_player);

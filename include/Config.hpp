@@ -30,7 +30,11 @@ namespace Config
 
 // platforms and obstacles
 extern sf::Texture			bg_texture;
-extern sf::Sprite			background;
+extern sf::Sprite			background_1;
+extern sf::Sprite			background_2;
+extern sf::Sprite			background_3;
+extern sf::Sprite			background_4;
+
 extern sf::Texture			ground_texture;
 extern sf::RectangleShape	ground;
 extern Object				ground_obj;
