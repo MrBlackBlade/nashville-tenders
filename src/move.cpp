@@ -125,8 +125,8 @@ void move(Pair_Player& pair)
     if ( obj.velocity.x > .5f )
     {
         background_1.move(-.2f, 0.f);
-        background_2.move(-.4f, 0.f);
-        background_3.move(-.6f, 0.f);
+        background_2.move(-.3f, 0.f);
+        background_3.move(-.5f, 0.f);
         background_4.move(-.7f, 0.f);
     }
 
@@ -134,8 +134,8 @@ void move(Pair_Player& pair)
     if ( obj.velocity.x < -.5f )
     {
         background_1.move(.2f, 0.f);
-        background_2.move(.4f, 0.f);
-        background_3.move(.6f, 0.f);
+        background_2.move(.3f, 0.f);
+        background_3.move(.5f, 0.f);
         background_4.move(.7f, 0.f);
     }
 
