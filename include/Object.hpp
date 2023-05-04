@@ -9,8 +9,8 @@ struct Object
 	enum ObjectEnum
 	{
 		ground,
-		box,
 		button,
+		box,
 		chicken1,
 		chicken2,
 		chicken3,

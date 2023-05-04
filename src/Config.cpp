@@ -43,7 +43,7 @@ namespace Config
 	Pair_Object				pLever     { &lever , &lever_obj};
 	Pair_Object				pPlatform  { &platform , &platform_obj};
 
-	Pair_Object*			objects[OBJECTS] { &pGround, &pBox, &pButton, &pChicken1, &pChicken2, &pChicken3, &pDoor, &pElevator, &pLever, &pPlatform };
+	Pair_Object*			objects[OBJECTS] { &pGround, &pButton, &pBox, &pChicken1, &pChicken2, &pChicken3, &pDoor, &pElevator, &pLever, &pPlatform };
 	Pair_Player*            players[PLAYERS] { &small, &big };
 
 }
