@@ -352,7 +352,7 @@ void setup()
 
 	button_obj.position =
 	{
-		400.f,
+		200.f,
 		ground.getGlobalBounds().top - button.getGlobalBounds().height
 	};
 	button.setPosition(button_obj.position);
@@ -403,7 +403,7 @@ void setup()
 	elevator_obj.position =
 	{
 		40,
-		ground.getGlobalBounds().top - elevator.getGlobalBounds().height - 500.f
+		ground.getGlobalBounds().top - elevator.getGlobalBounds().height
 	};
 	elevator.setPosition(elevator_obj.position);
 
@@ -464,7 +464,7 @@ void setup()
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
-		30.f,
+		500.f,
 		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64.f 
 	};
 	b_player.setPosition(b_obj.position);

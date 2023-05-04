@@ -196,7 +196,7 @@ void move(Pair_Object& pair)
     }
 
     // Gravity lmaoo
-    obj.acceleration.y = .2f;
+    //obj.acceleration.y = .2f;
       
     // Apply motion
     obj.velocity += obj.acceleration;

@@ -136,7 +136,7 @@ void animate ( Pair_Object& pair )
 
     else if (obj.id == Object::button)
     {
-        if (collision(*Config::players[0], pair) == CollisionType::player_button || collision(*Config::players[1], pair) == CollisionType::player_button|| collision(*Config::objects[Object::box],*Config::objects[Object::button]) == CollisionType::box_button)
+        if (collision(*Config::players[0], pair) == CollisionType::button || collision(*Config::players[1], pair) == CollisionType::button|| collision(*Config::objects[Object::box],*Config::objects[Object::button]) == CollisionType::button)
         {
                 shape.setTextureRect
                 (

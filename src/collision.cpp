@@ -51,7 +51,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		if (obj2.id == Object::button)
 		{
 			//std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
-			return CollisionType::player_button;
+			return CollisionType::button;
 		}
 
 		// small player moving on the top of the box
@@ -176,7 +176,7 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button]->shape->getGlobalBounds()))
 		{
 			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
-			return CollisionType::box_button;
+			return CollisionType::button;
 		}
 
 		// collision from top
@@ -186,6 +186,9 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			s2_bounds.top - s1_bounds.height
 		};
 		shape1.setPosition(obj.position);
+		
+		if (obj.id == Object::box && obj2.id == Object::elevator)
+			return CollisionType::box;
 
 		obj.velocity.y = 0;
 
@@ -198,9 +201,9 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button]->shape->getGlobalBounds()))
 		{
 			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
-			return CollisionType::box_button;
+			return CollisionType::button;
 		}
-
+		
 		// collision from bottom
 		obj.position =
 		{
@@ -208,6 +211,7 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			s2_bounds.top + s2_bounds.height
 		};
 		shape1.setPosition(obj.position);
+
 
 		obj.velocity.y = 0;
 
@@ -219,7 +223,7 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button]->shape->getGlobalBounds()))
 		{
 			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
-			return CollisionType::box_button;
+			return CollisionType::button;
 		}
 
 		// collision from left
@@ -239,8 +243,9 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button]->shape->getGlobalBounds()))
 		{
 			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
-			return CollisionType::box_button;
+			return CollisionType::button;
 		}
+
 		// collision from right
 		obj.position =
 		{
@@ -248,6 +253,8 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			shape1.getPosition().y
 		};
 		shape1.setPosition(obj.position);
+
+
 
 		return CollisionType::null;
 	}
