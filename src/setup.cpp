@@ -499,8 +499,8 @@ void setup()
 
 	button1_obj.position =
 	{
-		200.f,
-		ground.getGlobalBounds().top - button1.getGlobalBounds().height - 100
+		50.f,
+		ground.getGlobalBounds().top - button1.getGlobalBounds().height
 	};
 	button1.setPosition(button1_obj.position);
 	//
@@ -510,8 +510,8 @@ void setup()
 
 	button2_obj.position =
 	{
-		200.f,
-		ground.getGlobalBounds().top - button2.getGlobalBounds().height - 200
+		100.f,
+		ground.getGlobalBounds().top - button2.getGlobalBounds().height
 	};
 	button2.setPosition(button2_obj.position);
 	//
@@ -521,8 +521,8 @@ void setup()
 
 	button3_obj.position =
 	{
-		200.f,
-		ground.getGlobalBounds().top - button3.getGlobalBounds().height - 300
+		150.f,
+		ground.getGlobalBounds().top - button3.getGlobalBounds().height
 	};
 	button3.setPosition(button3_obj.position);
 
@@ -562,8 +562,8 @@ void setup()
 	door1.setScale(door1_obj.scale, door1_obj.scale);
 	door1_obj.position =
 	{
-		700.f,
-		ground.getGlobalBounds().top - door1.getGlobalBounds().height - 300
+		600.f,
+		ground.getGlobalBounds().top - door1.getGlobalBounds().height
 	};
 	door1.setPosition(door1_obj.position);
 
@@ -573,7 +573,7 @@ void setup()
 	door2_obj.position =
 	{
 		700.f,
-		ground.getGlobalBounds().top - door2.getGlobalBounds().height - 200
+		ground.getGlobalBounds().top - door2.getGlobalBounds().height
 	};
 	door2.setPosition(door2_obj.position);
 
@@ -582,8 +582,8 @@ void setup()
 	door3.setScale(door3_obj.scale, door3_obj.scale);
 	door3_obj.position =
 	{
-		700.f,
-		ground.getGlobalBounds().top - door3.getGlobalBounds().height - 100
+		800.f,
+		ground.getGlobalBounds().top - door3.getGlobalBounds().height
 	};
 	door3.setPosition(door3_obj.position);
 	
