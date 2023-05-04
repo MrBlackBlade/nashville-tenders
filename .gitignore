@@ -1,12 +1,14 @@
 /source
+/.vscode
+/x64
+Makefile
 .vs
-x64
 *.sln
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
 *.dll
-Makefile
 *.o
 *.code-workspace
 *.exe
+*.vscode
