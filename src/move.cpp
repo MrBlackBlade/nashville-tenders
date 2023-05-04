@@ -108,7 +108,7 @@ void move(Pair_Player& pair)
         }
 
         //  1.f is a tolerance value to check if the player "stopped" motion
-        if ( std::fabs ( obj.velocity.x ) < 1.f )
+        if ( std::abs ( obj.velocity.x ) < 1.f )
         {
             obj.velocity.x     = 0.f;
             obj.acceleration.x = 0.f;
