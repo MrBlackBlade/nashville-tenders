@@ -7,7 +7,7 @@ enum class CollisionType
 	box,
 	button,	// double checking for the player pressing the button		// double checking for the box pressing the button
 	door,
-	player_chicken,
+	chicken,
 	
 	null,
 };

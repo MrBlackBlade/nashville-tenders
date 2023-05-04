@@ -7,7 +7,7 @@
 #include <Object.hpp>
 #include <Pair.hpp>
 
-constexpr auto OBJECTS = 10;
+constexpr auto OBJECTS = 18;
 constexpr auto PLAYERS = 2;
 
 namespace Config
@@ -19,8 +19,14 @@ namespace Config
 
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
-	extern bool door_opened;
-	extern bool lever_pushed;
+	extern bool door1_opened;
+	extern bool lever1_pushed;
+
+	extern bool door2_opened;
+	extern bool lever2_pushed;
+
+	extern bool door3_opened;
+	extern bool lever3_pushed;
 
 	extern Pair_Object*				  objects[OBJECTS];
 	extern Pair_Player*               players[PLAYERS];
@@ -41,9 +47,15 @@ extern Object				ground_obj;
 extern sf::Texture			box_texture;
 extern sf::RectangleShape   box;
 extern Object				box_obj;
+
 extern sf::Texture			button_texture;
-extern sf::RectangleShape	button;
-extern Object				button_obj;
+extern sf::RectangleShape	button1;
+extern sf::RectangleShape	button2;
+extern sf::RectangleShape	button3;
+extern Object				button1_obj;
+extern Object				button2_obj;
+extern Object				button3_obj;
+
 extern sf::Texture			chicken_texture;
 extern sf::RectangleShape	chicken1;
 extern sf::RectangleShape	chicken2;
@@ -51,15 +63,31 @@ extern sf::RectangleShape	chicken3;
 extern Object				chicken1_obj;
 extern Object				chicken2_obj;
 extern Object				chicken3_obj;
+
 extern sf::Texture			door_texture;
-extern sf::RectangleShape	door;
-extern Object				door_obj;
+extern sf::RectangleShape	door1;
+extern sf::RectangleShape	door2;
+extern sf::RectangleShape	door3;
+extern Object				door1_obj;
+extern Object				door2_obj;
+extern Object				door3_obj;
+
 extern sf::Texture			elevator_texture;
-extern sf::RectangleShape	elevator;
-extern Object				elevator_obj;
+extern sf::RectangleShape	elevator1;
+extern sf::RectangleShape	elevator2;
+extern sf::RectangleShape	elevator3;
+extern Object				elevator1_obj;
+extern Object				elevator2_obj;
+extern Object				elevator3_obj;
+
 extern sf::Texture			lever_texture;
-extern sf::RectangleShape	lever;
-extern Object				lever_obj;
+extern sf::RectangleShape	lever1;
+extern sf::RectangleShape	lever2;
+extern sf::RectangleShape	lever3;
+extern Object				lever1_obj;
+extern Object				lever2_obj;
+extern Object				lever3_obj;
+
 extern sf::Texture			platform_texture;
 extern sf::RectangleShape	platform;
 extern Object				platform_obj;

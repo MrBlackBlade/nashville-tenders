@@ -9,22 +9,39 @@ sf::Sprite			background_1(bg_texture_1);
 sf::Sprite			background_2(bg_texture_2);
 sf::Sprite			background_3(bg_texture_3);
 sf::Sprite			background_4(bg_texture_4);
+
 sf::Texture			ground_texture;
 sf::RectangleShape	ground({900, 20});
+
 sf::Texture			box_texture;
 sf::RectangleShape  box({32, 32});
+
 sf::Texture			button_texture;
-sf::RectangleShape	button({32, 9});
+sf::RectangleShape	button1({32, 9});
+sf::RectangleShape	button2({ 32, 9 });
+sf::RectangleShape	button3({ 32, 9 });
+
+
 sf::Texture         chicken_texture;
 sf::RectangleShape	chicken1({32, 36});
 sf::RectangleShape	chicken2({32, 36});
 sf::RectangleShape	chicken3({32, 36});
+
 sf::Texture			door_texture;
-sf::RectangleShape  door({32, 64});
+sf::RectangleShape  door1({32, 64});
+sf::RectangleShape  door2({ 32, 64 });
+sf::RectangleShape  door3({ 32, 64 });
+
 sf::Texture			elevator_texture;
-sf::RectangleShape  elevator({104, 16});
+sf::RectangleShape  elevator1({104, 16});
+sf::RectangleShape  elevator2({ 104, 16 });
+sf::RectangleShape  elevator3({ 104, 16 });
+
 sf::Texture			lever_texture;
-sf::RectangleShape  lever({32, 32});
+sf::RectangleShape  lever1({32, 32});
+sf::RectangleShape  lever2({ 32, 32 });
+sf::RectangleShape  lever3({ 32, 32 });
+
 sf::Texture			platform_texture;
 sf::RectangleShape  platform({98, 16});
 
@@ -58,9 +75,9 @@ Object::box,			// ID
 0					// anims	
 };
 
-Object button_obj
+Object button1_obj
 {
-Object::button,		// ID
+Object::button1,		// ID
 { 0, 0 },			// velocity    
 { 0, 0 },			// velocity_max
 { 0, 0 },			// acceleration
@@ -72,6 +89,37 @@ Object::button,		// ID
 9,					// size_y	
 2					// anims	
 };
+Object button2_obj
+{
+Object::button2,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+
+0,					// anim_ind    
+1.f,				// scale       
+32,					// size_x	
+9,					// size_y	
+2					// anims	
+};
+
+Object button3_obj
+{
+Object::button3,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+
+0,					// anim_ind    
+1.f,				// scale       
+32,					// size_x	
+9,					// size_y	
+2					// anims	
+};
+
+
 
 /* the 3 chickens */
 
@@ -123,9 +171,9 @@ Object::chicken3,		// ID
 /* the 3 chicken
 s */
 
-Object door_obj
+Object door1_obj
 {
-Object::door,	// ID
+Object::door1,	// ID
 { 0, 0 },		// velocity    
 { 0, 0 },		// velocity_max
 { 0, 0 },		// acceleration
@@ -138,9 +186,43 @@ Object::door,	// ID
 6				// anims	
 };
 
-Object elevator_obj
+
+Object door2_obj
 {
-Object::elevator, // ID
+Object::door2,	// ID
+{ 0, 0 },		// velocity    
+{ 0, 0 },		// velocity_max
+{ 0, 0 },		// acceleration
+{ 0, 0 },		// position    
+
+0,				// anim_ind    
+3.f,			// scale       
+32,				// size_x	
+64,				// size_y	
+6				// anims	
+};
+
+
+
+Object door3_obj
+{
+Object::door3,	// ID
+{ 0, 0 },		// velocity    
+{ 0, 0 },		// velocity_max
+{ 0, 0 },		// acceleration
+{ 0, 0 },		// position    
+
+0,				// anim_ind    
+3.f,			// scale       
+32,				// size_x	
+64,				// size_y	
+6				// anims	
+};
+
+
+Object elevator1_obj
+{
+Object::elevator1, // ID
 { 0, 0 },		  // velocity    
 { 0, 0 },		  // velocity_max
 { 0, 0 },		  // acceleration
@@ -153,9 +235,41 @@ Object::elevator, // ID
 0				  // anims	
 };
 
-Object lever_obj
+Object elevator2_obj
 {
-Object::lever,    // ID
+Object::elevator2, // ID
+{ 0, 0 },		  // velocity    
+{ 0, 0 },		  // velocity_max
+{ 0, 0 },		  // acceleration
+{ 0, 0 },		  // position    
+
+0,				  // anim_ind    
+1.f,			  // scale       
+104,			  // size_x	
+16,				  // size_y	
+0				  // anims	
+};
+
+
+Object elevator3_obj
+{
+Object::elevator3, // ID
+{ 0, 0 },		  // velocity    
+{ 0, 0 },		  // velocity_max
+{ 0, 0 },		  // acceleration
+{ 0, 0 },		  // position    
+
+0,				  // anim_ind    
+1.f,			  // scale       
+104,			  // size_x	
+16,				  // size_y	
+0				  // anims	
+};
+
+
+Object lever1_obj
+{
+Object::lever1,    // ID
 { 0, 0 },		  // velocity    
 { 0, 0 },		  // velocity_max
 { 0, 0 },		  // acceleration
@@ -167,6 +281,37 @@ Object::lever,    // ID
 32,				  // size_y	
 3				  // anims	
 };
+
+Object lever2_obj
+{
+Object::lever2,    // ID
+{ 0, 0 },		  // velocity    
+{ 0, 0 },		  // velocity_max
+{ 0, 0 },		  // acceleration
+{ 0, 0 },		  // position    
+
+0,				  // anim_ind    
+1.f,			  // scale       
+32,			      // size_x	
+32,				  // size_y	
+3				  // anims	
+};
+
+Object lever3_obj
+{
+Object::lever3,    // ID
+{ 0, 0 },		  // velocity    
+{ 0, 0 },		  // velocity_max
+{ 0, 0 },		  // acceleration
+{ 0, 0 },		  // position    
+
+0,				  // anim_ind    
+1.f,			  // scale       
+32,			      // size_x	
+32,				  // size_y	
+3				  // anims	
+};
+
 
 Object platform_obj
 {
@@ -346,16 +491,40 @@ void setup()
 	};
 	box.setPosition(box_obj.position);
 
-	button.setTexture(&button_texture);
-	button.setScale(button_obj.scale, button_obj.scale);
-	button.setTextureRect(sf::IntRect(0, 0, button_obj.size_x, button_obj.size_y));
+	// the 3 buttons
 
-	button_obj.position =
+	button1.setTexture(&button_texture);
+	button1.setScale(button1_obj.scale, button1_obj.scale);
+	button1.setTextureRect(sf::IntRect(0, 0, button1_obj.size_x, button1_obj.size_y));
+
+	button1_obj.position =
 	{
 		200.f,
-		ground.getGlobalBounds().top - button.getGlobalBounds().height
+		ground.getGlobalBounds().top - button1.getGlobalBounds().height - 100
 	};
-	button.setPosition(button_obj.position);
+	button1.setPosition(button1_obj.position);
+	//
+	button2.setTexture(&button_texture);
+	button2.setScale(button2_obj.scale, button2_obj.scale);
+	button2.setTextureRect(sf::IntRect(0, 0, button2_obj.size_x, button2_obj.size_y));
+
+	button2_obj.position =
+	{
+		200.f,
+		ground.getGlobalBounds().top - button2.getGlobalBounds().height - 200
+	};
+	button2.setPosition(button2_obj.position);
+	//
+	button3.setTexture(&button_texture);
+	button3.setScale(button3_obj.scale, button3_obj.scale);
+	button3.setTextureRect(sf::IntRect(0, 0, button3_obj.size_x, button3_obj.size_y));
+
+	button3_obj.position =
+	{
+		200.f,
+		ground.getGlobalBounds().top - button3.getGlobalBounds().height - 300
+	};
+	button3.setPosition(button3_obj.position);
 
 	/* the 3 chickens */
 
@@ -387,36 +556,96 @@ void setup()
 	chicken3.setPosition(chicken3_obj.position);
 	//
 
-	/* the 3 chickens */
-	door.setTexture(&door_texture);
-	door.setTextureRect(sf::IntRect(0, 0, door_obj.size_x, door_obj.size_y));
-	door.setScale(door_obj.scale, door_obj.scale);
-	door_obj.position =
+	// the 3 doors
+	door1.setTexture(&door_texture);
+	door1.setTextureRect(sf::IntRect(0, 0, door1_obj.size_x, door1_obj.size_y));
+	door1.setScale(door1_obj.scale, door1_obj.scale);
+	door1_obj.position =
 	{
 		700.f,
-		ground.getGlobalBounds().top - door.getGlobalBounds().height
+		ground.getGlobalBounds().top - door1.getGlobalBounds().height - 300
 	};
-	door.setPosition(door_obj.position);
+	door1.setPosition(door1_obj.position);
 
-	elevator.setTexture(&elevator_texture);
-	elevator.setScale  (elevator_obj.scale, elevator_obj.scale);
-	elevator_obj.position =
+	door2.setTexture(&door_texture);
+	door2.setTextureRect(sf::IntRect(0, 0, door2_obj.size_x, door2_obj.size_y));
+	door2.setScale(door2_obj.scale, door2_obj.scale);
+	door2_obj.position =
 	{
-		40,
-		ground.getGlobalBounds().top - elevator.getGlobalBounds().height
+		700.f,
+		ground.getGlobalBounds().top - door2.getGlobalBounds().height - 200
 	};
-	elevator.setPosition(elevator_obj.position);
+	door2.setPosition(door2_obj.position);
 
-	lever.setTexture(&lever_texture);
-	lever.setTextureRect(sf::IntRect(0, 0, lever_obj.size_x, lever_obj.size_y));
-	lever.setScale(lever_obj.scale, lever_obj.scale);
-	lever_obj.position =
+	door3.setTexture(&door_texture);
+	door3.setTextureRect(sf::IntRect(0, 0, door3_obj.size_x, door3_obj.size_y));
+	door3.setScale(door3_obj.scale, door3_obj.scale);
+	door3_obj.position =
+	{
+		700.f,
+		ground.getGlobalBounds().top - door3.getGlobalBounds().height - 100
+	};
+	door3.setPosition(door3_obj.position);
+	
+	// the 3 elevators
+	elevator1.setTexture(&elevator_texture);
+	elevator1.setScale  (elevator1_obj.scale, elevator1_obj.scale);
+	elevator1_obj.position =
+	{
+		50,
+		ground.getGlobalBounds().top - elevator1.getGlobalBounds().height - 300
+	};
+	elevator1.setPosition(elevator1_obj.position);
+	//
+	elevator2.setTexture(&elevator_texture);
+	elevator2.setScale(elevator2_obj.scale, elevator2_obj.scale);
+	elevator2_obj.position =
+	{
+		160,
+		ground.getGlobalBounds().top - elevator2.getGlobalBounds().height - 200
+	};
+	elevator2.setPosition(elevator2_obj.position);
+	//
+	elevator3.setTexture(&elevator_texture);
+	elevator3.setScale(elevator3_obj.scale, elevator3_obj.scale);
+	elevator3_obj.position =
+	{
+		270,
+		ground.getGlobalBounds().top - elevator3.getGlobalBounds().height - 100
+	};
+	elevator3.setPosition(elevator3_obj.position);
+
+	// the 3 levers
+	lever1.setTexture(&lever_texture);
+	lever1.setTextureRect(sf::IntRect(0, 0, lever1_obj.size_x, lever1_obj.size_y));
+	lever1.setScale(lever1_obj.scale, lever1_obj.scale);
+	lever1_obj.position =
 	{
 		800.f,
-		ground.getGlobalBounds().top - lever.getGlobalBounds().height
+		ground.getGlobalBounds().top - lever1.getGlobalBounds().height
 	};
-	lever.setPosition(lever_obj.position);
+	lever1.setPosition(lever1_obj.position);
 
+	lever2.setTexture(&lever_texture);
+	lever2.setTextureRect(sf::IntRect(0, 0, lever2_obj.size_x, lever2_obj.size_y));
+	lever2.setScale(lever2_obj.scale, lever2_obj.scale);
+	lever2_obj.position =
+	{
+		700.f,
+		ground.getGlobalBounds().top - lever2.getGlobalBounds().height
+	};
+	lever2.setPosition(lever2_obj.position);
+
+	lever3.setTexture(&lever_texture);
+	lever3.setTextureRect(sf::IntRect(0, 0, lever3_obj.size_x, lever3_obj.size_y));
+	lever3.setScale(lever3_obj.scale, lever3_obj.scale);
+	lever3_obj.position =
+	{
+		600.f,
+		ground.getGlobalBounds().top - lever3.getGlobalBounds().height
+	};
+	lever3.setPosition(lever3_obj.position);
+	//
 	platform.setTexture(&platform_texture);
 	platform.setScale(platform_obj.scale, platform_obj.scale);
 	platform_obj.position =
@@ -464,7 +693,7 @@ void setup()
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
-		400.f,
+		100.f,
 		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64.f 
 	};
 	b_player.setPosition(b_obj.position);
