@@ -1,3 +1,4 @@
+/source
 .vs
 x64
 *.sln
@@ -5,3 +6,7 @@ x64
 *.vcxproj.filters
 *.vcxproj.user
 *.dll
+Makefile
+*.o
+*.code-workspace
+*.exe
