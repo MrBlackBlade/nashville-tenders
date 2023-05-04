@@ -1,6 +1,7 @@
 /source
 /.vscode
 /x64
+/obj
 Makefile
 .vs
 *.sln
