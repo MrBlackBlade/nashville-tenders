@@ -291,7 +291,7 @@ animate(Pair_Object& pair)
 
         return;
     default:
-        if (Config::frame_counter % 12 == 0 && obj.anims)
+        if (Config::frame_counter % 16 == 0 && obj.anims)
         {
             shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 

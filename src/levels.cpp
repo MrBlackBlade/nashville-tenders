@@ -26,8 +26,13 @@ void level_one()
         }
     }
 
-    if (Config::game_status == 1 && Config::lv1_chicken_count == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()))
+    if (Config::game_status == 1 && Config::lv1_chicken_count == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config:: loaded)
     {
+        Config::loaded = false;
+        pLoading.obj->anim_ind = 0;
+
+        animate(pLoading);
+
         Config::lv1_chicken_count = 0;
         Config::game_status = 2;
 
@@ -52,6 +57,7 @@ void level_one()
         };
         chicken3.setPosition(chicken3_obj.position);
 
+
         std::cout << "Level 1 complete...\n";
         return;
     }
@@ -61,10 +67,10 @@ void level_two()
 {
     using Config::objects, Config::players;
 
-    /* loading screen sprite msln idk */
+    animate(pLoading);
 
     // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
+    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
     {
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
@@ -78,6 +84,12 @@ void level_two()
 
     if (Config::game_status == 2 && Config::lv2_chicken_count == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()))
     {   
+
+        Config::loaded = false;
+        pLoading.obj->anim_ind = 0;
+
+        animate(pLoading);
+
         Config::lv2_chicken_count = 0;
         Config::game_status = 3;
 
@@ -102,6 +114,7 @@ void level_two()
         };
         chicken3.setPosition(chicken3_obj.position);
 
+
         std::cout << "Level 2 complete...\n";
         return;
     }
@@ -111,10 +124,10 @@ void level_three()
 {
     using Config::objects, Config::players;
 
-    /* loading screen sprite msln idk */
+    animate(pLoading);
 
     // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
+    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
     {
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
@@ -128,6 +141,11 @@ void level_three()
 
     if (Config::game_status == 3 && Config::lv3_chicken_count == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()))
     {
+        Config::loaded = false;
+        pLoading.obj->anim_ind = 0;
+
+        animate(pLoading);
+
         Config::lv3_chicken_count = 0;
 
         chicken1_obj.position =
@@ -152,7 +170,7 @@ void level_three()
         chicken3.setPosition(chicken3_obj.position);
 
         std::cout << "Level 3 complete...\n";
-        window.close();
+        //window.close();
         return;
     }
 }

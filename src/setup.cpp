@@ -62,7 +62,7 @@ Object::loading,	// ID
 0,					// anim_ind    
 1.f,				// scale       
 900,				// size_x	
-900,				// size_y	
+899,				// size_y	
 5					// anims
 };
 
