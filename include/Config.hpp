@@ -15,7 +15,10 @@ namespace Config
 	extern const sf::Uint16 RES_SIZE;
 
 	extern sf::Uint16 frame_counter;
-	extern sf::Uint16 chicken_count;
+	extern sf::Uint16 game_status;
+	extern sf::Uint16 lv1_chicken_count;
+	extern sf::Uint16 lv2_chicken_count;
+	extern sf::Uint16 lv3_chicken_count;
 
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
@@ -91,6 +94,9 @@ extern Object				lever3_obj;
 extern sf::Texture			platform_texture;
 extern sf::RectangleShape	platform;
 extern Object				platform_obj;
+
+extern sf::Texture			end_texture;
+extern sf::RectangleShape	end;
 
 // small player
 extern sf::Texture			s_player_texture_jump;

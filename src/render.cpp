@@ -12,12 +12,15 @@ void render()
     window.draw(background_4);
 
     // render the players 
-    window.draw(b_player);
-    window.draw(s_player);
+    for (auto& player : Config::players) 
+        window.draw(*player->sprite);
 
     // render the objects
-    for (auto& object : Config::objects)
+    for (auto& object : Config::objects) 
         window.draw(*object->shape);
+
+    // render the end
+    window.draw(end);
 
     // draw the frame
     window.display();

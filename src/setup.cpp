@@ -45,6 +45,9 @@ sf::RectangleShape  lever3({ 32, 32 });
 sf::Texture			platform_texture;
 sf::RectangleShape  platform({98, 16});
 
+sf::Texture			end_texture;
+sf::RectangleShape  end({18, 35});
+
 Object ground_obj
 {
 Object::ground,		// ID
@@ -62,7 +65,7 @@ Object::ground,		// ID
 
 Object box_obj
 {
-Object::box,			// ID
+Object::box,		// ID
 { 0, 0 },			// velocity    
 { 0, 0 },			// velocity_max
 { 0, 0 },			// acceleration
@@ -431,6 +434,7 @@ void setup()
 	elevator_texture.loadFromFile("resources/elevator.png");
 	lever_texture.loadFromFile("resources/lever.png");
 	platform_texture.loadFromFile("resources/platform.png");
+	end_texture.loadFromFile("resources/end.png");
 
 	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
@@ -456,6 +460,11 @@ void setup()
 		exit(1);
 	if (!platform_texture.loadFromFile("resources/platform.png"))
 		exit(1);
+	if (!end_texture.loadFromFile("resources/end.png"))
+		exit(1);
+
+	end.setTexture(&end_texture);
+	end.setPosition(300, 800 - ground.getGlobalBounds().height + 30);
 
 	background_1.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
 	background_1.setScale(2, 2);
@@ -544,7 +553,7 @@ void setup()
 		550.f,
 		ground.getGlobalBounds().top - chicken2.getGlobalBounds().height
 	};
-	chicken2.setPosition(chicken1_obj.position);
+	chicken2.setPosition(chicken2_obj.position);
 	//
 	chicken3.setTexture(&chicken_texture);
 	chicken3.setScale(chicken3_obj.scale, chicken3_obj.scale);
@@ -693,7 +702,7 @@ void setup()
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position =
 	{
-		100.f,
+		500.f,
 		ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64.f 
 	};
 	b_player.setPosition(b_obj.position);

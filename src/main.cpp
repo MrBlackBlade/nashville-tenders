@@ -15,6 +15,7 @@
 #include <setup.hpp>
 #include <out_of_bounds.hpp>
 #include <elevator_move.hpp>
+#include <levels.hpp>
 
 int main()
 {
@@ -29,7 +30,9 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-		
+
+		caller();
+
 		// player idle checking and motion
 		for (size_t player = 0; player < PLAYERS; player++)
 		{
@@ -52,8 +55,8 @@ int main()
 			for (size_t object = 0; object < OBJECTS; object++)
 			{
 				push(*players[player], *objects[object]);
-				collect(*players[player], *objects[object]);
 				collision(*players[player], *objects[object]);
+				collect(*players[player], *objects[object]);
 			}
 		}
 
@@ -70,7 +73,6 @@ int main()
 			using Config::objects;
 			collision(*objects[object], *objects[object + 1]);
 		}
-
 
 		render();
 	}

@@ -16,8 +16,8 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 	intersect = p_bounds.intersects(s_bounds),
 	u_coll    = intersect && p_bounds.top <= s_bounds.top,
 	d_coll    = intersect && p_bounds.top - p_bounds.height >= s_bounds.top + s_bounds.height,
-	l_coll    = intersect && std::abs(((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)) <= (p_bounds.width + s_bounds.width) && obj.velocity.x > 0.f && !u_coll,
-	r_coll    = intersect && std::abs(((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)) <= (p_bounds.width + s_bounds.width) && obj.velocity.x < 0.f && !u_coll;
+	l_coll    = intersect && std::fabs(((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)) <= (p_bounds.width + s_bounds.width) && obj.velocity.x > 0.f && !u_coll,
+	r_coll    = intersect && std::fabs(((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)) <= (p_bounds.width + s_bounds.width) && obj.velocity.x < 0.f && !u_coll;
 
 	if (u_coll || d_coll || l_coll || r_coll) {
 		if (obj2.id == Object::chicken1 || obj2.id == Object::chicken2 || obj2.id == Object::chicken3)
@@ -64,17 +64,16 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 		if (obj2.id == Object::button1)
 		{
-			//std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
+			////std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 		if (obj2.id == Object::button2)
 		{
-			//std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
+			////std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 		if (obj2.id == Object::button3)
 		{
-			//std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
@@ -99,6 +98,9 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 				return CollisionType::null;
 			}
 		}
+
+		if (obj2.id == Object::elevator1 && Config::lever1_pushed)
+			return CollisionType::elevator1;
 
 		return CollisionType::null;
 	}
@@ -225,27 +227,24 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 	intersect = s1_bounds.intersects(s2_bounds),
 	u_coll    = intersect && s1_bounds.top <= s2_bounds.top,
 	d_coll    = intersect && s1_bounds.top - s1_bounds.height >= s2_bounds.top + s2_bounds.height,
-	l_coll    = intersect && std::abs(((s1_bounds.left + s1_bounds.width) / 2.f) - ((s2_bounds.left + s2_bounds.width) / 2.f)) <= (s1_bounds.width + s2_bounds.width) && obj.velocity.x > 0.f && !u_coll,
-	r_coll    = intersect && std::abs(((s1_bounds.left + s1_bounds.width) / 2.f) - ((s2_bounds.left + s2_bounds.width) / 2.f)) <= (s1_bounds.width + s2_bounds.width) && obj.velocity.x < 0.f && !u_coll;
+	l_coll    = intersect && std::fabs(((s1_bounds.left + s1_bounds.width) / 2.f) - ((s2_bounds.left + s2_bounds.width) / 2.f)) <= (s1_bounds.width + s2_bounds.width) && obj.velocity.x > 0.f && !u_coll,
+	r_coll    = intersect && std::fabs(((s1_bounds.left + s1_bounds.width) / 2.f) - ((s2_bounds.left + s2_bounds.width) / 2.f)) <= (s1_bounds.width + s2_bounds.width) && obj.velocity.x < 0.f && !u_coll;
 
 	if (u_coll && !d_coll && !l_coll && !r_coll)
 	{
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button1]->shape->getGlobalBounds()))
-		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
+		{	
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button2]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button3]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
@@ -287,19 +286,16 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 	{
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button1]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button2]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button3]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 		
@@ -330,19 +326,16 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 	{
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button1]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button2]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button3]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
@@ -372,19 +365,16 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 	{
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button1]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button2]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(Config::objects[Object::button3]->shape->getGlobalBounds()))
 		{
-			std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 

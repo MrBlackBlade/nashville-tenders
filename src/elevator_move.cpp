@@ -13,10 +13,7 @@ bool elevator_move(Pair_Player& p_pair, Pair_Object& o_pair )
         return false;
   
     if (player.getGlobalBounds().intersects(shape.getGlobalBounds()))
-    {  
-        std::cout << "AUUUGHHHHHHHHH" << "\n";
         return true;
-    }
 
 
     return false;

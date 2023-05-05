@@ -2,9 +2,12 @@
 
 namespace Config
 {
-	const sf::Uint16 RES_SIZE = 900;
-	sf::Uint16 frame_counter  = 0;
-	sf::Uint16 chicken_count  = 0;
+	const sf::Uint16 RES_SIZE     = 900;
+	sf::Uint16 frame_counter      = 0;
+	sf::Uint16 game_status		  = 1;
+	sf::Uint16 lv1_chicken_count  = 0;
+	sf::Uint16 lv2_chicken_count  = 0;
+	sf::Uint16 lv3_chicken_count  = 0;
 
 	const sf::Keyboard::Key keybinds[2][4]
 	{
@@ -34,7 +37,6 @@ namespace Config
 	bool door3_opened = false;
 	bool lever3_pushed = false;
 
-	// could add an array of pairs for multiple levers/buttons etc
 	Pair_Player				small      { &s_player, &s_obj };
 	Pair_Player				big        { &b_player, &b_obj };
 

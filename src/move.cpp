@@ -108,7 +108,7 @@ void move(Pair_Player& pair)
         }
 
         //  1.f is a tolerance value to check if the player "stopped" motion
-        if ( std::abs ( obj.velocity.x ) < 1.f )
+        if ( std::fabs ( obj.velocity.x ) < 1.f )
         {
             obj.velocity.x     = 0.f;
             obj.acceleration.x = 0.f;
@@ -191,31 +191,7 @@ void move(Pair_Object& pair)
 
     if (pair.obj->id == Object::ground || pair.obj->id == Object::button3 || pair.obj->id == Object::lever3 || pair.obj->id == Object::platform || pair.obj->id == Object::door3)
         return;
-    
-    if (((elevator_move(*Config::players[0], *Config::objects[Object::lever1]) || elevator_move(*Config::players[1], *Config::objects[Object::lever1])) && pair.obj->id == Object::elevator1) || Config::lever1_pushed)
-    {
-        // Gravity lmaoo
-        Config::objects[Object::elevator1]->obj->position.y -= .5f;
-        shape.setPosition(obj.position);
-        // limit upper bound
-    }
 
-    if (((elevator_move(*Config::players[0], *Config::objects[Object::lever2]) || elevator_move(*Config::players[1], *Config::objects[Object::lever2])) && pair.obj->id == Object::elevator2) || Config::lever2_pushed)
-    {
-        // Gravity lmaoo
-        Config::objects[Object::elevator2]->obj->position.y -= .5f;
-        shape.setPosition(obj.position);
-        // limit upper bound
-    }
-
-    if (((elevator_move(*Config::players[0], *Config::objects[Object::lever3]) || elevator_move(*Config::players[1], *Config::objects[Object::lever3])) && pair.obj->id == Object::elevator3) || Config::lever3_pushed)
-    {
-        // Gravity lmaoo
-        Config::objects[Object::elevator3]->obj->position.y -= .5f;
-        shape.setPosition(obj.position);
-        // limit upper bound
-    }
-      
     // Apply motion
     obj.velocity += obj.acceleration;
     obj.position += obj.velocity;
