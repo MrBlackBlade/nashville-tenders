@@ -11,8 +11,8 @@ void level_one()
 {
     using Config::objects, Config::players;
 
-    /* loading screen sprite msln idk */
-
+    animate(pLoading);
+     
     // moving the elevator
     if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
     {

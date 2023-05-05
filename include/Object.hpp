@@ -26,6 +26,7 @@ struct Object
 		lever2,
 		lever3,
 		platform,
+		loading,
 
 		object_max,
 	};

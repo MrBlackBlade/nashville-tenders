@@ -19,6 +19,7 @@
 
 int main()
 {
+
 	setup();
 
 	// main game loop
@@ -61,7 +62,7 @@ int main()
 		}
 
 		// ground obstacle collision
-		for (size_t object = 1; object < OBJECTS; ++object)
+		for (size_t object = 1; object < OBJECTS; object++)
 		{
 			using Config::objects;
 			collision(*objects[object], *objects[0]);

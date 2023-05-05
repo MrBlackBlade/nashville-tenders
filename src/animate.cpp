@@ -97,34 +97,27 @@ void animate ( Pair_Player& pair, const Animation& anim )
 	}
 }
 
-void animate ( Pair_Object& pair )
+void
+animate(Pair_Object& pair)
 {
     auto& shape = *pair.shape;
     auto& obj = *pair.obj;
 
-    // door animations
-    if (obj.id == Object::door1)
+    switch (obj.id)
     {
+    case Object::door1:
         if (Config::objects[Object::button1]->obj->anim_ind == 1 && !Config::door1_opened)
         {
             if (Config::frame_counter % 12 == 0 && obj.anims)
             {
-                shape.setTextureRect
-                (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
+                shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
                 // door opened
-                if (obj.anim_ind == 4) 
+                if (obj.anim_ind == 4)
                 {
                     Config::door1_opened = true;
                     return;
                 }
-
 
                 obj.anim_ind++;
                 obj.anim_ind %= obj.anims;
@@ -132,21 +125,12 @@ void animate ( Pair_Object& pair )
         }
 
         return;
-    }
-    if (obj.id == Object::door2)
-    {
+    case Object::door2:
         if (Config::objects[Object::button2]->obj->anim_ind == 1 && !Config::door2_opened)
         {
             if (Config::frame_counter % 12 == 0 && obj.anims)
             {
-                shape.setTextureRect
-                (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
+                shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
                 // door opened
                 if (obj.anim_ind == 4)
@@ -155,28 +139,18 @@ void animate ( Pair_Object& pair )
                     return;
                 }
 
-
                 obj.anim_ind++;
                 obj.anim_ind %= obj.anims;
             }
         }
 
         return;
-    }
-    if (obj.id == Object::door3)
-    {
+    case Object::door3:
         if (Config::objects[Object::button3]->obj->anim_ind == 1 && !Config::door3_opened)
         {
             if (Config::frame_counter % 12 == 0 && obj.anims)
             {
-                shape.setTextureRect
-                (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
+                shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
                 // door opened
                 if (obj.anim_ind == 4)
@@ -185,93 +159,64 @@ void animate ( Pair_Object& pair )
                     return;
                 }
 
-
                 obj.anim_ind++;
                 obj.anim_ind %= obj.anims;
             }
         }
 
         return;
-    }
-
-    else if (obj.id == Object::button1)
-    {
-        if (collision(*Config::players[0], pair) == CollisionType::button || collision(*Config::players[1], pair) == CollisionType::button|| collision(*Config::objects[Object::box],*Config::objects[Object::button1]) == CollisionType::button)
+    case Object::button1:
+        if (collision(*Config::players[0], pair) == CollisionType::button ||
+            collision(*Config::players[1], pair) == CollisionType::button ||
+            collision(*Config::objects[Object::box], *Config::objects[Object::button1]) == CollisionType::button)
         {
-                shape.setTextureRect
-                (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
-
-                // button pressed
-                if (obj.anim_ind == 1)
-                    return;
-
-                obj.anim_ind++;
-                obj.anim_ind %= obj.anims;
-        }
-    }
-    else if (obj.id == Object::button2)
-    {
-        if (collision(*Config::players[0], pair) == CollisionType::button || collision(*Config::players[1], pair) == CollisionType::button || collision(*Config::objects[Object::box], *Config::objects[Object::button2]) == CollisionType::button)
-        {
-            shape.setTextureRect
-            (
-                sf::IntRect
-                (
-                    obj.anim_ind * obj.size_x, 0,
-                    obj.size_x, obj.size_y
-                )
-            );
+            shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
             // button pressed
-            if (obj.anim_ind == 1)
-                return;
+            if (obj.anim_ind == 1) return;
 
             obj.anim_ind++;
             obj.anim_ind %= obj.anims;
         }
-    }
-    else if (obj.id == Object::button3)
-    {
-        if (collision(*Config::players[0], pair) == CollisionType::button || collision(*Config::players[1], pair) == CollisionType::button || collision(*Config::objects[Object::box], *Config::objects[Object::button3]) == CollisionType::button)
+
+        return;
+    case Object::button2:
+        if (collision(*Config::players[0], pair) == CollisionType::button ||
+            collision(*Config::players[1], pair) == CollisionType::button ||
+            collision(*Config::objects[Object::box], *Config::objects[Object::button2]) == CollisionType::button)
         {
-            shape.setTextureRect
-            (
-                sf::IntRect
-                (
-                    obj.anim_ind * obj.size_x, 0,
-                    obj.size_x, obj.size_y
-                )
-            );
+            shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
             // button pressed
-            if (obj.anim_ind == 1)
-                return;
+            if (obj.anim_ind == 1) return;
 
             obj.anim_ind++;
             obj.anim_ind %= obj.anims;
         }
-    }
 
-    else if (obj.id == Object::lever1)
-    {
-        if (elevator_move(*Config::players[0], pair)|| elevator_move(*Config::players[1], pair) && !Config::lever1_pushed)
+        return;
+    case Object::button3:
+        if (collision(*Config::players[0], pair) == CollisionType::button ||
+            collision(*Config::players[1], pair) == CollisionType::button ||
+            collision(*Config::objects[Object::box], *Config::objects[Object::button3]) == CollisionType::button)
+        {
+            shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
+
+            // button pressed
+            if (obj.anim_ind == 1) return;
+
+            obj.anim_ind++;
+            obj.anim_ind %= obj.anims;
+        }
+
+        return;
+    case Object::lever1:
+        if (elevator_move(*Config::players[0], pair) ||
+            elevator_move(*Config::players[1], pair) && !Config::lever1_pushed)
         {
             if (Config::frame_counter % 2 == 0)
             {
-                shape.setTextureRect
-                (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
+                shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
                 // lever pushed
                 if (obj.anim_ind == 2)
@@ -284,21 +229,15 @@ void animate ( Pair_Object& pair )
                 obj.anim_ind %= obj.anims;
             }
         }
-    }
-    else if (obj.id == Object::lever2)
-    {
-        if (elevator_move(*Config::players[0], pair) || elevator_move(*Config::players[1], pair) && !Config::lever2_pushed)
+
+        return;
+    case Object::lever2:
+        if (elevator_move(*Config::players[0], pair) ||
+            elevator_move(*Config::players[1], pair) && !Config::lever2_pushed)
         {
             if (Config::frame_counter % 2 == 0)
             {
-                shape.setTextureRect
-                (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
+                shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
                 // lever pushed
                 if (obj.anim_ind == 2)
@@ -311,21 +250,15 @@ void animate ( Pair_Object& pair )
                 obj.anim_ind %= obj.anims;
             }
         }
-        }
-    else if (obj.id == Object::lever3)
-    {
-        if (elevator_move(*Config::players[0], pair) || elevator_move(*Config::players[1], pair) && !Config::lever3_pushed)
+
+        return;
+    case Object::lever3:
+        if (elevator_move(*Config::players[0], pair) ||
+            elevator_move(*Config::players[1], pair) && !Config::lever3_pushed)
         {
             if (Config::frame_counter % 2 == 0)
             {
-                shape.setTextureRect
-                (
-                    sf::IntRect
-                    (
-                        obj.anim_ind * obj.size_x, 0,
-                        obj.size_x, obj.size_y
-                    )
-                );
+                shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
                 // lever pushed
                 if (obj.anim_ind == 2)
@@ -338,23 +271,34 @@ void animate ( Pair_Object& pair )
                 obj.anim_ind %= obj.anims;
             }
         }
-        }
-        // other objects
-    else
-    {
-        if (Config::frame_counter % 12 == 0 && obj.anims)
+
+        return;
+    case Object::loading:
+        if (Config::frame_counter % 50 == 0 && !Config::loaded)
         {
-            shape.setTextureRect
-            (
-                sf::IntRect
-                (
-                    obj.anim_ind * obj.size_x, 0,
-                    obj.size_x, obj.size_y
-                )
-            );
+            shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
+
+            // loaded
+            if (obj.anim_ind == 4)
+            {
+                Config::loaded = true;
+                return;
+            }
 
             obj.anim_ind++;
             obj.anim_ind %= obj.anims;
         }
+
+        return;
+    default:
+        if (Config::frame_counter % 12 == 0 && obj.anims)
+        {
+            shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
+
+            obj.anim_ind++;
+            obj.anim_ind %= obj.anims;
+        }
+
+        return;
     }
 }

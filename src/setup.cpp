@@ -23,22 +23,22 @@ sf::RectangleShape	button3({ 32, 9 });
 
 
 sf::Texture         chicken_texture;
-sf::RectangleShape	chicken1({32, 36});
-sf::RectangleShape	chicken2({32, 36});
-sf::RectangleShape	chicken3({32, 36});
+sf::RectangleShape	chicken1({ 32, 36 });
+sf::RectangleShape	chicken2({ 32, 36 });
+sf::RectangleShape	chicken3({ 32, 36 });
 
 sf::Texture			door_texture;
-sf::RectangleShape  door1({32, 64});
+sf::RectangleShape  door1({ 32, 64 });
 sf::RectangleShape  door2({ 32, 64 });
 sf::RectangleShape  door3({ 32, 64 });
 
 sf::Texture			elevator_texture;
-sf::RectangleShape  elevator1({104, 16});
+sf::RectangleShape  elevator1({ 104, 16});
 sf::RectangleShape  elevator2({ 104, 16 });
 sf::RectangleShape  elevator3({ 104, 16 });
 
 sf::Texture			lever_texture;
-sf::RectangleShape  lever1({32, 32});
+sf::RectangleShape  lever1({ 32, 32 });
 sf::RectangleShape  lever2({ 32, 32 });
 sf::RectangleShape  lever3({ 32, 32 });
 
@@ -47,6 +47,24 @@ sf::RectangleShape  platform({98, 16});
 
 sf::Texture			end_texture;
 sf::RectangleShape  end({18, 35});
+
+sf::Texture			loading_texture;
+sf::RectangleShape	loading({ 900,900 });
+
+Object loading_obj
+{
+Object::loading,	// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 0, 0 },			// position    
+
+0,					// anim_ind    
+1.f,				// scale       
+900,				// size_x	
+900,				// size_y	
+5					// anims
+};
 
 Object ground_obj
 {
@@ -421,6 +439,8 @@ void setup()
 	window.setFramerateLimit(60);
 
 	// background and objects
+	loading_texture.loadFromFile("resources/loading.png");
+
 	bg_texture_1.loadFromFile("resources/bg1.png");
 	bg_texture_2.loadFromFile("resources/bg2.png");
 	bg_texture_3.loadFromFile("resources/bg3.png");
@@ -436,6 +456,8 @@ void setup()
 	platform_texture.loadFromFile("resources/platform.png");
 	end_texture.loadFromFile("resources/end.png");
 
+	if (!loading_texture.loadFromFile("resources/loading.png"))
+		exit(1);
 	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
 	if (!bg_texture_1.loadFromFile("resources/bg1.png"))
@@ -466,9 +488,12 @@ void setup()
 	end.setTexture(&end_texture);
 	end.setPosition(300, 800 - ground.getGlobalBounds().height + 30);
 
-	background_1.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
-	background_1.setScale(2, 2);
-	background_1.setPosition(-576,-1300);
+	loading.setTexture(&loading_texture);
+	loading.setPosition(0, 0);
+
+	background_1.setTextureRect(sf::IntRect(0, 0, 4828, 1215));
+	background_1.setScale(0.5, 0.5);
+	background_1.setPosition(-804,0);
 
 	background_2.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
 	background_2.setScale(2, 2);

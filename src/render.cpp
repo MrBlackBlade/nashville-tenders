@@ -5,7 +5,7 @@ void render()
     // change the bg color
     window.RenderTarget::clear(sf::Color(55, 68, 110, 255));
 
-    // render the background
+    //render the background
     window.draw(background_1);
     window.draw(background_2);
     window.draw(background_3);
@@ -21,6 +21,7 @@ void render()
 
     // render the end
     window.draw(end);
+    window.draw(loading);
 
     // draw the frame
     window.display();

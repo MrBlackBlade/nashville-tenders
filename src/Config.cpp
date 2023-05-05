@@ -9,6 +9,8 @@ namespace Config
 	sf::Uint16 lv2_chicken_count  = 0;
 	sf::Uint16 lv3_chicken_count  = 0;
 
+
+	
 	const sf::Keyboard::Key keybinds[2][4]
 	{
 		// small player keybinds
@@ -28,6 +30,7 @@ namespace Config
 		}
 	};
 
+	bool loaded = false;
 	bool door1_opened  = false;
 	bool lever1_pushed = false;
 
@@ -63,3 +66,4 @@ namespace Config
 	Pair_Player*            players[PLAYERS] { &small, &big };
 
 }
+	Pair_Object				pLoading		 { &loading  , &loading_obj };

@@ -13,7 +13,6 @@ constexpr auto PLAYERS = 2;
 namespace Config
 {
 	extern const sf::Uint16 RES_SIZE;
-
 	extern sf::Uint16 frame_counter;
 	extern sf::Uint16 game_status;
 	extern sf::Uint16 lv1_chicken_count;
@@ -22,6 +21,8 @@ namespace Config
 
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
+	extern bool loaded;
+
 	extern bool door1_opened;
 	extern bool lever1_pushed;
 
@@ -31,6 +32,7 @@ namespace Config
 	extern bool door3_opened;
 	extern bool lever3_pushed;
 
+
 	extern Pair_Object*				  objects[OBJECTS];
 	extern Pair_Player*               players[PLAYERS];
 };
@@ -38,6 +40,11 @@ namespace Config
 /* All the externs outside of Config */
 
 // platforms and obstacles
+extern sf::Texture			loading_texture;
+extern sf::RectangleShape	loading;
+extern Object				loading_obj;
+extern Pair_Object			pLoading;
+
 extern sf::Texture			bg_texture;
 extern sf::Sprite			background_1;
 extern sf::Sprite			background_2;
