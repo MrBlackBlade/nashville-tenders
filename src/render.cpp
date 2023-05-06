@@ -19,25 +19,33 @@ void render()
     }
 
     else if (Config::menu_status == 0)
-    { 
-    //render the background
-    window.draw(background_1);
-    window.draw(background_2);
-    window.draw(background_3);
-    window.draw(background_4);
+    {
+        if (Config::loaded)
+        {
+            //render the background
+            window.draw(background_1);
+            window.draw(background_2);
+            window.draw(background_3);
+            window.draw(background_4);
 
-    // render the players 
-    for (auto& player : Config::players) 
-        window.draw(*player->sprite);
+            // render the players 
+            for (auto& player : Config::players)
+                window.draw(*player->sprite);
 
-    // render the objects
-    for (auto& object : Config::objects) 
-        window.draw(*object->shape);
+            // render the objects
+            for (auto& object : Config::objects)
+                window.draw(*object->shape);
 
-    // render the end
-    window.draw(end);
-    window.draw(loading);
+            // render the end
+            window.draw(end);
+        }
 
+        else
+        {
+            window.draw(lv_comp);
+        }
+
+        window.draw(loading);
     }
 
     // draw the frame
