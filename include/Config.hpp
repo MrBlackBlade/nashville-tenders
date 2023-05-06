@@ -66,6 +66,10 @@ extern Object				ground_obj;
 extern sf::Texture			box_texture;
 extern sf::RectangleShape   box;
 extern Object				box_obj;
+extern sf::RectangleShape   lv_comp;
+extern sf::Texture			lv_comp_texture;
+extern Object				lv_comp_obj;
+
 
 extern sf::Texture			button_texture;
 extern sf::RectangleShape	button1;

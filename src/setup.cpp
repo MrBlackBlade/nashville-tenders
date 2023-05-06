@@ -1,7 +1,8 @@
 #include <setup.hpp>
+
 // menu
-sf::Text main_menu[2];
-sf::Font font;
+sf::Text			main_menu[2];
+sf::Font			font;
 sf::Texture			menu_texture;
 sf::RectangleShape	menu({ 900, 900 });
 
@@ -21,11 +22,14 @@ sf::RectangleShape	ground({900, 20});
 sf::Texture			box_texture;
 sf::RectangleShape  box({32, 32});
 
+sf::Texture			lv_comp_texture;
+sf::RectangleShape  lv_comp({900, 900});
+
+// collectibles w kda
 sf::Texture			button_texture;
 sf::RectangleShape	button1({32, 9});
 sf::RectangleShape	button2({ 32, 9 });
 sf::RectangleShape	button3({ 32, 9 });
-
 
 sf::Texture         chicken_texture;
 sf::RectangleShape	chicken1({ 32, 36 });
@@ -101,9 +105,24 @@ Object::box,		// ID
 0					// anims	
 };
 
+Object lv_comp_obj
+{
+Object::object_max,  // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+1.f,				 // scale       
+900,				 // size_x	
+900,				 // size_y	
+0					 // anims	
+};
+
 Object button1_obj
 {
-Object::button1,		// ID
+Object::button1,	// ID
 { 0, 0 },			// velocity    
 { 0, 0 },			// velocity_max
 { 0, 0 },			// acceleration
@@ -144,8 +163,6 @@ Object::button3,		// ID
 9,					// size_y	
 2					// anims	
 };
-
-
 
 /* the 3 chickens */
 
@@ -193,9 +210,6 @@ Object::chicken3,		// ID
 36,					// size_y	
 4					// anims	
 };
-
-/* the 3 chicken
-s */
 
 Object door1_obj
 {
@@ -245,7 +259,6 @@ Object::door3,	// ID
 6				// anims	
 };
 
-
 Object elevator1_obj
 {
 Object::elevator1, // ID
@@ -276,7 +289,6 @@ Object::elevator2, // ID
 0				  // anims	
 };
 
-
 Object elevator3_obj
 {
 Object::elevator3, // ID
@@ -291,7 +303,6 @@ Object::elevator3, // ID
 16,				  // size_y	
 0				  // anims	
 };
-
 
 Object lever1_obj
 {
@@ -337,7 +348,6 @@ Object::lever3,    // ID
 32,				  // size_y	
 3				  // anims	
 };
-
 
 Object platform_obj
 {
@@ -454,6 +464,7 @@ void setup()
 
 	ground_texture.loadFromFile("resources/tile_1.png");
 	box_texture.loadFromFile("resources/box.png");
+	lv_comp_texture.loadFromFile("resources/level_complete.png");
 	button_texture.loadFromFile("resources/button.png");
 	chicken_texture.loadFromFile("resources/chicken.png");
 	door_texture.loadFromFile("resources/door.png");
@@ -491,6 +502,8 @@ void setup()
 	if (!platform_texture.loadFromFile("resources/platform.png"))
 		exit(1);
 	if (!end_texture.loadFromFile("resources/end.png"))
+		exit(1);
+	if (!lv_comp_texture.loadFromFile("resources/level_complete.png"))
 		exit(1);
 
 	end.setTexture(&end_texture);
@@ -535,6 +548,15 @@ void setup()
 		ground.getGlobalBounds().top - box.getGlobalBounds().height
 	};
 	box.setPosition(box_obj.position);
+
+	lv_comp.setTexture(&lv_comp_texture);
+	lv_comp.setScale(lv_comp_obj.scale, lv_comp_obj.scale);
+	lv_comp_obj.position =
+	{
+		0,
+		0
+	};
+	lv_comp.setPosition(lv_comp_obj.position);
 
 	// the 3 buttons
 
