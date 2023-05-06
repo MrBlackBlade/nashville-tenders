@@ -1,4 +1,9 @@
 #include <setup.hpp>
+// menu
+sf::Text main_menu[2];
+sf::Font font;
+sf::Texture			menu_texture;
+sf::RectangleShape	menu({ 900, 900 });
 
 // background and platforms
 sf::Texture			bg_texture_1;
@@ -440,6 +445,7 @@ void setup()
 
 	// background and objects
 	loading_texture.loadFromFile("resources/loading.png");
+	menu_texture.loadFromFile("resources/bg_menu.png");
 
 	bg_texture_1.loadFromFile("resources/bg1.png");
 	bg_texture_2.loadFromFile("resources/bg2.png");
@@ -457,6 +463,8 @@ void setup()
 	end_texture.loadFromFile("resources/end.png");
 
 	if (!loading_texture.loadFromFile("resources/loading.png"))
+		exit(1);
+	if (!menu_texture.loadFromFile("resources/bg_menu.png"))
 		exit(1);
 	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
@@ -488,6 +496,9 @@ void setup()
 	end.setTexture(&end_texture);
 	end.setPosition(300, 800 - ground.getGlobalBounds().height + 30);
 
+	menu.setTexture(&menu_texture);
+	menu.setPosition(0, 0);
+
 	loading.setTexture(&loading_texture);
 	loading.setPosition(0, 0);
 
@@ -505,7 +516,7 @@ void setup()
 
 	background_4.setTextureRect(sf::IntRect(0, 0, 1920, 1080));
 	background_4.setScale(2, 2);
-	background_4.setPosition(-576, -1300);
+	background_4.setPosition(-576, -1280);
 
 	ground.setTexture(&ground_texture);
 	ground.setScale(ground_obj.scale, ground_obj.scale);

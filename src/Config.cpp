@@ -8,9 +8,10 @@ namespace Config
 	sf::Uint16 lv1_chicken_count  = 0;
 	sf::Uint16 lv2_chicken_count  = 0;
 	sf::Uint16 lv3_chicken_count  = 0;
-
-
 	
+	sf::Int32 menu_selection	  = 0;
+	sf::Int32 menu_status		  = 1;
+
 	const sf::Keyboard::Key keybinds[2][4]
 	{
 		// small player keybinds

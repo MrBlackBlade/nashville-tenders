@@ -19,6 +19,9 @@ namespace Config
 	extern sf::Uint16 lv2_chicken_count;
 	extern sf::Uint16 lv3_chicken_count;
 
+	extern sf::Int32  menu_selection;
+	extern sf::Int32  menu_status;
+
 	extern const sf::Keyboard::Key keybinds[2][4];
 	
 	extern bool loaded;
@@ -38,6 +41,12 @@ namespace Config
 };
 
 /* All the externs outside of Config */
+
+// menu
+extern sf::Text				main_menu[2];
+extern sf::Font				font;
+extern sf::Texture			menu_texture;
+extern sf::RectangleShape   menu;
 
 // platforms and obstacles
 extern sf::Texture			loading_texture;

@@ -16,12 +16,13 @@
 #include <out_of_bounds.hpp>
 #include <elevator_move.hpp>
 #include <levels.hpp>
+#include <menu.hpp>
 
 int main()
 {
-
 	setup();
 
+	setup_menu();
 	// main game loop
 	while (window.isOpen())
 	{
@@ -30,6 +31,23 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+
+			if (event.type == sf::Event::KeyPressed)
+			{
+				if (event.key.code == sf::Keyboard::Up)
+					moveUp();
+				if (event.key.code == sf::Keyboard::Down)
+					moveDown();
+
+				if (event.key.code == sf::Keyboard::Enter)
+				{
+					if (Config::menu_selection == 0)
+						Config::menu_status = 0;
+
+					if (Config::menu_selection == 1)
+						Config::menu_status = -1;
+				}
+			}
 		}
 
 		caller();

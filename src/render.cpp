@@ -5,6 +5,21 @@ void render()
     // change the bg color
     window.RenderTarget::clear(sf::Color(55, 68, 110, 255));
 
+       window.draw(menu);
+    if (Config::menu_status == 1)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+             window.draw(main_menu[i]);
+        }
+    }
+    else if (Config::menu_status == -1)
+    {
+        window.close();
+    }
+
+    else if (Config::menu_status == 0)
+    { 
     //render the background
     window.draw(background_1);
     window.draw(background_2);
@@ -22,6 +37,8 @@ void render()
     // render the end
     window.draw(end);
     window.draw(loading);
+
+    }
 
     // draw the frame
     window.display();
