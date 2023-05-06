@@ -31,15 +31,20 @@ namespace Config
 		}
 	};
 
-	bool loaded = false;
+	bool loaded        = false;
+
 	bool door1_opened  = false;
 	bool lever1_pushed = false;
 
-	bool door2_opened = false;
+	bool door2_opened  = false;
 	bool lever2_pushed = false;
 
-	bool door3_opened = false;
+	bool door3_opened  = false;
 	bool lever3_pushed = false;
+
+	bool lv1_spawned   = false;
+	bool lv2_spawned   = false;
+	bool lv3_spawned   = false;
 
 	Pair_Player				small      { &s_player, &s_obj };
 	Pair_Player				big        { &b_player, &b_obj };

@@ -13,6 +13,14 @@ void level_one()
 
     animate(pLoading);
      
+    if (!Config::lv1_spawned)
+    {
+        reset();
+        // set positions
+
+        Config::lv1_spawned = true;
+    }
+
     // moving the elevator
     if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
     {
@@ -68,6 +76,14 @@ void level_two()
     using Config::objects, Config::players;
 
     animate(pLoading);
+
+    if (!Config::lv2_spawned)
+    {
+        reset();
+        // set positions
+
+        Config::lv2_spawned = true;
+    }
 
     // moving the elevator
     if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
@@ -125,6 +141,14 @@ void level_three()
     using Config::objects, Config::players;
 
     animate(pLoading);
+
+    if (!Config::lv3_spawned)
+    {
+        reset();
+        // set positions
+
+        Config::lv3_spawned = true;
+    }
 
     // moving the elevator
     if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)

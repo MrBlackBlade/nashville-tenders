@@ -5,7 +5,7 @@ void render()
     // change the bg color
     window.RenderTarget::clear(sf::Color(55, 68, 110, 255));
 
-       window.draw(menu);
+    window.draw(menu);
     if (Config::menu_status == 1)
     {
         for (int i = 0; i < 2; i++)
@@ -13,6 +13,7 @@ void render()
              window.draw(main_menu[i]);
         }
     }
+
     else if (Config::menu_status == -1)
     {
         window.close();

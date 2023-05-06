@@ -6,6 +6,7 @@
 #include <Player.hpp>
 #include <Object.hpp>
 #include <Pair.hpp>
+#include <reset.hpp>
 
 constexpr auto OBJECTS = 18;
 constexpr auto PLAYERS = 2;
@@ -35,6 +36,9 @@ namespace Config
 	extern bool door3_opened;
 	extern bool lever3_pushed;
 
+	extern bool lv1_spawned;
+	extern bool lv2_spawned;
+	extern bool lv3_spawned;
 
 	extern Pair_Object*				  objects[OBJECTS];
 	extern Pair_Player*               players[PLAYERS];
