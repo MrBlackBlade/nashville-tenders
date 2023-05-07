@@ -66,9 +66,19 @@ namespace Config
 	Pair_Object				pLever1			 { &lever1 , &lever1_obj };
 	Pair_Object				pLever2			 { &lever2 , &lever2_obj };
 	Pair_Object				pLever3			 { &lever3 , &lever3_obj };
-	Pair_Object				pPlatform	     { &platform , &platform_obj};
+	Pair_Object				pPlatform1		 { &platform1 , &platform1_obj };
+	Pair_Object				pPlatform2		 { &platform2 , &platform2_obj };
+	Pair_Object				pPlatform3		 { &platform3 , &platform3_obj };
+	Pair_Object				pPlatform4		 { &platform4 , &platform4_obj };
+	Pair_Object				pPlatform5		 { &platform5 , &platform5_obj };
+	Pair_Object				pPlatform6		 { &platform6 , &platform6_obj };
+	Pair_Object				pPlatform7		 { &platform7 , &platform7_obj };
+	Pair_Object				pPlatform8		 { &platform8 , &platform8_obj };
+	Pair_Object				pPlatform9		 { &platform9 , &platform9_obj };
+	Pair_Object				pPlatform10	     { &platform10 ,&platform10_obj};
+	Pair_Object				pWall			 { &wall       ,&wall_obj	   };
 
-	Pair_Object*			objects[OBJECTS] { &pGround, &pButton1, &pButton2, &pButton3, &pBox, &pChicken1, &pChicken2, &pChicken3, &pDoor1, &pDoor2, &pDoor3, &pElevator1, &pElevator2, &pElevator3, &pLever1, &pLever2, &pLever3, &pPlatform };
+	Pair_Object*			objects[OBJECTS] { &pGround, &pButton1, &pButton2, &pButton3, &pBox, &pWall, &pChicken1, &pChicken2, &pChicken3, &pDoor1, &pDoor2, &pDoor3, &pElevator1, &pElevator2, &pElevator3, &pLever1, &pLever2, &pLever3, &pPlatform1, &pPlatform2, &pPlatform3, &pPlatform4, &pPlatform5, &pPlatform6, &pPlatform7, &pPlatform8, &pPlatform9, &pPlatform10 };
 	Pair_Player*            players[PLAYERS] { &small, &big };
 
 }

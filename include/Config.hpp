@@ -8,7 +8,7 @@
 #include <Pair.hpp>
 #include <reset.hpp>
 
-constexpr auto OBJECTS = 18;
+constexpr auto OBJECTS = 28;
 constexpr auto PLAYERS = 2;
 
 namespace Config
@@ -70,6 +70,8 @@ extern Object				ground_obj;
 extern sf::Texture			box_texture;
 extern sf::RectangleShape   box;
 extern Object				box_obj;
+extern sf::RectangleShape   wall;
+extern Object				wall_obj;
 extern sf::RectangleShape   lv_comp;
 extern sf::Texture			lv_comp_texture;
 extern Object				lv_comp_obj;
@@ -116,8 +118,26 @@ extern Object				lever2_obj;
 extern Object				lever3_obj;
 
 extern sf::Texture			platform_texture;
-extern sf::RectangleShape	platform;
-extern Object				platform_obj;
+extern sf::RectangleShape	platform1;
+extern sf::RectangleShape	platform2;
+extern sf::RectangleShape	platform3;
+extern sf::RectangleShape	platform4;
+extern sf::RectangleShape	platform5;
+extern sf::RectangleShape	platform6;
+extern sf::RectangleShape	platform7;
+extern sf::RectangleShape	platform8;
+extern sf::RectangleShape	platform9;
+extern sf::RectangleShape	platform10;
+extern Object				platform1_obj;
+extern Object				platform2_obj;
+extern Object				platform3_obj;
+extern Object				platform4_obj;
+extern Object				platform5_obj;
+extern Object				platform6_obj;
+extern Object				platform7_obj;
+extern Object				platform8_obj;
+extern Object				platform9_obj;
+extern Object				platform10_obj;
 
 extern sf::Texture			end_texture;
 extern sf::RectangleShape	end;

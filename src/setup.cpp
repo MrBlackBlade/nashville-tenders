@@ -21,6 +21,7 @@ sf::RectangleShape	ground({900, 20});
 
 sf::Texture			box_texture;
 sf::RectangleShape  box({32, 32});
+sf::RectangleShape  wall({ 1, 900 });
 
 sf::Texture			lv_comp_texture;
 sf::RectangleShape  lv_comp({900, 900});
@@ -52,7 +53,16 @@ sf::RectangleShape  lever2({ 32, 32 });
 sf::RectangleShape  lever3({ 32, 32 });
 
 sf::Texture			platform_texture;
-sf::RectangleShape  platform({98, 16});
+sf::RectangleShape  platform1({ 98, 16 });
+sf::RectangleShape  platform2({ 98, 16 });
+sf::RectangleShape  platform3({ 98, 16 });
+sf::RectangleShape  platform4({ 98, 16 });
+sf::RectangleShape  platform5({ 98, 16 });
+sf::RectangleShape  platform6({ 98, 16 });
+sf::RectangleShape  platform7({ 98, 16 });
+sf::RectangleShape  platform8({ 98, 16 });
+sf::RectangleShape  platform9({ 98, 16 });
+sf::RectangleShape  platform10({ 98, 16});
 
 sf::Texture			end_texture;
 sf::RectangleShape  end({18, 35});
@@ -102,6 +112,21 @@ Object::box,		// ID
 2.5f,				// scale       
 32,					// size_x	
 32,					// size_y	
+0					// anims	
+};
+
+Object wall_obj
+{
+Object::box,		// ID
+{ 0, 0 },			// velocity    
+{ 0, 0 },			// velocity_max
+{ 0, 0 },			// acceleration
+{ 910, 0 },			// position    
+
+0,					// anim_ind    
+100.f,				// scale       
+1,					// size_x	
+2000,				// size_y	
 0					// anims	
 };
 
@@ -349,20 +374,158 @@ Object::lever3,    // ID
 3				  // anims	
 };
 
-Object platform_obj
+
+Object platform1_obj
 {
 Object::platform,    // ID
 { 0, 0 },			 // velocity    
 { 0, 0 },			 // velocity_max
 { 0, 0 },			 // acceleration
 { 0, 0 },			 // position    
-				   
+
 0,					 // anim_ind    
-1.f,				 // scale       
+2.f,				 // scale       
 98,					 // size_x	
 16,					 // size_y	
 0					 // anims	
 };
+
+Object platform2_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform3_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform4_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform5_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform6_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform7_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform8_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform9_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+Object platform10_obj
+{
+Object::platform,    // ID
+{ 0, 0 },			 // velocity    
+{ 0, 0 },			 // velocity_max
+{ 0, 0 },			 // acceleration
+{ 0, 0 },			 // position    
+
+0,					 // anim_ind    
+2.f,				 // scale       
+98,					 // size_x	
+16,					 // size_y	
+0					 // anims	
+};
+
+
 
 // small player
 sf::Texture s_player_texture_jump;
@@ -712,15 +875,102 @@ void setup()
 		ground.getGlobalBounds().top - lever3.getGlobalBounds().height
 	};
 	lever3.setPosition(lever3_obj.position);
-	//
-	platform.setTexture(&platform_texture);
-	platform.setScale(platform_obj.scale, platform_obj.scale);
-	platform_obj.position =
+
+	// wall
+	wall_obj.position = { 900,0 };
+	wall.setPosition(wall_obj.position);
+	// platforms
+	platform1.setTexture(&platform_texture);
+	platform1.setScale(platform1_obj.scale, platform1_obj.scale);
+	platform1_obj.position =
+	{
+		00.f,
+		4500.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform1.setPosition(platform1_obj.position);
+
+	platform2.setTexture(&platform_texture);
+	platform2.setScale(platform2_obj.scale, platform2_obj.scale);
+	platform2_obj.position =
+	{
+		2000.f,
+		4500.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform2.setPosition(platform2_obj.position);
+
+	platform3.setTexture(&platform_texture);
+	platform3.setScale(platform3_obj.scale, platform3_obj.scale);
+	platform3_obj.position =
+	{
+		3000.f,
+		3000.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform3.setPosition(platform3_obj.position);
+
+	platform4.setTexture(&platform_texture);
+	platform4.setScale(platform4_obj.scale, platform4_obj.scale);
+	platform4_obj.position =
+	{
+		4000.f,
+		4000.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform4.setPosition(platform4_obj.position);
+
+	platform5.setTexture(&platform_texture);
+	platform5.setScale(platform5_obj.scale, platform5_obj.scale);
+	platform5_obj.position =
+	{
+		5000.f,
+		5000.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform5.setPosition(platform5_obj.position);
+
+	platform6.setTexture(&platform_texture);
+	platform6.setScale(platform6_obj.scale, platform6_obj.scale);
+	platform6_obj.position =
 	{
 		6000.f,
-		0.f/*Config::RES_SIZE / 2.f + 30.f*/
+		6000.f/*Config::RES_SIZE / 2.f + 30.f*/
 	};
-	platform.setPosition(platform_obj.position);
+	platform6.setPosition(platform6_obj.position);
+
+	platform7.setTexture(&platform_texture);
+	platform7.setScale(platform7_obj.scale, platform7_obj.scale);
+	platform7_obj.position =
+	{
+		7000.f,
+		7000.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform7.setPosition(platform7_obj.position);
+
+	platform8.setTexture(&platform_texture);
+	platform8.setScale(platform8_obj.scale, platform8_obj.scale);
+	platform8_obj.position =
+	{
+		8000.f,
+		8000.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform8.setPosition(platform8_obj.position);
+
+	platform9.setTexture(&platform_texture);
+	platform9.setScale(platform9_obj.scale, platform9_obj.scale);
+	platform9_obj.position =
+	{
+		9000.f,
+		9000.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform9.setPosition(platform9_obj.position);
+
+	platform10.setTexture(&platform_texture);
+	platform10.setScale(platform10_obj.scale, platform10_obj.scale);
+	platform10_obj.position =
+	{
+		1500.f,
+		1500.f/*Config::RES_SIZE / 2.f + 30.f*/
+	};
+	platform10.setPosition(platform10_obj.position);
+
+	
 
 	// small player
 	s_player_texture_jump.loadFromFile("resources/small_jump_animation.png");
