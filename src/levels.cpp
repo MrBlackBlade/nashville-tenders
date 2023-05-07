@@ -22,7 +22,7 @@ void level_one()
     }
 
     // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
+    if (((check_lever(*players[0], *objects[Object::lever1]) || check_lever(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
     {
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
@@ -86,7 +86,7 @@ void level_two()
     }
 
     // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
+    if (((check_lever(*players[0], *objects[Object::lever1]) || check_lever(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
     {
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
@@ -151,7 +151,7 @@ void level_three()
     }
 
     // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
+    if (((check_lever(*players[0], *objects[Object::lever1]) || check_lever(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
     {
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
