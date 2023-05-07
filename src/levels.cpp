@@ -102,14 +102,14 @@ void level_one()
     }
 
 
-        if ((((elevator_move(*Config::players[0], *Config::objects[Object::lever1]) || elevator_move(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed) && objects[Object::elevator1]->obj->position.y >= 550 )
+        if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) || check_lever(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed) && objects[Object::elevator1]->obj->position.y >= 550 )
         {
             objects[Object::elevator1]->obj->position.y -= .8f;
             objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position);
         }
 
 
-        if ((((elevator_move(*Config::players[0], *Config::objects[Object::lever2]) || elevator_move(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y <= 550 )
+        if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) || check_lever(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y <= 550 )
         {
             objects[Object::elevator2]->obj->position.y += .8f;
             objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position);

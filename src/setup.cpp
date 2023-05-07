@@ -662,41 +662,6 @@ void setup()
 	platform_texture.loadFromFile("resources/platform.png");
 	end_texture.loadFromFile("resources/end.png");
 
-	if (!loading_texture.loadFromFile("resources/loading.png"))
-		exit(1);
-	if (!menu_texture.loadFromFile("resources/bg_menu.png"))
-		exit(1);
-	if (!chicken_counter_texture.loadFromFile("resources/chicken_counter.png"))
-		exit(1);
-	if (!ground_texture.loadFromFile("resources/tile_1.png"))
-		exit(1);
-	if (!bg_texture_1.loadFromFile("resources/bg1.png"))
-		exit(1);
-	if (!bg_texture_2.loadFromFile("resources/bg2.png"))
-		exit(1);
-	if (!bg_texture_3.loadFromFile("resources/bg3.png"))
-		exit(1);
-	if (!bg_texture_4.loadFromFile("resources/bg4.png"))
-		exit(1);
-	if (!box_texture.loadFromFile("resources/box.png"))
-		exit(1);
-	if (!button_texture.loadFromFile("resources/button.png"))
-		exit(1);
-	if (!chicken_texture.loadFromFile("resources/chicken.png"))
-		exit(1);
-	if (!door_texture.loadFromFile("resources/door.png"))
-		exit(1);
-	if (!elevator_texture.loadFromFile("resources/elevator.png"))
-		exit(1);
-	if (!lever_texture.loadFromFile("resources/lever.png"))
-		exit(1);
-	if (!platform_texture.loadFromFile("resources/platform.png"))
-		exit(1);
-	if (!end_texture.loadFromFile("resources/end.png"))
-		exit(1);
-	if (!lv_comp_texture.loadFromFile("resources/level_complete.png"))
-		exit(1);
-
 	end.setTexture(&end_texture);
 	end.setPosition(300, 800 - ground.getGlobalBounds().height + 30);
 
