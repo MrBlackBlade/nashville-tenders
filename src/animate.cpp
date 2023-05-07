@@ -211,8 +211,8 @@ animate(Pair_Object& pair)
 
         return;
     case Object::lever1:
-        if (elevator_move(*Config::players[0], pair) ||
-            elevator_move(*Config::players[1], pair) && !Config::lever1_pushed)
+        if (check_lever(*Config::players[0], pair) ||
+            check_lever(*Config::players[1], pair) && !Config::lever1_pushed)
         {
             if (Config::frame_counter % 2 == 0)
             {
@@ -232,8 +232,8 @@ animate(Pair_Object& pair)
 
         return;
     case Object::lever2:
-        if (elevator_move(*Config::players[0], pair) ||
-            elevator_move(*Config::players[1], pair) && !Config::lever2_pushed)
+        if (check_lever(*Config::players[0], pair) ||
+            check_lever(*Config::players[1], pair) && !Config::lever2_pushed)
         {
             if (Config::frame_counter % 2 == 0)
             {
@@ -253,8 +253,8 @@ animate(Pair_Object& pair)
 
         return;
     case Object::lever3:
-        if (elevator_move(*Config::players[0], pair) ||
-            elevator_move(*Config::players[1], pair) && !Config::lever3_pushed)
+        if (check_lever(*Config::players[0], pair) ||
+            check_lever(*Config::players[1], pair) && !Config::lever3_pushed)
         {
             if (Config::frame_counter % 2 == 0)
             {

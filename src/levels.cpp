@@ -8,7 +8,7 @@ void caller()
     else if (Config::game_status == 3) level_three();
 }
 
-void spawn( sf::RectangleShape &platform, Object &platform_obj, const float &x, const float &y )
+void spawn( sf::RectangleShape& platform, Object& platform_obj, const float& x, const float& y )
 {
     platform_obj.position =
     {
@@ -101,22 +101,18 @@ void level_one()
 
     }
 
+
         if ((((elevator_move(*Config::players[0], *Config::objects[Object::lever1]) || elevator_move(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed) && objects[Object::elevator1]->obj->position.y >= 550 )
         {
             objects[Object::elevator1]->obj->position.y -= .8f;
             objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position);
         }
 
+
         if ((((elevator_move(*Config::players[0], *Config::objects[Object::lever2]) || elevator_move(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y <= 550 )
         {
             objects[Object::elevator2]->obj->position.y += .8f;
             objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position);
-
-            //if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
-            //{
-            //    players[0]->obj->position.x += 3.5f;
-            //    players[0]->sprite->setPosition(players[0]->obj->position);
-            //}
         }
 
     if (Config::game_status == 1 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config:: loaded)
@@ -173,7 +169,7 @@ void level_two()
     }
 
     // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
+    if (((check_lever(*players[0], *objects[Object::lever1]) || check_lever(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
     {
         objects[Object::elevator1]->obj->position.y += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
@@ -239,7 +235,7 @@ void level_three()
     }
 
     // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
+    if (((check_lever(*players[0], *objects[Object::lever1]) || check_lever(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
     {
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);

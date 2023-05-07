@@ -6,6 +6,9 @@ sf::Font			font;
 sf::Texture			menu_texture;
 sf::RectangleShape	menu({ 900, 900 });
 
+// music and sound
+sf::Music			main_menu_music;
+
 // background and platforms
 sf::Texture			bg_texture_1;
 sf::Texture			bg_texture_2;
@@ -633,6 +636,10 @@ void setup()
 {
 	// set FPS
 	window.setFramerateLimit(60);
+
+	// music and sound
+	if (!main_menu_music.openFromFile("resources/main_menu.ogg"))
+		exit(1);
 
 	// background and objects
 	loading_texture.loadFromFile("resources/loading.png");

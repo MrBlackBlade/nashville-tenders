@@ -2,6 +2,8 @@
 
 void setup_menu()
 {
+    play_bgm(1);
+
     font.loadFromFile("resources/Minecraft.ttf");
 
     main_menu[0].setFont(font);

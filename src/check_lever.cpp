@@ -1,6 +1,6 @@
-#include <elevator_move.hpp>
+#include <check_lever.hpp>
 
-bool elevator_move(Pair_Player& p_pair, Pair_Object& o_pair )
+bool check_lever(Pair_Player& p_pair, Pair_Object& o_pair )
 {
     auto& player = *p_pair.sprite;
     auto& obj    = *p_pair.obj;

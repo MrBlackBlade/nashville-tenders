@@ -3,6 +3,7 @@
 #define _CONFIG_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <Player.hpp>
 #include <Object.hpp>
 #include <Pair.hpp>
@@ -54,6 +55,9 @@ extern sf::Texture		    chicken_counter_texture;
 extern sf::RectangleShape   chicken_counter;
 extern Object			    chicken_counter_obj;
 extern Pair_Object			pChicken_counter;
+
+//
+extern sf::Music			main_menu_music;
 
 // platforms and obstacles
 extern sf::Texture			loading_texture;

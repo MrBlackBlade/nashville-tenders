@@ -8,7 +8,7 @@
 #include <Player.hpp>
 #include <Pair.hpp>
 #include <collision.hpp>
-#include <elevator_move.hpp>
+#include <check_lever.hpp>
 
 void animate(Pair_Player&, const Animation&);
 void animate(Pair_Object&);
