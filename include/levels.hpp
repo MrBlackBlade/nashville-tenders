@@ -9,6 +9,7 @@
 #include <collect.hpp>
 
 void caller();
+void spawn(sf::RectangleShape&, Object&, const float&, const float&);
 void level_one();
 void level_two();
 void level_three();

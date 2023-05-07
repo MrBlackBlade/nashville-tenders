@@ -10,13 +10,13 @@ void setup_menu()
     main_menu[0].setFillColor(sf::Color::Yellow);
     main_menu[0].setString("PLAY");
     main_menu[0].setCharacterSize(70);
-    main_menu[0].setPosition(sf::Vector2f(353.f, 550.f));
+    main_menu[0].setPosition(sf::Vector2f(362.f, 550.f));
 
     main_menu[1].setFont(font);
     main_menu[1].setFillColor(sf::Color::White);
     main_menu[1].setString("QUIT");
     main_menu[1].setCharacterSize(70);
-    main_menu[1].setPosition(sf::Vector2f(353.f, 645.f));
+    main_menu[1].setPosition(sf::Vector2f(362.f, 645.f));
 }
 
 void moveDown() {

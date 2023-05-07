@@ -12,14 +12,9 @@ bool collect(Pair_Player& p_pair, Pair_Object& o_pair)
 
     if ( player.getGlobalBounds().intersects( shape.getGlobalBounds() ) )
     {
-        if (Config::game_status <= 1)
-            Config::lv1_chicken_count++;
+        Config::chicken_num++;
 
-        else if (Config::game_status <= 2)
-            Config::lv2_chicken_count++;
-
-        else if (Config::game_status <= 3)
-            Config::lv3_chicken_count++;
+        animate(pChicken_counter);
 
         // temporary way to remove chicken from render
         obj2.position.x += 5000;
