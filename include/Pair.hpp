@@ -17,7 +17,7 @@ struct Pair_Player
 struct Pair_Object
 {
 	sf::RectangleShape* shape = nullptr;
-	Object*				obj = nullptr;
+	Object*				obj   = nullptr;
 };
 
 

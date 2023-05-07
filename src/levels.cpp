@@ -44,21 +44,8 @@ void level_one()
 
 
         // Elevators
-        spawn(elevator1, elevator1_obj, 800, 348);
-
-        spawn(elevator2, elevator2_obj, 195, 865);
-        if (((elevator_move(*players[0], *objects[Object::lever2]) || elevator_move(*players[1], *objects[Object::lever2]))) || Config::lever2_pushed)
-        {
-            objects[Object::elevator2]->obj->position.y -= .5f;
-            objects[Object::elevator2]->shape->setPosition(objects[Object::elevator2]->obj->position);
-
-            /*if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
-            {
-                players[0]->obj->position.x += 3.5f;
-                players[0]->sprite->setPosition(players[0]->obj->position);
-            }*/
-        }
-
+        spawn(elevator1, elevator1_obj, 195,  865);
+        spawn(elevator2, elevator2_obj, 794,  348);
         spawn(elevator3, elevator3_obj, 6000, 700);
 
         
@@ -72,28 +59,26 @@ void level_one()
         door1.setScale(door1_obj.scale * 1.8, door1_obj.scale * 1.8);
 
         spawn(door2, door2_obj, 500, 360);
+        door2.setScale(door2_obj.scale * 1, door2_obj.scale * 1);
 
         spawn(door3, door3_obj, 600, 700);
         door3.setScale(door3_obj.scale * 1.6, door3_obj.scale * 1.6);
 
 
         // Buttons
-        spawn(button1, button1_obj, 85,    540);
+        spawn(button1, button1_obj, 85,  540);
         spawn(button2, button2_obj, 780, 540);
         spawn(button3, button3_obj, 280, 320);
 
         // Levers
-        spawn(lever1, lever1_obj, 400,  520);
-
-        spawn(lever2, lever2_obj, 550,  300);
-        
-
+        spawn(lever1, lever1_obj, 550,  300);
+        spawn(lever2, lever2_obj, 400,  520);
         spawn(lever3, lever3_obj, 6000, 700);
 
         // Chickens
         spawn(chicken1, chicken1_obj, 850, 250);
         spawn(chicken2, chicken2_obj, 800, 800);
-        spawn(chicken3, chicken3_obj, 40, 450);
+        spawn(chicken3, chicken3_obj, 40 , 450);
 
 
 
@@ -103,36 +88,36 @@ void level_one()
         s_obj.position = {0,0};
         s_player.setPosition(s_obj.position);
 
-            // Big Player
+        // Big Player
         b_obj.position = {0,900};
         b_player.setPosition(b_obj.position);
 
 
         // Endgame
-        end.setPosition(850, 500 - ground.getGlobalBounds().height + 30);
+        end.setPosition(850, 500 - ground.getGlobalBounds().height + 37);
 
         Config::lv1_spawned = true;
 
 
     }
 
-  
-
-
-
-
-    // moving the elevator
-    if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
-    {
-        objects[Object::elevator1]->obj->position.y -= .5f;
-        objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
-        
-        /*if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
+        if (((elevator_move(*Config::players[0], *Config::objects[Object::lever1]) || elevator_move(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed)
         {
-            players[0]->obj->position.x += 3.5f;
-            players[0]->sprite->setPosition(players[0]->obj->position);
-        }*/
-    }
+            objects[Object::elevator1]->obj->position.y -= .8f;
+            objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position);
+        }
+
+        if (((elevator_move(*Config::players[0], *Config::objects[Object::lever2]) || elevator_move(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed)
+        {
+            objects[Object::elevator2]->obj->position.y += .8f;
+            objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position);
+
+            //if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
+            //{
+            //    players[0]->obj->position.x += 3.5f;
+            //    players[0]->sprite->setPosition(players[0]->obj->position);
+            //}
+        }
 
     if (Config::game_status == 1 && Config::lv1_chicken_count == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config:: loaded)
     {
@@ -144,6 +129,7 @@ void level_one()
         Config::lv1_chicken_count = 0;
         Config::game_status = 2;
 
+        
         chicken1_obj.position =
         {
             500.f,

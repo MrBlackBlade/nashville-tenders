@@ -140,10 +140,9 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (right)
-    if (out_of_bounds(pair) && obj.velocity.x > 5.f && obj.position.x > Config::RES_SIZE / 2)
+    if (out_of_bounds(pair) && obj.velocity.x && obj.position.x > Config::RES_SIZE / 2)
     {
         obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
-
         // Apply motion
         obj.velocity += obj.acceleration;
         obj.position += obj.velocity;
@@ -151,7 +150,7 @@ void move(Pair_Player& pair)
     }
 
     // Keep the player in bounds (left)
-    if (out_of_bounds(pair) && obj.velocity.x < 5.f && obj.position.x < Config::RES_SIZE / 2)
+    if (out_of_bounds(pair) && obj.velocity.x && obj.position.x < Config::RES_SIZE / 2)
     {
         obj.position.x = 0;
 
@@ -181,7 +180,6 @@ void move(Pair_Object& pair)
 
     auto& shape = *pair.shape;
     auto& obj = *pair.obj;
-
 
     if (pair.obj->id == Object::ground || pair.obj->id == Object::button1 || pair.obj->id == Object::lever1 || pair.obj->id == Object::platform || pair.obj->id == Object::door1)
         return;

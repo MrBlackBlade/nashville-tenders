@@ -8,7 +8,7 @@
 #include <Pair.hpp>
 #include <reset.hpp>
 
-constexpr auto OBJECTS = 28;
+constexpr auto OBJECTS = 27;
 constexpr auto PLAYERS = 2;
 
 namespace Config

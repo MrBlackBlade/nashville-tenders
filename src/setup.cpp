@@ -21,7 +21,7 @@ sf::RectangleShape	ground({900, 20});
 
 sf::Texture			box_texture;
 sf::RectangleShape  box({32, 32});
-sf::RectangleShape  wall({ 1, 900 });
+//sf::RectangleShape  wall({ 1, 900 });
 
 sf::Texture			lv_comp_texture;
 sf::RectangleShape  lv_comp({900, 900});
@@ -877,8 +877,9 @@ void setup()
 	lever3.setPosition(lever3_obj.position);
 
 	// wall
-	wall_obj.position = { 900,0 };
-	wall.setPosition(wall_obj.position);
+	//wall_obj.position = { 900,0 };
+	//wall.setPosition(wall_obj.position);
+
 	// platforms
 	platform1.setTexture(&platform_texture);
 	platform1.setScale(platform1_obj.scale, platform1_obj.scale);
