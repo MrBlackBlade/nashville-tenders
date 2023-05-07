@@ -45,7 +45,20 @@ void level_one()
 
         // Elevators
         spawn(elevator1, elevator1_obj, 800, 348);
+
         spawn(elevator2, elevator2_obj, 195, 865);
+        if (((elevator_move(*players[0], *objects[Object::lever2]) || elevator_move(*players[1], *objects[Object::lever2]))) || Config::lever2_pushed)
+        {
+            objects[Object::elevator2]->obj->position.y -= .5f;
+            objects[Object::elevator2]->shape->setPosition(objects[Object::elevator2]->obj->position);
+
+            /*if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
+            {
+                players[0]->obj->position.x += 3.5f;
+                players[0]->sprite->setPosition(players[0]->obj->position);
+            }*/
+        }
+
         spawn(elevator3, elevator3_obj, 6000, 700);
 
         
@@ -56,12 +69,12 @@ void level_one()
         // Doors
    
         spawn(door1, door1_obj, 600,  0);
-        door1.setScale(door1_obj.scale * 1.25, door1_obj.scale * 1.8);
+        door1.setScale(door1_obj.scale * 1.8, door1_obj.scale * 1.8);
 
         spawn(door2, door2_obj, 500, 360);
 
         spawn(door3, door3_obj, 600, 700);
-        door3.setScale(door3_obj.scale * 1.25, door3_obj.scale * 1.6);
+        door3.setScale(door3_obj.scale * 1.6, door3_obj.scale * 1.6);
 
 
         // Buttons
@@ -71,7 +84,10 @@ void level_one()
 
         // Levers
         spawn(lever1, lever1_obj, 400,  520);
+
         spawn(lever2, lever2_obj, 550,  300);
+        
+
         spawn(lever3, lever3_obj, 6000, 700);
 
         // Chickens
@@ -108,14 +124,14 @@ void level_one()
     // moving the elevator
     if (((elevator_move(*players[0], *objects[Object::lever1]) || elevator_move(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed)
     {
-        objects[Object::elevator1]->obj->position.y += .5f;
+        objects[Object::elevator1]->obj->position.y -= .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
-
-        if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
+        
+        /*if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
         {
             players[0]->obj->position.x += 3.5f;
             players[0]->sprite->setPosition(players[0]->obj->position);
-        }
+        }*/
     }
 
     if (Config::game_status == 1 && Config::lv1_chicken_count == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config:: loaded)
