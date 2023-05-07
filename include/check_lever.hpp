@@ -7,7 +7,7 @@
 #include <get_key_pressed.hpp>
 
 
-bool elevator_move(Pair_Player&, Pair_Object&);
+bool check_lever(Pair_Player&, Pair_Object&);
 
 
 

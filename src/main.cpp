@@ -14,7 +14,7 @@
 #include <render.hpp>
 #include <setup.hpp>
 #include <out_of_bounds.hpp>
-#include <elevator_move.hpp>
+#include <check_lever.hpp>
 #include <levels.hpp>
 #include <menu.hpp>
 

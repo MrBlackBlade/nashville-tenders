@@ -3,7 +3,7 @@
 #define _LEVELS_HPP
 
 #include <Config.hpp>
-#include <elevator_move.hpp>
+#include <check_lever.hpp>
 #include <collision.hpp>
 #include <CollisionType.hpp>
 #include <collect.hpp>

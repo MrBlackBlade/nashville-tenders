@@ -3,6 +3,7 @@
 #define _CONFIG_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <Player.hpp>
 #include <Object.hpp>
 #include <Pair.hpp>
@@ -51,6 +52,9 @@ extern sf::Text				main_menu[2];
 extern sf::Font				font;
 extern sf::Texture			menu_texture;
 extern sf::RectangleShape   menu;
+
+//
+extern sf::Music			main_menu_music;
 
 // platforms and obstacles
 extern sf::Texture			loading_texture;
