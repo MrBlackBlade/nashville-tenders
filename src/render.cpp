@@ -2,12 +2,10 @@
 
 void render()
 {
-    // change the bg color
-    window.RenderTarget::clear(sf::Color(55, 68, 110, 255));
-
     window.draw(menu);
     if (Config::menu_status == 1)
     {
+
         for (int i = 0; i < 2; i++)
         {
              window.draw(main_menu[i]);
@@ -21,6 +19,8 @@ void render()
 
     else if (Config::menu_status == 0)
     {
+
+
         if (Config::loaded)
         {
             //render the background
@@ -28,6 +28,7 @@ void render()
             window.draw(background_2);
             window.draw(background_3);
             window.draw(background_4);
+            window.draw(chicken_counter);
 
             // render the players 
             for (auto& player : Config::players)
@@ -46,7 +47,8 @@ void render()
             window.draw(lv_comp);
         }
 
-        window.draw(loading);
+            window.draw(loading);
+
     }
 
     // draw the frame

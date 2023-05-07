@@ -274,7 +274,7 @@ animate(Pair_Object& pair)
 
         return;
     case Object::loading:
-        if (Config::frame_counter % 50 == 0 && !Config::loaded)
+        if (Config::frame_counter % 50 == 0 && !Config::loaded && Config::menu_status == 0)
         {
             shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
@@ -288,7 +288,9 @@ animate(Pair_Object& pair)
             obj.anim_ind++;
             obj.anim_ind %= obj.anims;
         }
-
+        return;
+    case Object::chicken_counter:
+        shape.setTextureRect(sf::IntRect(Config::chicken_num * obj.size_x, 0, obj.size_x, obj.size_y));
         return;
     default:
         if (Config::frame_counter % 16 == 0 && obj.anims)

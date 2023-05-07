@@ -21,10 +21,12 @@ sf::RectangleShape	ground({900, 20});
 
 sf::Texture			box_texture;
 sf::RectangleShape  box({32, 32});
-//sf::RectangleShape  wall({ 1, 900 });
 
 sf::Texture			lv_comp_texture;
 sf::RectangleShape  lv_comp({900, 900});
+
+sf::Texture			chicken_counter_texture;
+sf::RectangleShape  chicken_counter({ 96, 36 });
 
 // collectibles w kda
 sf::Texture			button_texture;
@@ -83,6 +85,22 @@ Object::loading,	// ID
 900,				// size_x	
 899,				// size_y	
 5					// anims
+};
+
+
+Object chicken_counter_obj
+{
+Object::chicken_counter,	// ID
+{ 0, 0 },					// velocity    
+{ 0, 0 },					// velocity_max
+{ 0, 0 },					// acceleration
+{ 0, 0 },					// position    
+
+0,							// anim_ind    
+1.f,						// scale       
+96,							// size_x	
+36,							// size_y	
+0							// anims
 };
 
 Object ground_obj
@@ -536,7 +554,7 @@ sf::Sprite  s_player(s_player_texture_idle);
 Player s_obj
 {
 {  0, 0  },		// velocity    
-{  5, 50 },		// velocity_max
+{  4.5, 50 },		// velocity_max
 {  0, 0  },		// acceleration
 {  0, 0  },		// position    
 			    		   
@@ -546,9 +564,9 @@ Player s_obj
 0,				// push_ind
 1,				// scale       
 28,				// size_idle_x 
-50,				// size_idle_y 
+52,				// size_idle_y 
 40,				// size_run_x  
-50,				// size_run_y  
+52,				// size_run_y  
 29,				// size_jump_x 
 56,				// size_jump_y 
 0,				// size_push_x
@@ -573,7 +591,7 @@ sf::Sprite  b_player(b_player_texture_idle);
 Player b_obj
 {
 {  0, 0  },		// velocity    
-{  2, 50 },		// velocity_max
+{  1.5, 50 },		// velocity_max
 {  0, 0  },		// acceleration
 {  0, 0  },		// position    
 	 					   
@@ -628,6 +646,7 @@ void setup()
 	ground_texture.loadFromFile("resources/tile_1.png");
 	box_texture.loadFromFile("resources/box.png");
 	lv_comp_texture.loadFromFile("resources/level_complete.png");
+	chicken_counter_texture.loadFromFile("resources/chicken_counter.png");
 	button_texture.loadFromFile("resources/button.png");
 	chicken_texture.loadFromFile("resources/chicken.png");
 	door_texture.loadFromFile("resources/door.png");
@@ -639,6 +658,8 @@ void setup()
 	if (!loading_texture.loadFromFile("resources/loading.png"))
 		exit(1);
 	if (!menu_texture.loadFromFile("resources/bg_menu.png"))
+		exit(1);
+	if (!chicken_counter_texture.loadFromFile("resources/chicken_counter.png"))
 		exit(1);
 	if (!ground_texture.loadFromFile("resources/tile_1.png"))
 		exit(1);
@@ -678,6 +699,11 @@ void setup()
 	loading.setTexture(&loading_texture);
 	loading.setPosition(0, 0);
 
+	chicken_counter.setTexture(&chicken_counter_texture);
+	chicken_counter.setTextureRect(sf::IntRect(0, 0, 96, 36));
+	chicken_counter.setScale(1.2, 1.2);
+	chicken_counter.setPosition(20, 15);
+
 	background_1.setTextureRect(sf::IntRect(0, 0, 4828, 1215));
 	background_1.setScale(0.5, 0.5);
 	background_1.setPosition(-804,0);
@@ -713,13 +739,8 @@ void setup()
 	box.setPosition(box_obj.position);
 
 	lv_comp.setTexture(&lv_comp_texture);
-	lv_comp.setScale(lv_comp_obj.scale, lv_comp_obj.scale);
-	lv_comp_obj.position =
-	{
-		0,
-		0
-	};
-	lv_comp.setPosition(lv_comp_obj.position);
+	lv_comp.setScale(1, 1);
+	lv_comp.setPosition(0, 0);
 
 	// the 3 buttons
 

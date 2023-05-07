@@ -27,6 +27,7 @@ struct Object
 		lever3,
 		platform,
 		loading,
+		chicken_counter,
 
 		object_max,
 	};

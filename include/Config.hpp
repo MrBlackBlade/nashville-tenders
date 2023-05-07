@@ -11,14 +11,13 @@
 constexpr auto OBJECTS = 27;
 constexpr auto PLAYERS = 2;
 
+
 namespace Config
 {
 	extern const sf::Uint16 RES_SIZE;
 	extern sf::Uint16 frame_counter;
 	extern sf::Uint16 game_status;
-	extern sf::Uint16 lv1_chicken_count;
-	extern sf::Uint16 lv2_chicken_count;
-	extern sf::Uint16 lv3_chicken_count;
+	extern sf::Uint16 chicken_num;
 
 	extern sf::Int32  menu_selection;
 	extern sf::Int32  menu_status;
@@ -51,6 +50,10 @@ extern sf::Text				main_menu[2];
 extern sf::Font				font;
 extern sf::Texture			menu_texture;
 extern sf::RectangleShape   menu;
+extern sf::Texture		    chicken_counter_texture;
+extern sf::RectangleShape   chicken_counter;
+extern Object			    chicken_counter_obj;
+extern Pair_Object			pChicken_counter;
 
 // platforms and obstacles
 extern sf::Texture			loading_texture;
@@ -67,11 +70,11 @@ extern sf::Sprite			background_4;
 extern sf::Texture			ground_texture;
 extern sf::RectangleShape	ground;
 extern Object				ground_obj;
+
 extern sf::Texture			box_texture;
 extern sf::RectangleShape   box;
 extern Object				box_obj;
-extern sf::RectangleShape   wall;
-extern Object				wall_obj;
+
 extern sf::RectangleShape   lv_comp;
 extern sf::Texture			lv_comp_texture;
 extern Object				lv_comp_obj;
