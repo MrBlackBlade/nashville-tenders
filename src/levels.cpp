@@ -197,15 +197,14 @@ void level_two()
         spawn(platform4, platform4_obj, 704, 620);
         spawn(platform5, platform5_obj, 0, 620);
         spawn(platform6, platform6_obj, 508, 620);
-
-        spawn(platform8, platform8_obj, 10000, 5500);
+        spawn(platform8, platform8_obj, 5000, 620);
         spawn(platform9, platform9_obj, 4000, 65000);
         spawn(platform10,platform10_obj, 60000,7000);
 
 
         // Elevators
         spawn(elevator1, elevator1_obj, 195.5, 881);
-        spawn(elevator2, elevator2_obj, 100,   612);
+        spawn(elevator2, elevator2_obj, 90,   612);
         spawn(elevator3, elevator3_obj, 700,   612);
 
 
@@ -330,21 +329,162 @@ void level_three()
     {
         reset();
         // set positions
+        play_bgm(MusicIndex::game_music_index);
+
+        // set positions
+
+        // platforms
+        platform1.setRotation(90);
+        platform1.setScale(3, 3);
+        platform1_obj.position =
+        {
+            600.f,
+           30.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        platform1.setPosition(platform1_obj.position);
+
+        platform7.setRotation(90);
+        platform7.setScale(3, 3);
+        platform7_obj.position =
+        {
+            750.f,
+            -57.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        platform7.setPosition(platform7_obj.position);
+
+        platform9.setRotation(90);
+        platform9.setScale(3, 3);
+        platform9_obj.position =
+        {
+            600.f,
+            325.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        platform9.setPosition(platform9_obj.position);
+
+        platform10.setRotation(90);
+        platform10.setScale(3, 3);
+        platform10_obj.position =
+        {
+            750.f,
+            525.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        platform10.setPosition(platform10_obj.position);
+
+        platform2.setRotation(90);
+        platform2.setScale(3, 3);
+        platform2_obj.position =
+        {
+            600.f,
+            670.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        platform2.setPosition(platform2_obj.position);
+
+        platform3.setRotation(90);
+        platform3.setScale(3, 3);
+        platform3_obj.position =
+        {
+            750.f,
+            870.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        platform3.setPosition(platform3_obj.position);
+
+        spawn(platform4, platform4_obj, 155, 220);
+        platform4.setScale(2.5, 2.5);
+        spawn(platform5, platform5_obj, 0, 450);
+        platform5.setScale(2.5, 2.5);
+        spawn(platform6, platform6_obj, 307, 680);
+        platform6.setScale(2.5, 2.5);
+        spawn(platform8, platform8_obj, 355, 220);
+        platform8.setScale(2.5, 2.5);
+
+        // Elevators
+        spawn(elevator1, elevator1_obj, 0, 220);
+        elevator1.setScale(1.5, 1.5);
+        spawn(elevator2, elevator2_obj, 800, 881);
+        spawn(elevator3, elevator3_obj, 599,525);
+
+
+
+        // Box
+        spawn(box, box_obj, 120, 140);
+        box.setScale(2.5, 2.5);
+
+        // Doors
+        door1.setRotation(90);
+        door1.setScale(1.3, 4.85);
+        door1_obj.position =
+        {
+            555.f,
+            449.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        door1.setPosition(door1_obj.position);
+
+        door2.setRotation(90);
+        door2.setScale(1.3, 4.85);
+        door2_obj.position =
+        {
+            310.f,
+            679.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        door2.setPosition(door2_obj.position);
+
+        spawn(door3, door3_obj, 702, 225);
+        door3.setScale(1.5, 4.85);
+
+
+        // Buttons
+        spawn(button1, button1_obj, 770, 879);
+        spawn(button2, button2_obj, 759, 120);
+        button2.setRotation(90);
+        spawn(button3, button3_obj, 40, 441);
+
+        // Levers
+        spawn(lever1, lever1_obj, 632, 395);
+        lever1.setRotation(90);
+        spawn(lever2, lever2_obj, 180, 420);
+        spawn(lever3, lever3_obj, 400, 848);
+
+        // Chickens
+        spawn(chicken1, chicken1_obj, 850, 200);
+        spawn(chicken2, chicken2_obj, 630, 480);
+        spawn(chicken3, chicken3_obj, 250, 850);
+
+
+
+        // Players
+            // Small Player
+
+        s_obj.position = { 0,0 };
+        s_player.setPosition(s_obj.position);
+
+        // Big Player
+        b_obj.position = { 0,0 };
+        b_player.setPosition(b_obj.position);
+
+
+        // Endgame
+        end.setPosition(100, 847);
 
         Config::lv3_spawned = true;
     }
 
     // moving the elevator
-    if (((check_lever(*players[0], *objects[Object::lever1]) || check_lever(*players[1], *objects[Object::lever1]))) || Config::lever1_pushed && Config::loaded)
+    if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) || check_lever(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed) && objects[Object::elevator1]->obj->position.x <= 155)
     {
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
+    }
 
-        if (collision(*players[0], *objects[Object::elevator1]) == CollisionType::elevator1)
-        {
-            players[0]->obj->position.x += 3.5f;
-            players[0]->sprite->setPosition(players[0]->obj->position);
-        }
+    if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) || check_lever(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y >= 150)
+    {
+        objects[Object::elevator2]->obj->position.y -= 1.f;
+        objects[Object::elevator2]->shape->setPosition(objects[Object::elevator1]->obj->position);
+    }
+
+    if ((((check_lever(*Config::players[0], *Config::objects[Object::lever3]) || check_lever(*players[1], *Config::objects[Object::lever3]))) || Config::lever3_pushed) && objects[Object::elevator3]->obj->position.y >= 90)
+    {
+        objects[Object::elevator3]->obj->position.y -= 1.f;
+        objects[Object::elevator3]->shape->setPosition(objects[Object::elevator3]->obj->position);
     }
 
     if (Config::game_status == 3 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()))
