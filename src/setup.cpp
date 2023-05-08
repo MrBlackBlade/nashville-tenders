@@ -131,7 +131,7 @@ Object::box,		// ID
 { 0, 0 },			// position    
 				 
 0,					// anim_ind    
-2.5f,				// scale       
+3.2f,				// scale       
 32,					// size_x	
 32,					// size_y	
 0					// anims	

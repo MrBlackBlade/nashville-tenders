@@ -31,8 +31,8 @@ void render()
             window.draw(chicken_counter);
 
             // render the players 
-            for (auto& player : Config::players)
-                window.draw(*player->sprite);
+            window.draw(b_player);
+            window.draw(s_player);
 
             // render the objects
             for (auto& object : Config::objects)
