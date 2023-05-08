@@ -8,6 +8,7 @@ sf::RectangleShape	menu({ 900, 900 });
 
 // music and sound
 sf::Music			main_menu_music;
+sf::Music			game_music;
 
 // background and platforms
 sf::Texture			bg_texture_1;
@@ -640,6 +641,8 @@ void setup()
 	// music and sound
 	if (!main_menu_music.openFromFile("resources/main_menu.ogg"))
 		exit(1);
+	if (!game_music.openFromFile("resources/game.ogg"))
+		exit(1);
 
 	// background and objects
 	loading_texture.loadFromFile("resources/loading.png");
@@ -755,7 +758,7 @@ void setup()
 	chicken1.setScale(chicken1_obj.scale, chicken1_obj.scale);
 	chicken1_obj.position =
 	{
-		500.f,
+		5000.f,
 		ground.getGlobalBounds().top - chicken1.getGlobalBounds().height
 	};
 	chicken1.setPosition(chicken1_obj.position);
@@ -764,7 +767,7 @@ void setup()
 	chicken2.setScale(chicken2_obj.scale, chicken2_obj.scale);
 	chicken2_obj.position =
 	{
-		550.f,
+		5500.f,
 		ground.getGlobalBounds().top - chicken2.getGlobalBounds().height
 	};
 	chicken2.setPosition(chicken2_obj.position);
@@ -773,7 +776,7 @@ void setup()
 	chicken3.setScale(chicken3_obj.scale, chicken3_obj.scale);
 	chicken3_obj.position =
 	{
-		600.f,
+		6000.f,
 		ground.getGlobalBounds().top - chicken3.getGlobalBounds().height
 	};
 	chicken3.setPosition(chicken3_obj.position);

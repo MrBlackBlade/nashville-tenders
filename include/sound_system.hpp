@@ -4,7 +4,8 @@
 
 #include <SFML/Audio.hpp>
 #include <Config.hpp>
+#include <AudioIndex.hpp>
 
-void play_bgm(int);
+void play_bgm(const MusicIndex&);
 
 #endif // #ifndef _SOUND_SYSTEM_HPP

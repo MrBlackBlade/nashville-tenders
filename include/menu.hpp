@@ -3,6 +3,7 @@
 #include <iostream>
 #include <Config.hpp>
 #include <sound_system.hpp>
+#include <AudioIndex.hpp>
 
   void moveUp();
   void moveDown();

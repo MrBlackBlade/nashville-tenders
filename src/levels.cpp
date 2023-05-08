@@ -21,13 +21,17 @@ void spawn( sf::RectangleShape& platform, Object& platform_obj, const float& x, 
 
 void level_one()
 {
+
     using Config::objects, Config::players;
 
+    
     animate(pLoading);
      
     if (!Config::lv1_spawned)
     {
-        reset();
+        
+        play_bgm(MusicIndex::game_music_index);
+
         // set positions
         
         // platforms
@@ -97,7 +101,7 @@ void level_one()
         end.setPosition(850, 500 - ground.getGlobalBounds().height + 37);
 
         Config::lv1_spawned = true;
-
+        reset();
 
     }
 

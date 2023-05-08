@@ -2,7 +2,7 @@
 
 void setup_menu()
 {
-    play_bgm(1);
+    play_bgm(MusicIndex::main_menu_music_index);
 
     font.loadFromFile("resources/Minecraft.ttf");
 
