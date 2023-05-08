@@ -10,6 +10,9 @@ sf::RectangleShape	menu({ 900, 900 });
 sf::Music			main_menu_music;
 sf::Music			game_music;
 
+sf::SoundBuffer		chicken_collect_sound_buffer;
+sf::Sound			chicken_collect_sound;
+
 // background and platforms
 sf::Texture			bg_texture_1;
 sf::Texture			bg_texture_2;
@@ -639,10 +642,11 @@ void setup()
 	window.setFramerateLimit(60);
 
 	// music and sound
-	if (!main_menu_music.openFromFile("resources/main_menu.ogg"))
-		exit(1);
-	if (!game_music.openFromFile("resources/game.ogg"))
-		exit(1);
+	main_menu_music.openFromFile("resources/main_menu.ogg");
+	game_music.openFromFile("resources/game.ogg");
+
+	chicken_collect_sound_buffer.loadFromFile("resources/chicken_collect.ogg");
+	chicken_collect_sound.setBuffer(chicken_collect_sound_buffer);
 
 	// background and objects
 	loading_texture.loadFromFile("resources/loading.png");

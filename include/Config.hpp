@@ -56,9 +56,12 @@ extern sf::RectangleShape   chicken_counter;
 extern Object			    chicken_counter_obj;
 extern Pair_Object			pChicken_counter;
 
-//
+// music and sound
 extern sf::Music			main_menu_music;
 extern sf::Music			game_music;
+
+extern sf::SoundBuffer		chicken_collect_sound_buffer;
+extern sf::Sound			chicken_collect_sound;
 
 // platforms and obstacles
 extern sf::Texture			loading_texture;

@@ -17,11 +17,11 @@
 #include <check_lever.hpp>
 #include <levels.hpp>
 #include <menu.hpp>
+#include <sound_system.hpp>
 
 int main()
 {
 	setup();
-
 	setup_menu();
 	// main game loop
 	while (window.isOpen())

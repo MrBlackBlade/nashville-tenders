@@ -8,6 +8,7 @@
 #include <Object.hpp>
 #include <Player.hpp>
 #include <get_key_pressed.hpp>
+#include <sound_system.hpp>
 
 bool collect(Pair_Player&, Pair_Object&);
 

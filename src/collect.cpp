@@ -13,7 +13,8 @@ bool collect(Pair_Player& p_pair, Pair_Object& o_pair)
     if ( player.getGlobalBounds().intersects( shape.getGlobalBounds() ) )
     {
         Config::chicken_num++;
-
+        play_sfx(SoundIndex::chicken_collect);
+        std::cout << "ciken\n";
         animate(pChicken_counter);
 
         // temporary way to remove chicken from render

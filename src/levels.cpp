@@ -205,7 +205,7 @@ void level_two()
 
         // Elevators
         spawn(elevator1, elevator1_obj, 195.5, 881);
-        spawn(elevator2, elevator2_obj, 90,    612);
+        spawn(elevator2, elevator2_obj, 100,   612);
         spawn(elevator3, elevator3_obj, 700,   612);
 
 
