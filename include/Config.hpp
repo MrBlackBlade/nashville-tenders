@@ -28,13 +28,16 @@ namespace Config
 	extern bool loaded;
 
 	extern bool door1_opened;
-	extern bool lever1_pushed;
-
 	extern bool door2_opened;
-	extern bool lever2_pushed;
-
 	extern bool door3_opened;
+
+	extern bool lever1_pushed;
+	extern bool lever2_pushed;
 	extern bool lever3_pushed;
+
+	extern bool button1_pushed;
+	extern bool button2_pushed;
+	extern bool button3_pushed;
 
 	extern bool lv1_spawned;
 	extern bool lv2_spawned;
@@ -62,6 +65,20 @@ extern sf::Music			game_music;
 
 extern sf::SoundBuffer		chicken_collect_sound_buffer;
 extern sf::Sound			chicken_collect_sound;
+extern sf::SoundBuffer		elevator1_move_sound_buffer;
+extern sf::SoundBuffer		elevator2_move_sound_buffer;
+extern sf::SoundBuffer		elevator3_move_sound_buffer;
+extern sf::Sound			elevator1_move_sound;
+extern sf::Sound			elevator2_move_sound;
+extern sf::Sound			elevator3_move_sound;
+extern sf::SoundBuffer		lever_pull_sound_buffer;
+extern sf::Sound			lever_pull_sound;
+extern sf::SoundBuffer		button_push_sound_buffer;
+extern sf::Sound			button_push_sound;
+extern sf::SoundBuffer		door_open_sound_buffer;
+extern sf::Sound			door_open_sound;
+extern sf::SoundBuffer		level_complete_sound_buffer;
+extern sf::Sound			level_complete_sound;
 
 // platforms and obstacles
 extern sf::Texture			loading_texture;

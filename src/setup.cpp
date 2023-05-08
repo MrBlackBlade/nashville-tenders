@@ -13,6 +13,22 @@ sf::Music			game_music;
 sf::SoundBuffer		chicken_collect_sound_buffer;
 sf::Sound			chicken_collect_sound;
 
+sf::SoundBuffer		elevator1_move_sound_buffer;
+sf::SoundBuffer		elevator2_move_sound_buffer;
+sf::SoundBuffer		elevator3_move_sound_buffer;
+sf::Sound			elevator1_move_sound;
+sf::Sound			elevator2_move_sound;
+sf::Sound			elevator3_move_sound;
+sf::SoundBuffer		lever_pull_sound_buffer;
+sf::Sound			lever_pull_sound;
+sf::SoundBuffer		button_push_sound_buffer;
+sf::Sound			button_push_sound;
+sf::SoundBuffer		door_open_sound_buffer;
+sf::Sound			door_open_sound;
+sf::SoundBuffer		level_complete_sound_buffer;
+sf::Sound			level_complete_sound;
+
+
 // background and platforms
 sf::Texture			bg_texture_1;
 sf::Texture			bg_texture_2;
@@ -647,6 +663,20 @@ void setup()
 
 	chicken_collect_sound_buffer.loadFromFile("resources/chicken_collect.ogg");
 	chicken_collect_sound.setBuffer(chicken_collect_sound_buffer);
+	elevator1_move_sound_buffer.loadFromFile("resources/elevator.ogg");
+	elevator2_move_sound_buffer.loadFromFile("resources/elevator.ogg");
+	elevator3_move_sound_buffer.loadFromFile("resources/elevator.ogg");
+	elevator1_move_sound.setBuffer(elevator1_move_sound_buffer);
+	elevator2_move_sound.setBuffer(elevator2_move_sound_buffer);
+	elevator3_move_sound.setBuffer(elevator3_move_sound_buffer);
+	lever_pull_sound_buffer.loadFromFile("resources/lever_pull.ogg");
+	lever_pull_sound.setBuffer(lever_pull_sound_buffer);
+	button_push_sound_buffer.loadFromFile("resources/button.ogg");
+	button_push_sound.setBuffer(button_push_sound_buffer);
+	door_open_sound_buffer.loadFromFile("resources/door_open.ogg");
+	door_open_sound.setBuffer(door_open_sound_buffer);
+	level_complete_sound_buffer.loadFromFile("resources/level_complete.ogg");
+	level_complete_sound.setBuffer(level_complete_sound_buffer);
 
 	// background and objects
 	loading_texture.loadFromFile("resources/loading.png");

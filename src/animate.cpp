@@ -173,7 +173,14 @@ animate(Pair_Object& pair)
             shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
             // button pressed
-            if (obj.anim_ind == 1) return;
+            if (obj.anim_ind == 1) {
+                if (!Config::button1_pushed) {
+                    play_sfx(SoundIndex::button_press);
+                    play_sfx(SoundIndex::door_open);
+                }
+                Config::button1_pushed = true;
+                return;
+            }
 
             obj.anim_ind++;
             obj.anim_ind %= obj.anims;
@@ -188,7 +195,14 @@ animate(Pair_Object& pair)
             shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
             // button pressed
-            if (obj.anim_ind == 1) return;
+            if (obj.anim_ind == 1) {
+                if (!Config::button2_pushed) {
+                    play_sfx(SoundIndex::button_press);
+                    play_sfx(SoundIndex::door_open);
+                }
+                Config::button2_pushed = true;
+                return;
+            }
 
             obj.anim_ind++;
             obj.anim_ind %= obj.anims;
@@ -203,8 +217,14 @@ animate(Pair_Object& pair)
             shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
             // button pressed
-            if (obj.anim_ind == 1) return;
-
+            if (obj.anim_ind == 1) {
+                if (!Config::button3_pushed) {
+                    play_sfx(SoundIndex::button_press);
+                    play_sfx(SoundIndex::door_open);
+                }
+                Config::button3_pushed = true;
+                return;
+            }
             obj.anim_ind++;
             obj.anim_ind %= obj.anims;
         }
@@ -218,9 +238,14 @@ animate(Pair_Object& pair)
             {
                 shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
+                
                 // lever pushed
                 if (obj.anim_ind == 2)
                 {
+                    if (!Config::lever1_pushed) {
+                        play_sfx(SoundIndex::elevator1_move);
+                        play_sfx(SoundIndex::lever_pull);
+                    }
                     Config::lever1_pushed = true;
                     return;
                 }
@@ -242,6 +267,10 @@ animate(Pair_Object& pair)
                 // lever pushed
                 if (obj.anim_ind == 2)
                 {
+                    if (!Config::lever2_pushed) {
+                        play_sfx(SoundIndex::elevator2_move);
+                        play_sfx(SoundIndex::lever_pull);
+                    }
                     Config::lever2_pushed = true;
                     return;
                 }
@@ -263,6 +292,10 @@ animate(Pair_Object& pair)
                 // lever pushed
                 if (obj.anim_ind == 2)
                 {
+                    if (!Config::lever3_pushed) {
+                        play_sfx(SoundIndex::elevator3_move);
+                        play_sfx(SoundIndex::lever_pull);
+                    }
                     Config::lever3_pushed = true;
                     return;
                 }

@@ -32,13 +32,16 @@ namespace Config
 	bool loaded        = false;
 
 	bool door1_opened  = false;
-	bool lever1_pushed = false;
-
 	bool door2_opened  = false;
-	bool lever2_pushed = false;
-
 	bool door3_opened  = false;
+
+	bool lever1_pushed = false;
+	bool lever2_pushed = false;
 	bool lever3_pushed = false;
+
+	bool button1_pushed = false;
+	bool button2_pushed = false;
+	bool button3_pushed = false;
 
 	bool lv1_spawned   = false;
 	bool lv2_spawned   = false;
