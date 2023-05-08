@@ -48,7 +48,7 @@ void level_one()
 
 
         // Elevators
-        spawn(elevator1, elevator1_obj, 195.5,  883);
+        spawn(elevator1, elevator1_obj, 195.5,  881);
         spawn(elevator2, elevator2_obj, 795  ,  328);
         spawn(elevator3, elevator3_obj, 6000 ,  700);
 
@@ -70,8 +70,8 @@ void level_one()
 
 
         // Buttons
-        spawn(button1, button1_obj, 85,  540);
-        spawn(button2, button2_obj, 700, 540);
+        spawn(button1, button1_obj, 85,  541);
+        spawn(button2, button2_obj, 720, 541);
         spawn(button3, button3_obj, 280, 320);
 
         // Levers
