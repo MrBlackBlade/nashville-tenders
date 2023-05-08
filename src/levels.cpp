@@ -48,7 +48,7 @@ void level_one()
 
 
         // Elevators
-        spawn(elevator1, elevator1_obj, 195.5,  865);
+        spawn(elevator1, elevator1_obj, 195.5,  883);
         spawn(elevator2, elevator2_obj, 795  ,  328);
         spawn(elevator3, elevator3_obj, 6000 ,  700);
 
@@ -178,16 +178,26 @@ void level_two()
         platform1.setScale(platform1_obj.scale, platform1_obj.scale);
         platform1_obj.position =
         {
-            450.f,
+            416.f,
             -45.f/*Config::RES_SIZE / 2.f + 30.f*/
         };
         platform1.setPosition(platform1_obj.position);
+
+        platform7.setRotation(90);
+        platform7.setScale(platform7_obj.scale, platform7_obj.scale);
+        platform7_obj.position =
+        {
+            493.f,
+            -45.f/*Config::RES_SIZE / 2.f + 30.f*/
+        };
+        platform7.setPosition(platform7_obj.position);
+
         spawn(platform2, platform2_obj, 435, 360);
         spawn(platform3, platform3_obj, 234, 360);
         spawn(platform4, platform4_obj, 704, 620);
         spawn(platform5, platform5_obj, 0, 620);
         spawn(platform6, platform6_obj, 508, 620);
-        spawn(platform7, platform7_obj, 3000, 5500);
+
         spawn(platform8, platform8_obj, 10000, 5500);
         spawn(platform9, platform9_obj, 4000, 65000);
         spawn(platform10,platform10_obj, 60000,7000);
@@ -195,13 +205,13 @@ void level_two()
 
         // Elevators
         spawn(elevator1, elevator1_obj, 195.5, 883);
-        spawn(elevator2, elevator2_obj, 90, 620);
-        spawn(elevator3, elevator3_obj, 700, 610);
+        spawn(elevator2, elevator2_obj, 90,    612);
+        spawn(elevator3, elevator3_obj, 700,   612);
 
 
 
         // Box
-        spawn(box, box_obj, 180, 880);
+        spawn(box, box_obj, 195.5, 880);
 
         // Doors
 
@@ -216,14 +226,14 @@ void level_two()
 
 
         // Buttons
-        spawn(button1, button1_obj, 10, 611);
+        spawn(button1, button1_obj, 5, 611);
         spawn(button2, button2_obj, 700, 5400);
         spawn(button3, button3_obj, 540, 611);
 
         // Levers
         spawn(lever1, lever1_obj, 600, 588);
         spawn(lever2, lever2_obj, 550, 328);
-        spawn(lever3, lever3_obj, 70, 588);
+        spawn(lever3, lever3_obj, 50, 588);
 
         // Chickens
         spawn(chicken1, chicken1_obj, 750, 250);
@@ -235,7 +245,7 @@ void level_two()
         // Players
             // Small Player
 
-        s_obj.position = { 0,900 };
+        s_obj.position = { 80,900 };
         s_player.setPosition(s_obj.position);
 
         // Big Player
