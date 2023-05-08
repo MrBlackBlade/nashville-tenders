@@ -10,6 +10,10 @@ void reset()
 	Config::lever2_pushed = false;
 	Config::lever3_pushed = false;
 
+	Config::button1_pushed = false;
+	Config::button2_pushed = false;
+	Config::button3_pushed = false;
+
 	for (auto& object : Config::objects)
 	{
 		object->obj->anim_ind = 0;

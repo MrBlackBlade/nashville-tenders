@@ -9,6 +9,7 @@
 #include <Pair.hpp>
 #include <collision.hpp>
 #include <check_lever.hpp>
+#include <sound_system.hpp>
 
 void animate(Pair_Player&, const Animation&);
 void animate(Pair_Object&);

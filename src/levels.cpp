@@ -108,8 +108,13 @@ void level_one()
 
         if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) || check_lever(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed) && objects[Object::elevator1]->obj->position.y >= 550 )
         {
+
+            
             objects[Object::elevator1]->obj->position.y -= .8f;
             objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position);
+        }
+        if (objects[Object::elevator1]->obj->position.y <= 550) {
+            play_sfx(SoundIndex::elevator1_stop);
         }
 
 
@@ -117,6 +122,9 @@ void level_one()
         {
             objects[Object::elevator2]->obj->position.y += .8f;
             objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position);
+        }
+        if (objects[Object::elevator2]->obj->position.y >= 550) {
+            play_sfx(SoundIndex::elevator2_stop);
         }
 
     if (Config::game_status == 1 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config:: loaded)
@@ -154,6 +162,7 @@ void level_one()
 
         animate(pChicken_counter);
         std::cout << "Level 1 complete...\n";
+        play_sfx(SoundIndex::level_complete);
         return;
     }
 }
@@ -266,6 +275,9 @@ void level_two()
         objects[Object::elevator1]->obj->position.y -= .8f;
         objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position);
     }
+    if (objects[Object::elevator1]->obj->position.y <= 620) {
+        play_sfx(SoundIndex::elevator1_stop);
+    }
 
 
     if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) || check_lever(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y >= 360)
@@ -273,11 +285,17 @@ void level_two()
         objects[Object::elevator2]->obj->position.y -= .8f;
         objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position);
     }
+    if (objects[Object::elevator2]->obj->position.y <= 360) {
+        play_sfx(SoundIndex::elevator2_stop);
+    }
 
     if ((((check_lever(*Config::players[0], *Config::objects[Object::lever3]) || check_lever(*players[1], *Config::objects[Object::lever3]))) || Config::lever3_pushed) && objects[Object::elevator3]->obj->position.y >= 360)
     {
         objects[Object::elevator3]->obj->position.y -= .8f;
         objects[Object::elevator3]->shape->setPosition(Config::objects[Object::elevator3]->obj->position);
+    }
+    if (objects[Object::elevator3]->obj->position.y <= 360) {
+        play_sfx(SoundIndex::elevator3_stop);
     }
 
     if (Config::game_status == 1 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config::loaded)
@@ -315,6 +333,7 @@ void level_two()
 
         animate(pChicken_counter);
         std::cout << "Level 2 complete...\n";
+        play_sfx(SoundIndex::level_complete);
         return;
     }
 }
@@ -520,6 +539,7 @@ void level_three()
         animate(pChicken_counter);
 
         std::cout << "Level 3 complete...\n";
+        play_sfx(SoundIndex::level_complete);
         //window.close();
         return;
     }
