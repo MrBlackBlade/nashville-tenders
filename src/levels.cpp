@@ -297,8 +297,8 @@ void level_two()
     if (objects[Object::elevator3]->obj->position.y <= 360) {
         play_sfx(SoundIndex::elevator3_stop);
     }
-
-    if (Config::game_status == 1 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config::loaded)
+    
+    if (Config::game_status == 2 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config::loaded)
     {
         Config::loaded = false;
         pLoading.obj->anim_ind = 0;
@@ -306,7 +306,7 @@ void level_two()
         animate(pLoading);
 
         Config::chicken_num = 0;
-        Config::game_status = 2;
+        Config::game_status = 3;
 
 
         chicken1_obj.position =
@@ -493,17 +493,26 @@ void level_three()
         objects[Object::elevator1]->obj->position.x += .5f;
         objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
     }
+    if (objects[Object::elevator1]->obj->position.x >= 155) {
+        play_sfx(SoundIndex::elevator1_stop);
+    }
 
     if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) || check_lever(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y >= 150)
     {
         objects[Object::elevator2]->obj->position.y -= 1.f;
         objects[Object::elevator2]->shape->setPosition(objects[Object::elevator1]->obj->position);
     }
+    if (objects[Object::elevator2]->obj->position.y <= 150) {
+        play_sfx(SoundIndex::elevator2_stop);
+    }
 
     if ((((check_lever(*Config::players[0], *Config::objects[Object::lever3]) || check_lever(*players[1], *Config::objects[Object::lever3]))) || Config::lever3_pushed) && objects[Object::elevator3]->obj->position.y >= 90)
     {
         objects[Object::elevator3]->obj->position.y -= 1.f;
         objects[Object::elevator3]->shape->setPosition(objects[Object::elevator3]->obj->position);
+    }
+    if (objects[Object::elevator3]->obj->position.y <= 90) {
+        play_sfx(SoundIndex::elevator3_stop);
     }
 
     if (Config::game_status == 3 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()))
