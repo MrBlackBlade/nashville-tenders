@@ -75,7 +75,7 @@ void level_one()
         spawn(button3, button3_obj, 280, 320);
 
         // Levers
-        spawn(lever1, lever1_obj, 550,  300);
+        spawn(lever1, lever1_obj, 550,  295);
         spawn(lever2, lever2_obj, 400,  520);
         spawn(lever3, lever3_obj, 6000, 700);
 
