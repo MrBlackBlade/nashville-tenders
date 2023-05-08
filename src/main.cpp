@@ -95,7 +95,6 @@ int main()
 			using Config::objects;
 			collision(*objects[object], *objects[object + 1]);
 		}
-
 		render();
 	}
 	return EXIT_SUCCESS;
