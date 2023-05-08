@@ -4,7 +4,7 @@ namespace Config
 {
 	const sf::Uint16 RES_SIZE		 = 900;
 	sf::Uint16 frame_counter		 = 0;
-	sf::Uint16 game_status			 = 1;
+	sf::Uint16 game_status			 = 3;
 	sf::Uint16 chicken_num			 = 0;
 	
 	sf::Int32 menu_selection		 = 0;
