@@ -706,6 +706,7 @@ void setup()
 	menu.setPosition(0, 0);
 
 	loading.setTexture(&loading_texture);
+	loading.setTextureRect(sf::IntRect(0, 0, 900, 900));
 	loading.setPosition(0, 0);
 
 	chicken_counter.setTexture(&chicken_counter_texture);

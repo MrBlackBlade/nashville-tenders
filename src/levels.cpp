@@ -21,18 +21,17 @@ void spawn( sf::RectangleShape& platform, Object& platform_obj, const float& x, 
 
 void level_one()
 {
-
     using Config::objects, Config::players;
-
-    
+   
     animate(pLoading);
      
     if (!Config::lv1_spawned)
-    {
-        
-        play_bgm(MusicIndex::game_music_index);
-
+    {   
+        reset();
         // set positions
+
+        play_bgm(MusicIndex::game_music_index);
+        game_music.stop();
         
         // platforms
         spawn(platform1,  platform1_obj,  0,    328);
@@ -101,31 +100,35 @@ void level_one()
         end.setPosition(850, 500 - ground.getGlobalBounds().height + 37);
 
         Config::lv1_spawned = true;
-        reset();
-
+        // reset();
     }
 
+    if (Config::loaded && !Config::game_music_playing)
+    {
+        game_music.play();
+        game_music.setVolume(100);
+        Config::game_music_playing = true;
+    }
 
-        if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) || check_lever(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed) && objects[Object::elevator1]->obj->position.y >= 550 )
-        {
+    if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) || check_lever(*players[1], *Config::objects[Object::lever1]))) || Config::lever1_pushed) && objects[Object::elevator1]->obj->position.y >= 550 )
+    {
+        objects[Object::elevator1]->obj->position.y -= .8f;
+        objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position);
+    }
 
-            
-            objects[Object::elevator1]->obj->position.y -= .8f;
-            objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position);
-        }
-        if (objects[Object::elevator1]->obj->position.y <= 550) {
-            play_sfx(SoundIndex::elevator1_stop);
-        }
+    if (objects[Object::elevator1]->obj->position.y <= 550) {
+        play_sfx(SoundIndex::elevator1_stop);
+    }
 
+    if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) || check_lever(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y <= 550 )
+    {
+        objects[Object::elevator2]->obj->position.y += .8f;
+        objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position);
+    }
 
-        if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) || check_lever(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y <= 550 )
-        {
-            objects[Object::elevator2]->obj->position.y += .8f;
-            objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position);
-        }
-        if (objects[Object::elevator2]->obj->position.y >= 550) {
-            play_sfx(SoundIndex::elevator2_stop);
-        }
+    if (objects[Object::elevator2]->obj->position.y >= 550) {
+        play_sfx(SoundIndex::elevator2_stop);
+    }
 
     if (Config::game_status == 1 && Config::chicken_num == 3 && players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config:: loaded)
     {
@@ -162,6 +165,8 @@ void level_one()
 
         animate(pChicken_counter);
         std::cout << "Level 1 complete...\n";
+        Config::game_music_playing = false;
+        game_music.setVolume(0);
         play_sfx(SoundIndex::level_complete);
         return;
     }
@@ -177,10 +182,10 @@ void level_two()
 
     if (!Config::lv2_spawned)
     {
+        reset();
+        // set positions
 
         play_bgm(MusicIndex::game_music_index);
-
-        // set positions
 
         // platforms
         platform1.setRotation(90);
@@ -265,8 +270,15 @@ void level_two()
         end.setPosition(520,327);
 
         Config::lv2_spawned = true;
-        reset();
+        //reset();
 
+    }
+
+    if (Config::loaded && !Config::game_music_playing)
+    {
+        game_music.play();
+        game_music.setVolume(100);
+        Config::game_music_playing = true;
     }
 
 
@@ -333,6 +345,8 @@ void level_two()
 
         animate(pChicken_counter);
         std::cout << "Level 2 complete...\n";
+        Config::game_music_playing = false;
+        game_music.setVolume(0);
         play_sfx(SoundIndex::level_complete);
         return;
     }
@@ -348,6 +362,7 @@ void level_three()
     {
         reset();
         // set positions
+
         play_bgm(MusicIndex::game_music_index);
 
         // set positions
@@ -485,6 +500,14 @@ void level_three()
         end.setPosition(100, 847);
 
         Config::lv3_spawned = true;
+        // reset();
+    }
+
+    if (Config::loaded && !Config::game_music_playing)
+    {
+        game_music.play();
+        game_music.setVolume(100);
+        Config::game_music_playing = true;
     }
 
     // moving the elevator
@@ -548,8 +571,10 @@ void level_three()
         animate(pChicken_counter);
 
         std::cout << "Level 3 complete...\n";
+        Config::game_music_playing = false;
+        game_music.setVolume(0);
         play_sfx(SoundIndex::level_complete);
-        //window.close();
+        window.close();
         return;
     }
 }

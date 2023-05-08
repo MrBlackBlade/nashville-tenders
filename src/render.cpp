@@ -3,9 +3,9 @@
 void render()
 {
     window.draw(menu);
+
     if (Config::menu_status == 1)
     {
-
         for (int i = 0; i < 2; i++)
         {
              window.draw(main_menu[i]);
@@ -19,8 +19,6 @@ void render()
 
     else if (Config::menu_status == 0)
     {
-
-
         if (Config::loaded)
         {
             //render the background
@@ -45,10 +43,8 @@ void render()
         else
         {
             window.draw(lv_comp);
+            window.draw(loading);   
         }
-
-            window.draw(loading);
-
     }
 
     // draw the frame

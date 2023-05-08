@@ -43,6 +43,8 @@ namespace Config
 	extern bool lv2_spawned;
 	extern bool lv3_spawned;
 
+	extern bool game_music_playing;
+
 	extern Pair_Object*				  objects[OBJECTS];
 	extern Pair_Player*               players[PLAYERS];
 };

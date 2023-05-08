@@ -47,6 +47,8 @@ namespace Config
 	bool lv2_spawned   = false;
 	bool lv3_spawned   = false;
 
+	bool game_music_playing	   = false;
+
 	Pair_Player				small      { &s_player, &s_obj };
 	Pair_Player				big        { &b_player, &b_obj };
 
