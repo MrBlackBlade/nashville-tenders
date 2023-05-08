@@ -58,6 +58,7 @@ extern Pair_Object			pChicken_counter;
 
 //
 extern sf::Music			main_menu_music;
+extern sf::Music			game_music;
 
 // platforms and obstacles
 extern sf::Texture			loading_texture;

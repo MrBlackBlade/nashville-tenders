@@ -15,8 +15,8 @@ enum class SoundIndex
 
 enum class MusicIndex
 {
-	main_menu_music,
-	gameplay_music,
+	main_menu_music_index,
+	game_music_index,
 
 	MusicIndex_max,
 };

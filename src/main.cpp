@@ -50,7 +50,10 @@ int main()
 			}
 		}
 
+
+		if (Config::menu_status == 0) {
 		caller();
+		}
 
 		// player idle checking and motion
 		for (size_t player = 0; player < PLAYERS; player++)

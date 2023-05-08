@@ -7,6 +7,7 @@
 #include <collision.hpp>
 #include <CollisionType.hpp>
 #include <collect.hpp>
+#include <sound_system.hpp>
 
 void caller();
 void spawn(sf::RectangleShape&, Object&, const float&, const float&);
