@@ -63,11 +63,11 @@ int main()
 			move(*players[player]);
 		}
 
-		// obstacle gravity
+		// obstacle animations
 		for (size_t object = 0; object < OBJECTS; object++)
 		{
 			using Config::objects;
-			move(*objects[object]);
+			animate(*objects[object]);
 		}
 
 		// player to obstacle collision

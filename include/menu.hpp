@@ -4,7 +4,6 @@
 
 #include <AudioIndex.hpp>
 #include <Config.hpp>
-#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <sound_system.hpp>
 

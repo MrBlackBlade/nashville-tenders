@@ -97,7 +97,6 @@ void level_one()
 		end.setPosition(850, 500 - ground.getGlobalBounds().height + 37);
 
 		Config::lv1_spawned = true;
-		// reset();
 	}
 
 	if (Config::loaded && !Config::game_music_playing)
@@ -176,7 +175,6 @@ void level_one()
 		chicken3.setPosition(chicken3_obj.position);
 
 		animate(pChicken_counter);
-		std::cout << "Level 1 complete...\n";
 		Config::game_music_playing = false;
 		game_music.setVolume(0);
 		play_sfx(SoundIndex::level_complete);
@@ -272,7 +270,6 @@ void level_two()
 		end.setPosition(520, 327);
 
 		Config::lv2_spawned = true;
-		//reset();
 	}
 
 	if (Config::loaded && !Config::game_music_playing)
@@ -367,7 +364,6 @@ void level_two()
 		chicken3.setPosition(chicken3_obj.position);
 
 		animate(pChicken_counter);
-		std::cout << "Level 2 complete...\n";
 		Config::game_music_playing = false;
 		game_music.setVolume(0);
 		play_sfx(SoundIndex::level_complete);
@@ -509,7 +505,6 @@ void level_three()
 		end.setPosition(100, 847);
 
 		Config::lv3_spawned = true;
-		// reset();
 	}
 
 	if (Config::loaded && !Config::game_music_playing)
@@ -603,7 +598,6 @@ void level_three()
 
 		animate(pChicken_counter);
 
-		std::cout << "Level 3 complete...\n";
 		Config::game_music_playing = false;
 		game_music.setVolume(0);
 		window.draw(game_end);

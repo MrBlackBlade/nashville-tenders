@@ -1,4 +1,3 @@
-#include <iostream>
 #include <push.hpp>
 
 bool push(Pair_Player& p_pair, Pair_Object& o_pair)

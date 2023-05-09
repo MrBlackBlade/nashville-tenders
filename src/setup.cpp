@@ -97,12 +97,13 @@ sf::RectangleShape end({ 18, 35 });
 sf::Texture		   loading_texture;
 sf::RectangleShape loading({ 900, 900 });
 
-Object			   loading_obj {
+/* Object initializations */
+Object loading_obj {
 	Object::loading, // ID
-				{0, 0}, // velocity
-				{0, 0}, // velocity_max
-				{0, 0}, // acceleration
-				{0, 0}, // position
+	{0, 0}, // velocity
+	{0, 0}, // velocity_max
+	{0, 0}, // acceleration
+	{0, 0}, // position
 
 	0, // anim_ind
 	1.f, // scale
@@ -538,33 +539,34 @@ sf::Texture s_player_texture_idle;
 sf::Texture s_player_texture_run;
 sf::Sprite	s_player(s_player_texture_idle);
 
-Player		s_obj {
-		 {  0,  0}, // velocity
-		 {4.5, 50}, // velocity_max
-		 {  0,  0}, // acceleration
-		 {  0,  0}, // position
+/* Player initializations */
+Player s_obj {
+	{  0,	 0}, // velocity
+	{4.5, 50}, // velocity_max
+	{  0,	 0}, // acceleration
+	{  0,	 0}, // position
 
-	 0, // idle_ind
-	 0, // run_ind
-	 0, // jump_ind
-	 0, // push_ind
-	 1, // scale
-	 28, // size_idle_x
-	 52, // size_idle_y
-	 40, // size_run_x
-	 52, // size_run_y
-	 29, // size_jump_x
-	 56, // size_jump_y
-	 0, // size_push_x
-	 0, // size_push_y
-	 4, // anims_idle
-	 4, // anims_run
-	 9, // anims_jump
-	 0, // anims_push
-	 0, // ID
+	0, // idle_ind
+	0, // run_ind
+	0, // jump_ind
+	0, // push_ind
+	1, // scale
+	28, // size_idle_x
+	52, // size_idle_y
+	40, // size_run_x
+	52, // size_run_y
+	29, // size_jump_x
+	56, // size_jump_y
+	0, // size_push_x
+	0, // size_push_y
+	4, // anims_idle
+	4, // anims_run
+	9, // anims_jump
+	0, // anims_push
+	0, // ID
 
-	 true, // jumping
-	 true  // idle
+	true, // jumping
+	true  // idle
 };
 
 // big player
@@ -574,33 +576,34 @@ sf::Texture b_player_texture_run;
 sf::Texture b_player_texture_push;
 sf::Sprite	b_player(b_player_texture_idle);
 
-Player		b_obj {
-		 {  0,  0}, // velocity
-		 {1.5, 50}, // velocity_max
-		 {  0,  0}, // acceleration
-		 {  0,  0}, // position
+/* Player initializations */
+Player b_obj {
+	{  0,	 0}, // velocity
+	{1.5, 50}, // velocity_max
+	{  0,	 0}, // acceleration
+	{  0,	 0}, // position
 
-	 0, // idle_ind
-	 0, // run_ind
-	 0, // jump_ind
-	 0, // push_ind
-	 1, // scale
-	 64, // size_idle_x
-	 64, // size_idle_y
-	 64, // size_run_x
-	 64, // size_run_y
-	 67, // size_jump_x
-	 67, // size_jump_y
-	 64, // size_push_x
-	 64, // size_push_y
-	 6, // anims_idle
-	 4, // anims_run
-	 10, // anims_jump
-	 4, // anims_push
-	 1, // ID
+	0, // idle_ind
+	0, // run_ind
+	0, // jump_ind
+	0, // push_ind
+	1, // scale
+	64, // size_idle_x
+	64, // size_idle_y
+	64, // size_run_x
+	64, // size_run_y
+	67, // size_jump_x
+	67, // size_jump_y
+	64, // size_push_x
+	64, // size_push_y
+	6, // anims_idle
+	4, // anims_run
+	10, // anims_jump
+	4, // anims_push
+	1, // ID
 
-	 true, // jumping
-	 true  // idle
+	true, // jumping
+	true  // idle
 };
 
 // window
@@ -824,16 +827,12 @@ void setup()
 							ground.getGlobalBounds().top - lever3.getGlobalBounds().height };
 	lever3.setPosition(lever3_obj.position);
 
-	// wall
-	//wall_obj.position = { 900,0 };
-	//wall.setPosition(wall_obj.position);
-
 	// platforms
 	platform1.setTexture(&platform_texture);
 	platform1.setScale(platform1_obj.scale, platform1_obj.scale);
 	platform1_obj.position = {
 		00.f,
-		4500.f /*Config::RES_SIZE / 2.f + 30.f*/
+		4500.f
 	};
 	platform1.setPosition(platform1_obj.position);
 
@@ -841,7 +840,7 @@ void setup()
 	platform2.setScale(platform2_obj.scale, platform2_obj.scale);
 	platform2_obj.position = {
 		2000.f,
-		4500.f /*Config::RES_SIZE / 2.f + 30.f*/
+		4500.f
 	};
 	platform2.setPosition(platform2_obj.position);
 
@@ -849,7 +848,7 @@ void setup()
 	platform3.setScale(platform3_obj.scale, platform3_obj.scale);
 	platform3_obj.position = {
 		3000.f,
-		3000.f /*Config::RES_SIZE / 2.f + 30.f*/
+		3000.f
 	};
 	platform3.setPosition(platform3_obj.position);
 
@@ -857,7 +856,7 @@ void setup()
 	platform4.setScale(platform4_obj.scale, platform4_obj.scale);
 	platform4_obj.position = {
 		4000.f,
-		4000.f /*Config::RES_SIZE / 2.f + 30.f*/
+		4000.f
 	};
 	platform4.setPosition(platform4_obj.position);
 
@@ -865,7 +864,7 @@ void setup()
 	platform5.setScale(platform5_obj.scale, platform5_obj.scale);
 	platform5_obj.position = {
 		5000.f,
-		5000.f /*Config::RES_SIZE / 2.f + 30.f*/
+		5000.f
 	};
 	platform5.setPosition(platform5_obj.position);
 
@@ -873,7 +872,7 @@ void setup()
 	platform6.setScale(platform6_obj.scale, platform6_obj.scale);
 	platform6_obj.position = {
 		6000.f,
-		6000.f /*Config::RES_SIZE / 2.f + 30.f*/
+		6000.f
 	};
 	platform6.setPosition(platform6_obj.position);
 
@@ -881,7 +880,7 @@ void setup()
 	platform7.setScale(platform7_obj.scale, platform7_obj.scale);
 	platform7_obj.position = {
 		7000.f,
-		7000.f /*Config::RES_SIZE / 2.f + 30.f*/
+		7000.f
 	};
 	platform7.setPosition(platform7_obj.position);
 
@@ -889,7 +888,7 @@ void setup()
 	platform8.setScale(platform8_obj.scale, platform8_obj.scale);
 	platform8_obj.position = {
 		8000.f,
-		8000.f /*Config::RES_SIZE / 2.f + 30.f*/
+		8000.f
 	};
 	platform8.setPosition(platform8_obj.position);
 
@@ -897,7 +896,7 @@ void setup()
 	platform9.setScale(platform9_obj.scale, platform9_obj.scale);
 	platform9_obj.position = {
 		9000.f,
-		9000.f /*Config::RES_SIZE / 2.f + 30.f*/
+		9000.f
 	};
 	platform9.setPosition(platform9_obj.position);
 
@@ -905,7 +904,7 @@ void setup()
 	platform10.setScale(platform10_obj.scale, platform10_obj.scale);
 	platform10_obj.position = {
 		1500.f,
-		1500.f /*Config::RES_SIZE / 2.f + 30.f*/
+		1500.f
 	};
 	platform10.setPosition(platform10_obj.position);
 

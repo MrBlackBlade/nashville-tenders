@@ -1,5 +1,4 @@
 #include <collision.hpp>
-#include <iostream>
 
 CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 {
@@ -68,12 +67,10 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 
 		if (obj2.id == Object::button1)
 		{
-			////std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 		if (obj2.id == Object::button2)
 		{
-			////std::cout << "Y-Yameteeee KUDASAAAAIIIIIII" << "\n";
 			return CollisionType::button;
 		}
 		if (obj2.id == Object::button3)

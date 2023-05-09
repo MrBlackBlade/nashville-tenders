@@ -172,32 +172,3 @@ void move(Pair_Player& pair)
 		player.setPosition(obj.position);
 	}
 }
-
-// For obstacles
-void move(Pair_Object& pair)
-{
-	animate(pair);
-
-	auto& shape = *pair.shape;
-	auto& obj	= *pair.obj;
-
-	if (pair.obj->id == Object::ground || pair.obj->id == Object::button1 ||
-		pair.obj->id == Object::lever1 || pair.obj->id == Object::platform ||
-		pair.obj->id == Object::door1)
-		return;
-
-	if (pair.obj->id == Object::ground || pair.obj->id == Object::button2 ||
-		pair.obj->id == Object::lever2 || pair.obj->id == Object::platform ||
-		pair.obj->id == Object::door2)
-		return;
-
-	if (pair.obj->id == Object::ground || pair.obj->id == Object::button3 ||
-		pair.obj->id == Object::lever3 || pair.obj->id == Object::platform ||
-		pair.obj->id == Object::door3)
-		return;
-
-	// Apply motion
-	obj.velocity += obj.acceleration;
-	obj.position += obj.velocity;
-	shape.setPosition(obj.position);
-}
