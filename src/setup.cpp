@@ -51,6 +51,9 @@ sf::RectangleShape  lv_comp({900, 900});
 sf::Texture			chicken_counter_texture;
 sf::RectangleShape  chicken_counter({ 96, 36 });
 
+sf::Texture			game_end_texture;
+sf::Sprite	     	game_end;
+
 // collectibles w kda
 sf::Texture			button_texture;
 sf::RectangleShape	button1({32, 9});
@@ -677,6 +680,12 @@ void setup()
 	door_open_sound.setBuffer(door_open_sound_buffer);
 	level_complete_sound_buffer.loadFromFile("resources/level_complete.ogg");
 	level_complete_sound.setBuffer(level_complete_sound_buffer);
+
+	game_end_texture.loadFromFile("resources/game_end.png");
+
+	game_end.setTexture(game_end_texture);
+	game_end.setTextureRect(sf::IntRect(0, 0, 900, 900));
+	game_end.setPosition(0, 0);
 
 	// background and objects
 	loading_texture.loadFromFile("resources/loading.png");

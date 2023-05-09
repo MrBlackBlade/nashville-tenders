@@ -483,8 +483,6 @@ void level_three()
         spawn(chicken2, chicken2_obj, 630, 480);
         spawn(chicken3, chicken3_obj, 250, 850);
 
-
-
         // Players
             // Small Player
 
@@ -542,8 +540,7 @@ void level_three()
     {
         Config::loaded = false;
         pLoading.obj->anim_ind = 0;
-
-        animate(pLoading);
+        Config::game_status = 4;
 
         Config::chicken_num = 0;
 
@@ -573,8 +570,8 @@ void level_three()
         std::cout << "Level 3 complete...\n";
         Config::game_music_playing = false;
         game_music.setVolume(0);
+        window.draw(game_end);
         play_sfx(SoundIndex::level_complete);
-        window.close();
         return;
     }
 }

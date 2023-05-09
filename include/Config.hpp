@@ -83,6 +83,9 @@ extern sf::SoundBuffer		level_complete_sound_buffer;
 extern sf::Sound			level_complete_sound;
 
 // platforms and obstacles
+extern sf::Texture			game_end_texture;
+extern sf::Sprite			game_end;
+
 extern sf::Texture			loading_texture;
 extern sf::RectangleShape	loading;
 extern Object				loading_obj;

@@ -2,6 +2,7 @@
 
 void render()
 {
+
     window.draw(menu);
 
     if (Config::menu_status == 1)
@@ -42,8 +43,16 @@ void render()
 
         else
         {
-            window.draw(lv_comp);
-            window.draw(loading);   
+            if (Config::game_status == 4)
+            {
+                window.draw(game_end);
+            }
+
+            else
+            {
+                window.draw(lv_comp);
+                window.draw(loading);   
+            }
         }
     }
 
