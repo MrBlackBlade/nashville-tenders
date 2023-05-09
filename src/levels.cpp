@@ -15,7 +15,7 @@ void spawn(
 	Object&				renderable_obj,
 	const float&		x,
 	const float&		y,
-	const float&		angle,
+	const float&		angle
 )
 {
 	renderable_obj.position = { x, y };

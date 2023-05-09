@@ -549,7 +549,7 @@ Player		s_obj {
 	 0, // jump_ind
 	 0, // push_ind
 	 1, // scale
-	 27, // size_idle_x
+	 28, // size_idle_x
 	 52, // size_idle_y
 	 40, // size_run_x
 	 52, // size_run_y
@@ -979,7 +979,7 @@ void setup()
 
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position = { 500.f,
-					   sground.getGlobalBounds().top -
+					   ground.getGlobalBounds().top -
 						   b_player.getGlobalBounds().height - 64.f };
 	b_player.setPosition(b_obj.position);
 }
