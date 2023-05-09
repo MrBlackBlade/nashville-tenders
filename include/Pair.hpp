@@ -1,24 +1,22 @@
 #pragma once
 #ifndef _PAIR_HPP
 
-#include <SFML/Graphics.hpp>
-#include <Player.hpp>
 #include <Object.hpp>
+#include <Player.hpp>
+#include <SFML/Graphics.hpp>
 
-//Players
+// Players
 struct Pair_Player
 {
 	sf::Sprite* sprite = nullptr;
-	Player*     obj = nullptr;
+	Player*		obj	   = nullptr;
 };
 
-
-//Objects
+// Objects
 struct Pair_Object
 {
 	sf::RectangleShape* shape = nullptr;
-	Object*				obj   = nullptr;
+	Object*				obj	  = nullptr;
 };
-
 
 #endif // #ifndef _PAIR_HPP

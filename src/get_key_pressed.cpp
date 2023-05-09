@@ -3,7 +3,7 @@
 sf::Keyboard::Key get_key_pressed(const Pair_Player& pair)
 {
 	auto& player = *pair.sprite;
-	auto& obj = *pair.obj;
+	auto& obj	 = *pair.obj;
 	// small player
 	if (obj.id == 0)
 	{
@@ -14,7 +14,7 @@ sf::Keyboard::Key get_key_pressed(const Pair_Player& pair)
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 			return sf::Keyboard::Down;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-			return sf::Keyboard::Right;	
+			return sf::Keyboard::Right;
 		return sf::Keyboard::Unknown;
 	}
 

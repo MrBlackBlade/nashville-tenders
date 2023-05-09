@@ -6,48 +6,31 @@
 
 struct Player
 {
-	sf::Vector2f
-	velocity,
-	velocity_max,
-	acceleration,
-	position;
+	sf::Vector2f velocity, velocity_max, acceleration, position;
 
 	sf::Uint16
 		// 0 for first sprite, 1 for second etc...
 		idle_ind,
-		run_ind,
-		jump_ind,
-		push_ind;
+		run_ind, jump_ind, push_ind;
 
-	float
-		  // sprite measurements
-		scale;
+	// sprite measurements
+	float	   scale;
 
-	sf::Uint16
-	size_idle_x,
-	size_idle_y,
+	sf::Uint16 size_idle_x, size_idle_y,
 
-	size_run_x,
-	size_run_y,
+		size_run_x, size_run_y,
 
-	size_jump_x,
-	size_jump_y,
+		size_jump_x, size_jump_y,
 
-	size_push_x,
-	size_push_y,
+		size_push_x, size_push_y,
 
-	// no of diff animation frames
-	anims_idle,
-	anims_run,
-	anims_jump,
-	anims_push,
+		// no of diff animation frames
+		anims_idle, anims_run, anims_jump, anims_push,
 
-	// player id
-	id;
+		// player id
+		id;
 
-	bool
-	jumping,
-	idle;
+	bool jumping, idle;
 };
 
 #endif // #ifndef _PLAYER_HPP

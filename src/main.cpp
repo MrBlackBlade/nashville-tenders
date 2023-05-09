@@ -1,22 +1,22 @@
-#include <SFML/Graphics.hpp>
 #include <animate.hpp>
 #include <Animation.hpp>
 #include <check_idle.hpp>
-#include <collision.hpp>
+#include <check_lever.hpp>
 #include <collect.hpp>
+#include <collision.hpp>
 #include <Config.hpp>
 #include <get_key_pressed.hpp>
-#include <push.hpp>
-#include <move.hpp>
-#include <Player.hpp>
-#include <Pair.hpp>
-#include <Object.hpp>
-#include <render.hpp>
-#include <setup.hpp>
-#include <out_of_bounds.hpp>
-#include <check_lever.hpp>
 #include <levels.hpp>
 #include <menu.hpp>
+#include <move.hpp>
+#include <Object.hpp>
+#include <out_of_bounds.hpp>
+#include <Pair.hpp>
+#include <Player.hpp>
+#include <push.hpp>
+#include <render.hpp>
+#include <setup.hpp>
+#include <SFML/Graphics.hpp>
 #include <sound_system.hpp>
 
 int main()
@@ -50,9 +50,9 @@ int main()
 			}
 		}
 
-
-		if (Config::menu_status == 0) {
-		caller();
+		if (Config::menu_status == 0)
+		{
+			caller();
 		}
 
 		// player idle checking and motion

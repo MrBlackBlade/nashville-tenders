@@ -2,15 +2,15 @@
 #ifndef _COLLISION_HPP
 #define _COLLISION_HPP
 
-#include <SFML/Graphics.hpp>
+#include <CollisionType.hpp>
 #include <Config.hpp>
-#include <Player.hpp>
+#include <door_open.hpp>
+#include <get_key_pressed.hpp>
 #include <Object.hpp>
 #include <Pair.hpp>
-#include <get_key_pressed.hpp>
+#include <Player.hpp>
 #include <push.hpp>
-#include <CollisionType.hpp>
-#include <door_open.hpp>
+#include <SFML/Graphics.hpp>
 
 CollisionType collision(Pair_Player&, Pair_Object&);
 CollisionType collision(Pair_Object&, Pair_Object&);

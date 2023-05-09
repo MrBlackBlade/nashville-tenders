@@ -2,12 +2,12 @@
 #ifndef _SETUP_HPP
 #define _SETUP_HPP
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include <Config.hpp>
-#include <Player.hpp>
 #include <Object.hpp>
 #include <Pair.hpp>
+#include <Player.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 
 void setup();
 

@@ -3,195 +3,203 @@
 // For sprites
 void move(Pair_Player& pair)
 {
-    auto& player = *pair.sprite;
-    auto& obj = *pair.obj;
-    const auto key = get_key_pressed(pair);
+	auto&	   player = *pair.sprite;
+	auto&	   obj	  = *pair.obj;
+	const auto key	  = get_key_pressed(pair);
 
-    // Decrementing the jump
-    if ( obj.jumping )
-    {
-        animate(pair, Animation::jump);
-        obj.acceleration.y = .2f;
-        
-        // Apply motion
-        obj.velocity += obj.acceleration;
-        obj.position += obj.velocity;
-        player.setPosition(obj.position);
-    }
+	// Decrementing the jump
+	if (obj.jumping)
+	{
+		animate(pair, Animation::jump);
+		obj.acceleration.y = .2f;
 
-    // Pressing a button
-    if (sf::Keyboard::isKeyPressed(key))
-    {
-        // Up
-        if ( key == Config::keybinds[obj.id][0] && !obj.jumping )
-        {
-            animate(pair, Animation::jump);
+		// Apply motion
+		obj.velocity += obj.acceleration;
+		obj.position += obj.velocity;
+		player.setPosition(obj.position);
+	}
 
-            obj.jumping = true;
-            obj.velocity.y = obj.id ? -2.f : -7.f ;
-        }
+	// Pressing a button
+	if (sf::Keyboard::isKeyPressed(key))
+	{
+		// Up
+		if (key == Config::keybinds[obj.id][0] && ! obj.jumping)
+		{
+			animate(pair, Animation::jump);
 
-        // Left
-        if (key == Config::keybinds[obj.id][1])
-        {
-            animate(pair, Animation::run);
+			obj.jumping	   = true;
+			obj.velocity.y = obj.id ? -2.f : -7.f;
+		}
 
-            obj.acceleration.x = -.2f;
+		// Left
+		if (key == Config::keybinds[obj.id][1])
+		{
+			animate(pair, Animation::run);
 
-            // Rotate player to the left
-            player.setScale(-obj.scale, obj.scale);
-            player.setOrigin(player.getLocalBounds().width, 0);
-        }
+			obj.acceleration.x = -.2f;
 
-        // Down
-            // mfish down lmao
+			// Rotate player to the left
+			player.setScale(-obj.scale, obj.scale);
+			player.setOrigin(player.getLocalBounds().width, 0);
+		}
 
-        // Right
-        if ( key == Config::keybinds[obj.id][3] )
-        {
-            animate(pair, Animation::run);
+		// Down
+		// mfish down lmao
 
-            obj.acceleration.x = .2f;
+		// Right
+		if (key == Config::keybinds[obj.id][3])
+		{
+			animate(pair, Animation::run);
 
-            // Rotate player to the right
-            player.setScale(obj.scale, obj.scale);
-            player.setOrigin(0, 0);
-        }
+			obj.acceleration.x = .2f;
 
-        // Capping the velocity.x (+ve)
-        if (obj.velocity.x > obj.velocity_max.x)
-        {
-            obj.velocity.x = obj.velocity_max.x;
-        }
+			// Rotate player to the right
+			player.setScale(obj.scale, obj.scale);
+			player.setOrigin(0, 0);
+		}
 
-        // Capping the velocity.x (-ve)
-        if (obj.velocity.x < -obj.velocity_max.x)
-        {
-            obj.velocity.x = -obj.velocity_max.x;
-        }
+		// Capping the velocity.x (+ve)
+		if (obj.velocity.x > obj.velocity_max.x)
+		{
+			obj.velocity.x = obj.velocity_max.x;
+		}
 
-        // Capping the acceleration (+ve)
-        if ( obj.acceleration.x > .2f )
-        {
-           obj.acceleration.x = .2f;
-        }
+		// Capping the velocity.x (-ve)
+		if (obj.velocity.x < -obj.velocity_max.x)
+		{
+			obj.velocity.x = -obj.velocity_max.x;
+		}
 
-        // Capping the acceleration (-ve)
-        if ( obj.acceleration.x < -.2f )
-        {
-           obj.acceleration.x = -.2f;
-        }
+		// Capping the acceleration (+ve)
+		if (obj.acceleration.x > .2f)
+		{
+			obj.acceleration.x = .2f;
+		}
 
-        // Apply motion
-        obj.velocity += obj.acceleration;
-        obj.position += obj.velocity;
-        player.setPosition(obj.position);
-    }
+		// Capping the acceleration (-ve)
+		if (obj.acceleration.x < -.2f)
+		{
+			obj.acceleration.x = -.2f;
+		}
 
-    // Not pressing a button
-    if ( !sf::Keyboard::isKeyPressed(key) )
-    {
-        // decelerate to the left
-        if ( obj.velocity.x > 0.f )
-        {
-            animate(pair, Animation::run);
+		// Apply motion
+		obj.velocity += obj.acceleration;
+		obj.position += obj.velocity;
+		player.setPosition(obj.position);
+	}
 
-            obj.acceleration.x = -.2f;
-        }
+	// Not pressing a button
+	if (! sf::Keyboard::isKeyPressed(key))
+	{
+		// decelerate to the left
+		if (obj.velocity.x > 0.f)
+		{
+			animate(pair, Animation::run);
 
-        // decelerate to the right
-        if ( obj.velocity.x < 0.f )
-        {
-            animate(pair, Animation::run);
+			obj.acceleration.x = -.2f;
+		}
 
-            obj.acceleration.x = .2f;
-        }
+		// decelerate to the right
+		if (obj.velocity.x < 0.f)
+		{
+			animate(pair, Animation::run);
 
-        //  1.f is a tolerance value to check if the player "stopped" motion
-        if ( std::fabs ( obj.velocity.x ) < 1.f )
-        {
-            obj.velocity.x     = 0.f;
-            obj.acceleration.x = 0.f;
-            obj.idle = true;
-        }
+			obj.acceleration.x = .2f;
+		}
 
-        // Apply motion
-        obj.velocity += obj.acceleration;
-        obj.position += obj.velocity;
-        player.setPosition(obj.position);
-    }
+		//  1.f is a tolerance value to check if the player "stopped" motion
+		if (std::fabs(obj.velocity.x) < 1.f)
+		{
+			obj.velocity.x	   = 0.f;
+			obj.acceleration.x = 0.f;
+			obj.idle		   = true;
+		}
 
-    // Background movement
-    if ( obj.velocity.x > .5f )
-    {
-        background_1.move(-.2f, 0.f);
-        background_2.move(-.3f, 0.f);
-        background_3.move(-.5f, 0.f);
-        background_4.move(-.7f, 0.f);
-    }
+		// Apply motion
+		obj.velocity += obj.acceleration;
+		obj.position += obj.velocity;
+		player.setPosition(obj.position);
+	}
 
-    // Background movement
-    if ( obj.velocity.x < -.5f )
-    {
-        background_1.move(.2f, 0.f);
-        background_2.move(.3f, 0.f);
-        background_3.move(.5f, 0.f);
-        background_4.move(.7f, 0.f);
-    }
+	// Background movement
+	if (obj.velocity.x > .5f)
+	{
+		background_1.move(-.2f, 0.f);
+		background_2.move(-.3f, 0.f);
+		background_3.move(-.5f, 0.f);
+		background_4.move(-.7f, 0.f);
+	}
 
-    // Keep the player in bounds (right)
-    if (out_of_bounds(pair) && obj.velocity.x && obj.position.x > Config::RES_SIZE / 2)
-    {
-        obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
-        // Apply motion
-        obj.velocity += obj.acceleration;
-        obj.position += obj.velocity;
-        player.setPosition(obj.position);
-    }
+	// Background movement
+	if (obj.velocity.x < -.5f)
+	{
+		background_1.move(.2f, 0.f);
+		background_2.move(.3f, 0.f);
+		background_3.move(.5f, 0.f);
+		background_4.move(.7f, 0.f);
+	}
 
-    // Keep the player in bounds (left)
-    if (out_of_bounds(pair) && obj.velocity.x && obj.position.x < Config::RES_SIZE / 2)
-    {
-        obj.position.x = 0;
+	// Keep the player in bounds (right)
+	if (out_of_bounds(pair) && obj.velocity.x &&
+		obj.position.x > Config::RES_SIZE / 2)
+	{
+		obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
+		// Apply motion
+		obj.velocity += obj.acceleration;
+		obj.position += obj.velocity;
+		player.setPosition(obj.position);
+	}
 
-        // Apply motion
-        obj.velocity += obj.acceleration;
-        obj.position += obj.velocity;
-        player.setPosition(obj.position);
-    }
+	// Keep the player in bounds (left)
+	if (out_of_bounds(pair) && obj.velocity.x &&
+		obj.position.x < Config::RES_SIZE / 2)
+	{
+		obj.position.x = 0;
 
-    // Keep the player in bounds (down)
-    if (obj.position.y > Config::RES_SIZE)
-    {
-        obj.position.y = Config::RES_SIZE - 50;
-        obj.velocity.y = 0;
-    
-        // Apply motion
-        obj.velocity += obj.acceleration;
-        obj.position += obj.velocity;
-        player.setPosition(obj.position);
-    }
+		// Apply motion
+		obj.velocity += obj.acceleration;
+		obj.position += obj.velocity;
+		player.setPosition(obj.position);
+	}
+
+	// Keep the player in bounds (down)
+	if (obj.position.y > Config::RES_SIZE)
+	{
+		obj.position.y = Config::RES_SIZE - 50;
+		obj.velocity.y = 0;
+
+		// Apply motion
+		obj.velocity += obj.acceleration;
+		obj.position += obj.velocity;
+		player.setPosition(obj.position);
+	}
 }
 
 // For obstacles
 void move(Pair_Object& pair)
 {
-    animate(pair);
+	animate(pair);
 
-    auto& shape = *pair.shape;
-    auto& obj = *pair.obj;
+	auto& shape = *pair.shape;
+	auto& obj	= *pair.obj;
 
-    if (pair.obj->id == Object::ground || pair.obj->id == Object::button1 || pair.obj->id == Object::lever1 || pair.obj->id == Object::platform || pair.obj->id == Object::door1)
-        return;
+	if (pair.obj->id == Object::ground || pair.obj->id == Object::button1 ||
+		pair.obj->id == Object::lever1 || pair.obj->id == Object::platform ||
+		pair.obj->id == Object::door1)
+		return;
 
-    if (pair.obj->id == Object::ground || pair.obj->id == Object::button2 || pair.obj->id == Object::lever2 || pair.obj->id == Object::platform || pair.obj->id == Object::door2)
-        return;
+	if (pair.obj->id == Object::ground || pair.obj->id == Object::button2 ||
+		pair.obj->id == Object::lever2 || pair.obj->id == Object::platform ||
+		pair.obj->id == Object::door2)
+		return;
 
-    if (pair.obj->id == Object::ground || pair.obj->id == Object::button3 || pair.obj->id == Object::lever3 || pair.obj->id == Object::platform || pair.obj->id == Object::door3)
-        return;
+	if (pair.obj->id == Object::ground || pair.obj->id == Object::button3 ||
+		pair.obj->id == Object::lever3 || pair.obj->id == Object::platform ||
+		pair.obj->id == Object::door3)
+		return;
 
-    // Apply motion
-    obj.velocity += obj.acceleration;
-    obj.position += obj.velocity;
-    shape.setPosition(obj.position);
+	// Apply motion
+	obj.velocity += obj.acceleration;
+	obj.position += obj.velocity;
+	shape.setPosition(obj.position);
 }
