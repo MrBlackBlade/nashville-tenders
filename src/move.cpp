@@ -23,7 +23,7 @@ void move(Pair_Player& pair)
 	if (sf::Keyboard::isKeyPressed(key))
 	{
 		// Up
-		if (key == Config::keybinds[obj.id][0] && ! obj.jumping)
+		if (key == Config::keybinds[obj.id][0] && !obj.jumping)
 		{
 			animate(pair, Animation::jump);
 
@@ -89,7 +89,7 @@ void move(Pair_Player& pair)
 	}
 
 	// Not pressing a button
-	if (! sf::Keyboard::isKeyPressed(key))
+	if (!sf::Keyboard::isKeyPressed(key))
 	{
 		// decelerate to the left
 		if (obj.velocity.x > 0.f)
@@ -140,8 +140,7 @@ void move(Pair_Player& pair)
 	}
 
 	// Keep the player in bounds (right)
-	if (out_of_bounds(pair) && obj.velocity.x &&
-		obj.position.x > Config::RES_SIZE / 2)
+	if (out_of_bounds(pair) && obj.velocity.x && obj.position.x > Config::RES_SIZE / 2)
 	{
 		obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
 		// Apply motion
@@ -151,8 +150,7 @@ void move(Pair_Player& pair)
 	}
 
 	// Keep the player in bounds (left)
-	if (out_of_bounds(pair) && obj.velocity.x &&
-		obj.position.x < Config::RES_SIZE / 2)
+	if (out_of_bounds(pair) && obj.velocity.x && obj.position.x < Config::RES_SIZE / 2)
 	{
 		obj.position.x = 0;
 

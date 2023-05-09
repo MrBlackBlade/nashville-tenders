@@ -18,7 +18,7 @@ void reset()
 	{
 		object->obj->anim_ind = 0;
 		object->shape->setTextureRect(
-			sf::IntRect(0, 0, object->obj->size_x, object->obj->size_y)
+		sf::IntRect(0, 0, object->obj->size_x, object->obj->size_y)
 		);
 	}
 }

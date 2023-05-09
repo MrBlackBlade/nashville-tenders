@@ -44,7 +44,7 @@ struct Object
 
 	sf::Uint16 size_x, size_y,
 
-		anims; // no of diff animation frames
+	anims; // no of diff animation frames
 };
 
 #endif // #ifndef _OBJECT_HPP

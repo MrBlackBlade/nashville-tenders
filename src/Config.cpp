@@ -12,13 +12,10 @@ sf::Int32				menu_status	   = 1;
 
 const sf::Keyboard::Key keybinds[2][4] {
 	// small player keybinds
-	{sf::Keyboard::Up,
-	  sf::Keyboard::Left,
-	  sf::Keyboard::Down,
-	  sf::Keyboard::Right												},
+	{sf::Keyboard::Up, sf::Keyboard::Left, sf::Keyboard::Down, sf::Keyboard::Right},
 
  // big player keybinds
-	{ sf::Keyboard::W, sf::Keyboard::A, sf::Keyboard::S, sf::Keyboard::D}
+	{ sf::Keyboard::W,	   sf::Keyboard::A,	sf::Keyboard::S,	 sf::Keyboard::D}
 };
 
 bool		 loaded				= false;
@@ -73,12 +70,10 @@ Pair_Object	 pPlatform9 { &platform9, &platform9_obj };
 Pair_Object	 pPlatform10 { &platform10, &platform10_obj };
 
 Pair_Object* objects[OBJECTS] {
-	&pGround,	 &pButton1,	  &pButton2,   &pButton3,	&pBox,
-	&pChicken1,	 &pChicken2,  &pChicken3,  &pDoor1,		&pDoor2,
-	&pDoor3,	 &pElevator1, &pElevator2, &pElevator3, &pLever1,
-	&pLever2,	 &pLever3,	  &pPlatform1, &pPlatform2, &pPlatform3,
-	&pPlatform4, &pPlatform5, &pPlatform6, &pPlatform7, &pPlatform8,
-	&pPlatform9, &pPlatform10
+	&pGround,	 &pButton1,	  &pButton2,   &pButton3,	&pBox,		 &pChicken1,  &pChicken2,
+	&pChicken3,	 &pDoor1,	  &pDoor2,	   &pDoor3,		&pElevator1, &pElevator2, &pElevator3,
+	&pLever1,	 &pLever2,	  &pLever3,	   &pPlatform1, &pPlatform2, &pPlatform3, &pPlatform4,
+	&pPlatform5, &pPlatform6, &pPlatform7, &pPlatform8, &pPlatform9, &pPlatform10
 };
 Pair_Player* players[PLAYERS] { &small, &big };
 

@@ -10,13 +10,7 @@
 #include <sound_system.hpp>
 
 void caller();
-void spawn(
-	sf::RectangleShape&,
-	Object&,
-	const float&,
-	const float&,
-	const float& angle = 0
-);
+void spawn(sf::RectangleShape&, Object&, const float&, const float&, const float& angle = 0);
 void level_one();
 void level_two();
 void level_three();

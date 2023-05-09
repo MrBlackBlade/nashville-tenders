@@ -38,7 +38,7 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
 	{
 		animate(p_pair, Animation::push);
 
-		if (! out_of_bounds(o_pair))
+		if (!out_of_bounds(o_pair))
 		{
 			// left collision
 			if (p_obj.velocity.x > 0.f)

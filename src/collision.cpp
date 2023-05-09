@@ -8,34 +8,32 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 	auto& shape	   = *o_pair.shape;
 	auto& obj2	   = *o_pair.obj;
 
-	auto  p_bounds = player.getGlobalBounds(),
-		 s_bounds  = shape.getGlobalBounds();
+	auto  p_bounds = player.getGlobalBounds(), s_bounds = shape.getGlobalBounds();
 
-	bool intersect = p_bounds.intersects(s_bounds),
-		 u_coll	   = intersect && p_bounds.top <= s_bounds.top,
-		 d_coll	   = intersect && p_bounds.top - p_bounds.height >=
-								   s_bounds.top + s_bounds.height,
-		 l_coll = intersect &&
-				  std::fabs(
-					  ((p_bounds.left + p_bounds.width) / 2.f) -
-					  ((s_bounds.left + s_bounds.width) / 2.f)
-				  ) <= (p_bounds.width + s_bounds.width) &&
-				  obj.velocity.x > 0.f && ! u_coll,
-		 r_coll = intersect &&
-				  std::fabs(
-					  ((p_bounds.left + p_bounds.width) / 2.f) -
-					  ((s_bounds.left + s_bounds.width) / 2.f)
-				  ) <= (p_bounds.width + s_bounds.width) &&
-				  obj.velocity.x < 0.f && ! u_coll;
+	bool  intersect = p_bounds.intersects(s_bounds),
+		 u_coll		= intersect && p_bounds.top <= s_bounds.top,
+		 d_coll =
+		 intersect && p_bounds.top - p_bounds.height >= s_bounds.top + s_bounds.height,
+		 l_coll =
+		 intersect &&
+		 std::fabs(
+		 ((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)
+		 ) <= (p_bounds.width + s_bounds.width) &&
+		 obj.velocity.x > 0.f && !u_coll,
+		 r_coll =
+		 intersect &&
+		 std::fabs(
+		 ((p_bounds.left + p_bounds.width) / 2.f) - ((s_bounds.left + s_bounds.width) / 2.f)
+		 ) <= (p_bounds.width + s_bounds.width) &&
+		 obj.velocity.x < 0.f && !u_coll;
 
 	if (u_coll || d_coll || l_coll || r_coll)
 	{
-		if (obj2.id == Object::chicken1 || obj2.id == Object::chicken2 ||
-			obj2.id == Object::chicken3)
+		if (obj2.id == Object::chicken1 || obj2.id == Object::chicken2 || obj2.id == Object::chicken3)
 			return CollisionType::chicken;
 	}
 
-	if (u_coll && ! d_coll && ! l_coll && ! r_coll)
+	if (u_coll && !d_coll && !l_coll && !r_coll)
 	{
 		if (obj2.id == Object::lever1)
 			return CollisionType::null;
@@ -61,8 +59,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		}
 
 		// collision from top
-		obj.position = { player.getPosition().x,
-						 s_bounds.top - p_bounds.height };
+		obj.position = { player.getPosition().x, s_bounds.top - p_bounds.height };
 		player.setPosition(obj.position);
 
 		obj.velocity.y = 0;
@@ -85,8 +82,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		}
 
 		// small player moving on the top of the box
-		if (obj.id == 0 && obj2.id == Object::box &&
-			push(*Config::players[1], *Config::objects[Object::box]))
+		if (obj.id == 0 && obj2.id == Object::box && push(*Config::players[1], *Config::objects[Object::box]))
 		{
 			// collide from left
 			if (Config::players[1]->obj->velocity.x > 0.f)
@@ -113,7 +109,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		return CollisionType::null;
 	}
 
-	if (! u_coll && d_coll && ! l_coll && ! r_coll)
+	if (!u_coll && d_coll && !l_coll && !r_coll)
 	{
 		if (obj2.id == Object::lever1)
 			return CollisionType::null;
@@ -125,8 +121,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 			return CollisionType::null;
 
 		// collision from bottom
-		obj.position = { player.getPosition().x,
-						 s_bounds.top + s_bounds.height };
+		obj.position = { player.getPosition().x, s_bounds.top + s_bounds.height };
 		player.setPosition(obj.position);
 
 		obj.velocity.y = 0;
@@ -134,7 +129,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		return CollisionType::null;
 	}
 
-	if (! u_coll && ! d_coll && l_coll && ! r_coll)
+	if (!u_coll && !d_coll && l_coll && !r_coll)
 	{
 		if (obj2.id == Object::lever1)
 			return CollisionType::null;
@@ -160,8 +155,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		}
 
 		// collision from left
-		obj.position = { s_bounds.left - p_bounds.width,
-						 player.getPosition().y };
+		obj.position = { s_bounds.left - p_bounds.width, player.getPosition().y };
 		player.setPosition(obj.position);
 
 		if (obj.id == 1 && obj2.id == Object::box)
@@ -172,7 +166,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		return CollisionType::null;
 	}
 
-	if (! u_coll && ! d_coll && ! l_coll && r_coll)
+	if (!u_coll && !d_coll && !l_coll && r_coll)
 	{
 		if (obj2.id == Object::lever1)
 			return CollisionType::null;
@@ -198,8 +192,7 @@ CollisionType collision(Pair_Player& p_pair, Pair_Object& o_pair)
 		}
 
 		// collision from right
-		obj.position = { s_bounds.left + s_bounds.width,
-						 player.getPosition().y };
+		obj.position = { s_bounds.left + s_bounds.width, player.getPosition().y };
 		player.setPosition(obj.position);
 
 		if (obj.id == 1 && obj2.id == Object::box)
@@ -218,45 +211,44 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 	auto& shape2	= *pair2.shape;
 	auto& obj2		= *pair2.obj;
 
-	auto  s1_bounds = shape1.getGlobalBounds(),
-		 s2_bounds	= shape2.getGlobalBounds();
+	auto  s1_bounds = shape1.getGlobalBounds(), s2_bounds = shape2.getGlobalBounds();
 
-	bool intersect	= s1_bounds.intersects(s2_bounds),
+	bool  intersect = s1_bounds.intersects(s2_bounds),
 		 u_coll		= intersect && s1_bounds.top <= s2_bounds.top,
-		 d_coll		= intersect && s1_bounds.top - s1_bounds.height >=
-								   s2_bounds.top + s2_bounds.height,
+		 d_coll =
+		 intersect && s1_bounds.top - s1_bounds.height >= s2_bounds.top + s2_bounds.height,
 		 l_coll = intersect &&
 				  std::fabs(
-					  ((s1_bounds.left + s1_bounds.width) / 2.f) -
-					  ((s2_bounds.left + s2_bounds.width) / 2.f)
+				  ((s1_bounds.left + s1_bounds.width) / 2.f) -
+				  ((s2_bounds.left + s2_bounds.width) / 2.f)
 				  ) <= (s1_bounds.width + s2_bounds.width) &&
-				  obj.velocity.x > 0.f && ! u_coll,
+				  obj.velocity.x > 0.f && !u_coll,
 		 r_coll = intersect &&
 				  std::fabs(
-					  ((s1_bounds.left + s1_bounds.width) / 2.f) -
-					  ((s2_bounds.left + s2_bounds.width) / 2.f)
+				  ((s1_bounds.left + s1_bounds.width) / 2.f) -
+				  ((s2_bounds.left + s2_bounds.width) / 2.f)
 				  ) <= (s1_bounds.width + s2_bounds.width) &&
-				  obj.velocity.x < 0.f && ! u_coll;
+				  obj.velocity.x < 0.f && !u_coll;
 
-	if (u_coll && ! d_coll && ! l_coll && ! r_coll)
+	if (u_coll && !d_coll && !l_coll && !r_coll)
 	{
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button1]->shape->getGlobalBounds()
+			Config::objects[Object::button1]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button2]->shape->getGlobalBounds()
+			Config::objects[Object::button2]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button3]->shape->getGlobalBounds()
+			Config::objects[Object::button3]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
@@ -275,8 +267,7 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			return CollisionType::null;
 
 		// collision from top
-		obj.position = { shape1.getPosition().x,
-						 s2_bounds.top - s1_bounds.height };
+		obj.position = { shape1.getPosition().x, s2_bounds.top - s1_bounds.height };
 		shape1.setPosition(obj.position);
 
 		if (obj.id == Object::box && obj2.id == Object::elevator1)
@@ -293,24 +284,24 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		return CollisionType::null;
 	}
 
-	if (! u_coll && d_coll && ! l_coll && ! r_coll)
+	if (!u_coll && d_coll && !l_coll && !r_coll)
 	{
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button1]->shape->getGlobalBounds()
+			Config::objects[Object::button1]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button2]->shape->getGlobalBounds()
+			Config::objects[Object::button2]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button3]->shape->getGlobalBounds()
+			Config::objects[Object::button3]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
@@ -329,8 +320,7 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			return CollisionType::null;
 
 		// collision from bottom
-		obj.position = { shape1.getPosition().x,
-						 s2_bounds.top + s2_bounds.height };
+		obj.position = { shape1.getPosition().x, s2_bounds.top + s2_bounds.height };
 		shape1.setPosition(obj.position);
 
 		obj.velocity.y = 0;
@@ -338,24 +328,24 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 		return CollisionType::null;
 	}
 
-	if (! u_coll && ! d_coll && l_coll && ! r_coll)
+	if (!u_coll && !d_coll && l_coll && !r_coll)
 	{
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button1]->shape->getGlobalBounds()
+			Config::objects[Object::button1]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button2]->shape->getGlobalBounds()
+			Config::objects[Object::button2]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button3]->shape->getGlobalBounds()
+			Config::objects[Object::button3]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
@@ -374,31 +364,30 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			return CollisionType::null;
 
 		// collision from left
-		obj.position = { s2_bounds.left - s1_bounds.width,
-						 shape1.getPosition().y };
+		obj.position = { s2_bounds.left - s1_bounds.width, shape1.getPosition().y };
 		shape1.setPosition(obj.position);
 
 		return CollisionType::null;
 	}
 
-	if (! u_coll && ! d_coll && ! l_coll && r_coll)
+	if (!u_coll && !d_coll && !l_coll && r_coll)
 	{
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button1]->shape->getGlobalBounds()
+			Config::objects[Object::button1]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button2]->shape->getGlobalBounds()
+			Config::objects[Object::button2]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
 		}
 
 		if (Config::objects[Object::box]->shape->getGlobalBounds().intersects(
-				Config::objects[Object::button3]->shape->getGlobalBounds()
+			Config::objects[Object::button3]->shape->getGlobalBounds()
 			))
 		{
 			return CollisionType::button;
@@ -417,8 +406,7 @@ CollisionType collision(Pair_Object& pair1, Pair_Object& pair2)
 			return CollisionType::null;
 
 		// collision from right
-		obj.position = { s2_bounds.left + s2_bounds.width,
-						 shape1.getPosition().y };
+		obj.position = { s2_bounds.left + s2_bounds.width, shape1.getPosition().y };
 		shape1.setPosition(obj.position);
 
 		return CollisionType::null;

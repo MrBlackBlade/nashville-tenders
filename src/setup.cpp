@@ -605,9 +605,9 @@ Player		b_obj {
 
 // window
 sf::RenderWindow window(
-	sf::VideoMode(Config::RES_SIZE, Config::RES_SIZE),
-	"The Promised Chickenland",
-	sf::Style::Default
+sf::VideoMode(Config::RES_SIZE, Config::RES_SIZE),
+"The Promised Chickenland",
+sf::Style::Default
 );
 
 void setup()
@@ -696,16 +696,12 @@ void setup()
 
 	ground.setTexture(&ground_texture);
 	ground.setScale(ground_obj.scale, ground_obj.scale);
-	ground_obj.position = { 0,
-							Config::RES_SIZE -
-								ground.getGlobalBounds().height };
+	ground_obj.position = { 0, Config::RES_SIZE - ground.getGlobalBounds().height };
 	ground.setPosition(ground_obj.position);
 
 	box.setTexture(&box_texture);
 	box.setScale(box_obj.scale, box_obj.scale);
-	box_obj.position = { 300,
-						 ground.getGlobalBounds().top -
-							 box.getGlobalBounds().height };
+	box_obj.position = { 300, ground.getGlobalBounds().top - box.getGlobalBounds().height };
 	box.setPosition(box_obj.position);
 
 	lv_comp.setTexture(&lv_comp_texture);
@@ -716,35 +712,26 @@ void setup()
 
 	button1.setTexture(&button_texture);
 	button1.setScale(button1_obj.scale, button1_obj.scale);
-	button1.setTextureRect(
-		sf::IntRect(0, 0, button1_obj.size_x, button1_obj.size_y)
-	);
+	button1.setTextureRect(sf::IntRect(0, 0, button1_obj.size_x, button1_obj.size_y));
 
 	button1_obj.position = { 50.f,
-							 ground.getGlobalBounds().top -
-								 button1.getGlobalBounds().height };
+							 ground.getGlobalBounds().top - button1.getGlobalBounds().height };
 	button1.setPosition(button1_obj.position);
 	//
 	button2.setTexture(&button_texture);
 	button2.setScale(button2_obj.scale, button2_obj.scale);
-	button2.setTextureRect(
-		sf::IntRect(0, 0, button2_obj.size_x, button2_obj.size_y)
-	);
+	button2.setTextureRect(sf::IntRect(0, 0, button2_obj.size_x, button2_obj.size_y));
 
 	button2_obj.position = { 100.f,
-							 ground.getGlobalBounds().top -
-								 button2.getGlobalBounds().height };
+							 ground.getGlobalBounds().top - button2.getGlobalBounds().height };
 	button2.setPosition(button2_obj.position);
 	//
 	button3.setTexture(&button_texture);
 	button3.setScale(button3_obj.scale, button3_obj.scale);
-	button3.setTextureRect(
-		sf::IntRect(0, 0, button3_obj.size_x, button3_obj.size_y)
-	);
+	button3.setTextureRect(sf::IntRect(0, 0, button3_obj.size_x, button3_obj.size_y));
 
 	button3_obj.position = { 150.f,
-							 ground.getGlobalBounds().top -
-								 button3.getGlobalBounds().height };
+							 ground.getGlobalBounds().top - button3.getGlobalBounds().height };
 	button3.setPosition(button3_obj.position);
 
 	/* the 3 chickens */
@@ -753,50 +740,44 @@ void setup()
 	chicken1.setScale(chicken1_obj.scale, chicken1_obj.scale);
 	chicken1_obj.position = { 5000.f,
 							  ground.getGlobalBounds().top -
-								  chicken1.getGlobalBounds().height };
+							  chicken1.getGlobalBounds().height };
 	chicken1.setPosition(chicken1_obj.position);
 	//
 	chicken2.setTexture(&chicken_texture);
 	chicken2.setScale(chicken2_obj.scale, chicken2_obj.scale);
 	chicken2_obj.position = { 5500.f,
 							  ground.getGlobalBounds().top -
-								  chicken2.getGlobalBounds().height };
+							  chicken2.getGlobalBounds().height };
 	chicken2.setPosition(chicken2_obj.position);
 	//
 	chicken3.setTexture(&chicken_texture);
 	chicken3.setScale(chicken3_obj.scale, chicken3_obj.scale);
 	chicken3_obj.position = { 6000.f,
 							  ground.getGlobalBounds().top -
-								  chicken3.getGlobalBounds().height };
+							  chicken3.getGlobalBounds().height };
 	chicken3.setPosition(chicken3_obj.position);
 	//
 
 	// the 3 doors
 	door1.setTexture(&door_texture);
-	door1.setTextureRect(sf::IntRect(0, 0, door1_obj.size_x, door1_obj.size_y)
-	);
+	door1.setTextureRect(sf::IntRect(0, 0, door1_obj.size_x, door1_obj.size_y));
 	door1.setScale(door1_obj.scale, door1_obj.scale);
 	door1_obj.position = { 600.f,
-						   ground.getGlobalBounds().top -
-							   door1.getGlobalBounds().height };
+						   ground.getGlobalBounds().top - door1.getGlobalBounds().height };
 	door1.setPosition(door1_obj.position);
 
 	door2.setTexture(&door_texture);
-	door2.setTextureRect(sf::IntRect(0, 0, door2_obj.size_x, door2_obj.size_y)
-	);
+	door2.setTextureRect(sf::IntRect(0, 0, door2_obj.size_x, door2_obj.size_y));
 	door2.setScale(door2_obj.scale, door2_obj.scale);
 	door2_obj.position = { 700.f,
-						   ground.getGlobalBounds().top -
-							   door2.getGlobalBounds().height };
+						   ground.getGlobalBounds().top - door2.getGlobalBounds().height };
 	door2.setPosition(door2_obj.position);
 
 	door3.setTexture(&door_texture);
-	door3.setTextureRect(sf::IntRect(0, 0, door3_obj.size_x, door3_obj.size_y)
-	);
+	door3.setTextureRect(sf::IntRect(0, 0, door3_obj.size_x, door3_obj.size_y));
 	door3.setScale(door3_obj.scale, door3_obj.scale);
 	door3_obj.position = { 800.f,
-						   ground.getGlobalBounds().top -
-							   door3.getGlobalBounds().height };
+						   ground.getGlobalBounds().top - door3.getGlobalBounds().height };
 	door3.setPosition(door3_obj.position);
 
 	// the 3 elevators
@@ -804,52 +785,43 @@ void setup()
 	elevator1.setScale(elevator1_obj.scale, elevator1_obj.scale);
 	elevator1_obj.position = { 50,
 							   ground.getGlobalBounds().top -
-								   elevator1.getGlobalBounds().height - 300 };
+							   elevator1.getGlobalBounds().height - 300 };
 	elevator1.setPosition(elevator1_obj.position);
 	//
 	elevator2.setTexture(&elevator_texture);
 	elevator2.setScale(elevator2_obj.scale, elevator2_obj.scale);
 	elevator2_obj.position = { 160,
 							   ground.getGlobalBounds().top -
-								   elevator2.getGlobalBounds().height - 200 };
+							   elevator2.getGlobalBounds().height - 200 };
 	elevator2.setPosition(elevator2_obj.position);
 	//
 	elevator3.setTexture(&elevator_texture);
 	elevator3.setScale(elevator3_obj.scale, elevator3_obj.scale);
 	elevator3_obj.position = { 270,
 							   ground.getGlobalBounds().top -
-								   elevator3.getGlobalBounds().height - 100 };
+							   elevator3.getGlobalBounds().height - 100 };
 	elevator3.setPosition(elevator3_obj.position);
 
 	// the 3 levers
 	lever1.setTexture(&lever_texture);
-	lever1.setTextureRect(
-		sf::IntRect(0, 0, lever1_obj.size_x, lever1_obj.size_y)
-	);
+	lever1.setTextureRect(sf::IntRect(0, 0, lever1_obj.size_x, lever1_obj.size_y));
 	lever1.setScale(lever1_obj.scale, lever1_obj.scale);
 	lever1_obj.position = { 800.f,
-							ground.getGlobalBounds().top -
-								lever1.getGlobalBounds().height };
+							ground.getGlobalBounds().top - lever1.getGlobalBounds().height };
 	lever1.setPosition(lever1_obj.position);
 
 	lever2.setTexture(&lever_texture);
-	lever2.setTextureRect(
-		sf::IntRect(0, 0, lever2_obj.size_x, lever2_obj.size_y)
-	);
+	lever2.setTextureRect(sf::IntRect(0, 0, lever2_obj.size_x, lever2_obj.size_y));
 	lever2.setScale(lever2_obj.scale, lever2_obj.scale);
 	lever2_obj.position = { 700.f,
-							ground.getGlobalBounds().top -
-								lever2.getGlobalBounds().height };
+							ground.getGlobalBounds().top - lever2.getGlobalBounds().height };
 	lever2.setPosition(lever2_obj.position);
 
 	lever3.setTexture(&lever_texture);
-	lever3.setTextureRect(
-		sf::IntRect(0, 0, lever3_obj.size_x, lever3_obj.size_y)
-	);
+	lever3.setTextureRect(sf::IntRect(0, 0, lever3_obj.size_x, lever3_obj.size_y));
 	lever3.setScale(lever3_obj.scale, lever3_obj.scale);
 	lever3_obj.position = { 600.f,
-							ground.getGlobalBounds().top -
-								lever3.getGlobalBounds().height };
+							ground.getGlobalBounds().top - lever3.getGlobalBounds().height };
 	lever3.setPosition(lever3_obj.position);
 
 	// wall
@@ -942,21 +914,16 @@ void setup()
 	s_player_texture_idle.loadFromFile("resources/small_idle_animation.png");
 	s_player_texture_run.loadFromFile("resources/small_run.png");
 
-	if (! s_player_texture_jump.loadFromFile(
-			"resources/small_jump_animation.png"
-		))
+	if (!s_player_texture_jump.loadFromFile("resources/small_jump_animation.png"))
 		exit(1);
-	if (! s_player_texture_idle.loadFromFile(
-			"resources/small_idle_animation.png"
-		))
+	if (!s_player_texture_idle.loadFromFile("resources/small_idle_animation.png"))
 		exit(1);
-	if (! s_player_texture_run.loadFromFile("resources/small_run.png"))
+	if (!s_player_texture_run.loadFromFile("resources/small_run.png"))
 		exit(1);
 
 	s_player.setScale(s_obj.scale, s_obj.scale);
 	s_obj.position = { s_player.getPosition().x,
-					   ground.getGlobalBounds().top -
-						   s_player.getGlobalBounds().height };
+					   ground.getGlobalBounds().top - s_player.getGlobalBounds().height };
 	s_player.setPosition(s_obj.position);
 
 	// big player
@@ -965,21 +932,18 @@ void setup()
 	b_player_texture_run.loadFromFile("resources/big_run.png");
 	b_player_texture_push.loadFromFile("resources/big_push_animation.png");
 
-	if (! b_player_texture_jump.loadFromFile("resources/big_jump_animation.png"
-		))
+	if (!b_player_texture_jump.loadFromFile("resources/big_jump_animation.png"))
 		exit(1);
-	if (! b_player_texture_idle.loadFromFile("resources/big_idle_animation.png"
-		))
+	if (!b_player_texture_idle.loadFromFile("resources/big_idle_animation.png"))
 		exit(1);
-	if (! b_player_texture_run.loadFromFile("resources/big_run.png"))
+	if (!b_player_texture_run.loadFromFile("resources/big_run.png"))
 		exit(1);
-	if (! b_player_texture_push.loadFromFile("resources/big_push_animation.png"
-		))
+	if (!b_player_texture_push.loadFromFile("resources/big_push_animation.png"))
 		exit(1);
 
 	b_player.setScale(b_obj.scale, b_obj.scale);
 	b_obj.position = { 500.f,
-					   ground.getGlobalBounds().top -
-						   b_player.getGlobalBounds().height - 64.f };
+					   ground.getGlobalBounds().top - b_player.getGlobalBounds().height -
+					   64.f };
 	b_player.setPosition(b_obj.position);
 }
