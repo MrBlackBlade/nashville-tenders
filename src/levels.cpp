@@ -543,7 +543,7 @@ void level_three()
 	{
 		objects[Object::elevator2]->obj->position.y -= 1.f;
 		objects[Object::elevator2]->shape->setPosition(
-		objects[Object::elevator1]->obj->position
+		objects[Object::elevator2]->obj->position
 		);
 	}
 	if (objects[Object::elevator2]->obj->position.y <= 150)
