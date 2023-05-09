@@ -521,7 +521,7 @@ void level_three()
     if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) || check_lever(*players[1], *Config::objects[Object::lever2]))) || Config::lever2_pushed) && objects[Object::elevator2]->obj->position.y >= 150)
     {
         objects[Object::elevator2]->obj->position.y -= 1.f;
-        objects[Object::elevator2]->shape->setPosition(objects[Object::elevator1]->obj->position);
+        objects[Object::elevator2]->shape->setPosition(objects[Object::elevator2]->obj->position);
     }
     if (objects[Object::elevator2]->obj->position.y <= 150) {
         play_sfx(SoundIndex::elevator2_stop);
