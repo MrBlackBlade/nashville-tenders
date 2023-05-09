@@ -13,3 +13,4 @@ Makefile
 *.code-workspace
 *.exe
 *.vscode
+*.clang-format
