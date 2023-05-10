@@ -1,5 +1,8 @@
 #include <setup.hpp>
 
+// ciken
+const sf::Vector2f _______narnia = { (float) INT_MAX, (float) INT_MAX };
+
 // menu
 sf::Text		   main_menu[2];
 sf::Font		   font;
@@ -624,29 +627,29 @@ void setup()
 
 	chicken_collect_sound_buffer.loadFromFile("resources/chicken_collect.ogg");
 	chicken_collect_sound.setBuffer(chicken_collect_sound_buffer);
-	elevator1_move_sound_buffer.loadFromFile("resources/elevator.ogg");
-	elevator2_move_sound_buffer.loadFromFile("resources/elevator.ogg");
-	elevator3_move_sound_buffer.loadFromFile("resources/elevator.ogg");
+
 	elevator1_move_sound.setBuffer(elevator1_move_sound_buffer);
+	elevator1_move_sound_buffer.loadFromFile("resources/elevator.ogg");
+
 	elevator2_move_sound.setBuffer(elevator2_move_sound_buffer);
+	elevator2_move_sound_buffer.loadFromFile("resources/elevator.ogg");
+
 	elevator3_move_sound.setBuffer(elevator3_move_sound_buffer);
+	elevator3_move_sound_buffer.loadFromFile("resources/elevator.ogg");
+
 	lever_pull_sound_buffer.loadFromFile("resources/lever_pull.ogg");
 	lever_pull_sound.setBuffer(lever_pull_sound_buffer);
+
 	button_push_sound_buffer.loadFromFile("resources/button.ogg");
 	button_push_sound.setBuffer(button_push_sound_buffer);
+
 	door_open_sound_buffer.loadFromFile("resources/door_open.ogg");
 	door_open_sound.setBuffer(door_open_sound_buffer);
+
 	level_complete_sound_buffer.loadFromFile("resources/level_complete.ogg");
 	level_complete_sound.setBuffer(level_complete_sound_buffer);
 
-	game_end_texture.loadFromFile("resources/game_end.png");
-
-	game_end.setTexture(game_end_texture);
-	game_end.setTextureRect(sf::IntRect(0, 0, 900, 900));
-	game_end.setPosition(0, 0);
-
 	// background and objects
-	loading_texture.loadFromFile("resources/loading.png");
 	menu_texture.loadFromFile("resources/bg_menu.png");
 
 	bg_texture_1.loadFromFile("resources/bg1.png");
@@ -656,7 +659,6 @@ void setup()
 
 	ground_texture.loadFromFile("resources/tile_1.png");
 	box_texture.loadFromFile("resources/box.png");
-	lv_comp_texture.loadFromFile("resources/level_complete.png");
 	chicken_counter_texture.loadFromFile("resources/chicken_counter.png");
 	button_texture.loadFromFile("resources/button.png");
 	chicken_texture.loadFromFile("resources/chicken.png");
@@ -666,15 +668,23 @@ void setup()
 	platform_texture.loadFromFile("resources/platform.png");
 	end_texture.loadFromFile("resources/end.png");
 
-	end.setTexture(&end_texture);
-	end.setPosition(300, 800 - ground.getGlobalBounds().height + 30);
+	lv_comp_texture.loadFromFile("resources/level_complete.png");
+	loading_texture.loadFromFile("resources/loading.png");
+	game_end_texture.loadFromFile("resources/game_end.png");
 
 	menu.setTexture(&menu_texture);
 	menu.setPosition(0, 0);
 
+	end.setTexture(&end_texture);
+	end.setPosition(300, 800 - ground.getGlobalBounds().height + 30);
+
 	loading.setTexture(&loading_texture);
 	loading.setTextureRect(sf::IntRect(0, 0, 900, 900));
 	loading.setPosition(0, 0);
+
+	game_end.setTexture(game_end_texture);
+	game_end.setTextureRect(sf::IntRect(0, 0, 900, 900));
+	game_end.setPosition(0, 0);
 
 	chicken_counter.setTexture(&chicken_counter_texture);
 	chicken_counter.setTextureRect(sf::IntRect(0, 0, 96, 36));
@@ -704,33 +714,28 @@ void setup()
 
 	box.setTexture(&box_texture);
 	box.setScale(box_obj.scale, box_obj.scale);
-	box_obj.position = { 300, ground.getGlobalBounds().top - box.getGlobalBounds().height };
-	box.setPosition(box_obj.position);
 
 	lv_comp.setTexture(&lv_comp_texture);
 	lv_comp.setScale(1, 1);
 	lv_comp.setPosition(0, 0);
 
-	// the 3 buttons
+	/* the 3 buttons */
 
 	button1.setTexture(&button_texture);
 	button1.setScale(button1_obj.scale, button1_obj.scale);
 	button1.setTextureRect(sf::IntRect(0, 0, button1_obj.size_x, button1_obj.size_y));
-
 	button1_obj.position = { 50.f, ground.getGlobalBounds().top - button1.getGlobalBounds().height };
 	button1.setPosition(button1_obj.position);
-	//
+
 	button2.setTexture(&button_texture);
 	button2.setScale(button2_obj.scale, button2_obj.scale);
 	button2.setTextureRect(sf::IntRect(0, 0, button2_obj.size_x, button2_obj.size_y));
-
 	button2_obj.position = { 100.f, ground.getGlobalBounds().top - button2.getGlobalBounds().height };
 	button2.setPosition(button2_obj.position);
-	//
+
 	button3.setTexture(&button_texture);
 	button3.setScale(button3_obj.scale, button3_obj.scale);
 	button3.setTextureRect(sf::IntRect(0, 0, button3_obj.size_x, button3_obj.size_y));
-
 	button3_obj.position = { 150.f, ground.getGlobalBounds().top - button3.getGlobalBounds().height };
 	button3.setPosition(button3_obj.position);
 
@@ -740,142 +745,89 @@ void setup()
 	chicken1.setScale(chicken1_obj.scale, chicken1_obj.scale);
 	chicken1_obj.position = { 5000.f, ground.getGlobalBounds().top - chicken1.getGlobalBounds().height };
 	chicken1.setPosition(chicken1_obj.position);
-	//
+
 	chicken2.setTexture(&chicken_texture);
 	chicken2.setScale(chicken2_obj.scale, chicken2_obj.scale);
 	chicken2_obj.position = { 5500.f, ground.getGlobalBounds().top - chicken2.getGlobalBounds().height };
 	chicken2.setPosition(chicken2_obj.position);
-	//
+
 	chicken3.setTexture(&chicken_texture);
 	chicken3.setScale(chicken3_obj.scale, chicken3_obj.scale);
 	chicken3_obj.position = { 6000.f, ground.getGlobalBounds().top - chicken3.getGlobalBounds().height };
 	chicken3.setPosition(chicken3_obj.position);
-	//
 
-	// the 3 doors
+	/* the 3 doors */
 	door1.setTexture(&door_texture);
 	door1.setTextureRect(sf::IntRect(0, 0, door1_obj.size_x, door1_obj.size_y));
 	door1.setScale(door1_obj.scale, door1_obj.scale);
-	door1_obj.position = { 600.f, ground.getGlobalBounds().top - door1.getGlobalBounds().height };
-	door1.setPosition(door1_obj.position);
 
 	door2.setTexture(&door_texture);
 	door2.setTextureRect(sf::IntRect(0, 0, door2_obj.size_x, door2_obj.size_y));
 	door2.setScale(door2_obj.scale, door2_obj.scale);
-	door2_obj.position = { 700.f, ground.getGlobalBounds().top - door2.getGlobalBounds().height };
-	door2.setPosition(door2_obj.position);
 
 	door3.setTexture(&door_texture);
 	door3.setTextureRect(sf::IntRect(0, 0, door3_obj.size_x, door3_obj.size_y));
 	door3.setScale(door3_obj.scale, door3_obj.scale);
-	door3_obj.position = { 800.f, ground.getGlobalBounds().top - door3.getGlobalBounds().height };
-	door3.setPosition(door3_obj.position);
 
-	// the 3 elevators
+	/* the 3 elevators */
 	elevator1.setTexture(&elevator_texture);
 	elevator1.setScale(elevator1_obj.scale, elevator1_obj.scale);
-	elevator1_obj.position = { 50,
-							   ground.getGlobalBounds().top - elevator1.getGlobalBounds().height - 300 };
-	elevator1.setPosition(elevator1_obj.position);
-	//
+
 	elevator2.setTexture(&elevator_texture);
 	elevator2.setScale(elevator2_obj.scale, elevator2_obj.scale);
-	elevator2_obj.position = { 160,
-							   ground.getGlobalBounds().top - elevator2.getGlobalBounds().height - 200 };
-	elevator2.setPosition(elevator2_obj.position);
-	//
-	elevator3.setTexture(&elevator_texture);
-	elevator3.setScale(elevator3_obj.scale, elevator3_obj.scale);
-	elevator3_obj.position = { 270,
-							   ground.getGlobalBounds().top - elevator3.getGlobalBounds().height - 100 };
-	elevator3.setPosition(elevator3_obj.position);
 
-	// the 3 levers
+	elevator3.setTexture(&elevator_texture);
+
+	/* the 3 levers */
 	lever1.setTexture(&lever_texture);
 	lever1.setTextureRect(sf::IntRect(0, 0, lever1_obj.size_x, lever1_obj.size_y));
 	lever1.setScale(lever1_obj.scale, lever1_obj.scale);
-	lever1_obj.position = { 800.f, ground.getGlobalBounds().top - lever1.getGlobalBounds().height };
-	lever1.setPosition(lever1_obj.position);
 
 	lever2.setTexture(&lever_texture);
 	lever2.setTextureRect(sf::IntRect(0, 0, lever2_obj.size_x, lever2_obj.size_y));
 	lever2.setScale(lever2_obj.scale, lever2_obj.scale);
-	lever2_obj.position = { 700.f, ground.getGlobalBounds().top - lever2.getGlobalBounds().height };
-	lever2.setPosition(lever2_obj.position);
 
 	lever3.setTexture(&lever_texture);
 	lever3.setTextureRect(sf::IntRect(0, 0, lever3_obj.size_x, lever3_obj.size_y));
 	lever3.setScale(lever3_obj.scale, lever3_obj.scale);
-	lever3_obj.position = { 600.f, ground.getGlobalBounds().top - lever3.getGlobalBounds().height };
-	lever3.setPosition(lever3_obj.position);
 
-	// platforms
+	/* platforms */
 	platform1.setTexture(&platform_texture);
 	platform1.setScale(platform1_obj.scale, platform1_obj.scale);
-	platform1_obj.position = { 00.f, 4500.f };
-	platform1.setPosition(platform1_obj.position);
 
 	platform2.setTexture(&platform_texture);
 	platform2.setScale(platform2_obj.scale, platform2_obj.scale);
-	platform2_obj.position = { 2000.f, 4500.f };
-	platform2.setPosition(platform2_obj.position);
 
 	platform3.setTexture(&platform_texture);
 	platform3.setScale(platform3_obj.scale, platform3_obj.scale);
-	platform3_obj.position = { 3000.f, 3000.f };
-	platform3.setPosition(platform3_obj.position);
 
 	platform4.setTexture(&platform_texture);
 	platform4.setScale(platform4_obj.scale, platform4_obj.scale);
-	platform4_obj.position = { 4000.f, 4000.f };
-	platform4.setPosition(platform4_obj.position);
 
 	platform5.setTexture(&platform_texture);
 	platform5.setScale(platform5_obj.scale, platform5_obj.scale);
-	platform5_obj.position = { 5000.f, 5000.f };
-	platform5.setPosition(platform5_obj.position);
 
 	platform6.setTexture(&platform_texture);
 	platform6.setScale(platform6_obj.scale, platform6_obj.scale);
-	platform6_obj.position = { 6000.f, 6000.f };
-	platform6.setPosition(platform6_obj.position);
 
 	platform7.setTexture(&platform_texture);
 	platform7.setScale(platform7_obj.scale, platform7_obj.scale);
-	platform7_obj.position = { 7000.f, 7000.f };
-	platform7.setPosition(platform7_obj.position);
 
 	platform8.setTexture(&platform_texture);
 	platform8.setScale(platform8_obj.scale, platform8_obj.scale);
-	platform8_obj.position = { 8000.f, 8000.f };
-	platform8.setPosition(platform8_obj.position);
 
 	platform9.setTexture(&platform_texture);
 	platform9.setScale(platform9_obj.scale, platform9_obj.scale);
-	platform9_obj.position = { 9000.f, 9000.f };
-	platform9.setPosition(platform9_obj.position);
 
 	platform10.setTexture(&platform_texture);
 	platform10.setScale(platform10_obj.scale, platform10_obj.scale);
-	platform10_obj.position = { 1500.f, 1500.f };
-	platform10.setPosition(platform10_obj.position);
 
 	// small player
 	s_player_texture_jump.loadFromFile("resources/small_jump_animation.png");
 	s_player_texture_idle.loadFromFile("resources/small_idle_animation.png");
 	s_player_texture_run.loadFromFile("resources/small_run.png");
 
-	if (!s_player_texture_jump.loadFromFile("resources/small_jump_animation.png"))
-		exit(1);
-	if (!s_player_texture_idle.loadFromFile("resources/small_idle_animation.png"))
-		exit(1);
-	if (!s_player_texture_run.loadFromFile("resources/small_run.png"))
-		exit(1);
-
 	s_player.setScale(s_obj.scale, s_obj.scale);
-	s_obj.position = { s_player.getPosition().x,
-					   ground.getGlobalBounds().top - s_player.getGlobalBounds().height };
-	s_player.setPosition(s_obj.position);
 
 	// big player
 	b_player_texture_jump.loadFromFile("resources/big_jump_animation.png");
@@ -883,16 +835,5 @@ void setup()
 	b_player_texture_run.loadFromFile("resources/big_run.png");
 	b_player_texture_push.loadFromFile("resources/big_push_animation.png");
 
-	if (!b_player_texture_jump.loadFromFile("resources/big_jump_animation.png"))
-		exit(1);
-	if (!b_player_texture_idle.loadFromFile("resources/big_idle_animation.png"))
-		exit(1);
-	if (!b_player_texture_run.loadFromFile("resources/big_run.png"))
-		exit(1);
-	if (!b_player_texture_push.loadFromFile("resources/big_push_animation.png"))
-		exit(1);
-
 	b_player.setScale(b_obj.scale, b_obj.scale);
-	b_obj.position = { 500.f, ground.getGlobalBounds().top - b_player.getGlobalBounds().height - 64.f };
-	b_player.setPosition(b_obj.position);
 }

@@ -57,8 +57,9 @@ void move(Pair_Player& pair)
 		// Down
 		if (key == Config::keybinds[obj.id][2])
 		{
-			animate(pair, Animation::run);
+			animate(pair, Animation::idle);
 
+			obj.velocity.x	   = 0.f;
 			obj.acceleration.x = 0.f;
 		}
 

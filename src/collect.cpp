@@ -17,8 +17,8 @@ bool collect(Pair_Player& p_pair, Pair_Object& o_pair)
 		play_sfx(SoundIndex::chicken_collect);
 		animate(pChicken_counter);
 
-		// remove the chicken from the render window
-		obj2.position.x += 5000;
+		// ciken.unget(&narnia)
+		obj2.position = _______narnia;
 		shape.setPosition(obj2.position);
 
 		return true;

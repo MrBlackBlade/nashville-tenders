@@ -7,8 +7,10 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-constexpr auto OBJECTS = 27;
-constexpr auto PLAYERS = 2;
+extern const sf::Vector2f _______narnia;
+
+constexpr auto			  OBJECTS = 27;
+constexpr auto			  PLAYERS = 2;
 
 namespace Config
 {
