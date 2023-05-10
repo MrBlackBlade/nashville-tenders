@@ -2,9 +2,7 @@
 #ifndef _CONFIG_HPP
 #define _CONFIG_HPP
 
-#include <Object.hpp>
 #include <Pair.hpp>
-#include <Player.hpp>
 #include <reset.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
@@ -61,25 +59,25 @@ extern Object			  chicken_counter_obj;
 extern Pair_Object		  pChicken_counter;
 
 // music and sound
-extern sf::Music	   main_menu_music;
-extern sf::Music	   game_music;
+extern sf::Music		  main_menu_music;
+extern sf::Music		  game_music;
 
-extern sf::SoundBuffer chicken_collect_sound_buffer;
-extern sf::Sound	   chicken_collect_sound;
-extern sf::SoundBuffer elevator1_move_sound_buffer;
-extern sf::SoundBuffer elevator2_move_sound_buffer;
-extern sf::SoundBuffer elevator3_move_sound_buffer;
-extern sf::Sound	   elevator1_move_sound;
-extern sf::Sound	   elevator2_move_sound;
-extern sf::Sound	   elevator3_move_sound;
-extern sf::SoundBuffer lever_pull_sound_buffer;
-extern sf::Sound	   lever_pull_sound;
-extern sf::SoundBuffer button_push_sound_buffer;
-extern sf::Sound	   button_push_sound;
-extern sf::SoundBuffer door_open_sound_buffer;
-extern sf::Sound	   door_open_sound;
-extern sf::SoundBuffer level_complete_sound_buffer;
-extern sf::Sound	   level_complete_sound;
+extern sf::SoundBuffer	  chicken_collect_sound_buffer;
+extern sf::Sound		  chicken_collect_sound;
+extern sf::SoundBuffer	  elevator1_move_sound_buffer;
+extern sf::SoundBuffer	  elevator2_move_sound_buffer;
+extern sf::SoundBuffer	  elevator3_move_sound_buffer;
+extern sf::Sound		  elevator1_move_sound;
+extern sf::Sound		  elevator2_move_sound;
+extern sf::Sound		  elevator3_move_sound;
+extern sf::SoundBuffer	  lever_pull_sound_buffer;
+extern sf::Sound		  lever_pull_sound;
+extern sf::SoundBuffer	  button_push_sound_buffer;
+extern sf::Sound		  button_push_sound;
+extern sf::SoundBuffer	  door_open_sound_buffer;
+extern sf::Sound		  door_open_sound;
+extern sf::SoundBuffer	  level_complete_sound_buffer;
+extern sf::Sound		  level_complete_sound;
 
 // platforms and obstacles
 extern sf::Texture		  game_end_texture;
@@ -174,21 +172,21 @@ extern sf::Texture		  end_texture;
 extern sf::RectangleShape end;
 
 // small player
-extern sf::Texture s_player_texture_jump;
-extern sf::Texture s_player_texture_idle;
-extern sf::Texture s_player_texture_run;
-extern sf::Sprite  s_player;
-extern Player	   s_obj;
+extern sf::Texture		  s_player_texture_jump;
+extern sf::Texture		  s_player_texture_idle;
+extern sf::Texture		  s_player_texture_run;
+extern sf::Sprite		  s_player;
+extern Player			  s_obj;
 
 // big player
-extern sf::Texture b_player_texture_jump;
-extern sf::Texture b_player_texture_idle;
-extern sf::Texture b_player_texture_run;
-extern sf::Texture b_player_texture_push;
-extern sf::Sprite  b_player;
-extern Player	   b_obj;
+extern sf::Texture		  b_player_texture_jump;
+extern sf::Texture		  b_player_texture_idle;
+extern sf::Texture		  b_player_texture_run;
+extern sf::Texture		  b_player_texture_push;
+extern sf::Sprite		  b_player;
+extern Player			  b_obj;
 
 // window
-extern sf::RenderWindow window;
+extern sf::RenderWindow	  window;
 
 #endif // #ifndef _CONFIG_HPP

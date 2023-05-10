@@ -11,7 +11,7 @@ void check_idle(Pair_Player& pair)
 
 		// breaking the idle state
 		for (size_t i = 0; i < 4; i++)
-			if (Config::keybinds[obj.id][i] == get_key_pressed(pair))
+			if (get_key_pressed(pair) != sf::Keyboard::Unknown)
 				obj.idle = false;
 	}
 }

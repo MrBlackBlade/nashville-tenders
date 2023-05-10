@@ -394,7 +394,7 @@ Object lever3_obj {
 };
 
 Object platform1_obj {
-	Object::platform, // ID
+	Object::platform1, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -408,7 +408,7 @@ Object platform1_obj {
 };
 
 Object platform2_obj {
-	Object::platform, // ID
+	Object::platform2, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -422,7 +422,7 @@ Object platform2_obj {
 };
 
 Object platform3_obj {
-	Object::platform, // ID
+	Object::platform3, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -436,7 +436,7 @@ Object platform3_obj {
 };
 
 Object platform4_obj {
-	Object::platform, // ID
+	Object::platform4, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -450,7 +450,7 @@ Object platform4_obj {
 };
 
 Object platform5_obj {
-	Object::platform, // ID
+	Object::platform5, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -464,7 +464,7 @@ Object platform5_obj {
 };
 
 Object platform6_obj {
-	Object::platform, // ID
+	Object::platform6, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -478,7 +478,7 @@ Object platform6_obj {
 };
 
 Object platform7_obj {
-	Object::platform, // ID
+	Object::platform7, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -492,7 +492,7 @@ Object platform7_obj {
 };
 
 Object platform8_obj {
-	Object::platform, // ID
+	Object::platform8, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -506,7 +506,7 @@ Object platform8_obj {
 };
 
 Object platform9_obj {
-	Object::platform, // ID
+	Object::platform9, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration
@@ -520,7 +520,7 @@ Object platform9_obj {
 };
 
 Object platform10_obj {
-	Object::platform, // ID
+	Object::platform10, // ID
 	{0, 0}, // velocity
 	{0, 0}, // velocity_max
 	{0, 0}, // acceleration

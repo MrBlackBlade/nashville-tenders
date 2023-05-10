@@ -4,9 +4,8 @@
 
 #include <Config.hpp>
 #include <Pair.hpp>
-#include <Player.hpp>
 #include <SFML/Graphics.hpp>
 
-sf::Keyboard::Key get_key_pressed(const Pair_Player&);
+sf::Keyboard::Key get_key_pressed(Pair_Player&);
 
 #endif // #ifndef _GET_KEY_PRESSED_HPP
