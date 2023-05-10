@@ -7,7 +7,6 @@
 #include <collision.hpp>
 #include <Config.hpp>
 #include <Pair.hpp>
-#include <Player.hpp>
 #include <SFML/Graphics.hpp>
 #include <sound_system.hpp>
 

@@ -11,11 +11,11 @@ void caller()
 }
 
 void spawn(
-sf::RectangleShape& renderable,
-Object&				renderable_obj,
-const float&		x,
-const float&		y,
-const float&		angle
+	sf::RectangleShape& renderable,
+	Object&				renderable_obj,
+	const float&		x,
+	const float&		y,
+	const float&		angle
 )
 {
 	renderable_obj.position = { x, y };
@@ -106,17 +106,13 @@ void level_one()
 		Config::game_music_playing = true;
 	}
 
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever1]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever1]))) ||
 		 Config::lever1_pushed) &&
 		objects[Object::elevator1]->obj->position.y >= 550)
 	{
 		objects[Object::elevator1]->obj->position.y -= .8f;
-		objects[Object::elevator1]->shape->setPosition(
-		Config::objects[Object::elevator1]->obj->position
+		objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position
 		);
 	}
 
@@ -125,17 +121,13 @@ void level_one()
 		play_sfx(SoundIndex::elevator1_stop);
 	}
 
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever2]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever2]))) ||
 		 Config::lever2_pushed) &&
 		objects[Object::elevator2]->obj->position.y <= 550)
 	{
 		objects[Object::elevator2]->obj->position.y += .8f;
-		objects[Object::elevator2]->shape->setPosition(
-		Config::objects[Object::elevator2]->obj->position
+		objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position
 		);
 	}
 
@@ -145,11 +137,8 @@ void level_one()
 	}
 
 	if (Config::game_status == 1 && Config::chicken_num == 3 &&
-		players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()
-		) &&
-		players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()
-		) &&
-		Config::loaded)
+		players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) &&
+		players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config::loaded)
 	{
 		Config::loaded		   = false;
 		pLoading.obj->anim_ind = 0;
@@ -160,18 +149,15 @@ void level_one()
 		Config::game_status	  = 2;
 
 		chicken1_obj.position = { 500.f,
-								  ground.getGlobalBounds().top -
-								  chicken1.getGlobalBounds().height };
+								  ground.getGlobalBounds().top - chicken1.getGlobalBounds().height };
 		chicken1.setPosition(chicken1_obj.position);
 
 		chicken2_obj.position = { 550.f,
-								  ground.getGlobalBounds().top -
-								  chicken2.getGlobalBounds().height };
+								  ground.getGlobalBounds().top - chicken2.getGlobalBounds().height };
 		chicken2.setPosition(chicken2_obj.position);
 
 		chicken3_obj.position = { 600.f,
-								  ground.getGlobalBounds().top -
-								  chicken3.getGlobalBounds().height };
+								  ground.getGlobalBounds().top - chicken3.getGlobalBounds().height };
 		chicken3.setPosition(chicken3_obj.position);
 
 		animate(pChicken_counter);
@@ -279,17 +265,13 @@ void level_two()
 		Config::game_music_playing = true;
 	}
 
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever1]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever1]))) ||
 		 Config::lever1_pushed) &&
 		objects[Object::elevator1]->obj->position.y >= 620)
 	{
 		objects[Object::elevator1]->obj->position.y -= .8f;
-		objects[Object::elevator1]->shape->setPosition(
-		Config::objects[Object::elevator1]->obj->position
+		objects[Object::elevator1]->shape->setPosition(Config::objects[Object::elevator1]->obj->position
 		);
 	}
 	if (objects[Object::elevator1]->obj->position.y <= 620)
@@ -297,17 +279,13 @@ void level_two()
 		play_sfx(SoundIndex::elevator1_stop);
 	}
 
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever2]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever2]))) ||
 		 Config::lever2_pushed) &&
 		objects[Object::elevator2]->obj->position.y >= 360)
 	{
 		objects[Object::elevator2]->obj->position.y -= .8f;
-		objects[Object::elevator2]->shape->setPosition(
-		Config::objects[Object::elevator2]->obj->position
+		objects[Object::elevator2]->shape->setPosition(Config::objects[Object::elevator2]->obj->position
 		);
 	}
 	if (objects[Object::elevator2]->obj->position.y <= 360)
@@ -315,17 +293,13 @@ void level_two()
 		play_sfx(SoundIndex::elevator2_stop);
 	}
 
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever3]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever3]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever3]))) ||
 		 Config::lever3_pushed) &&
 		objects[Object::elevator3]->obj->position.y >= 360)
 	{
 		objects[Object::elevator3]->obj->position.y -= .8f;
-		objects[Object::elevator3]->shape->setPosition(
-		Config::objects[Object::elevator3]->obj->position
+		objects[Object::elevator3]->shape->setPosition(Config::objects[Object::elevator3]->obj->position
 		);
 	}
 	if (objects[Object::elevator3]->obj->position.y <= 360)
@@ -334,11 +308,8 @@ void level_two()
 	}
 
 	if (Config::game_status == 2 && Config::chicken_num == 3 &&
-		players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()
-		) &&
-		players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()
-		) &&
-		Config::loaded)
+		players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) &&
+		players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) && Config::loaded)
 	{
 		Config::loaded		   = false;
 		pLoading.obj->anim_ind = 0;
@@ -349,18 +320,15 @@ void level_two()
 		Config::game_status	  = 3;
 
 		chicken1_obj.position = { 500.f,
-								  ground.getGlobalBounds().top -
-								  chicken1.getGlobalBounds().height };
+								  ground.getGlobalBounds().top - chicken1.getGlobalBounds().height };
 		chicken1.setPosition(chicken1_obj.position);
 
 		chicken2_obj.position = { 550.f,
-								  ground.getGlobalBounds().top -
-								  chicken2.getGlobalBounds().height };
+								  ground.getGlobalBounds().top - chicken2.getGlobalBounds().height };
 		chicken2.setPosition(chicken2_obj.position);
 
 		chicken3_obj.position = { 600.f,
-								  ground.getGlobalBounds().top -
-								  chicken3.getGlobalBounds().height };
+								  ground.getGlobalBounds().top - chicken3.getGlobalBounds().height };
 		chicken3.setPosition(chicken3_obj.position);
 
 		animate(pChicken_counter);
@@ -515,54 +483,39 @@ void level_three()
 	}
 
 	// moving the elevator
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever1]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever1]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever1]))) ||
 		 Config::lever1_pushed) &&
 		objects[Object::elevator1]->obj->position.x <= 155)
 	{
 		objects[Object::elevator1]->obj->position.x += .5f;
-		objects[Object::elevator1]->shape->setPosition(
-		objects[Object::elevator1]->obj->position
-		);
+		objects[Object::elevator1]->shape->setPosition(objects[Object::elevator1]->obj->position);
 	}
 	if (objects[Object::elevator1]->obj->position.x >= 155)
 	{
 		play_sfx(SoundIndex::elevator1_stop);
 	}
 
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever2]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever2]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever2]))) ||
 		 Config::lever2_pushed) &&
 		objects[Object::elevator2]->obj->position.y >= 150)
 	{
 		objects[Object::elevator2]->obj->position.y -= 1.f;
-		objects[Object::elevator2]->shape->setPosition(
-		objects[Object::elevator2]->obj->position
-		);
+		objects[Object::elevator2]->shape->setPosition(objects[Object::elevator2]->obj->position);
 	}
 	if (objects[Object::elevator2]->obj->position.y <= 150)
 	{
 		play_sfx(SoundIndex::elevator2_stop);
 	}
 
-	if ((((check_lever(
-			   *Config::players[0],
-			   *Config::objects[Object::lever3]
-		   ) ||
+	if ((((check_lever(*Config::players[0], *Config::objects[Object::lever3]) ||
 		   check_lever(*players[1], *Config::objects[Object::lever3]))) ||
 		 Config::lever3_pushed) &&
 		objects[Object::elevator3]->obj->position.y >= 90)
 	{
 		objects[Object::elevator3]->obj->position.y -= 1.f;
-		objects[Object::elevator3]->shape->setPosition(
-		objects[Object::elevator3]->obj->position
-		);
+		objects[Object::elevator3]->shape->setPosition(objects[Object::elevator3]->obj->position);
 	}
 	if (objects[Object::elevator3]->obj->position.y <= 90)
 	{
@@ -570,10 +523,8 @@ void level_three()
 	}
 
 	if (Config::game_status == 3 && Config::chicken_num == 3 &&
-		players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()
-		) &&
-		players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()
-		))
+		players[0]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()) &&
+		players[1]->sprite->getGlobalBounds().intersects(end.getGlobalBounds()))
 	{
 		Config::loaded		   = false;
 		pLoading.obj->anim_ind = 0;
@@ -582,18 +533,18 @@ void level_three()
 		Config::chicken_num	   = 0;
 
 		chicken1_obj.position  = { 500.f,
-								   ground.getGlobalBounds().top -
-								   chicken1.getGlobalBounds().height - 20.f };
+								   ground.getGlobalBounds().top - chicken1.getGlobalBounds().height -
+									   20.f };
 		chicken1.setPosition(chicken1_obj.position);
 
 		chicken2_obj.position = { 550.f,
-								  ground.getGlobalBounds().top -
-								  chicken2.getGlobalBounds().height - 20.f };
+								  ground.getGlobalBounds().top - chicken2.getGlobalBounds().height -
+									  20.f };
 		chicken2.setPosition(chicken2_obj.position);
 
 		chicken3_obj.position = { 600.f,
-								  ground.getGlobalBounds().top -
-								  chicken3.getGlobalBounds().height - 20.f };
+								  ground.getGlobalBounds().top - chicken3.getGlobalBounds().height -
+									  20.f };
 		chicken3.setPosition(chicken3_obj.position);
 
 		animate(pChicken_counter);

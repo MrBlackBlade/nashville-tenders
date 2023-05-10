@@ -9,6 +9,7 @@ bool check_lever(Pair_Player& p_pair, Pair_Object& o_pair)
 
 	const auto key	  = get_key_pressed(p_pair);
 
+	// break if not a lever
 	if (obj2.id != Object::lever1 && obj2.id != Object::lever2 && obj2.id != Object::lever3)
 		return false;
 

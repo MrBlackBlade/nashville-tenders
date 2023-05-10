@@ -37,14 +37,12 @@ struct Object
 	sf::Vector2f velocity, velocity_max, acceleration, position;
 
 	// 0 for first sprite, 1 for second etc...
-	sf::Uint16 anim_ind;
+	sf::Uint16	 anim_ind;
 
 	// sprite measurements
-	float	   scale;
+	float		 scale;
 
-	sf::Uint16 size_x, size_y,
-
-	anims; // no of diff animation frames
+	sf::Uint16	 size_x, size_y, anims;
 };
 
 #endif // #ifndef _OBJECT_HPP

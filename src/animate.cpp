@@ -4,6 +4,7 @@ void animate(Pair_Player& pair, const Animation& anim)
 {
 	auto& player = *pair.sprite;
 	auto& obj	 = *pair.obj;
+
 	switch (anim)
 	{
 	case Animation::run :
@@ -12,10 +13,11 @@ void animate(Pair_Player& pair, const Animation& anim)
 			player.setTexture(obj.id == 0 ? s_player_texture_run : b_player_texture_run);
 
 			player.setTextureRect(sf::IntRect(
-			obj.run_ind * obj.size_run_x,
-			0,
-			obj.size_run_x - (obj.id == 0 ? .5f : 0.f),
-			obj.size_run_y
+				obj.run_ind * obj.size_run_x,
+				0,
+				// weird extra pixel for the small player
+				obj.size_run_x - (obj.id == 0 ? .5f : 0.f),
+				obj.size_run_y
 			));
 
 			obj.run_ind++;
@@ -30,7 +32,7 @@ void animate(Pair_Player& pair, const Animation& anim)
 			player.setTexture(obj.id == 0 ? s_player_texture_idle : b_player_texture_idle);
 
 			player.setTextureRect(
-			sf::IntRect(obj.idle_ind * obj.size_idle_x, 0, obj.size_idle_x, obj.size_idle_y)
+				sf::IntRect(obj.idle_ind * obj.size_idle_x, 0, obj.size_idle_x, obj.size_idle_y)
 			);
 
 			obj.idle_ind++;
@@ -45,7 +47,7 @@ void animate(Pair_Player& pair, const Animation& anim)
 			player.setTexture(obj.id == 0 ? s_player_texture_jump : b_player_texture_jump);
 
 			player.setTextureRect(
-			sf::IntRect(obj.jump_ind * obj.size_jump_x, 0, obj.size_jump_x, obj.size_jump_y)
+				sf::IntRect(obj.jump_ind * obj.size_jump_x, 0, obj.size_jump_x, obj.size_jump_y)
 			);
 
 			obj.jump_ind++;
@@ -60,7 +62,7 @@ void animate(Pair_Player& pair, const Animation& anim)
 			player.setTexture(b_player_texture_push);
 
 			player.setTextureRect(
-			sf::IntRect(obj.push_ind * obj.size_push_x, 0, obj.size_push_x, obj.size_push_y)
+				sf::IntRect(obj.push_ind * obj.size_push_x, 0, obj.size_push_x, obj.size_push_y)
 			);
 
 			obj.push_ind++;
@@ -81,11 +83,9 @@ void animate(Pair_Object& pair)
 	case Object::door1 :
 		if (Config::objects[Object::button1]->obj->anim_ind == 1 && !Config::door1_opened)
 		{
-			if (Config::frame_counter % 12 == 0 && obj.anims)
+			if (Config::frame_counter % 12 == 0)
 			{
-				shape.setTextureRect(
-				sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-				);
+				shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 				// door opened
 				if (obj.anim_ind == 4)
@@ -103,11 +103,9 @@ void animate(Pair_Object& pair)
 	case Object::door2 :
 		if (Config::objects[Object::button2]->obj->anim_ind == 1 && !Config::door2_opened)
 		{
-			if (Config::frame_counter % 12 == 0 && obj.anims)
+			if (Config::frame_counter % 12 == 0)
 			{
-				shape.setTextureRect(
-				sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-				);
+				shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 				// door opened
 				if (obj.anim_ind == 4)
@@ -125,11 +123,9 @@ void animate(Pair_Object& pair)
 	case Object::door3 :
 		if (Config::objects[Object::button3]->obj->anim_ind == 1 && !Config::door3_opened)
 		{
-			if (Config::frame_counter % 12 == 0 && obj.anims)
+			if (Config::frame_counter % 12 == 0)
 			{
-				shape.setTextureRect(
-				sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-				);
+				shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 				// door opened
 				if (obj.anim_ind == 4)
@@ -145,11 +141,11 @@ void animate(Pair_Object& pair)
 
 		return;
 	case Object::button1 :
-		if (collision(*Config::players[0], pair) == CollisionType::button || collision(*Config::players[1], pair) == CollisionType::button || collision(*Config::objects[Object::box], *Config::objects[Object::button1]) == CollisionType::button)
+		if (collision(*Config::players[0], pair) == CollisionType::button ||
+			collision(*Config::players[1], pair) == CollisionType::button ||
+			collision(*Config::objects[Object::box], pair) == CollisionType::button)
 		{
-			shape.setTextureRect(
-			sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-			);
+			shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 			// button pressed
 			if (obj.anim_ind == 1)
@@ -159,6 +155,7 @@ void animate(Pair_Object& pair)
 					play_sfx(SoundIndex::button_press);
 					play_sfx(SoundIndex::door_open);
 				}
+
 				Config::button1_pushed = true;
 				return;
 			}
@@ -169,11 +166,11 @@ void animate(Pair_Object& pair)
 
 		return;
 	case Object::button2 :
-		if (collision(*Config::players[0], pair) == CollisionType::button || collision(*Config::players[1], pair) == CollisionType::button || collision(*Config::objects[Object::box], *Config::objects[Object::button2]) == CollisionType::button)
+		if (collision(*Config::players[0], pair) == CollisionType::button ||
+			collision(*Config::players[1], pair) == CollisionType::button ||
+			collision(*Config::objects[Object::box], pair) == CollisionType::button)
 		{
-			shape.setTextureRect(
-			sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-			);
+			shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 			// button pressed
 			if (obj.anim_ind == 1)
@@ -183,6 +180,7 @@ void animate(Pair_Object& pair)
 					play_sfx(SoundIndex::button_press);
 					play_sfx(SoundIndex::door_open);
 				}
+
 				Config::button2_pushed = true;
 				return;
 			}
@@ -193,11 +191,11 @@ void animate(Pair_Object& pair)
 
 		return;
 	case Object::button3 :
-		if (collision(*Config::players[0], pair) == CollisionType::button || collision(*Config::players[1], pair) == CollisionType::button || collision(*Config::objects[Object::box], *Config::objects[Object::button3]) == CollisionType::button)
+		if (collision(*Config::players[0], pair) == CollisionType::button ||
+			collision(*Config::players[1], pair) == CollisionType::button ||
+			collision(*Config::objects[Object::box], pair) == CollisionType::button)
 		{
-			shape.setTextureRect(
-			sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-			);
+			shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 			// button pressed
 			if (obj.anim_ind == 1)
@@ -207,6 +205,7 @@ void animate(Pair_Object& pair)
 					play_sfx(SoundIndex::button_press);
 					play_sfx(SoundIndex::door_open);
 				}
+
 				Config::button3_pushed = true;
 				return;
 			}
@@ -216,13 +215,12 @@ void animate(Pair_Object& pair)
 
 		return;
 	case Object::lever1 :
-		if (check_lever(*Config::players[0], pair) || check_lever(*Config::players[1], pair) && !Config::lever1_pushed)
+		if ((check_lever(*Config::players[0], pair) || check_lever(*Config::players[1], pair)) &&
+			!Config::lever1_pushed)
 		{
 			if (Config::frame_counter % 2 == 0)
 			{
-				shape.setTextureRect(
-				sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-				);
+				shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 				// lever pushed
 				if (obj.anim_ind == 2)
@@ -232,6 +230,7 @@ void animate(Pair_Object& pair)
 						play_sfx(SoundIndex::elevator1_move);
 						play_sfx(SoundIndex::lever_pull);
 					}
+
 					Config::lever1_pushed = true;
 					return;
 				}
@@ -243,13 +242,12 @@ void animate(Pair_Object& pair)
 
 		return;
 	case Object::lever2 :
-		if (check_lever(*Config::players[0], pair) || check_lever(*Config::players[1], pair) && !Config::lever2_pushed)
+		if ((check_lever(*Config::players[0], pair) || check_lever(*Config::players[1], pair)) &&
+			!Config::lever2_pushed)
 		{
 			if (Config::frame_counter % 2 == 0)
 			{
-				shape.setTextureRect(
-				sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-				);
+				shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 				// lever pushed
 				if (obj.anim_ind == 2)
@@ -259,6 +257,7 @@ void animate(Pair_Object& pair)
 						play_sfx(SoundIndex::elevator2_move);
 						play_sfx(SoundIndex::lever_pull);
 					}
+
 					Config::lever2_pushed = true;
 					return;
 				}
@@ -270,13 +269,12 @@ void animate(Pair_Object& pair)
 
 		return;
 	case Object::lever3 :
-		if (check_lever(*Config::players[0], pair) || check_lever(*Config::players[1], pair) && !Config::lever3_pushed)
+		if (check_lever(*Config::players[0], pair) ||
+			check_lever(*Config::players[1], pair) && !Config::lever3_pushed)
 		{
 			if (Config::frame_counter % 2 == 0)
 			{
-				shape.setTextureRect(
-				sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-				);
+				shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 				// lever pushed
 				if (obj.anim_ind == 2)
@@ -286,6 +284,7 @@ void animate(Pair_Object& pair)
 						play_sfx(SoundIndex::elevator3_move);
 						play_sfx(SoundIndex::lever_pull);
 					}
+
 					Config::lever3_pushed = true;
 					return;
 				}
@@ -299,9 +298,7 @@ void animate(Pair_Object& pair)
 	case Object::loading :
 		if (Config::frame_counter % 50 == 0 && !Config::loaded && Config::menu_status == 0)
 		{
-			shape.setTextureRect(
-			sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-			);
+			shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 			// loaded
 			if (obj.anim_ind == 4)
@@ -315,16 +312,12 @@ void animate(Pair_Object& pair)
 		}
 		return;
 	case Object::chicken_counter :
-		shape.setTextureRect(
-		sf::IntRect(Config::chicken_num * obj.size_x, 0, obj.size_x, obj.size_y)
-		);
+		shape.setTextureRect(sf::IntRect(Config::chicken_num * obj.size_x, 0, obj.size_x, obj.size_y));
 		return;
 	default :
 		if (Config::frame_counter % 16 == 0 && obj.anims)
 		{
-			shape.setTextureRect(
-			sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y)
-			);
+			shape.setTextureRect(sf::IntRect(obj.anim_ind * obj.size_x, 0, obj.size_x, obj.size_y));
 
 			obj.anim_ind++;
 			obj.anim_ind %= obj.anims;

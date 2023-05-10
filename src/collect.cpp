@@ -7,6 +7,7 @@ bool collect(Pair_Player& p_pair, Pair_Object& o_pair)
 	auto& shape	 = *o_pair.shape;
 	auto& obj2	 = *o_pair.obj;
 
+	// break if not a chicken
 	if (obj2.id != Object::chicken1 && obj2.id != Object::chicken2 && obj2.id != Object::chicken3)
 		return false;
 
@@ -16,7 +17,7 @@ bool collect(Pair_Player& p_pair, Pair_Object& o_pair)
 		play_sfx(SoundIndex::chicken_collect);
 		animate(pChicken_counter);
 
-		// temporary way to remove chicken from render
+		// remove the chicken from the render window
 		obj2.position.x += 5000;
 		shape.setPosition(obj2.position);
 

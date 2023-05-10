@@ -4,6 +4,7 @@
 
 #include <Config.hpp>
 #include <get_key_pressed.hpp>
+#include <Pair.hpp>
 
 bool check_lever(Pair_Player&, Pair_Object&);
 

@@ -5,10 +5,7 @@
 #include <CollisionType.hpp>
 #include <Config.hpp>
 #include <door_open.hpp>
-#include <get_key_pressed.hpp>
-#include <Object.hpp>
 #include <Pair.hpp>
-#include <Player.hpp>
 #include <push.hpp>
 #include <SFML/Graphics.hpp>
 
