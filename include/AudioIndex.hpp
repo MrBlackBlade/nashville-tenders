@@ -4,16 +4,16 @@
 
 enum class SoundIndex
 {
-	chicken_collect,	// yes
+	chicken_collect,
 	elevator1_move,
 	elevator2_move,
-	elevator3_move,		// yes
+	elevator3_move,
 	elevator1_stop,
 	elevator2_stop,
-	elevator3_stop,		// yesnt
-	lever_pull,			// yes
-	door_open,			// eh
-	button_press,		// eh
+	elevator3_stop,
+	lever_pull,
+	door_open,
+	button_press,
 	level_complete,
 
 	SoundIndex_max,

@@ -1,28 +1,29 @@
-#include <SFML/Graphics.hpp>
 #include <animate.hpp>
 #include <Animation.hpp>
 #include <check_idle.hpp>
-#include <collision.hpp>
+#include <check_lever.hpp>
 #include <collect.hpp>
+#include <collision.hpp>
 #include <Config.hpp>
 #include <get_key_pressed.hpp>
-#include <push.hpp>
-#include <move.hpp>
-#include <Player.hpp>
-#include <Pair.hpp>
-#include <Object.hpp>
-#include <render.hpp>
-#include <setup.hpp>
-#include <out_of_bounds.hpp>
-#include <check_lever.hpp>
 #include <levels.hpp>
 #include <menu.hpp>
+#include <move.hpp>
+#include <Object.hpp>
+#include <out_of_bounds.hpp>
+#include <Pair.hpp>
+#include <Player.hpp>
+#include <push.hpp>
+#include <render.hpp>
+#include <setup.hpp>
+#include <SFML/Graphics.hpp>
 #include <sound_system.hpp>
 
 int main()
 {
 	setup();
 	setup_menu();
+
 	// main game loop
 	while (window.isOpen())
 	{
@@ -32,6 +33,7 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
+			// menu navigation
 			if (event.type == sf::Event::KeyPressed)
 			{
 				if (event.key.code == sf::Keyboard::Up)
@@ -50,9 +52,10 @@ int main()
 			}
 		}
 
-
-		if (Config::menu_status == 0) {
-		caller();
+		// pressed "Play"
+		if (Config::menu_status == 0)
+		{
+			caller();
 		}
 
 		// player idle checking and motion
@@ -63,11 +66,11 @@ int main()
 			move(*players[player]);
 		}
 
-		// obstacle gravity
+		// obstacle animations
 		for (size_t object = 0; object < OBJECTS; object++)
 		{
 			using Config::objects;
-			move(*objects[object]);
+			animate(*objects[object]);
 		}
 
 		// player to obstacle collision
@@ -95,6 +98,8 @@ int main()
 			using Config::objects;
 			collision(*objects[object], *objects[object + 1]);
 		}
+
+		// render the changes that happened in the last frame
 		render();
 	}
 	return EXIT_SUCCESS;

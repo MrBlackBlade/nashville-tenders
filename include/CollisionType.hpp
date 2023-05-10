@@ -7,7 +7,6 @@ enum class CollisionType
 	box,
 	button,
 	door,
-	chicken,
 	elevator1,
 	elevator2,
 	elevator3,

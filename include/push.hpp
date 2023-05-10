@@ -2,15 +2,14 @@
 #ifndef _PUSH_HPP
 #define _PUSH_HPP
 
-#include <SFML/Graphics.hpp>
-#include <Config.hpp>
-#include <Player.hpp>
-#include <Object.hpp>
 #include <animate.hpp>
 #include <Animation.hpp>
 #include <collision.hpp>
-#include <get_key_pressed.hpp>
+#include <Config.hpp>
+#include <move.hpp>
 #include <out_of_bounds.hpp>
+#include <Pair.hpp>
+#include <SFML/Graphics.hpp>
 
 bool push(Pair_Player&, Pair_Object&);
 

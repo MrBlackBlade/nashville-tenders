@@ -1,10 +1,14 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <Config.hpp>
-#include <sound_system.hpp>
-#include <AudioIndex.hpp>
+#ifndef _MENU_HPP
+#define _MENU_HPP
 
-  void moveUp();
-  void moveDown();
-  void setup_menu();
+#include <AudioIndex.hpp>
+#include <Config.hpp>
+#include <SFML/Graphics.hpp>
+#include <sound_system.hpp>
+
+void moveUp();
+void moveDown();
+void setup_menu();
+
+#endif // #ifndef _MENU_HPP
