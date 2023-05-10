@@ -2,9 +2,9 @@
 
 void render()
 {
-
 	window.draw(menu);
 
+	// No selection
 	if (Config::menu_status == 1)
 	{
 		for (int i = 0; i < 2; i++)
@@ -13,13 +13,16 @@ void render()
 		}
 	}
 
+	// "Quit" is pressed
 	else if (Config::menu_status == -1)
 	{
 		window.close();
 	}
 
+	// "Play" is pressed
 	else if (Config::menu_status == 0)
 	{
+		// If in the level
 		if (Config::loaded)
 		{
 			//render the background
@@ -41,6 +44,7 @@ void render()
 			window.draw(end);
 		}
 
+		// Between levels
 		else
 		{
 			if (Config::game_status == 4)

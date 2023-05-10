@@ -1,5 +1,19 @@
 #include <move.hpp>
 
+void apply_motion(Pair_Player& pair)
+{
+	pair.obj->velocity += pair.obj->acceleration;
+	pair.obj->position += pair.obj->velocity;
+	pair.sprite->setPosition(pair.obj->position);
+}
+
+void apply_motion(Pair_Object& pair)
+{
+	pair.obj->velocity += pair.obj->acceleration;
+	pair.obj->position += pair.obj->velocity;
+	pair.shape->setPosition(pair.obj->position);
+}
+
 // For sprites
 void move(Pair_Player& pair)
 {
@@ -13,14 +27,11 @@ void move(Pair_Player& pair)
 		animate(pair, Animation::jump);
 		obj.acceleration.y = .2f;
 
-		// Apply motion
-		obj.velocity += obj.acceleration;
-		obj.position += obj.velocity;
-		player.setPosition(obj.position);
+		apply_motion(pair);
 	}
 
 	// Pressing a button
-	if (sf::Keyboard::isKeyPressed(key))
+	if (key != sf::Keyboard::Unknown)
 	{
 		// Up
 		if (key == Config::keybinds[obj.id][0] && !obj.jumping)
@@ -44,7 +55,12 @@ void move(Pair_Player& pair)
 		}
 
 		// Down
-		// mfish down lmao
+		if (key == Config::keybinds[obj.id][2])
+		{
+			animate(pair, Animation::run);
+
+			obj.acceleration.x = 0.f;
+		}
 
 		// Right
 		if (key == Config::keybinds[obj.id][3])
@@ -82,14 +98,11 @@ void move(Pair_Player& pair)
 			obj.acceleration.x = -.2f;
 		}
 
-		// Apply motion
-		obj.velocity += obj.acceleration;
-		obj.position += obj.velocity;
-		player.setPosition(obj.position);
+		apply_motion(pair);
 	}
 
 	// Not pressing a button
-	if (!sf::Keyboard::isKeyPressed(key))
+	if (key == sf::Keyboard::Unknown)
 	{
 		// decelerate to the left
 		if (obj.velocity.x > 0.f)
@@ -115,10 +128,7 @@ void move(Pair_Player& pair)
 			obj.idle		   = true;
 		}
 
-		// Apply motion
-		obj.velocity += obj.acceleration;
-		obj.position += obj.velocity;
-		player.setPosition(obj.position);
+		apply_motion(pair);
 	}
 
 	// Background movement
@@ -143,10 +153,8 @@ void move(Pair_Player& pair)
 	if (out_of_bounds(pair) && obj.velocity.x && obj.position.x > Config::RES_SIZE / 2)
 	{
 		obj.position.x = Config::RES_SIZE - player.getGlobalBounds().width;
-		// Apply motion
-		obj.velocity += obj.acceleration;
-		obj.position += obj.velocity;
-		player.setPosition(obj.position);
+
+		apply_motion(pair);
 	}
 
 	// Keep the player in bounds (left)
@@ -154,10 +162,7 @@ void move(Pair_Player& pair)
 	{
 		obj.position.x = 0;
 
-		// Apply motion
-		obj.velocity += obj.acceleration;
-		obj.position += obj.velocity;
-		player.setPosition(obj.position);
+		apply_motion(pair);
 	}
 
 	// Keep the player in bounds (down)
@@ -166,9 +171,6 @@ void move(Pair_Player& pair)
 		obj.position.y = Config::RES_SIZE - 50;
 		obj.velocity.y = 0;
 
-		// Apply motion
-		obj.velocity += obj.acceleration;
-		obj.position += obj.velocity;
-		player.setPosition(obj.position);
+		apply_motion(pair);
 	}
 }

@@ -23,6 +23,7 @@ int main()
 {
 	setup();
 	setup_menu();
+
 	// main game loop
 	while (window.isOpen())
 	{
@@ -32,6 +33,7 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
+			// menu navigation
 			if (event.type == sf::Event::KeyPressed)
 			{
 				if (event.key.code == sf::Keyboard::Up)
@@ -50,6 +52,7 @@ int main()
 			}
 		}
 
+		// pressed "Play"
 		if (Config::menu_status == 0)
 		{
 			caller();
@@ -95,6 +98,8 @@ int main()
 			using Config::objects;
 			collision(*objects[object], *objects[object + 1]);
 		}
+
+		// render the changes that happened in the last frame
 		render();
 	}
 	return EXIT_SUCCESS;

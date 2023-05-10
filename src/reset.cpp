@@ -14,6 +14,7 @@ void reset()
 	Config::button2_pushed = false;
 	Config::button3_pushed = false;
 
+	// Reset the animation state of the object to the initial state
 	for (auto& object : Config::objects)
 	{
 		object->obj->anim_ind = 0;

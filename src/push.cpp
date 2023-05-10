@@ -27,10 +27,7 @@ bool push(Pair_Player& p_pair, Pair_Object& o_pair)
 	{
 		o_obj.position.x = 0;
 
-		// Apply motion
-		o_obj.velocity += o_obj.acceleration;
-		o_obj.position += o_obj.velocity;
-		sprite.setPosition(o_obj.position);
+		apply_motion(o_pair);
 	}
 
 	if (collision(p_pair, o_pair) == CollisionType::box)

@@ -23,12 +23,12 @@ void moveDown()
 {
 	if (Config::menu_selection + 1 <= 2) // play
 	{
-		main_menu[Config::menu_selection].setFillColor(sf::Color::White);
-		Config::menu_selection++;
+		main_menu[Config::menu_selection++].setFillColor(sf::Color::White);
+
+		// prevent overflowing
 		if (Config::menu_selection == 2)
-		{
 			Config::menu_selection = 0;
-		}
+
 		main_menu[Config::menu_selection].setFillColor(sf::Color::Yellow);
 	}
 }
@@ -37,12 +37,12 @@ void moveUp()
 {
 	if (Config::menu_selection - 1 >= -1) // quit
 	{
-		main_menu[Config::menu_selection].setFillColor(sf::Color::White);
-		Config::menu_selection--;
+		main_menu[Config::menu_selection--].setFillColor(sf::Color::White);
+
+		// prevent underflowing
 		if (Config::menu_selection == -1)
-		{
 			Config::menu_selection = 1;
-		}
+
 		main_menu[Config::menu_selection].setFillColor(sf::Color::Yellow);
 	}
 }
