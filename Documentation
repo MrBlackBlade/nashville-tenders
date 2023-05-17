@@ -6,55 +6,47 @@ animate (2 overloads):
 	
 	Overload 1:
 
-Syntax: animate ( pair_of_player, animation_type )
+		Syntax: animate ( pair_of_player, animation_type )
 
-Functionality: Changes the sprite's texture when it moves or interacts with something
+		Functionality: Changes the sprite's texture when it moves or interacts with something
 
-Parameters:
-•	Struct: Pair of player's sprite and player's object
-•	Enum: Animation type( idle, jump, run, push )
+		Parameters:
+			• Struct: Pair of player's sprite and player's object
+			• Enum: Animation type( idle, jump, run, push )
 
-	Returns: void
+			Returns: void
 
-Overload 2:
+	Overload 2:
 
-Syntax: animate ( pair_of_object )
+		Syntax: animate ( pair_of_object )
 
-Functionality: Changes the object's texture when interacted with
+		Functionality: Changes the object's texture when interacted with
 
-Parameters: Struct: Pair of player sprite and player object
+		Parameters: Struct: Pair of player sprite and player object
 
-	Returns: void
+			Returns: void
 
 check_idle:
 	
-Syntax: check_idle ( pair_of_player  )
+	Syntax: check_idle ( pair_of_player  )
 
-Functionality: Checks if player is idle. If it is, the player animation type is set to idle	 	
+	Functionality: Checks if player is idle. If it is, the player animation type is set to idle	 	
 
-Parameters: Struct: Pair of player sprite and player object
+	Parameters: Struct: Pair of player sprite and player object
 
-	Returns: void
-
-
-
-
-
-
-
-
- 
+		Returns: void
+				
 collect:
 	
-Syntax: collect ( pair_of_player, pair_of_object )
+	Syntax: collect ( pair_of_player, pair_of_object )
 
-Functionality: 
-•	Removes the collectibles from the bounds of the window if it's touched by a character
-•	Increments the count of chicken when collected in each level
+	Functionality: 
+	• Removes the collectibles from the bounds of the window if it's touched by a character
+	• Increments the count of chicken when collected in each level
 
-Parameters:
-•	Struct: Pair of player's sprite and player's object
-•	Struct: Pair of object's shape  and object's object
+	Parameters:
+	• Struct: Pair of player's sprite and player's object
+	• Struct: Pair of object's shape  and object's object
 
 	Returns: void
 
@@ -62,295 +54,283 @@ collision (2 overloads):
 	
 	Overload 1:
 
-Syntax: collision ( pair_of_player, pair_of_object )
+		Syntax: collision ( pair_of_player, pair_of_object )
 
-Functionality: handles the collision physics between the players and the objects
+		Functionality: handles the collision physics between the players and the objects
 
-Parameters:
-•	Struct: Pair of player's sprite and player's object
-•	Struct: Pair of object's shape  and object's object
+		Parameters:
+		• Struct: Pair of player's sprite and player's object
+		• Struct: Pair of object's shape  and object's object
 
-	Returns: Enum: CollisionType
+		Returns: Enum: CollisionType
 
-Overload 2:
+	Overload 2:
 
-Syntax: collision ( pair_of_object1, pair_of_object2 )
+		Syntax: collision ( pair_of_object1, pair_of_object2 )
 
-Functionality: handles the collision physics between two objects
+		Functionality: handles the collision physics between two objects
 
-Parameters:
-•	Struct: Pair of first object's sprite and first object's object 
-•	Struct: Pair of first object's shape  and first object's object
+		Parameters:
+		• Struct: Pair of first object's sprite and first object's object 
+		• Struct: Pair of first object's shape  and first object's object
 
-	Returns: Enum: CollisionType
-
-
-
-
-
-
-
-
+		Returns: Enum: CollisionType
  
 door_open:
 	
-Syntax: door_open ( pair_of_object )
+	Syntax: door_open ( pair_of_object )
 
-Functionality: 
-•	Checks if the door is open
+	Functionality: 
+	• Checks if the door is open
 
-Parameters:
-•	Struct: Pair of object's shape and object's object
+	Parameters:
+	• Struct: Pair of object's shape and object's object
 
 	Returns: Boolean:  door open status
 
 spawn:
 	
-Syntax: spawn ( pair_of_object, x_coordinates, y_coordinates, angle )
+	Syntax: spawn ( pair_of_object, x_coordinates, y_coordinates, angle )
 
-Functionality: 
-•	Spawns each object with its shape in passed coordinates
+	Functionality: 
+	• Spawns each object with its shape in passed coordinates
 
-Parameters:
-•	Struct: | Pair of object’s shape and object’s object 
-•	Float: X coordinates
-•	Float: Y coordinates
-•	Float: Angle of rotation (optional)
+	Parameters:
+	• Struct: | Pair of object’s shape and object’s object 
+	• Float: X coordinates
+	• Float: Y coordinates
+	• Float: Angle of rotation (optional)
 
 	Returns: void
+	
 level_one:
 	
-Syntax: level_one ()
+	Syntax: level_one ()
 
-Functionality: 
-•	Spawns players, objects and collectibles in their positions for the first level
-•	Handles the mechanics of interactive objects (levers, elevators, doors, buttons) for the first level
+	Functionality: 
+	• Spawns players, objects and collectibles in their positions for the first level
+	• Handles the mechanics of interactive objects (levers, elevators, doors, buttons) for the first level
 
-Parameters: void
+	Parameters: void
 
 	Returns: void
 
 level_two:
 	
-Syntax: level_two ()
+	Syntax: level_two ()
 
-Functionality: 
-•	Spawns players, objects and collectibles in their positions for the second level
-•	Handles the mechanics of interactive objects (levers, elevators, doors, buttons) for the second level
+	Functionality: 
+	• Spawns players, objects and collectibles in their positions for the second level
+	• Handles the mechanics of interactive objects (levers, elevators, doors, buttons) for the second level
 
-Parameters: void
+	Parameters: void
 
 	Returns: void
-
-
  
 level_three:
 	
-Syntax: level_three ()
+	Syntax: level_three ()
 
-Functionality: 
-•	Spawns players, objects and collectibles in their positions for the third level
-•	Handles the mechanics of interactive objects (levers, elevators, doors, buttons) for the third level
+	Functionality: 
+	• Spawns players, objects and collectibles in their positions for the third level
+	• Handles the mechanics of interactive objects (levers, elevators, doors, buttons) for the third level
 
-Parameters: void
-		Returns: void
+	Parameters: void
+	Returns: void
+	
 caller:
 	
-Syntax: caller ()
+	Syntax: caller ()
 
-Functionality: 
-•	Calls each level after the end of the previous one depending on the game status
+	Functionality: 
+	• Calls each level after the end of the previous one depending on the game status
 
-Parameters: void
+	Parameters: void
 
 	Returns: void
 
-
 setup_menu:
 	
-Syntax: setup_menu ()
+	Syntax: setup_menu ()
 
-Functionality: 
-•	Sets up the starting menu of the game
+	Functionality: 
+	• Sets up the starting menu of the game
 
-Parameters: void
+	Parameters: void
 
 	Returns: void
 
 move:
 
-Syntax: move ( pair_of_player )
+	Syntax: move ( pair_of_player )
 
-Functionality: 
-•	Applies  the key bindings for the players to move
-•	Handles  the physics of motion for players
-•	Animates the players when moving
-•	Moves    the background with the movement of players
-•	Keeps    the players within the bounds of the screen
+	Functionality: 
+	• Applies  the key bindings for the players to move
+	• Handles  the physics of motion for players
+	• Animates the players when moving
+	• Moves    the background with the movement of players
+	• Keeps    the players within the bounds of the screen
 
-Parameters:
-•	Struct: Pair of player's sprite and player's object 
+	Parameters:
+	• Struct: Pair of player's sprite and player's object 
 
 	Returns: void
-
-
-
  
 out_of_bounds (2 Overloads):
 
-Overload 1:	
+	Overload 1:	
 
-Syntax: out_of_bounds ( pair_of_player )
+		Syntax: out_of_bounds ( pair_of_player )
 
-Functionality: 
-•	Checks if the player is within the bounds of the screen
+		Functionality: 
+		• Checks if the player is within the bounds of the screen
 
-Parameters:
-•	Pair of player's shape and player's object
+		Parameters:
+		• Pair of player's shape and player's object
 
-Returns: Boolean: checks if the player’s position is outside of the render window
+		Returns: Boolean: checks if the player’s position is outside of the render window
 
-Overload 2:
+	Overload 2:
 
-Syntax: out_of_bounds ( pair_of_object )
+		Syntax: out_of_bounds ( pair_of_object )
 
-Functionality: 
-•	Checks if the object is within the bounds of the screen
+		Functionality: 
+		• Checks if the object is within the bounds of the screen
 
-Parameters:
-•	Pair of object's shape and object's object
+		Parameters:
+		• Pair of object's shape and object's object
 
-Returns: Boolean: checks if the player’s position is outside of the render window
+		Returns: Boolean: checks if the player’s position is outside of the render window
 
 
 push:
 
-Syntax: push ( pair_of_player, pair_of_object )
+	Syntax: push ( pair_of_player, pair_of_object )
 
-Functionality: 
-•	Handles the pushing physics of the big player
+	Functionality: 
+	• Handles the pushing physics of the big player
 
-Parameters:
-•	Struct: Pair of player's sprite and player's object 
-•	Struct: Pair of object's shape  and object's object
+	Parameters:
+	• Struct: Pair of player's sprite and player's object 
+	• Struct: Pair of object's shape  and object's object
 
-Returns: void
+	Returns: void
 
 render:
-Syntax: render ()
 
-Functionality: 
-•	Sets up and draws the graphics of the game
+	Syntax: render ()
 
-Parameters: void 
+	Functionality: 
+	• Sets up and draws the graphics of the game
+
+	Parameters: void 
 
 	Returns: void
- 
+
 reset:
-	
-Syntax: reset ()
 
-Functionality: 
-•	Resets the objects to their starting form
+	Syntax: reset ()
 
-Parameters: void
+	Functionality: 
+	• Resets the objects to their starting form
 
-
-	Returns: void
+	Parameters: void
 
 check_lever:
 	
-Syntax: check_lever ( pair_of_player, pair_of_object )
+	Syntax: check_lever ( pair_of_player, pair_of_object )
 
-Functionality: 
-•	Checks if the player touches the lever
+	Functionality: 
+	• Checks if the player touches the lever
 
-Parameters:
-•	Struct: Pair of player's shape and player's object
-•	Struct: Pair of object's shape and object's object
+	Parameters:
+	• Struct: Pair of player's shape and player's object
+	• Struct: Pair of object's shape and object's object
 
 	Returns: Boolean:  lever touched status
 
 play_bgm:
 
-Syntax: play_bgm ( music_index )
+	Syntax: play_bgm ( music_index )
 
-Functionality: 
-•	Plays the loading screen’s background music while loading
-•	Plays the game’s background music while playing
+	Functionality: 
+	• Plays the loading screen’s background music while loading
+	• Plays the game’s background music while playing
 
-Parameters:
-•	Enum: MusicIndex 
+	Parameters:
+	• Enum: MusicIndex 
 
-Returns: void
+	Returns: void
 
 play_sfx:
 
-Syntax: play_sfx ( sound_index )
+	Syntax: play_sfx ( sound_index )
 
-Functionality: 
-•	Plays the sound effects of each object when interacted with
-•	Plays the sound effects when levels are completed
+	Functionality: 
+	• Plays the sound effects of each object when interacted with
+	• Plays the sound effects when levels are completed
 
-Parameters:
-•	Enum: SoundIndex 
+	Parameters:
+	• Enum: SoundIndex 
 
-Returns: void 
-2.	Structs:
+	Returns: void 
+	
+2. Structs:
 
 Player: 
-	
-sf::Vector2f
-•	Player’s position
-•	Player’s velocity
-•	Player’s acceleration
+
+	sf::Vector2f
+	•	Player’s position
+	•	Player’s velocity
+	•	Player’s acceleration
 
 
 	sf::Uint16 (unsigned short)
-•	Animation indicators, used in animate() [_ind]
-•	Sprite size for all the animation states [size_]
-•	Number of seperate animations in the sprite sheet [anims_]
-•	Player id 
-	
+	• Animation indicators, used in animate() [_ind]
+	• Sprite size for all the animation states [size_]
+	• Number of seperate animations in the sprite sheet [anims_]
+	• Player id 
+
 	float
-•	Scale of sprite used in setScale() method
-	
+	• Scale of sprite used in setScale() method
+
 	bool
-•	Indicator to track the jumping and idle state
+	• Indicator to track the jumping and idle state
 
 Object: 
 	
-ObjectEnum → enum
-•	Id for the object to pass to the functions for each object’s specific traits
+	ObjectEnum → enum
+	• Id for the object to pass to the functions for each object’s specific traits
 
 
 	sf::Vector2f
-•	Object’s position
+	• Object’s position
 
-	
+
 	sf::Uint16 (unsigned short)
-•	Animation indicator, used in animate()
-•	Sprite size
-•	Number of seperate animations in the sprite sheet 
+	• Animation indicator, used in animate()
+	• Sprite size
+	• Number of seperate animations in the sprite sheet 
 
 	float
-•	Scale of sprite used in setScale() method
+	• Scale of sprite used in setScale() method
+	
 Pair: 
 
-2 Types:
-		
-Pair_Player:
+	2 Types:
 
-		sf::Sprite*
-•	Pointer to the player’s sprite
-		Player*	
-•	Pointer to the player’s “Player” struct
-			
-Pair_Object:
+		Pair_Player:
 
-		sf::RectangleShape*
-•	Pointer to the object’s shape
-			
-Object*
-•	Pointer to the player’s “Object” struct
+			sf::Sprite*
+			• Pointer to the player’s sprite
+			Player*	
+			• Pointer to the player’s “Player” struct
+
+		Pair_Object:
+
+			sf::RectangleShape*
+			• Pointer to the object’s shape
+
+			Object*
+			• Pointer to the player’s “Object” struct
 
